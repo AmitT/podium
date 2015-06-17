@@ -1,5 +1,5 @@
 {
-  "name": "_s",
+  "name": "podium",
   "version": "0.0.1",
   "homepage": "https://github.com/AmitT/wp-kickstart",
   "authors": [
@@ -9,7 +9,8 @@
     "modernizr": "",
     "foundation": "",
     "font-awesome": "",
-    "angular": ""
+    "angular": "",
+    "angular-route": ""
   },
   "overrides": {
     "modernizr": {

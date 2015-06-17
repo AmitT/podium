@@ -8,12 +8,12 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _s
+ * @package podium
  */
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area small-12 medium-8 columns">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>

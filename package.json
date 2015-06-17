@@ -1,15 +1,15 @@
 {
-  "name": "wp-kickstart",
+  "name": "podium",
   "version": "0.0.1",
   "author": "Winsite Dev Team",
-  "homepage": "https://github.com/AmitT/wp-kickstart/",
+  "homepage": "https://github.com/AmitT/podium/",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/AmitT/wp-kickstart.git"
+    "url": "git://github.com/AmitT/podium.git"
   },
   "bugs": {
-    "url": "https://github.com/AmitT/wp-kickstart/issues"
+    "url": "https://github.com/AmitT/podium/issues"
   },
   "licenses": [
     {
@@ -23,17 +23,17 @@
     "jscs": "jscs gulpfile.js assets/scripts/*.js"
   },
   "devDependencies": {
+    "del": "",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
+    "gulp-cache": "",
+    "gulp-concat": "",
+    "gulp-imagemin": "",
+    "gulp-jshint": "",
+    "gulp-livereload": "",
+    "gulp-minify-css": "",
+    "gulp-rename": "",
     "gulp-ruby-sass": "^1.0.5",
-    "gulp-minify-css":"",
-    "gulp-jshint":"",
-    "gulp-uglify":"",
-    "gulp-imagemin":"",
-    "gulp-rename":"",
-    "gulp-concat":"",
-    "gulp-cache":"",
-    "gulp-livereload":"",
-    "del":""
+    "gulp-uglify": ""
   }
 }
