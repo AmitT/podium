@@ -33,8 +33,8 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>#site-navigation -->
 
-			<div class="contain-to-grid sticky">
-				<nav class="top-bar" data-topbar role="navigation">
+			<div class="contain-to-grid sticky"><!--remove contain-to-grid for ful width header remove sticky for non-sticky menu-->
+				<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large"><!-- remove data-options for non-sticky menu -->
 					<ul class="title-area">
 						<li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
