@@ -1,15 +1,15 @@
 {
-  "name": "wp-kickstart",
+  "name": "podium",
   "version": "0.0.1",
   "author": "Winsite Dev Team",
-  "homepage": "https://github.com/AmitT/wp-kickstart/",
+  "homepage": "https://github.com/AmitT/podium/",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/AmitT/wp-kickstart.git"
+    "url": "git://github.com/AmitT/podium.git"
   },
   "bugs": {
-    "url": "https://github.com/AmitT/wp-kickstart/issues"
+    "url": "https://github.com/AmitT/podium/issues"
   },
   "licenses": [
     {
