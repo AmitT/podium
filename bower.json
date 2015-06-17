@@ -1,0 +1,19 @@
+{
+  "name": "_s",
+  "version": "0.0.1",
+  "homepage": "https://github.com/AmitT/wp-kickstart",
+  "authors": [
+    "AmitT <amitprobable@gmail.com>"
+  ],
+  "dependencies": {
+    "modernizr": "",
+    "foundation": "",
+    "font-awesome": "",
+    "angular": ""
+  },
+  "overrides": {
+    "modernizr": {
+      "main": "./modernizr.js"
+    }
+  }
+}

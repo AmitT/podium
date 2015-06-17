@@ -1,0 +1,39 @@
+{
+  "name": "wp-kickstart",
+  "version": "0.0.1",
+  "author": "Winsite Dev Team",
+  "homepage": "https://github.com/AmitT/wp-kickstart/",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AmitT/wp-kickstart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AmitT/wp-kickstart/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "build": "bower install && gulp",
+    "jshint": "gulp jshint",
+    "jscs": "jscs gulpfile.js assets/scripts/*.js"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-minify-css":"",
+    "gulp-jshint":"",
+    "gulp-uglify":"",
+    "gulp-imagemin":"",
+    "gulp-rename":"",
+    "gulp-concat":"",
+    "gulp-cache":"",
+    "gulp-livereload":"",
+    "del":""
+  }
+}
