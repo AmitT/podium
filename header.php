@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package _s
+ * @package podium
  */
 
 ?><!DOCTYPE html>
@@ -20,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
-		<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+		<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">
 			<!--<div class="site-branding">
@@ -29,7 +29,7 @@
 			</div> .site-branding -->
 
 			<!-- <nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'podium' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>#site-navigation -->
 
@@ -40,7 +40,7 @@
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>
 						<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-						<li class="toggle-topbar menu-icon"><a href="#"><span><?php esc_html_e( 'Primary Menu', '_s' ); ?></span></a></li>
+						<li class="toggle-topbar menu-icon"><a href="#"><span><?php esc_html_e( 'Primary Menu', 'podium' ); ?></span></a></li>
 					</ul>
 
 					<section class="top-bar-section">
