@@ -141,3 +141,8 @@ require get_template_directory() . '/lib/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/lib/jetpack.php';
+
+/**
+ * get the settings for the wordpress theme.
+ */
+require get_template_directory() . '/lib/config.php'; // this file should be edited to meet the needs of the theme.
