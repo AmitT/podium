@@ -7,12 +7,20 @@
 
 get_header(); ?>
 
+<<<<<<< .merge_file_a08208
 	<div id="primary" class="content-area">
+=======
+	<div id="primary" class="content-area small-12 medium-8 columns">
+>>>>>>> .merge_file_a08812
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
+<<<<<<< .merge_file_a08208
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
+=======
+			<?php get_template_part( 'directives/content', 'single' ); ?>
+>>>>>>> .merge_file_a08812
 
 			<?php the_post_navigation(); ?>
 
