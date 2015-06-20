@@ -1,15 +1,15 @@
 var gulp = require('gulp'),
-sass = require('gulp-ruby-sass'),
-autoprefixer = require('gulp-autoprefixer'),
-minifycss = require('gulp-minify-css'),
-jshint = require('gulp-jshint'),
-uglify = require('gulp-uglify'),
-imagemin = require('gulp-imagemin'),
-rename = require('gulp-rename'),
-concat = require('gulp-concat'),
-cache = require('gulp-cache'),
-livereload = require('gulp-livereload'),
-del = require('del');
+	sass = require('gulp-sass'),
+	autoprefixer = require('gulp-autoprefixer'),
+	minifycss = require('gulp-minify-css'),
+	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglify'),
+	imagemin = require('gulp-imagemin'),
+	rename = require('gulp-rename'),
+	concat = require('gulp-concat'),
+	cache = require('gulp-cache'),
+	livereload = require('gulp-livereload'),
+	del = require('del');
 
 gulp.task('styles', function() {
 
@@ -18,12 +18,15 @@ gulp.task('styles', function() {
 	'assets/styles/main.scss'
 	];
 
-	return sass(scss_files, { style: 'expanded' })
+	//return sass(scss_files, { style: 'expanded' })
+	gulp.src(scss_files)
+	.pipe(sass())
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
 	.pipe(gulp.dest('dist/styles'))
+	.pipe(livereload());
 });
 
 gulp.task('rtl-styles', function() {
@@ -33,12 +36,15 @@ gulp.task('rtl-styles', function() {
 	'assets/styles/rtl.scss'
 	];
 
-	return sass(scss_files, { style: 'expanded' })
+	//return sass(scss_files, { style: 'expanded' })
+	gulp.src(scss_files)
+	.pipe(sass())
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
 	.pipe(gulp.dest('dist/styles'))
+	.pipe(livereload());
 });
 
 gulp.task('scripts', function() {
@@ -62,6 +68,7 @@ gulp.task('scripts', function() {
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
 	.pipe(gulp.dest('dist/scripts'))
+	.pipe(livereload());
 });
 
 gulp.task('images', function() {
@@ -71,8 +78,9 @@ gulp.task('images', function() {
 	];
 
 	return gulp.src(img_files)
-	.pipe(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true }))
+	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
 	.pipe(gulp.dest('dist/images'))
+	.pipe(livereload());
 });
 
 gulp.task('clean', function(cb) {
@@ -84,17 +92,14 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
-  // Watch .scss files
-  gulp.watch('asstes/styles/**/*.scss', ['styles', 'rtl-styles']);
-  // Watch .js files
-  gulp.watch('asstes/scripts/**/*.js', ['scripts']);
-  // Watch image files
-  gulp.watch('asstes/images/**/*', ['images']);
-});
-
-gulp.task('watch', function() {
   // Create LiveReload server
   livereload.listen();
+  // Watch .scss files
+  gulp.watch('assets/styles/**/*.scss', ['styles', 'rtl-styles']);
+  // Watch .js files
+  gulp.watch('assets/scripts/**/*.js', ['scripts']);
+  // Watch image files
+  gulp.watch('assets/images/**/*', ['images']);
   // Watch any files in dist/, reload on change
-  gulp.watch(['dist/**']).on('change', livereload.changed);
+  gulp.watch(['dist/**', '**/*.php']).on('change', livereload.changed);
 });
