@@ -33,7 +33,7 @@
     "gulp-livereload": "",
     "gulp-minify-css": "",
     "gulp-rename": "",
-    "gulp-ruby-sass": "^1.0.5",
-    "gulp-uglify": ""
+    "gulp-sass": "^1.0.5",
+    "gulp-uglify": "",
   }
 }
