@@ -8,12 +8,25 @@
 // TODO move to seperate files
 function podium_scripts() {
   if(is_rtl()){
-    wp_enqueue_style( 'podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css' );
+    // Load RTL Styles
+    if (WP_ENV !== 'development'){
+      wp_enqueue_style( 'podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css' );
+    } else {
+      wp_enqueue_style( 'podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.css' );
+    }
   } else {
-    wp_enqueue_style( 'podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css' );
+    // Load LTR Styles
+    if (WP_ENV !== 'development'){
+      wp_enqueue_style( 'podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css' );
+    } else {
+      wp_enqueue_style( 'podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css' );
+    }
   }
-  
-  wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', array(), '20120206', true );
+  if (WP_ENV !== 'development'){
+    wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', array(), '20120206', true );
+  } else {
+    wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array(), '20120206', true );
+  }
   //wp_enqueue_script( 'podium-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
   //wp_enqueue_script( 'podium-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -59,11 +72,11 @@ require get_template_directory() . '/lib/customizer.php';
 require get_template_directory() . '/lib/jetpack.php';
 
 /**
-<<<<<<< HEAD
  * get the settings for the wordpress theme.
  */
 require get_template_directory() . '/lib/config.php'; // this file should be edited to meet the needs of the theme.
-=======
+
+/**
  * 
  */
 @include get_template_directory() . 'lib/menu-walkers.php';
@@ -77,4 +90,3 @@ require get_template_directory() . '/lib/config.php'; // this file should be edi
  * 
  */
 @include get_template_directory() . 'lib/admin.php';
->>>>>>> a0d433ea882f99b14248aba55e5fb97202b26c97
