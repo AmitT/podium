@@ -71,6 +71,12 @@ class Settings extends PodiumCoreProperties {
 		echo get_post_name();
 		the_slug();
 		die;
+		$categoryID = '';
+		// echo "<pre>";
+		// var_dump( get_post($postID) );
+		// echo "</pre>";
+
+		
 		//die(the_slug());
 		
 		$catID = the_category_ID();

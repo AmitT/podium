@@ -59,13 +59,10 @@ require get_template_directory() . '/lib/customizer.php';
 require get_template_directory() . '/lib/jetpack.php';
 
 /**
-<<<<<<< HEAD
  * get the settings for the wordpress theme.
  */
 require get_template_directory() . '/lib/config.php'; // this file should be edited to meet the needs of the theme.
-=======
- * 
- */
+
 @include get_template_directory() . 'lib/menu-walkers.php';
 
 /**
@@ -77,4 +74,3 @@ require get_template_directory() . '/lib/config.php'; // this file should be edi
  * 
  */
 @include get_template_directory() . 'lib/admin.php';
->>>>>>> a0d433ea882f99b14248aba55e5fb97202b26c97
