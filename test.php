@@ -3,8 +3,11 @@
 Template Name: New Template
 */
 use Podium\Config\Settings as settings;
-
 $settings = new settings(); 
-echo $settings->displaySidebar();
-die;
+
+if($settings->displaySidebar()){
+	echo 'sidebar should be displayed';
+} else {
+	echo 'sidebar should not be displayed';
+}
 ?>

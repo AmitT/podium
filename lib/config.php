@@ -23,13 +23,13 @@ class Settings extends PodiumCoreProperties {
 		
 		// Add to this list to remove the sidebar from template files.
 		$excludedRules['excludeByFileName'] = [
-			//'test.php',
+			// 'test.php',
 			'page.php',
 		];
 		
 		// Add to this list to remove the sidebar by post type.
 		$excludedRules['excludeByPostByType'] = [
-			//'page',
+			// 'page',
 			// 'cart',
 		];
 		
@@ -65,21 +65,8 @@ class Settings extends PodiumCoreProperties {
 		$postType = get_post_type( $post );
 		$taxonomyID = get_queried_object()->term_id;
 		$postID = get_the_ID();
-		echo "<pre>";
-		var_dump( get_post($postID) );
-		echo "</pre>";
-		echo get_post_name();
-		the_slug();
-		die;
-		$categoryID = '';
-		// echo "<pre>";
-		// var_dump( get_post($postID) );
-		// echo "</pre>";
-
 		
-		//die(the_slug());
-		
-		$catID = the_category_ID();
+		$categoryID = the_category_ID();
 		
 		if( in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
 			return false;
@@ -89,17 +76,12 @@ class Settings extends PodiumCoreProperties {
 			return false;
 		} elseif( in_array($postID, $rules['excludeByPostID']) ){
 			return false;
-		}  elseif( in_array($postID, $rules['excludeByPostID']) ){
+		}  elseif( in_array($categoryID, $rules['excludeByCategoryID']) ){
 			return false;
 		} 
 		else {
-			//return '1';
+			return true;
 		}
-		
-		echo "<pre>";
-		print_r( $rules );
-		echo "</pre>";
-		die;
 		
 	}
 	
