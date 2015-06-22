@@ -5,6 +5,12 @@
  * @package podium
  */
 
+if (!defined('WP_ENV')) {
+	// Fallback if WP_ENV isn't defined in your WordPress config
+	// Used to check for 'development' or 'production'
+	define('WP_ENV', 'production');
+}
+ 
 // TODO move to seperate files
 function podium_scripts() {
   if(is_rtl()){
@@ -47,7 +53,6 @@ $reqireFiles = [
 	'/lib/jetpack.php',         // /lib/jetpack.php
 	'/lib/config.php',          // get the settings for the wordpress theme.
 	                            // this file should be edited to meet the needs of the theme.
-
 ];
 
 // require all the files in the $reqireFiles array
@@ -63,6 +68,6 @@ $includeFiles = [
 ];
 
 // include all the files in the $reqireFiles array
-foreach ($reqireFiles as $file){
+foreach ($includeFiles as $file){
 	@include get_template_directory() . $file;
 }
