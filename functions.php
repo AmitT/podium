@@ -5,6 +5,8 @@
  * @package podium
  */
 
+define('WP_ENV', 'development'); // remove when you make the site live.
+
 if (!defined('WP_ENV')) {
 	// Fallback if WP_ENV isn't defined in your WordPress config
 	// Used to check for 'development' or 'production'
