@@ -46,10 +46,7 @@ get_header();
 			</main><!-- #main -->
 		</div>
 		<?php if( $settings->displaySidebar() ){ // has sidebar ?>
-			<div id="sidebar" class="content-area small-12 medium-4 columns">
 				<?php get_template_part( 'directives/sidebar', 'page' ); ?>
-			</div>
 		<?php } ?>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
