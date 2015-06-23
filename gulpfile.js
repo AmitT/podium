@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	cache = require('gulp-cache'),
 	livereload = require('gulp-livereload'),
+	sourcemaps = require('gulp-sourcemaps'),
 	del = require('del');
 
 gulp.task('styles', function() {
@@ -25,6 +26,7 @@ gulp.task('styles', function() {
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(livereload());
 });
@@ -43,6 +45,7 @@ gulp.task('rtl-styles', function() {
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(livereload());
 });
@@ -64,6 +67,7 @@ gulp.task('scripts', function() {
 	.pipe(jshint('.jshintrc'))
 	//.pipe(jshint.reporter('default'))
 	.pipe(concat('main.js'))
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
