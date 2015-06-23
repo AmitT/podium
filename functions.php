@@ -53,6 +53,10 @@ $reqireFiles = [
 	'/lib/extras.php',          // Custom functions that act independently of the theme templates.
 	'/lib/customizer.php',      // Customizer additions.
 	'/lib/jetpack.php',         // /lib/jetpack.php
+	'/lib/menu-walkers.php',    // TODO -> make comment describing the functionality of the page
+	'/lib/menu.php',            // TODO -> make comment describing the functionality of the page
+	'/lib/admin.php',           // TODO -> make comment describing the functionality of the page
+	
 	'/lib/config.php',          // get the settings for the wordpress theme.
 	                            // this file should be edited to meet the needs of the theme.
 ];
@@ -64,9 +68,7 @@ foreach ($reqireFiles as $file){
 
 // include array list
 $includeFiles = [
-	'lib/menu-walkers.php',     // TODO -> make comment describing the functionality of the page
-	'lib/menu.php',             // TODO -> make comment describing the functionality of the page
-	'lib/admin.php',            // TODO -> make comment describing the functionality of the page
+	//'lib/xxxxxxxxxxxxxxxxxxxxxx.php',
 ];
 
 // include all the files in the $reqireFiles array
