@@ -95,5 +95,51 @@ class Settings extends PodiumCoreProperties {
 		}
 		
 	}
-	
+	public function getMenu($walker_object, $canvas = 'onCanvass'){
+		if($canvas == 'onCanvass'){
+			$onCanvas = array(
+				'menu'            => '',
+				'container'       => '',
+				'container_class' => '',
+				'container_id'    => '',
+				'menu_class'      => 'button-group',
+				'menu_id'         => '',
+				'echo'            => true,
+				'fallback_cb'     => 'wp_nav_menu',
+				'before'          => '',
+				'after'           => '',
+				'link_before'     => '',
+				'link_after'      => '',
+				'items_wrap'      => '<ul class="%2$s" role="navigation">%3$s</ul>',
+				'depth'           => 0,
+				'walker'          => $walker_object
+			);
+			
+			wp_nav_menu($onCanvas);
+			
+		} elseif($canvas == 'offCanvas'){
+			$offCanvas = array(
+				'menu'            => '',
+				'container'       => '',
+				'container_class' => '',
+				'container_id'    => '',
+				'menu_class'      => 'button-group',
+				'menu_id'         => '',
+				'echo'            => true,
+				'fallback_cb'     => 'wp_nav_menu',
+				'before'          => '',
+				'after'           => '',
+				'link_before'     => '',
+				'link_after'      => '',
+				'items_wrap'      => '<ul class="off-canvas-list %2$s" role="navigation">%3$s</ul>',
+				'depth'           => 0,
+				'walker'          => $walker_object
+			);
+			
+			wp_nav_menu($offCanvas);
+			
+		} else {
+			echo "error invalid canvas value use: onCanvass or offCanvas (default: 'onCanvass')";
+		}
+	}
 }

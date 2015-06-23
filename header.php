@@ -6,10 +6,12 @@
  *
  * @package podium
  */
+use Podium\Config\Settings as settings;
+$settings = new settings();
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> ng-app="podium">
+<html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +56,7 @@
 						</li>
 					</ul>		
 					<section class="top-bar-section right">
-						<?php // TODO podium_top_nav(); ?>
+						<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
 					</section>
 				</nav>
 			</div>
@@ -71,10 +73,7 @@
 			</div>
 
 			<aside class="left-off-canvas-menu show-for-small-only">
-				<ul class="off-canvas-list">
-					<li><label>Navigation</label></li>
-					<?php // TODO podium_off_canvas(); ?>    
-				</ul>
+				<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>   
 			</aside>
 			
 			<a class="exit-off-canvas"></a>
