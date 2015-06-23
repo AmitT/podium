@@ -4,8 +4,11 @@
  *
  * @package podium
  */
+use Podium\Config\Settings as settings;
+$settings = new settings(); 
 
-get_header(); ?>
+get_header();
+?>
 
 	<div id="primary" class="content-area small-12 medium-8 columns">
 		<main id="main" class="site-main" role="main">
