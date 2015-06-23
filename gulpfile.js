@@ -21,6 +21,7 @@ gulp.task('styles', function() {
 
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
+	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
@@ -40,6 +41,7 @@ gulp.task('rtl-styles', function() {
 
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
+	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
@@ -64,6 +66,7 @@ gulp.task('scripts', function() {
 	];
 
 	return gulp.src(js_files)
+	.pipe(sourcemaps.init())
 	.pipe(jshint('.jshintrc'))
 	//.pipe(jshint.reporter('default'))
 	.pipe(concat('main.js'))
