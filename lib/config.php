@@ -23,13 +23,13 @@ class Settings extends PodiumCoreProperties {
 		
 		// Add to this list to remove the sidebar from template files.
 		$excludedRules['excludeByFileName'] = [
-			//'test.php',
-			'page.php',
+			// 'test.php',
+			// 'page.php',
 		];
 		
 		// Add to this list to remove the sidebar by post type.
 		$excludedRules['excludeByPostByType'] = [
-			//'page',
+			// 'page',
 			// 'cart',
 		];
 		
@@ -52,7 +52,7 @@ class Settings extends PodiumCoreProperties {
 		// note: NOT recommended to use this feature. Use only if you have no choice. 
 		//       however you can add dynamic functionality to this file.
 		$excludedRules['excludeByCategoryID'] = [
-			// '3',
+			// 2,
 			// '5',
 			// '12',
 		];
@@ -62,38 +62,37 @@ class Settings extends PodiumCoreProperties {
 	public function displaySidebar() { // return bool
 	
 		$rules = $this->excludedSidebarSettings(); // get rules from private function
-		$postType = get_post_type( $post );
-		$taxonomyID = get_queried_object()->term_id;
+		$postType = get_post_type();
 		$postID = get_the_ID();
-		echo "<pre>";
-		var_dump( get_post($postID) );
-		echo "</pre>";
-		echo get_post_name();
-		the_slug();
-		die;
-		//die(the_slug());
 		
-		$catID = the_category_ID();
-		
-		if( in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
-			return false;
-		} elseif( in_array($postType, $rules['excludeByPostByType']) ){
-			return false;
-		} elseif( in_array($taxonomyID, $rules['excludeByTaxonomyID']) ){
-			return false;
-		} elseif( in_array($postID, $rules['excludeByPostID']) ){
-			return false;
-		}  elseif( in_array($postID, $rules['excludeByPostID']) ){
-			return false;
-		} 
-		else {
-			//return '1';
+		foreach(get_the_category() as $category){
+			$taxonomyID = $category->term_id;
+			$categoryID = $category->cat_ID;
+			break;
 		}
 		
-		echo "<pre>";
-		print_r( $rules );
-		echo "</pre>";
-		die;
+		if(  in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
+			return false;
+		} elseif( isset($postType) && in_array($postType, $rules['excludeByPostByType']) ){
+			return false;
+		} elseif( isset($taxonomyID) && in_array($taxonomyID, $rules['excludeByTaxonomyID']) ){
+			return false;
+		} elseif( isset($postID) && in_array($postID, $rules['excludeByPostID']) ){
+			return false;
+		}  elseif( isset($categoryID) && in_array($categoryID, $rules['excludeByCategoryID']) ){
+			return false;
+		} else {
+			return true;
+		}
+		
+	}
+	public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12') { // return bool
+	
+		if( $this->displaySidebar() ){
+			return $contentHasSidebarClass;
+		} else{
+			return $contentNoSidebarClass;
+		}
 		
 	}
 	

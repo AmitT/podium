@@ -4,10 +4,13 @@
  *
  * @package podium
  */
+use Podium\Config\Settings as settings;
+$settings = new settings(); 
 
-get_header(); ?>
+get_header();
+?>
 
-	<section id="primary" class="content-area small-12 medium-8 columns">
+	<section id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', 'medium-12'); ?> columns">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -40,6 +43,8 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
+	<?php if( $settings->displaySidebar() ){ // has sidebar ?>
+		<?php get_template_part( 'directives/sidebar', 'page' ); ?>
+	<?php } ?>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

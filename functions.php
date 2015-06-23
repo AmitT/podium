@@ -5,6 +5,14 @@
  * @package podium
  */
 
+define('WP_ENV', 'development'); // remove when you make the site live.
+
+if (!defined('WP_ENV')) {
+	// Fallback if WP_ENV isn't defined in your WordPress config
+	// Used to check for 'development' or 'production'
+	define('WP_ENV', 'production');
+}
+ 
 // TODO move to seperate files
 function podium_scripts() {
   if(is_rtl()){
@@ -36,57 +44,34 @@ function podium_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'podium_scripts' );
 
-/**
- * Enqueue scripts and styles.
- */
-//require get_template_directory() . '/lib/enqueue-scripts.php';
+// require array list
+$reqireFiles = [
+	//'/lib/enqueue-scripts.php', // Enqueue scripts and styles.
+	//'/lib/cleanup.php', // cleanup & setup theme.
+	'/lib/widgets.php',         // Implement Custom widgets.
+	'/lib/template-tags.php',   // Custom template tags for this theme.
+	'/lib/extras.php',          // Custom functions that act independently of the theme templates.
+	'/lib/customizer.php',      // Customizer additions.
+	'/lib/jetpack.php',         // /lib/jetpack.php
+	'/lib/menu-walkers.php',    // TODO -> make comment describing the functionality of the page
+	'/lib/menu.php',            // TODO -> make comment describing the functionality of the page
+	'/lib/admin.php',           // TODO -> make comment describing the functionality of the page
+	
+	'/lib/config.php',          // get the settings for the wordpress theme.
+	                            // this file should be edited to meet the needs of the theme.
+];
 
-/**
- * cleanup & setup theme.
- */
-//require get_template_directory() . '/lib/cleanup.php';
+// require all the files in the $reqireFiles array
+foreach ($reqireFiles as $file){
+	require get_template_directory() . $file;
+}
 
-/**
- * Implement Custom widgets.
- */
-require get_template_directory() . '/lib/widgets.php';
+// include array list
+$includeFiles = [
+	//'lib/xxxxxxxxxxxxxxxxxxxxxx.php',
+];
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/lib/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/lib/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/lib/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/lib/jetpack.php';
-
-/**
- * get the settings for the wordpress theme.
- */
-require get_template_directory() . '/lib/config.php'; // this file should be edited to meet the needs of the theme.
-
-/**
- * 
- */
-@include get_template_directory() . 'lib/menu-walkers.php';
-
-/**
- * 
- */
-@include get_template_directory() . 'lib/menu.php';
-
-/**
- * 
- */
-@include get_template_directory() . 'lib/admin.php';
+// include all the files in the $reqireFiles array
+foreach ($includeFiles as $file){
+	@include get_template_directory() . $file;
+}

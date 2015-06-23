@@ -34,6 +34,6 @@
     "gulp-minify-css": "",
     "gulp-rename": "",
     "gulp-sass": "^1.0.5",
-    "gulp-uglify": "",
+    "gulp-uglify": ""
   }
 }
