@@ -64,22 +64,22 @@ class Settings extends PodiumCoreProperties {
 		$rules = $this->excludedSidebarSettings(); // get rules from private function
 		$postType = get_post_type();
 		$postID = get_the_ID();
-
+		
 		foreach(get_the_category() as $category){
 			$taxonomyID = $category->term_id;
 			$categoryID = $category->cat_ID;
 			break;
 		}
 		
-		if( in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
+		if(  in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
 			return false;
-		} elseif( in_array($postType, $rules['excludeByPostByType']) ){
+		} elseif( isset($postType) && in_array($postType, $rules['excludeByPostByType']) ){
 			return false;
-		} elseif( in_array($taxonomyID, $rules['excludeByTaxonomyID']) ){
+		} elseif( isset($taxonomyID) && in_array($taxonomyID, $rules['excludeByTaxonomyID']) ){
 			return false;
-		} elseif( in_array($postID, $rules['excludeByPostID']) ){
+		} elseif( isset($postID) && in_array($postID, $rules['excludeByPostID']) ){
 			return false;
-		}  elseif( in_array($categoryID, $rules['excludeByCategoryID']) ){
+		}  elseif( isset($categoryID) && in_array($categoryID, $rules['excludeByCategoryID']) ){
 			return false;
 		} else {
 			return true;
