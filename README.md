@@ -16,12 +16,7 @@ Features
 
 Installation
 ---
-Add this line to your wp-config.php file:
 
-```php
-define('WP_ENV', 'development');
-```
-and keep it there while you working on the theme.
 
 ### Install gulp and Bower
 
@@ -39,6 +34,13 @@ You now have all the necessary dependencies to run the build process.
 
 * `gulp` — Compile and optimize the files in your assets directory
 * `gulp watch` — Compile assets when file changes are made
+
+Don't forget to remove this line from functions.php file:
+
+```php
+define('WP_ENV', 'development');
+```
+before your theme uploaded to the production server.
 
 ## Documentation
 TODO
