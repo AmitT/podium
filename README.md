@@ -35,12 +35,10 @@ You now have all the necessary dependencies to run the build process.
 * `gulp` — Compile and optimize the files in your assets directory
 * `gulp watch` — Compile assets when file changes are made
 
-Don't forget to remove this line from functions.php file:
-
+Once your site is ready for production, remove or comment out the following line form the functions.php file:
 ```php
 define('WP_ENV', 'development');
 ```
-before your theme uploaded to the production server.
 
 ## Documentation
 TODO
