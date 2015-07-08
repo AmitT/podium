@@ -2,43 +2,43 @@
 namespace Podium\Config;
 
 class PodiumCoreProperties{
-	
+
 	function __construct() {
 		$this->templateUrl = $this->getTemplateURL(); // set property so that we can access it from child class
 	}
 	private function getTemplateURL() {
 		return basename( get_page_template() ); // get the template file url ( example: test.php )
 	}
-	
+
 }
 
 class Settings extends PodiumCoreProperties {
-	
+
 	// make chnages to this method
 	private function excludedSidebarSettings() {
-		
+
 		// Sidebars will be displayed by default. to explode some pages change these settings
-		
+
 		$excludedRules = array();
-		
+
 		// Add to this list to remove the sidebar from template files.
 		$excludedRules['excludeByFileName'] = [
 			// 'test.php',
 			// 'page.php',
 		];
-		
+
 		// Add to this list to remove the sidebar by post type.
 		$excludedRules['excludeByPostByType'] = [
 			// 'page',
 			// 'cart',
 		];
-		
+
 		// Add to this list to remove the sidebar by taxonomy ID.
 		$excludedRules['excludeByTaxonomyID'] = [
 			// '43',
 			// '1234',
 		];
-		
+
 		// Add to this list to remove the sidebar from pages by ID.
 		// note: NOT recommended to use this feature. Use only if you have no choice.
 		//       however you can add dynamic functionality to this file.
@@ -47,9 +47,9 @@ class Settings extends PodiumCoreProperties {
 			// '256',
 			// '823',
 		];
-		
+
 		// Add to this list to remove the sidebar from categories by ID.
-		// note: NOT recommended to use this feature. Use only if you have no choice. 
+		// note: NOT recommended to use this feature. Use only if you have no choice.
 		//       however you can add dynamic functionality to this file.
 		$excludedRules['excludeByCategoryID'] = [
 			// 2,
@@ -60,17 +60,17 @@ class Settings extends PodiumCoreProperties {
 		return $excludedRules;
 	}
 	public function displaySidebar() { // return bool
-	
+
 		$rules = $this->excludedSidebarSettings(); // get rules from private function
 		$postType = get_post_type();
 		$postID = get_the_ID();
-		
+
 		foreach(get_the_category() as $category){
 			$taxonomyID = $category->term_id;
 			$categoryID = $category->cat_ID;
 			break;
 		}
-		
+
 		if(  in_array($this->templateUrl, $rules['excludeByFileName']) ){ // if the current template has been excluded
 			return false;
 		} elseif( isset($postType) && in_array($postType, $rules['excludeByPostByType']) ){
@@ -84,23 +84,23 @@ class Settings extends PodiumCoreProperties {
 		} else {
 			return true;
 		}
-		
+
 	}
 	public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12') { // return bool
-	
+
 		if( $this->displaySidebar() ){
 			return $contentHasSidebarClass;
 		} else{
 			return $contentNoSidebarClass;
 		}
-		
+
 	}
 	public function getMenu($walker_object, $canvas = 'onCanvass'){
-		
+
 		$menus = get_terms('nav_menu'); // get array of all the menues
-		
-		if( !empty($menus) ){
-			if($canvas == 'onCanvass'){
+
+		if( !empty($menus) ){ // check if menu exists
+			if($canvas == 'onCanvass'){ // check if the menu is off-canvas
 				$onCanvas = array(
 					'menu'            => '',
 					'container'       => '',
@@ -118,9 +118,9 @@ class Settings extends PodiumCoreProperties {
 					'depth'           => 0,
 					'walker'          => $walker_object
 				);
-				
+
 				wp_nav_menu($onCanvas);
-				
+
 			} elseif($canvas == 'offCanvas'){
 				$offCanvas = array(
 					'menu'            => '',
@@ -139,14 +139,14 @@ class Settings extends PodiumCoreProperties {
 					'depth'           => 0,
 					'walker'          => $walker_object
 				);
-				
+
 				wp_nav_menu($offCanvas);
-				
-			} else {
-				echo "<div class='alert-box alert'>error invalid canvas value use: onCanvass or offCanvas (default: 'onCanvass')</div>";
+
+			} else { // if no type - wrong parameter error
+				echo "<div class='alert label'>error invalid canvas value use: onCanvass or offCanvas (default: 'onCanvass')</div>";
 			}
-		} else {
-			echo "<div class='alert-box alert'>Menus do not exist please create one</div>";
+		} else { // no menu
+			echo "<div class='alert label'>Menus do not exist please create one</div>";
 		}
 	}
 }
