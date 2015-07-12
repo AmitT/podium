@@ -1,16 +1,16 @@
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer'),
-	minifycss = require('gulp-minify-css'),
-	jshint = require('gulp-jshint'),
-	uglify = require('gulp-uglify'),
-	imagemin = require('gulp-imagemin'),
-	rename = require('gulp-rename'),
-	concat = require('gulp-concat'),
-	cache = require('gulp-cache'),
-	livereload = require('gulp-livereload'),
-	sourcemaps = require('gulp-sourcemaps'),
-	del = require('del');
+sass = require('gulp-sass'),
+autoprefixer = require('gulp-autoprefixer'),
+minifycss = require('gulp-minify-css'),
+jshint = require('gulp-jshint'),
+uglify = require('gulp-uglify'),
+imagemin = require('gulp-imagemin'),
+rename = require('gulp-rename'),
+concat = require('gulp-concat'),
+cache = require('gulp-cache'),
+livereload = require('gulp-livereload'),
+sourcemaps = require('gulp-sourcemaps'),
+del = require('del');
 
 gulp.task('styles', function() {
 
@@ -90,12 +90,23 @@ gulp.task('images', function() {
 	.pipe(livereload());
 });
 
+gulp.task('fonts', function() {
+	
+	var font_files = [
+	'assets/fonts/**/*'
+	];
+
+	return gulp.src(font_files)
+	.pipe(gulp.dest('dist/fonts'))
+	.pipe(livereload());
+});
+
 gulp.task('clean', function(cb) {
-	del(['dist/css', 'dist/scripts', 'dist/images'], cb)
+	del(['dist/css', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('styles', 'rtl-styles', 'scripts', 'images');
+	gulp.start('styles', 'rtl-styles', 'scripts', 'images', 'fonts');
 });
 
 gulp.task('watch', function() {
@@ -107,6 +118,8 @@ gulp.task('watch', function() {
   gulp.watch('assets/scripts/**/*.js', ['scripts']);
   // Watch image files
   gulp.watch('assets/images/**/*', ['images']);
+    // Watch fonts files
+  gulp.watch('assets/fonts/**/*', ['fonts']);
   // Watch any files in dist/, reload on change
   gulp.watch(['dist/**', '**/*.php']).on('change', livereload.changed);
 });
