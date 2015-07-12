@@ -7,7 +7,7 @@
 }
 
 // Font implementation
-@mixin font($font, $weight, $size) {
+@mixin font($font, $size, $weight: normal) {
     font-family: $font, arial, sans-serif;
     font-weight: $weight;
     font-size: $size;
