@@ -34,7 +34,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 function podium_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
-		$feed = fetch_feed('http://themble.com/feed/rss/');        // specify the source feed
+		$feed = fetch_feed('http://www.win-site.co.il/feed/');        // specify the source feed
 		$limit = $feed->get_item_quantity(7);                      // specify number of items
 		$items = $feed->get_items(0, $limit);                      // create an array of items
 	}
@@ -54,7 +54,7 @@ function podium_rss_dashboard_widget() {
 
 // Calling all custom dashboard widgets
 function podium_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('podium_rss_dashboard_widget', __('Recently on Themble (Customize on admin.php)', 'podiumtheme'), 'podium_rss_dashboard_widget');
+	wp_add_dashboard_widget('podium_rss_dashboard_widget', __('Recently on Winsite', 'podiumtheme'), 'podium_rss_dashboard_widget');
 	/*
 	Be sure to drop any other created Dashboard Widgets
 	in this function and they will all load.
@@ -68,7 +68,7 @@ add_action('wp_dashboard_setup', 'podium_custom_dashboard_widgets');
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
 function podium_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="#" target="_blank">Your Site Name</a></span>.', 'podium');
+	_e('<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium');
 }
 
 // adding it to the admin area
