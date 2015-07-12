@@ -75,3 +75,5 @@ $includeFiles = [
 foreach ($includeFiles as $file){
 	@include get_template_directory() . $file;
 }
+// add Title tag support
+add_theme_support( 'title-tag' );
