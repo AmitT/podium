@@ -9,6 +9,7 @@ $settings = new settings();
 
 get_header();
 ?>
+<div id="content" class="site-content row">
 	<div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', 'medium-12'); ?> columns">
 		<main id="main" class="site-main" role="main">
 
@@ -32,5 +33,5 @@ get_header();
 	<?php if( $settings->displaySidebar() ){ // has sidebar ?>
 		<?php get_template_part( 'directives/sidebar', 'page' ); ?>
 	<?php } ?>
-	
+	</div><!-- #content -->
 <?php get_footer(); ?>

@@ -80,4 +80,3 @@ $settings = new settings();
 
 		</header><!-- #masthead -->
 
-		<div id="content" class="site-content row">
