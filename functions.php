@@ -47,7 +47,7 @@ add_action( 'wp_enqueue_scripts', 'podium_scripts' );
 // require array list
 $reqireFiles = [
 	//'/lib/enqueue-scripts.php', // Enqueue scripts and styles.
-	//'/lib/cleanup.php', // cleanup & setup theme.
+	'/lib/cleanup.php', // cleanup & setup theme.
 	'/lib/widgets.php',         // Implement Custom widgets.
 	'/lib/template-tags.php',   // Custom template tags for this theme.
 	'/lib/extras.php',          // Custom functions that act independently of the theme templates.
