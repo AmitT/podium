@@ -7,7 +7,7 @@
  * @package podium
  */
 
-function podium_register_sidebars() {
+function podium_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'podium' ),
 		'id'            => 'sidebar-1',
