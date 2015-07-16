@@ -100,7 +100,7 @@ function podium_start() {
     // podium_theme_support();
 
     // adding sidebars to Wordpress
-    add_action( 'widgets_init', 'podium_register_sidebars' );
+    // add_action( 'widgets_init', 'podium_register_sidebars' );
     // cleaning up excerpt
     add_filter('excerpt_more', 'podium_excerpt_more');
 
