@@ -97,10 +97,10 @@ function podium_start() {
     add_filter('gallery_style', 'podium_gallery_style');
 
     // launching this stuff after theme setup
-    podium_theme_support();
+    // podium_theme_support();
 
     // adding sidebars to Wordpress
-    add_action( 'widgets_init', 'podium_register_sidebars' );
+    // add_action( 'widgets_init', 'podium_register_sidebars' );
     // cleaning up excerpt
     add_filter('excerpt_more', 'podium_excerpt_more');
 
