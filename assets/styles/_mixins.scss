@@ -1,8 +1,8 @@
-
+$baseFontSize: 16px;
 
 // Set a rem font size with pixel fallback
 @function calculateRem($size) {
-  $remSize: $size / 16px;
+  $remSize: $size / $baseFontSize;
   @return $remSize * 1rem;
 }
 
