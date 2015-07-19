@@ -56,6 +56,7 @@ gulp.task('scripts', function() {
 
 	// List all your JS files HERE
 	var js_files = [
+	'bower_components/modernizr/modernizr.js',
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
