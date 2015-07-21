@@ -44,6 +44,7 @@ $settings = new settings();
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site off-canvas-wrap" data-offcanvas>
+	<div class="inner-wrap">
 		<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
 
 		<header id="masthead" class="site-header" role="banner">

@@ -17,6 +17,7 @@
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'podium' ), 'podium', '<a href="http://win-site.co.il/" rel="designer">Winsite</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+	</div> <!-- inner-wrap -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
