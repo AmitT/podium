@@ -24,11 +24,11 @@ function the_posts_navigation() {
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'podium' ) ); ?></div>
+				<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'podium' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'podium' ) ); ?></div>
+				<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'podium' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -56,8 +56,8 @@ function the_post_navigation() {
 		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'podium' ); ?></h2>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
-				next_post_link( '<div class="nav-next">%link</div>', '%title' );
+			previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
+			next_post_link( '<div class="nav-next">%link</div>', '%title' );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -80,17 +80,17 @@ function podium_posted_on() {
 		esc_html( get_the_date() ),
 		esc_attr( get_the_modified_date( 'c' ) ),
 		esc_html( get_the_modified_date() )
-	);
+		);
 
 	$posted_on = sprintf(
 		esc_html_x( 'Posted on %s', 'post date', 'podium' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+		);
 
 	$byline = sprintf(
 		esc_html_x( 'by %s', 'post author', 'podium' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+		);
 
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
@@ -235,7 +235,7 @@ function podium_categorized_blog() {
 
 			// We only need to know if there is more than one category.
 			'number'     => 2,
-		) );
+			) );
 
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
@@ -264,3 +264,17 @@ function podium_category_transient_flusher() {
 }
 add_action( 'edit_category', 'podium_category_transient_flusher' );
 add_action( 'save_post',     'podium_category_transient_flusher' );
+
+function post_end_class(){
+	// returns .end to the last post 
+	// add in category content page if you have more then one post in row
+
+	if ($wp_query->current_post +1 == $wp_query->post_count) { 
+		$end = ' end'; 
+	} else{
+		$end = ''; 
+	}
+	return $end;
+}
+
+
