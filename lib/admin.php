@@ -74,4 +74,11 @@ function podium_custom_admin_footer() {
 // adding it to the admin area
 add_filter('admin_footer_text', 'podium_custom_admin_footer');
 
+
+// get the the role object
+$role_object = get_role( 'editor' );
+
+// add $cap capability to this role object
+$role_object->add_cap( 'edit_theme_options' );
+
 ?>
