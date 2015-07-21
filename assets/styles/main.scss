@@ -21,9 +21,13 @@
 @import "../../bower_components/font-awesome/scss/font-awesome";
 
 /*--------------------------------------------------------------
+# Common
+--------------------------------------------------------------*/
+@import "common/general";
+
+/*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-@import "layouts/general";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
