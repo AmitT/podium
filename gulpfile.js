@@ -94,6 +94,7 @@ gulp.task('images', function() {
 gulp.task('fonts', function() {
 	
 	var font_files = [
+	'bower_components/font-awesome/fonts/*',
 	'assets/fonts/**/*'
 	];
 
