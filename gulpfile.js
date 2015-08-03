@@ -60,6 +60,7 @@ gulp.task('scripts', function() {
 
 	// List all your JS files HERE
 	var js_files = [
+	'bower_components/modernizr/modernizr.js',
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
@@ -83,7 +84,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('images', function() {
-	
+
 	var img_files = [
 	'assets/images/**/*'
 	];
@@ -94,12 +95,24 @@ gulp.task('images', function() {
 	.pipe(livereload()).on('error', handleError);
 });
 
+gulp.task('fonts', function() {
+
+	var font_files = [
+	'bower_components/font-awesome/fonts/*',
+	'assets/fonts/**/*'
+	];
+
+	return gulp.src(font_files)
+	.pipe(gulp.dest('dist/fonts'))
+	.pipe(livereload());
+});
+
 gulp.task('clean', function(cb) {
-	del(['dist/css', 'dist/scripts', 'dist/images'], cb)
+	del(['dist/css', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('styles', 'rtl-styles', 'scripts', 'images');
+	gulp.start('styles', 'rtl-styles', 'scripts', 'images', 'fonts');
 });
 
 gulp.task('watch', function() {
@@ -111,6 +124,8 @@ gulp.task('watch', function() {
   gulp.watch('assets/scripts/**/*.js', ['scripts']);
   // Watch image files
   gulp.watch('assets/images/**/*', ['images']);
+	// Watch fonts files
+  gulp.watch('assets/fonts/**/*', ['fonts']);
   // Watch any files in dist/, reload on change
   gulp.watch(['dist/**', '**/*.php']).on('change', livereload.changed);
 });
