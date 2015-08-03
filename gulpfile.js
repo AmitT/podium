@@ -14,7 +14,8 @@ var gulp = require('gulp'),
 	cache = require('gulp-cache'),
 	livereload = require('gulp-livereload'),
 	sourcemaps = require('gulp-sourcemaps'),
-	del = require('del');
+	del = require('del'),
+	notify = require('gulp-notify');
 
 gulp.task('styles', function() {
 
@@ -33,7 +34,8 @@ gulp.task('styles', function() {
 	.pipe(minifycss())
 	.pipe(sourcemaps.write()).on('error', handleError)
 	.pipe(gulp.dest('dist/styles'))
-	.pipe(livereload()).on('error', handleError);
+	.pipe(livereload()).on('error', handleError)
+	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
 });
 
 gulp.task('rtl-styles', function() {
@@ -53,7 +55,8 @@ gulp.task('rtl-styles', function() {
 	.pipe(minifycss())
 	.pipe(sourcemaps.write()).on('error', handleError)
 	.pipe(gulp.dest('dist/styles'))
-	.pipe(livereload()).on('error', handleError);
+	.pipe(livereload()).on('error', handleError)
+	.pipe(notify('RTL styles compiled and minified'));			// Output to notification
 });
 
 gulp.task('scripts', function() {
@@ -80,7 +83,8 @@ gulp.task('scripts', function() {
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify()).on('error', handleError)
 	.pipe(gulp.dest('dist/scripts'))
-	.pipe(livereload()).on('error', handleError);
+	.pipe(livereload()).on('error', handleError)
+	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
 });
 
 gulp.task('images', function() {
