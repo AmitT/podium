@@ -26,4 +26,3 @@
 		<?php edit_post_link( esc_html__( 'Edit', 'podium' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
-

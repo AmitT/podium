@@ -1,7 +1,3 @@
-function handleError(err) {
-	console.log(err.toString());
-	this.emit('end');
-}
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -27,14 +23,14 @@ gulp.task('styles', function() {
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
-	.pipe(sass()).on('error', handleError)
+	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
-	.pipe(sourcemaps.write()).on('error', handleError)
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/styles'))
-	.pipe(livereload()).on('error', handleError)
+	.pipe(livereload())
 	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
 });
 
@@ -48,15 +44,18 @@ gulp.task('rtl-styles', function() {
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
-	.pipe(sass()).on('error', handleError)
+	.pipe(sass()).on("error", notify.onError(function (error) {
+		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+        return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
+      }))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
-	.pipe(sourcemaps.write()).on('error', handleError)
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/styles'))
-	.pipe(livereload()).on('error', handleError)
-	.pipe(notify('RTL styles compiled and minified'));			// Output to notification
+	.pipe(livereload())
+	.pipe(notify('RTL styles compiled and minified'));
 });
 
 gulp.task('scripts', function() {
@@ -75,15 +74,20 @@ gulp.task('scripts', function() {
 
 	return gulp.src(js_files)
 	.pipe(sourcemaps.init())
-	.pipe(jshint('.jshintrc')).on('error', handleError)
-	//.pipe(jshint.reporter('default'))
-	.pipe(concat('main.js')).on('error', handleError)
-	.pipe(sourcemaps.write()).on('error', handleError)
+	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
+		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+        return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
+      }))
+	.pipe(concat('main.js'))
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(uglify()).on('error', handleError)
+	.pipe(uglify()).on("error", notify.onError(function (error) {
+		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+        return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
+      }))
 	.pipe(gulp.dest('dist/scripts'))
-	.pipe(livereload()).on('error', handleError)
+	.pipe(livereload())
 	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
 });
 
@@ -95,8 +99,8 @@ gulp.task('images', function() {
 
 	return gulp.src(img_files)
 	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })).on('error', handleError)
-	.pipe(gulp.dest('dist/images')).on('error', handleError)
-	.pipe(livereload()).on('error', handleError);
+	.pipe(gulp.dest('dist/images'))
+	.pipe(livereload());
 });
 
 gulp.task('fonts', function() {
@@ -116,14 +120,14 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('styles', 'rtl-styles', 'scripts', 'images', 'fonts');
+	gulp.start('rtl-styles', 'styles', 'scripts', 'images', 'fonts');
 });
 
 gulp.task('watch', function() {
   // Create LiveReload server
   livereload.listen();
   // Watch .scss files
-  gulp.watch('assets/styles/**/*.scss', ['styles', 'rtl-styles']);
+  gulp.watch('assets/styles/**/*.scss', ['rtl-styles' , 'styles']);
   // Watch .js files
   gulp.watch('assets/scripts/**/*.js', ['scripts']);
   // Watch image files
