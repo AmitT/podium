@@ -98,7 +98,7 @@ gulp.task('images', function() {
 	];
 
 	return gulp.src(img_files)
-	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })).on('error', handleError)
+	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
 	.pipe(gulp.dest('dist/images'))
 	.pipe(livereload());
 });
