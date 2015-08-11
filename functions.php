@@ -12,7 +12,7 @@ if (!defined('WP_ENV')) {
 	// Used to check for 'development' or 'production'
 	define('WP_ENV', 'production');
 }
- 
+
 // TODO move to seperate files
 function podium_scripts() {
   if(is_rtl()){
@@ -56,7 +56,8 @@ $reqireFiles = [
 	'/lib/menu-walkers.php',    // TODO -> make comment describing the functionality of the page
 	'/lib/menu.php',            // TODO -> make comment describing the functionality of the page
 	'/lib/admin.php',           // TODO -> make comment describing the functionality of the page
-	
+	'/lib/custom-fields.php',   // TODO -> make comment describing the functionality of the page
+
 	'/lib/config.php',          // get the settings for the wordpress theme.
 	                            // this file should be edited to meet the needs of the theme.
 ];
