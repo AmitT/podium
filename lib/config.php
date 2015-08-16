@@ -97,11 +97,10 @@ class Settings extends PodiumCoreProperties {
 	}
 	public function getMenu($walker_object, $canvas = 'onCanvass'){
 
-		$menus = get_terms('nav_menu'); // get array of all the menues
-
-		if( !empty($menus) ){ // check if menu exists
+		if ( has_nav_menu( 'main-nav' ) ) { // check if menu exists
 			if($canvas == 'onCanvass'){ // check if the menu is off-canvas
 				$onCanvas = array(
+					'theme_location'  => 'main-nav',
 					'menu'            => '',
 					'container'       => '',
 					'container_class' => '',
@@ -123,6 +122,7 @@ class Settings extends PodiumCoreProperties {
 
 			} elseif($canvas == 'offCanvas'){
 				$offCanvas = array(
+					'theme_location'  => 'main-nav',
 					'menu'            => '',
 					'container'       => '',
 					'container_class' => '',
