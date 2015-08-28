@@ -1,11 +1,11 @@
 <?php
 /**
- * The header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="content">
- *
- * @package podium
- */
+* The header for our theme.
+*
+* Displays all of the <head> section and everything up till <div id="content">
+*
+* @package podium
+*/
 use Podium\Config\Settings as settings;
 $settings = new settings();
 
@@ -17,9 +17,9 @@ $settings = new settings();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 	<?php wp_head(); ?>
-	<!-- Please create favicon files with http://iconogen.com/ 
+	<!-- Please create favicon files with http://iconogen.com/
 	and put them in assets/images/favicon directory -->
 
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon/favicon.ico" type="image/x-icon" />
@@ -44,40 +44,39 @@ $settings = new settings();
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
-		<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
+		<div class="inner-wrap">
+			<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
 
-		<header id="masthead" class="site-header" role="banner">
-			<div class="sticky show-for-medium-up contain-to-grid">
-				<nav class="top-bar" data-topbar>
-					<ul class="title-area">
-						<!-- Title Area -->
-						<li class="name">
-							<h1> <a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
-						</li>
-					</ul>		
-					<section class="top-bar-section right">
-						<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
-					</section>
-				</nav>
-			</div>
+			<header id="masthead" class="site-header" role="banner">
+				<div class="sticky show-for-medium-up contain-to-grid">
+					<nav class="top-bar" data-topbar>
+						<ul class="title-area">
+							<!-- Title Area -->
+							<li class="name">
+								<h1> <a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+							</li>
+						</ul>
+						<section class="top-bar-section right">
+							<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
+						</section>
+					</nav>
+				</div>
 
-			<div class="show-for-small-only">
-				<nav class="tab-bar">
-					<section class="middle tab-bar-section">
-						<h1 class="title"><?php bloginfo('name'); ?></h1>
-					</section>
-					<section class="left-small">
-						<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
-					</section>
-				</nav>
-			</div>
+				<div class="show-for-small-only">
+					<nav class="tab-bar">
+						<section class="middle tab-bar-section">
+							<h1 class="title"><?php bloginfo('name'); ?></h1>
+						</section>
+						<section class="left-small">
+							<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+						</section>
+					</nav>
+				</div>
 
-			<aside class="left-off-canvas-menu show-for-small-only">
-				<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>   
-			</aside>
-			
-			<a class="exit-off-canvas"></a>
+				<aside class="left-off-canvas-menu show-for-small-only">
+					<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+				</aside>
 
-		</header><!-- #masthead -->
+				<a class="exit-off-canvas"></a>
 
+			</header><!-- #masthead -->

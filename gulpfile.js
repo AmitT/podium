@@ -62,7 +62,6 @@ gulp.task('scripts', function() {
 
 	// List all your JS files HERE
 	var js_files = [
-	'bower_components/modernizr/modernizr.js',
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
@@ -73,19 +72,20 @@ gulp.task('scripts', function() {
 	];
 
 	return gulp.src(js_files)
-	.pipe(sourcemaps.init())
+
 	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
-        return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-      }))
+		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
+	}))
+	.pipe(sourcemaps.init())
+	.pipe(uglify()).on("error", notify.onError(function (error) {
+		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
+	}))
 	.pipe(concat('main.js'))
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(uglify()).on("error", notify.onError(function (error) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
-        return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-      }))
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(livereload())
 	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
