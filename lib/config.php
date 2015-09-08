@@ -150,3 +150,5 @@ class Settings extends PodiumCoreProperties {
 		}
 	}
 }
+
+define ('WPCF7_AUTOP', false );
