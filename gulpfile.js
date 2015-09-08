@@ -163,7 +163,7 @@ gulp.task('fonts-min', function() {
 });
 
 gulp.task('clean', function(cb) {
-	del(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
+	return del(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
 });
 
 gulp.task('default', ['clean'], function() {
