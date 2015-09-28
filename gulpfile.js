@@ -175,6 +175,8 @@ gulp.task('production', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
+	// run the styles task first time gulp watch is run
+	gulp.start('styles');
 	// Create LiveReload server
 	livereload.listen();
 	// Watch .scss files
