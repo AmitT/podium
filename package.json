@@ -36,6 +36,7 @@
     "gulp-phpcs": "",
     "gulp-rename": "",
     "gulp-sass": "",
+    "gulp-scss-lint": "",
     "gulp-sourcemaps": "",
     "gulp-uglify": ""
   }

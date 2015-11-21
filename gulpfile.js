@@ -14,7 +14,8 @@ livereload = require('gulp-livereload'),
 sourcemaps = require('gulp-sourcemaps'),
 del = require('del'),
 notify = require('gulp-notify'),
-phpcs = require('gulp-phpcs');
+phpcs = require('gulp-phpcs'),
+scsslint = require('gulp-scss-lint');
 
 gulp.task('styles', function() {
 
@@ -58,6 +59,7 @@ gulp.task('rtl-styles', function() {
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
+.pipe(scsslint())
 	.pipe(sass()).on("error", notify.onError(function (error) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
