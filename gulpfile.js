@@ -13,7 +13,8 @@ cache = require('gulp-cache'),
 livereload = require('gulp-livereload'),
 sourcemaps = require('gulp-sourcemaps'),
 del = require('del'),
-notify = require('gulp-notify');
+notify = require('gulp-notify'),
+phpcs = require('gulp-phpcs');
 
 gulp.task('styles', function() {
 
@@ -126,12 +127,25 @@ gulp.task('scripts-min', function() {
 	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
 });
 
+var php_files = [
+	'**/*.php'
+]
+
+gulp.task('php', function() {
+	return gulp.src(php_files)
+	.pipe(phpcs({
+		standard: 'WordPress',
+		warningSeverity: 0
+	}))
+	.pipe(phpcs.reporter('log'))
+	.pipe(livereload());
+});
+
 var img_files = [
 	'assets/images/**/*'
 ];
 
 gulp.task('images', function() {
-
 	return gulp.src(img_files)
 	.pipe(gulp.dest('dist/images'))
 	.pipe(livereload());
@@ -167,7 +181,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('rtl-styles', 'styles', 'scripts', 'images', 'fonts');
+	gulp.start('rtl-styles', 'styles', 'scripts', 'php', 'images', 'fonts');
 });
 
 gulp.task('production', ['clean'], function() {
@@ -188,5 +202,5 @@ gulp.task('watch', function() {
 	// Watch fonts files
 	gulp.watch('assets/fonts/**/*', ['fonts']);
 	// Watch any files in dist/, reload on change
-	gulp.watch(['dist/**', '**/*.php']).on('change', livereload.changed);
+	gulp.watch(['dist/**', '**/*.php'], ['php']);
 });
