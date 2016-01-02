@@ -1,6 +1,6 @@
 {
   "name": "podium",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Winsite Dev Team",
   "homepage": "https://github.com/AmitT/podium/",
   "private": true,
@@ -31,7 +31,7 @@
     "gulp-imagemin": "",
     "gulp-jshint": "",
     "gulp-livereload": "",
-    "gulp-minify-css": "",
+    "gulp-cssnano": "",
     "gulp-notify": "",
     "gulp-phpcs": "",
     "gulp-rename": "",

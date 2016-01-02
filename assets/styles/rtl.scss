@@ -1,8 +1,6 @@
 //--------------------------------------------------------------
 //# RTL Styles
 //--------------------------------------------------------------
-$text-direction: rtl;
-$opposite-direction: left;
-$default-float: right;
+$global-text-direction: rtl;
 
 @import "main";

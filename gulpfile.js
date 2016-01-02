@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-minifycss = require('gulp-minify-css'),
+nano = require('gulp-cssnano'),
 jshint = require('gulp-jshint'),
 uglify = require('gulp-uglify'),
 imagemin = require('gulp-imagemin'),
@@ -44,7 +44,7 @@ gulp.task('styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(minifycss())
+	.pipe(nano())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
 });
@@ -81,7 +81,7 @@ gulp.task('rtl-styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(minifycss())
+	.pipe(nano())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(livereload())
 	.pipe(notify('RTL styles compiled and minified'));
@@ -92,8 +92,8 @@ var js_files = [
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
-	'bower_components/fastclick/lib/fastclick.js',
-	'bower_components/foundation/js/foundation.js',
+	//'bower_components/fastclick/lib/fastclick.js',
+	'bower_components/foundation-sites/dist/foundation.js',
 	'bower_components/angular/angular.js',
 	'assets/scripts/**/*.js'
 ];
@@ -135,11 +135,11 @@ var php_files = [
 
 gulp.task('php', function() {
 	return gulp.src(php_files)
-	.pipe(phpcs({
-		standard: 'WordPress',
-		warningSeverity: 0
-	}))
-	.pipe(phpcs.reporter('log'))
+	//.pipe(phpcs({
+	//	standard: 'WordPress',
+	//	warningSeverity: 0
+	//}))
+	//.pipe(phpcs.reporter('log'))
 	.pipe(livereload());
 });
 
