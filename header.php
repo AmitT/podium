@@ -53,8 +53,7 @@ $settings = new settings();
 						</div>
 						<div class="top-bar-right">
 							<ul class="menu">
-								<li><input type="search" placeholder="Search"></li>
-								<li><button type="button" class="button">Search</button></li>
+								<li class="menu-text"><?php bloginfo('name'); ?></li>
 							</ul>
 						</div>
 					</div>
