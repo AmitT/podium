@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "modernizr": "",
-    "foundation": "",
+    "foundation-sites": "",
     "font-awesome": "",
     "angular": "",
     "angular-route": ""

@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
 sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-minifycss = require('gulp-minify-css'),
+nano = require('gulp-cssnano'),
 jshint = require('gulp-jshint'),
 uglify = require('gulp-uglify'),
 imagemin = require('gulp-imagemin'),
@@ -13,7 +13,9 @@ cache = require('gulp-cache'),
 livereload = require('gulp-livereload'),
 sourcemaps = require('gulp-sourcemaps'),
 del = require('del'),
-notify = require('gulp-notify');
+notify = require('gulp-notify'),
+phpcs = require('gulp-phpcs'),
+scsslint = require('gulp-scss-lint');
 
 gulp.task('styles', function() {
 
@@ -42,7 +44,7 @@ gulp.task('styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(minifycss())
+	.pipe(nano())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
 });
@@ -57,6 +59,7 @@ gulp.task('rtl-styles', function() {
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
+.pipe(scsslint())
 	.pipe(sass()).on("error", notify.onError(function (error) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -78,7 +81,7 @@ gulp.task('rtl-styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(minifycss())
+	.pipe(nano())
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(livereload())
 	.pipe(notify('RTL styles compiled and minified'));
@@ -89,8 +92,8 @@ var js_files = [
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
-	'bower_components/fastclick/lib/fastclick.js',
-	'bower_components/foundation/js/foundation.js',
+	//'bower_components/fastclick/lib/fastclick.js',
+	'bower_components/foundation-sites/dist/foundation.js',
 	'bower_components/angular/angular.js',
 	'assets/scripts/**/*.js'
 ];
@@ -126,12 +129,25 @@ gulp.task('scripts-min', function() {
 	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
 });
 
+var php_files = [
+	'**/*.php'
+]
+
+gulp.task('php', function() {
+	return gulp.src(php_files)
+	//.pipe(phpcs({
+	//	standard: 'WordPress',
+	//	warningSeverity: 0
+	//}))
+	//.pipe(phpcs.reporter('log'))
+	.pipe(livereload());
+});
+
 var img_files = [
 	'assets/images/**/*'
 ];
 
 gulp.task('images', function() {
-
 	return gulp.src(img_files)
 	.pipe(gulp.dest('dist/images'))
 	.pipe(livereload());
@@ -167,7 +183,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', ['clean'], function() {
-	gulp.start('rtl-styles', 'styles', 'scripts', 'images', 'fonts');
+	gulp.start('rtl-styles', 'styles', 'scripts', 'php', 'images', 'fonts');
 });
 
 gulp.task('production', ['clean'], function() {
@@ -175,6 +191,8 @@ gulp.task('production', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
+	// run the styles task first time gulp watch is run
+	gulp.start('styles');
 	// Create LiveReload server
 	livereload.listen();
 	// Watch .scss files
@@ -186,5 +204,5 @@ gulp.task('watch', function() {
 	// Watch fonts files
 	gulp.watch('assets/fonts/**/*', ['fonts']);
 	// Watch any files in dist/, reload on change
-	gulp.watch(['dist/**', '**/*.php']).on('change', livereload.changed);
+	gulp.watch(['dist/**', '**/*.php'], ['php']);
 });
