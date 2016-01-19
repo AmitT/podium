@@ -53,7 +53,7 @@ $settings = new settings();
 						<ul class="title-area">
 							<!-- Title Area -->
 							<li class="name">
-								<h1> <a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+								<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>
 							</li>
 						</ul>
 						<section class="top-bar-section right">
