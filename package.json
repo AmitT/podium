@@ -1,6 +1,6 @@
 {
   "name": "podium",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Winsite Dev Team",
   "homepage": "https://github.com/AmitT/podium/",
   "private": true,
@@ -24,18 +24,20 @@
   },
   "devDependencies": {
     "del": "",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^2.1.0",
+    "gulp": "",
+    "gulp-autoprefixer": "",
     "gulp-cache": "",
     "gulp-concat": "",
     "gulp-imagemin": "",
     "gulp-jshint": "",
     "gulp-livereload": "",
-    "gulp-minify-css": "",
+    "gulp-cssnano": "",
+    "gulp-notify": "",
+    "gulp-phpcs": "",
     "gulp-rename": "",
-    "gulp-sass": "^1.0.5",
+    "gulp-sass": "",
+    "gulp-scss-lint": "",
     "gulp-sourcemaps": "",
-    "gulp-uglify": "",
-    "gulp-notify": ""
+    "gulp-uglify": ""
   }
 }

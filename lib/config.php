@@ -102,10 +102,11 @@ class Settings extends PodiumCoreProperties {
 				$onCanvas = array(
 					'theme_location'  => 'main-nav',
 					'menu'            => '',
-					'container'       => '',
+					'container' => false,
+					'items_wrap'     => '<ul id="%1$s" class="%2$s show-for-medium" data-dropdown-menu>%3$s</ul>',
 					'container_class' => '',
 					'container_id'    => '',
-					'menu_class'      => 'button-group',
+					'menu_class'      => 'dropdown menu',
 					'menu_id'         => '',
 					'echo'            => true,
 					'fallback_cb'     => 'wp_nav_menu',
@@ -113,7 +114,6 @@ class Settings extends PodiumCoreProperties {
 					'after'           => '',
 					'link_before'     => '',
 					'link_after'      => '',
-					'items_wrap'      => '<ul class="%2$s" role="navigation">%3$s</ul>',
 					'depth'           => 0,
 					'walker'          => $walker_object
 				);
