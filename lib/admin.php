@@ -81,4 +81,64 @@ $role_object = get_role( 'editor' );
 // add $cap capability to this role object
 $role_object->add_cap( 'edit_theme_options' );
 
+// Custom logo
+function custom_login_logo() {
+    echo '<style type="text/css">
+    h1 a {
+       display:block; important;
+       background-image: url('.get_bloginfo('template_directory').'/dist/images/logo.png) !important;
+       width:213px!important;
+       height:70px!important;
+       background-size: 213px 70px!important;
+     }
+    </style>';
+}
+add_action('login_head', 'custom_login_logo');
+
+// clean
+remove_action('wp_head', 'wp_generator');
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'start_post_rel_link' );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+
+function disable_feed_generator() {
+   return '';
+}
+add_filter('the_generator','disable_feed_generator');
+
+//ADD featured image thumbnail to WordPress admin columns
+
+add_filter('manage_posts_columns', 'tcb_add_post_thumbnail_column', 5);
+add_filter('manage_pages_columns', 'tcb_add_post_thumbnail_column', 5);
+
+function tcb_add_post_thumbnail_column($cols){
+ $cols['tcb_post_thumb'] = __('Main image');
+ return $cols;
+}
+
+add_action('manage_posts_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
+add_action('manage_pages_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
+
+function tcb_display_post_thumbnail_column($col, $id){
+ switch($col){
+   case 'tcb_post_thumb':
+     if( function_exists('the_post_thumbnail') )
+       echo the_post_thumbnail( 'thumbnail' );
+     else
+       echo 'Not supported in theme';
+     break;
+ }
+}
+
+// limit_excerpt
+// <?php echo wp_trim_words( get_the_content(), 15, '...' ); ?>
+
+
+
+
+
+
 ?>
