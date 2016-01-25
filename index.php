@@ -1,17 +1,17 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package podium
- */
+* The main template file.
+*
+* This is the most generic template file in a WordPress theme
+* and one of the two required files for a theme (the other being style.css).
+* It is used to display a page when nothing more specific matches a query.
+* E.g., it puts together the home page when no home.php file exists.
+* Learn more: http://codex.wordpress.org/Template_Hierarchy
+*
+* @package podium
+*/
 use Podium\Config\Settings as settings;
-$settings = new settings(); 
+$settings = new settings();
 
 get_header();
 ?>
@@ -25,29 +25,32 @@ get_header();
 
 					<?php
 
-							/*
-							 * Include the Post-Format-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'directives/content', get_post_format() );
-							?>
+					/*
+					* Include the Post-Format-specific template for the content.
+					* If you want to override this in a child theme, then include a file
+					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					*/
+					get_template_part( 'directives/content', get_post_format() );
+					?>
 
-						<?php endwhile; ?>
+				<?php endwhile; ?>
 
-						<?php the_posts_navigation(); ?>
+				<?php //the_posts_navigation(); ?>
+				<?php if (function_exists("emm_paginate")) {
+					emm_paginate();
+				} ?>
 
-					<?php else : ?>
+			<?php else : ?>
 
-						<?php get_template_part( 'directives/content', 'none' ); ?>
+				<?php get_template_part( 'directives/content', 'none' ); ?>
 
-					<?php endif; ?>
+			<?php endif; ?>
 
-				</main><!-- #main -->
-			</div>
-			<?php if( $settings->displaySidebar() ){ // has sidebar ?>
-			<?php get_template_part( 'directives/sidebar', 'page' ); ?>
-			<?php } ?>
-</div><!-- #content -->
+		</main><!-- #main -->
+	</div>
+	<?php if( $settings->displaySidebar() ){ // has sidebar ?>
+		<?php get_template_part( 'directives/sidebar', 'page' ); ?>
+		<?php } ?>
+	</div><!-- #content -->
 
-		<?php get_footer(); ?>
+	<?php get_footer(); ?>
