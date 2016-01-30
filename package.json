@@ -23,21 +23,22 @@
     "jscs": "jscs gulpfile.js assets/scripts/*.js"
   },
   "devDependencies": {
-    "del": "",
     "gulp": "",
+    "gulp-sass": "",
     "gulp-autoprefixer": "",
-    "gulp-cache": "",
-    "gulp-concat": "",
-    "gulp-imagemin": "",
-    "gulp-jshint": "",
-    "gulp-livereload": "",
     "gulp-cssnano": "",
+    "gulp-jshint": "",
+    "gulp-uglify": "",
+    "gulp-imagemin": "",
+    "gulp-rename": "",
+    "gulp-concat": "",
+    "gulp-cache": "",
+    "gulp-livereload": "",
+    "gulp-sourcemaps": "",
+    "del": "",
     "gulp-notify": "",
     "gulp-phpcs": "",
-    "gulp-rename": "",
-    "gulp-sass": "",
     "gulp-scss-lint": "",
-    "gulp-sourcemaps": "",
-    "gulp-uglify": ""
+    "es6-promise": ""
   }
 }

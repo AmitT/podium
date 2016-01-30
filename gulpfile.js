@@ -17,6 +17,8 @@ notify = require('gulp-notify'),
 phpcs = require('gulp-phpcs'),
 scsslint = require('gulp-scss-lint');
 
+require('es6-promise').polyfill();
+
 gulp.task('styles', function() {
 
 	// List al your SASS files HERE
