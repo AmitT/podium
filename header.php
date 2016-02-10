@@ -42,6 +42,7 @@ $settings = new settings();
 </head>
 
 <body <?php body_class(); ?>>
+
 	<!-- Loader part -->
 <div class="se-pre-con">
 	<div class="sk-circle">
@@ -60,6 +61,7 @@ $settings = new settings();
 	</div>
 </div>
 <!-- end loader part -->
+
 	<div id="page" class="hfeed site off-canvas-wrapper" data-offcanvas>
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 			<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
