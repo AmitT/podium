@@ -16,7 +16,7 @@ $settings = new settings();
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script> -->
 	<?php wp_head(); ?>
 	<!-- Please create favicon files with http://iconogen.com/
 	and put them in assets/images/favicon directory -->
@@ -64,23 +64,29 @@ $settings = new settings();
 					</ul>
 				</div>
 			</div>
+			<div class="top-bar-right">
+				<ul class="menu">
+					<li class="menu-text"><?php bloginfo('name'); ?></li>
+				</ul>
+			</div>
 		</div>
+	</div>
 
-		<div class="show-for-small-only">
-			<nav class="tab-bar">
-				<section class="middle tab-bar-section">
-					<p class="title"><?php bloginfo('name'); ?></p>
-				</section>
-				<section class="left-small">
-					<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
-				</section>
-			</nav>
-		</div>
+	<div class="show-for-small-only">
+		<nav class="tab-bar">
+			<section class="middle tab-bar-section">
+				<p class="title"><?php bloginfo('name'); ?></p>
+			</section>
+			<section class="left-small">
+				<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+			</section>
+		</nav>
+	</div>
 
-		<aside class="left-off-canvas-menu show-for-small-only">
-			<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
-		</aside>
+	<aside class="left-off-canvas-menu show-for-small-only">
+		<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+	</aside>
 
-		<a class="exit-off-canvas"></a>
+	<a class="exit-off-canvas"></a>
 
-	</header><!-- #masthead -->
+</header><!-- #masthead -->
