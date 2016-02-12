@@ -44,23 +44,23 @@ $settings = new settings();
 <body <?php body_class(); ?>>
 
 	<!-- Loader part -->
-<div class="se-pre-con">
-	<div class="sk-circle">
-	  <div class="sk-circle1 sk-child"></div>
-	  <div class="sk-circle2 sk-child"></div>
-	  <div class="sk-circle3 sk-child"></div>
-	  <div class="sk-circle4 sk-child"></div>
-	  <div class="sk-circle5 sk-child"></div>
-	  <div class="sk-circle6 sk-child"></div>
-	  <div class="sk-circle7 sk-child"></div>
-	  <div class="sk-circle8 sk-child"></div>
-	  <div class="sk-circle9 sk-child"></div>
-	  <div class="sk-circle10 sk-child"></div>
-	  <div class="sk-circle11 sk-child"></div>
-	  <div class="sk-circle12 sk-child"></div>
+	<div class="se-pre-con">
+		<div class="sk-circle">
+			<div class="sk-circle1 sk-child"></div>
+			<div class="sk-circle2 sk-child"></div>
+			<div class="sk-circle3 sk-child"></div>
+			<div class="sk-circle4 sk-child"></div>
+			<div class="sk-circle5 sk-child"></div>
+			<div class="sk-circle6 sk-child"></div>
+			<div class="sk-circle7 sk-child"></div>
+			<div class="sk-circle8 sk-child"></div>
+			<div class="sk-circle9 sk-child"></div>
+			<div class="sk-circle10 sk-child"></div>
+			<div class="sk-circle11 sk-child"></div>
+			<div class="sk-circle12 sk-child"></div>
+		</div>
 	</div>
-</div>
-<!-- end loader part -->
+	<!-- end loader part -->
 
 	<div id="page" class="hfeed site off-canvas-wrapper" data-offcanvas>
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
@@ -78,35 +78,23 @@ $settings = new settings();
 						</ul>
 					</div>
 				</div>
-				<div class="top-bar-right">
-					<ul class="menu">
-						<li class="menu-text"><?php bloginfo('name'); ?></li>
-					</ul>
-				</div>
 			</div>
-			<div class="top-bar-right">
-				<ul class="menu">
-					<li class="menu-text"><?php bloginfo('name'); ?></li>
-				</ul>
+
+			<div class="show-for-small-only">
+				<nav class="tab-bar">
+					<section class="middle tab-bar-section">
+						<p class="title"><?php bloginfo('name'); ?></p>
+					</section>
+					<section class="left-small">
+						<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+				</nav>
 			</div>
-		</div>
-	</div>
 
-	<div class="show-for-small-only">
-		<nav class="tab-bar">
-			<section class="middle tab-bar-section">
-				<p class="title"><?php bloginfo('name'); ?></p>
-			</section>
-			<section class="left-small">
-				<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
-			</section>
-		</nav>
-	</div>
+			<aside class="left-off-canvas-menu show-for-small-only">
+				<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+			</aside>
 
-	<aside class="left-off-canvas-menu show-for-small-only">
-		<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
-	</aside>
+			<a class="exit-off-canvas"></a>
 
-	<a class="exit-off-canvas"></a>
-
-</header><!-- #masthead -->
+		</header><!-- #masthead -->
