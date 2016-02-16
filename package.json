@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "gulp": "",
+    "browser-sync": "",
     "gulp-sass": "",
     "gulp-autoprefixer": "",
     "gulp-cssnano": "",
@@ -33,7 +34,6 @@
     "gulp-rename": "",
     "gulp-concat": "",
     "gulp-cache": "",
-    "gulp-livereload": "",
     "gulp-sourcemaps": "",
     "del": "",
     "gulp-notify": "",
