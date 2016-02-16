@@ -69,3 +69,14 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'podium_render_title' );
 endif;
+
+// Get post Thumb URL
+function get_thumb_url($post, $size = 'full'){
+	if (has_post_thumbnail( $post->ID ) ){
+		$attachment_id = get_post_thumbnail_id($post->ID);
+      // thumbnail, medium, large, or full
+		$src = wp_get_attachment_image_src( $attachment_id, $size);
+		return $src[0];
+	}
+	return false;
+}
