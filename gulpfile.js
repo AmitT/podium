@@ -62,7 +62,7 @@ gulp.task('rtl-styles', function() {
 	//return sass(scss_files, { style: 'expanded' })
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
-.pipe(scsslint())
+	.pipe(scsslint())
 	.pipe(sass()).on("error", notify.onError(function (error) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -197,15 +197,15 @@ gulp.task('watch', function() {
 	gulp.start('styles');
 
 	browserSync.init({
-	files: ['{lib,directives}/**/*.php', '*.php'],
-	proxy: 'http://localhost/DIRECTORY/',
-	snippetOptions: {
-		whitelist: ['/wp-admin/admin-ajax.php'],
-		blacklist: ['/wp-admin/**']
-	}
-});
-gulp.watch(['assets/styles/**/*'], ['rtl-styles' , 'styles']);
-gulp.watch(['assets/scripts/**/*'], ['scripts']);
-gulp.watch(['assets/fonts/**/*'], ['fonts']);
-gulp.watch(['assets/images/**/*'], ['images']);
+		files: ['{lib,directives}/**/*.php', '*.php'],
+		proxy: 'http://localhost/DIRECTORY/',
+		snippetOptions: {
+			whitelist: ['/wp-admin/admin-ajax.php'],
+			blacklist: ['/wp-admin/**']
+		}
+	});
+	gulp.watch(['assets/styles/**/*'], ['rtl-styles' , 'styles']);
+	gulp.watch(['assets/scripts/**/*'], ['scripts']);
+	gulp.watch(['assets/fonts/**/*'], ['fonts']);
+	gulp.watch(['assets/images/**/*'], ['images']);
 });
