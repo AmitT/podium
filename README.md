@@ -1,11 +1,10 @@
 Podium
 ===
 The project is in its initial stage, your welcome to Contribute.
-Podium is a simple, flexible & powerful AngularJS starter theme for wordpress, foundation and gulp support 
+Podium is a simple, flexible & powerful AngularJS starter theme for wordpress, foundation and gulp support
 
 Requirements
 ---
-- [livereload chrome extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
 - [Node.js 0.12.x](https://nodejs.org).
 - [PHP >= 5.4.x](http://php.net/)
 - [gulp >= 3.8.10](http://gulpjs.com/).
