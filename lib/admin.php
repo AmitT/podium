@@ -41,14 +41,17 @@ function podium_rss_dashboard_widget() {
 	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
 	else foreach ($items as $item) { ?>
 
-	<h4 style="margin-bottom: 0;">
-		<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>" target="_blank">
-			<?php echo $item->get_title(); ?>
+		<h4 style="margin-bottom: 0;">
+			<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>" target="_blank">
+				<?php echo $item->get_title(); ?>
+			</a>
+		</h4>
+		<p style="margin-top: 0.5em;">
+			<?php echo strip_tags(substr($item->get_description(), 0, 200)); ?>
+			<a style="display:block;" href="<?php echo $item->get_permalink(); ?>" title="<?php echo __('Read More', 'podium'); ?>" target="_blank">
+			<?php echo __('Read More', 'podium'); ?> >
 		</a>
-	</h4>
-	<p style="margin-top: 0.5em;">
-		<?php echo substr($item->get_description(), 0, 200); ?>
-	</p>
+		</p>
 	<?php }
 }
 
@@ -134,7 +137,7 @@ function tcb_display_post_thumbnail_column($col, $id){
 }
 
 // limit_excerpt
-// <?php echo wp_trim_words( get_the_content(), 15, '...' ); 
+// <?php echo wp_trim_words( get_the_content(), 15, '...' );
 
 
 
