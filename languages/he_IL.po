@@ -1,0 +1,114 @@
+# Copyright (C) 2015 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: podium 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/podium\n"
+"POT-Creation-Date: 2016-03-24 15:59+0200\n"
+"PO-Revision-Date: 2016-03-24 16:00+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Winsite <LL@li.org>\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_;_x;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../footer.php:15
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../directives/content.php:25
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../directives/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../lib/menu.php:5
+msgid "The Main Menu"
+msgstr "תפריט ראשי"
+
+#: ../lib/menu.php:50
+msgid "Footer Links"
+msgstr ""
+
+#: ../lib/admin.php:45
+msgid "j F Y @ g:i a"
+msgstr ""
+
+#: ../lib/admin.php:51 ../lib/admin.php:52
+msgid "Read More"
+msgstr "קרא עוד"
+
+#: ../lib/admin.php:60
+msgid "Recently on Winsite"
+msgstr "עדכונים מווינסייט"
+
+#: ../lib/admin.php:74
+msgid ""
+"<span id=\"footer-thankyou\">Developed by <a href=\"http://win-site.co.il\" "
+"target=\"_blank\">Winsite</a></span>."
+msgstr ""
+
+#: ../lib/admin.php:121
+msgid "Main image"
+msgstr "תמונה ראשית"
+
+#: ../lib/pagination.php:46
+msgid "&raquo;"
+msgstr ""
+
+#: ../lib/pagination.php:46
+msgid "&laquo"
+msgstr ""
+
+#: ../lib/page-navi.php:35
+msgid "First"
+msgstr ""
+
+#: ../lib/page-navi.php:52
+msgid "Last"
+msgstr ""
+
+#: ../lib/menu-walkers.php:48
+msgid "Back"
+msgstr "חזרה"
+
+#: ../lib/comments.php:12
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: ../lib/comments.php:13
+msgid " F jS, Y - g:ia"
+msgstr ""
+
+#: ../lib/comments.php:14
+msgid "(Edit)"
+msgstr "(עריכה)"
+
+#: ../lib/comments.php:18
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../lib/cleanup.php:150
+msgid "Read"
+msgstr ""
+
+#: ../lib/cleanup.php:150
+msgid "Read more &raquo;"
+msgstr ""
+
+#: ../lib/cleanup.php:169
+#, php-format
+msgid "Posts by %s"
+msgstr ""
