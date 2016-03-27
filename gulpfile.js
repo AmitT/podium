@@ -96,7 +96,6 @@ var js_files = [
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
 	'bower_components/foundation-sites/dist/foundation.js',
-	'bower_components/angular/angular.js',
 	'assets/scripts/**/*.js'
 ];
 
