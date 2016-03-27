@@ -47,7 +47,7 @@ gulp.task('styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(nano())
+	.pipe(nano({discardComments: {removeAll: true}}))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
 });
@@ -84,7 +84,7 @@ gulp.task('rtl-styles-min', function() {
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer('last 3 version'))
 	.pipe(rename({suffix: '.min'}))
-	.pipe(nano())
+	.pipe(nano({discardComments: {removeAll: true}}))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(browserSync.stream())
 	.pipe(notify('RTL styles compiled and minified'));
