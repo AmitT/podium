@@ -8,7 +8,7 @@
 // Set host name
 $host = $_SERVER['SERVER_NAME'];
 
-if($host === 'localhost'){
+if($host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.info'){
 	//set development ENV
 	define('WP_ENV', 'development'); // remove when you make the site live.
 } else {
