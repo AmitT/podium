@@ -62,13 +62,13 @@ $settings = new settings();
 	</div>
 	<!-- end loader part -->
 
-	<div id="page" class="hfeed site off-canvas-wrapper" data-offcanvas>
+	<div id="page" class="hfeed site off-canvas-wrapper">
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 			<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
 
 			<header id="masthead" class="site-header" role="banner">
 
-				<div class="top-bar">
+				<div class="show-for-medium top-bar sticky" data-sticky data-options="marginTop:0;">
 					<div class="top-bar-left">
 						<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
 					</div>
@@ -81,20 +81,25 @@ $settings = new settings();
 			</div>
 
 			<div class="show-for-small-only">
-				<nav class="tab-bar">
-					<section class="middle tab-bar-section">
-						<p class="title"><?php bloginfo('name'); ?></p>
-					</section>
-					<section class="left-small">
-						<a href="#" class="left-off-canvas-toggle menu-icon" ><span></span></a>
-					</section>
-				</nav>
+				<div class="title-bar">
+					<div class="title-bar-left">
+						<button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+					</div>
+					<div class="title-bar-right">
+						<span class="title-bar-title">
+							<a href="<?php echo get_home_url(); ?>">
+								<img alt="Logo" class="logo" src="<?php echo get_template_directory_uri(); ?>/dist/images/logo.png" />
+							</a>
+						</span>
+					</div>
+				</div>
 			</div>
 
-			<aside class="left-off-canvas-menu show-for-small-only">
-				<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
-			</aside>
-
-			<a class="exit-off-canvas"></a>
-
 		</header><!-- #masthead -->
+		<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+			<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+		</div>
+		<div class="off-canvas-content" data-off-canvas-content>
+		</div>
+
+		<a class="exit-off-canvas"></a>
