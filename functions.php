@@ -71,6 +71,7 @@ $reqireFiles = [
 	'/lib/custom-fields.php',   // TODO -> make comment describing the functionality of the page
 	'/lib/custom-post-type.php', // TODO -> make comment describing the functionality of the page
 	'/lib/pagination.php', // More flexible pagination function
+	'/lib/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
 
 	'/lib/config.php',          // get the settings for the wordpress theme.
 	// this file should be edited to meet the needs of the theme.
