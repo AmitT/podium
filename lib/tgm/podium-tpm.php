@@ -87,11 +87,6 @@ function podium_register_required_plugins() {
 			'required'  => false,
 		),
 		array(
-			'name'      => 'iThemes Security',
-			'slug' => 'better-wp-security',
-			'required'  => true,
-		),
-		array(
 			'name'      => 'Contact Form 7',
 			'slug' => 'contact-form-7',
 			'required'  => false,
@@ -106,21 +101,47 @@ function podium_register_required_plugins() {
 			'slug' => 'contact-form-7-to-database-extension',
 			'required'  => false,
 		),
+
+		// Required Plugins
+		array(
+			'name'      => 'iThemes Security',
+			'slug' => 'better-wp-security',
+			'required'  => true,
+			'force_activation' => true,
+		),
 		array(
 			'name'      => 'Wordpress SEO',
 			'slug' => 'wordpress-seo',
 			'required'  => true,
+			'force_activation' => true,
 		),
 		array(
 			'name'      => 'Wordpress Fastest Cache',
 			'slug' => 'wp-fastest-cache',
 			'required'  => true,
+			'force_activation' => true,
 		),
 		array(
 			'name'      => 'Wordpress Sitemap Page',
 			'slug' => 'wp-sitemap-page',
 			'required'  => true,
+			'force_activation' => true,
 		),
+		array(
+			'name'      => 'Advanced Cudtom Fields Pro',
+			'slug' => 'advanced-custom-fields-pro',
+			'source' => 'https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9NDI3MTN8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTIzIDEwOjI1OjU5',
+			'required'  => true,
+			'force_activation' => true,
+		),
+
+		// array(
+		// 	'name'      => 'Polylang',
+		// 	'slug' => 'polylang',
+		// 	'source' => '',
+		// 	'required'  => true,
+		// 	'force_activation' => true,
+		// ),
 
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
