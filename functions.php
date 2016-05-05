@@ -14,7 +14,7 @@ if($host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.i
 } else {
 
 	// Disable updates on server UPDATE ONLY WITH GIT
-	require get_template_directory() . '/lib/disable-updates.php';
+	// require get_template_directory() . '/lib/disable-updates.php';
 	// Set production ENV
 	define('WP_ENV', 'production');
 }
