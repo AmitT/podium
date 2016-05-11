@@ -136,6 +136,13 @@ function tcb_display_post_thumbnail_column($col, $id){
  }
 }
 
+//allow svg upload in media
+function cc_mime_types($mimes) {
+ $mimes['svg'] = 'image/svg+xml';
+ return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // limit_excerpt
 // <?php echo wp_trim_words( get_the_content(), 15, '...' );
 
