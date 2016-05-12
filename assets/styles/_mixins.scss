@@ -1,24 +1,24 @@
-$baseFontSize: 16px;
+$base-font-size: 16px;
 
 // Set a rem font size with pixel fallback
-@function calculateRem($size) {
-  $remSize: $size / $baseFontSize;
-  @return $remSize * 1rem;
+@function calculate-rem($size) {
+  $rem-size: $size / $base-font-size;
+  @return $rem-size * 1rem;
 }
 
 // Font implementation
 @mixin font($font, $size, $weight: normal) {
-    font-family: $font, arial, sans-serif;
-    font-weight: $weight;
-    font-size: $size;
-    font-size: calculateRem($size);
+  font-family: $font, arial, sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  font-size: calculate-rem($size);
 }
 // usage
 // @include font(almoni-tzar, 16px, normal)
 
 // Absolute Centering
-@mixin absolutecenter($axis: "both"){
-  position:absolute;
+@mixin absolutecenter($axis: 'both') {
+  position: absolute;
   @if $axis == "y"{
     top: 50%;
     transform: translateY(-50%);
@@ -28,9 +28,9 @@ $baseFontSize: 16px;
     transform: translateX(-50%);
   }
   @if $axis == "both"{
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 // usage
@@ -38,19 +38,22 @@ $baseFontSize: 16px;
 
 // Clearing Floats, AKA the Clearfix
 @mixin cf() {
-  *zoom: 1;
-  &:before, &:after {
+  zoom: 1;
+
+  &::before,
+  &::after {
     content: '';
     display: table;
   }
-  &:after {
+
+  &::after {
     clear: both;
   }
 }
 // @include clearfix;
 
 // Triangles
-@mixin triangle($direction, $size: 0.375rem, $color: #222){
+@mixin triangle ($direction, $size: .375rem, $color: #222) {
   content: '';
   display: block;
   position: absolute;
@@ -59,21 +62,18 @@ $baseFontSize: 16px;
     border-bottom: $size solid $color;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-  }
-  @else if ($direction == 'down'){
-    border-top: $size solid $color;
+  } @else if ($direction == 'down'){
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-  }
-  @else if ($direction == 'left'){
-    border-top: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if ($direction == 'left'){
     border-bottom: $size solid transparent;
     border-right: $size solid $color;
-  }
-  @else if ($direction == 'right'){
     border-top: $size solid transparent;
+  } @else if ($direction == 'right'){
     border-bottom: $size solid transparent;
     border-left: $size solid $color;
+    border-top: $size solid transparent;
   }
 }
 // @include triangle(down, 10px, blue);
