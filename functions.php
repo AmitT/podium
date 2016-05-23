@@ -71,10 +71,14 @@ $reqireFiles = [
 	'/lib/custom-fields.php',   // TODO -> make comment describing the functionality of the page
 	'/lib/custom-post-type.php', // TODO -> make comment describing the functionality of the page
 	'/lib/pagination.php', // More flexible pagination function
-	'/lib/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
+	
 	'/lib/clean-filenames.php', // Custom functions to clean filenames from Unicode to ASCII
-
 	'/lib/config.php',          // get the settings for the wordpress theme.
+	
+	// plugins:
+	'/plugins/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
+	'/plugins/wp-smushit/wp-smush.php'  // Compresses images upon image load 
+	
 	// this file should be edited to meet the needs of the theme.
 
 ];
@@ -95,3 +99,19 @@ foreach ($includeFiles as $file){
 }
 // add Title tag support
 add_theme_support( 'title-tag' );
+
+
+/*
+// Load 'hard-coded' plugins:
+add_action('after_setup_theme', 'my_load_plugin');
+// This function loads the plugin.
+function my_load_plugin() {
+// http://alexking.org/blog/2012/07/09/include-plugin-in-wordpress-theme
+// Check to see if your plugin has already been loaded.
+// Check for a constant:
+	if (!defined('WP_SMUSH_DIR')) {
+		// load Smush if not already loaded
+		include_once(TEMPLATEPATH.'/plugins/wp-smushit/wp-smush.php');
+	}
+}
+*/
