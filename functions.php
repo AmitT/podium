@@ -77,7 +77,6 @@ $reqireFiles = [
 	
 	// plugins:
 	'/plugins/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
-	'/plugins/wp-smushit/wp-smush.php'  // Compresses images upon image load 
 	
 	// this file should be edited to meet the needs of the theme.
 
