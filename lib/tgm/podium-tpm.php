@@ -134,6 +134,12 @@ function podium_register_required_plugins() {
 			'required'  => true,
 			'force_activation' => true,
 		),
+		array(
+			'name'      => 'EWWW Image Optimizer',
+			'slug' => 'ewww-image-optimizer',
+			'required'  => true,
+			'force_activation' => true,
+		),
 
 		// array(
 		// 	'name'      => 'Polylang',
