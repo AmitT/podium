@@ -1,0 +1,5 @@
+This folder contains obligatory plugins which are loaded through functions.php.
+Usually the plugins has to be modified a bit in order to be loaded correctly through a theme.
+
+
+See also:  http://alexking.org/blog/2012/07/09/include-plugin-in-wordpress-theme
