@@ -101,17 +101,4 @@ foreach ($includeFiles as $file){
 add_theme_support( 'title-tag' );
 
 
-/*
-// Load 'hard-coded' plugins:
-add_action('after_setup_theme', 'my_load_plugin');
-// This function loads the plugin.
-function my_load_plugin() {
-// http://alexking.org/blog/2012/07/09/include-plugin-in-wordpress-theme
-// Check to see if your plugin has already been loaded.
-// Check for a constant:
-	if (!defined('WP_SMUSH_DIR')) {
-		// load Smush if not already loaded
-		include_once(TEMPLATEPATH.'/plugins/wp-smushit/wp-smush.php');
-	}
-}
-*/
+
