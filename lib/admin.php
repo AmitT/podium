@@ -35,20 +35,23 @@ function podium_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
 		$feed = fetch_feed('http://www.win-site.co.il/feed/');        // specify the source feed
-		$limit = $feed->get_item_quantity(7);                      // specify number of items
+		$limit = $feed->get_item_quantity(2);                      // specify number of items
 		$items = $feed->get_items(0, $limit);                      // create an array of items
 	}
 	if ($limit == 0) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
 	else foreach ($items as $item) { ?>
 
-	<h4 style="margin-bottom: 0;">
-		<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>" target="_blank">
-			<?php echo $item->get_title(); ?>
+		<h4 style="margin-bottom: 0;">
+			<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>" target="_blank">
+				<?php echo $item->get_title(); ?>
+			</a>
+		</h4>
+		<p style="margin-top: 0.5em;">
+			<?php echo strip_tags(wp_trim_words( $item->get_description(), 40, '...' )); ?>
+			<a style="display:block;" href="<?php echo $item->get_permalink(); ?>" title="<?php echo __('Read More', 'podium'); ?>" target="_blank">
+			<?php echo __('Read More', 'podium'); ?> >
 		</a>
-	</h4>
-	<p style="margin-top: 0.5em;">
-		<?php echo substr($item->get_description(), 0, 200); ?>
-	</p>
+		</p>
 	<?php }
 }
 
@@ -133,8 +136,15 @@ function tcb_display_post_thumbnail_column($col, $id){
  }
 }
 
+//allow svg upload in media
+function cc_mime_types($mimes) {
+ $mimes['svg'] = 'image/svg+xml';
+ return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // limit_excerpt
-// <?php echo wp_trim_words( get_the_content(), 15, '...' ); 
+// <?php echo wp_trim_words( get_the_content(), 15, '...' );
 
 
 

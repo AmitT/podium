@@ -4,6 +4,7 @@
   "author": "Winsite Dev Team",
   "homepage": "https://github.com/AmitT/podium/",
   "private": true,
+  "sasslintConfig": "sass-lint.yml",
   "repository": {
     "type": "git",
     "url": "git://github.com/AmitT/podium.git"

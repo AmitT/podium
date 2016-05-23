@@ -6,15 +6,7 @@
     "AmitT <amitprobable@gmail.com>"
   ],
   "dependencies": {
-    "modernizr": "",
     "foundation-sites": "",
-    "font-awesome": "",
-    "angular": "",
-    "angular-route": ""
-  },
-  "overrides": {
-    "modernizr": {
-      "main": "./modernizr.js"
-    }
+    "font-awesome": ""
   }
 }

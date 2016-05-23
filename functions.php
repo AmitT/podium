@@ -8,13 +8,13 @@
 // Set host name
 $host = $_SERVER['SERVER_NAME'];
 
-if($host === 'localhost'){
+if($host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.info'){
 	//set development ENV
 	define('WP_ENV', 'development'); // remove when you make the site live.
 } else {
 
 	// Disable updates on server UPDATE ONLY WITH GIT
-	require get_template_directory() . '/lib/disable-updates.php';
+	// require get_template_directory() . '/lib/disable-updates.php';
 	// Set production ENV
 	define('WP_ENV', 'production');
 }
@@ -71,6 +71,8 @@ $reqireFiles = [
 	'/lib/custom-fields.php',   // TODO -> make comment describing the functionality of the page
 	'/lib/custom-post-type.php', // TODO -> make comment describing the functionality of the page
 	'/lib/pagination.php', // More flexible pagination function
+	'/lib/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
+	'/lib/clean-filenames.php', // Custom functions to clean filenames from Unicode to ASCII
 
 	'/lib/config.php',          // get the settings for the wordpress theme.
 	// this file should be edited to meet the needs of the theme.
