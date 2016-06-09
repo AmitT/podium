@@ -119,7 +119,7 @@ function podium_register_required_plugins() {
 			'name'      => 'Wordpress Fastest Cache',
 			'slug' => 'wp-fastest-cache',
 			'required'  => true,
-			'force_activation' => true,
+			'force_activation' => false,
 		),
 		array(
 			'name'      => 'Wordpress Sitemap Page',
