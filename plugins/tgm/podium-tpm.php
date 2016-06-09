@@ -135,8 +135,8 @@ function podium_register_required_plugins() {
 			'force_activation' => true,
 		),
 		array(
-			'name'      => 'EWWW Image Optimizer',
-			'slug' => 'ewww-image-optimizer',
+			'name'      => 'Winsite Image Optimizer',
+			'slug' => 'winsite-image-optimizer',
 			'required'  => true,
 			'force_activation' => true,
 		),
