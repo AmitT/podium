@@ -101,6 +101,11 @@ function podium_register_required_plugins() {
 			'slug' => 'contact-form-7-to-database-extension',
 			'required'  => false,
 		),
+		array(
+			'name'      => 'Redirection',
+			'slug' => 'redirection',
+			'required'  => false,
+		),
 
 		// Required Plugins
 		array(
