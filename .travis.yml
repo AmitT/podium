@@ -12,10 +12,10 @@ php:
   - 7
   #- hhvm
 
-cache:
-  directories:
-    - bower_components
-    - node_modules
+#cache:
+#  directories:
+#    - bower_components
+#    - node_modules
 
 env:
     - WP_VERSION=latest WP_MULTISITE=0
