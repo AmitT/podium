@@ -17,6 +17,7 @@ env:
     - WP_VERSION=trunk WP_MULTISITE=1
 
 before_script:
+   - git submodule update --init --recursive
    - npm install -g npm@latest
    - npm install -g gulp
 
