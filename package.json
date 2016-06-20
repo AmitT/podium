@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "jshint": "~2.9.2",
-    "path": "~0.12.7",
     "gulp": "~3.9.1",
     "browser-sync": "~2.13.0",
     "gulp-sass": "~2.3.2",
