@@ -30,6 +30,9 @@ install:
     - npm install -g npm@latest
     - npm install -g bower gulp jscs
     - npm install
+    - bower install
+    - gulp
+    - gulp production
     - export DEV_LIB_PATH=dev-lib
     - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
     - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
