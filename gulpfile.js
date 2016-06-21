@@ -1,24 +1,24 @@
 'use strict';
 
-var gulp = require('gulp'),
-sass = require('gulp-sass'),
-autoprefixer = require('gulp-autoprefixer'),
-nano = require('gulp-cssnano'),
-jshint = require('gulp-jshint'),
-uglify = require('gulp-uglify'),
-imagemin = require('gulp-imagemin'),
-rename = require('gulp-rename'),
-concat = require('gulp-concat'),
-cache = require('gulp-cache'),
-sourcemaps = require('gulp-sourcemaps'),
-del = require('del'),
-notify = require('gulp-notify'),
-phpcs = require('gulp-phpcs'),
-scsslint = require('gulp-scss-lint'),
-browserSync = require('browser-sync').create();
+var gulp = require( 'gulp' ),
+sass = require( 'gulp-sass' ),
+autoprefixer = require( 'gulp-autoprefixer' ),
+nano = require( 'gulp-cssnano' ),
+jshint = require( 'gulp-jshint' ),
+uglify = require( 'gulp-uglify' ),
+imagemin = require( 'gulp-imagemin' ),
+rename = require( 'gulp-rename' ),
+concat = require( 'gulp-concat' ),
+cache = require( 'gulp-cache' ),
+sourcemaps = require( 'gulp-sourcemaps' ),
+del = require( 'del' ),
+notify = require( 'gulp-notify' ),
+phpcs = require( 'gulp-phpcs' ),
+scsslint = require( 'gulp-scss-lint' ),
+browserSync = require( 'browser-sync' ).create();
 
 
-require('es6-promise').polyfill();
+require( 'es6-promise' ).polyfill();
 
 gulp.task('styles', function() {
 
@@ -31,11 +31,11 @@ gulp.task('styles', function() {
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
 	.pipe(sass({errLogToConsole: true}))
-	.pipe(autoprefixer('last 3 version'))
+	.pipe(autoprefixer( 'last 3 version' ))
 	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('dist/styles'))
+	.pipe(gulp.dest( 'dist/styles' ))
 	.pipe(browserSync.stream())
-	.pipe(notify('SCSS files compiled'));			// Output to notification
+	.pipe(notify( 'SCSS files compiled' ));			// Output to notification
 });
 
 gulp.task('styles-min', function() {
@@ -49,7 +49,7 @@ gulp.task('styles-min', function() {
 	.pipe(rename({suffix: '.min'}))
 	.pipe(nano({discardComments: {removeAll: true}}))
 	.pipe(gulp.dest('dist/styles'))
-	.pipe(notify('SCSS files compiled and minified'));			// Output to notification
+	.pipe(notify( 'SCSS files compiled and minified' ));			// Output to notification
 });
 
 gulp.task('rtl-styles', function() {
@@ -67,11 +67,11 @@ gulp.task('rtl-styles', function() {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe(autoprefixer('last 3 version'))
+	.pipe(autoprefixer( 'last 3 version' ))
 	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('dist/styles'))
+	.pipe(gulp.dest( 'dist/styles' ))
 	.pipe(browserSync.stream())
-	.pipe(notify('RTL styles compiled'));
+	.pipe(notify( 'RTL styles compiled' ));
 });
 
 gulp.task('rtl-styles-min', function() {
@@ -87,7 +87,7 @@ gulp.task('rtl-styles-min', function() {
 	.pipe(nano({discardComments: {removeAll: true}}))
 	.pipe(gulp.dest('dist/styles'))
 	.pipe(browserSync.stream())
-	.pipe(notify('RTL styles compiled and minified'));
+	.pipe(notify( 'RTL styles compiled and minified' ));
 });
 
 // List all your JS files HERE
@@ -112,7 +112,7 @@ gulp.task('scripts', function() {
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('dist/scripts'))
 	.pipe(browserSync.stream())
-	.pipe(notify('Javascripts compiled'));			// Output to notification
+	.pipe(notify( 'Javascripts compiled' ));			// Output to notification
 });
 
 gulp.task('scripts-min', function() {
@@ -126,8 +126,8 @@ gulp.task('scripts-min', function() {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe(gulp.dest('dist/scripts'))
-	.pipe(notify('Javascripts compiled and minified'));			// Output to notification
+	.pipe(gulp.dest( 'dist/scripts' ))
+	.pipe(notify( 'Javascripts compiled and minified' ));			// Output to notification
 });
 
 var php_files = [
@@ -148,17 +148,17 @@ var img_files = [
 	'assets/images/**/*'
 ];
 
-gulp.task('images', function() {
+gulp.task( 'images', function() {
 	return gulp.src(img_files)
-	.pipe(gulp.dest('dist/images'))
+	.pipe(gulp.dest( 'dist/images' ))
 	.pipe(browserSync.stream());
 });
 
-gulp.task('images-min', function() {
+gulp.task( 'images-min', function() {
 
 	return gulp.src(img_files)
 	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
-	.pipe(gulp.dest('dist/images'));
+	.pipe(gulp.dest( 'dist/images' ));
 });
 
 var font_files = [
@@ -169,31 +169,31 @@ var font_files = [
 gulp.task('fonts', function() {
 
 	return gulp.src(font_files)
-	.pipe(gulp.dest('dist/fonts'))
+	.pipe(gulp.dest( 'dist/fonts' ))
 	.pipe(browserSync.stream());
 });
 
-gulp.task('fonts-min', function() {
+gulp.task( 'fonts-min', function() {
 
 	return gulp.src(font_files)
-	.pipe(gulp.dest('dist/fonts'));
+	.pipe(gulp.dest( 'dist/fonts' ));
 });
 
-gulp.task('clean', function(cb) {
+gulp.task( 'clean', function(cb) {
 	return del(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
 });
 
-gulp.task('default', ['clean'], function() {
-	gulp.start('rtl-styles', 'styles', 'scripts', 'php', 'images', 'fonts');
+gulp.task( 'default', ['clean'], function() {
+	gulp.start( 'rtl-styles', 'styles', 'scripts', 'php', 'images', 'fonts' );
 });
 
-gulp.task('production', ['clean'], function() {
-	gulp.start('styles-min', 'rtl-styles-min', 'scripts-min', 'images-min', 'fonts-min');
+gulp.task( 'production', ['clean'], function() {
+	gulp.start( 'styles-min', 'rtl-styles-min', 'scripts-min', 'images-min', 'fonts-min' );
 });
 
 gulp.task('watch', function() {
 	// run the styles task first time gulp watch is run
-	gulp.start('styles');
+	gulp.start( 'styles' );
 
 	browserSync.init({
 		files: ['{lib,directives}/**/*.php', '*.php'],
