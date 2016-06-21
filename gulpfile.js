@@ -12,7 +12,6 @@ concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
 notify = require( 'gulp-notify' ),
-/* phpcs = require( 'gulp-phpcs' ), */
 scsslint = require( 'gulp-scss-lint' ),
 browserSync = require( 'browser-sync' ).create();
 
@@ -26,7 +25,6 @@ gulp.task('styles', function() {
 		'assets/styles/main.scss'
 	];
 
-	/* return sass(scss_files, { style: 'expanded' }) */
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
 	.pipe(sass({errLogToConsole: true}))
@@ -58,7 +56,6 @@ gulp.task('rtl-styles', function() {
 		'assets/styles/rtl.scss'
 	];
 
-	/* return sass(scss_files, { style: 'expanded' }) */
 	gulp.src(scss_files)
 	.pipe(sourcemaps.init())
 	.pipe(scsslint())
@@ -133,7 +130,7 @@ var php_files = [
 	'**/*.php'
 ]
 
-gulp.task('php', function() {
+gulp.task( 'php', function() {
 	return gulp.src(php_files)
 	/* .pipe(phpcs({
 		standard: 'WordPress',
