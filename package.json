@@ -18,6 +18,11 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
+  "scripts": {
+    "build": "bower install",
+    "jshint": "gulp jshint",
+    "jscs": "jscs gulpfile.js assets/scripts/*.js"
+  },
   "devDependencies": {
     "jshint": "~2.9.2",
     "gulp": "~3.9.1",
