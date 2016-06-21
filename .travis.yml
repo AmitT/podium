@@ -43,7 +43,7 @@ script:
     - npm run build
     # - npm run jshint
     # - npm run jscs
-    - phpcs --standard=ruleset.xml --extensions=php -n -s .
+    # - phpcs --standard=ruleset.xml --extensions=php -n -s .
 
 after_script:
     - source $DEV_LIB_PATH/travis.after_script.sh
