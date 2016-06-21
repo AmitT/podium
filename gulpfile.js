@@ -13,6 +13,7 @@ sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
 notify = require( 'gulp-notify' ),
 scsslint = require( 'gulp-scss-lint' ),
+jscs = require( 'gulp-jscs' ),
 browserSync = require( 'browser-sync' ).create();
 
 
@@ -95,7 +96,8 @@ gulp.task('custom-scripts', function() {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-
+	.pipe(jscs())
+	.pipe(jscs.reporter())
 	.pipe(notify( 'Javascripts linted' ));			// Output to notification
 });
 
