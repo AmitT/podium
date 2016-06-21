@@ -35,11 +35,9 @@
     "gulp-imagemin": "~3.0.1",
     "gulp-rename": "~1.2.2",
     "gulp-concat": "~2.6.0",
-    "gulp-cache": "~0.4.5",
     "gulp-sourcemaps": "~1.6.0",
     "del": "~2.2.0",
     "gulp-notify": "~2.2.0",
-    "gulp-phpcs": "~1.1.1",
     "gulp-scss-lint": "~0.4.0",
     "es6-promise": "~3.2.1"
   }

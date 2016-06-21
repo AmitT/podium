@@ -9,11 +9,10 @@ uglify = require( 'gulp-uglify' ),
 imagemin = require( 'gulp-imagemin' ),
 rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
-cache = require( 'gulp-cache' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
 notify = require( 'gulp-notify' ),
-phpcs = require( 'gulp-phpcs' ),
+// phpcs = require( 'gulp-phpcs' ),
 scsslint = require( 'gulp-scss-lint' ),
 browserSync = require( 'browser-sync' ).create();
 
