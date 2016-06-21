@@ -86,6 +86,20 @@ gulp.task('rtl-styles-min', function() {
 	.pipe(notify( 'RTL styles compiled and minified' ));
 });
 
+
+gulp.task('custom-scripts', function() {
+
+	return gulp.src('assets/scripts/**/*.js')
+
+	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
+		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
+	}))
+
+	.pipe(notify( 'Javascripts linted' ));			// Output to notification
+});
+
+
 // List all your JS files HERE
 var js_files = [
 	'bower_components/jquery/dist/jquery.js',
@@ -99,10 +113,6 @@ gulp.task('scripts', function() {
 
 	return gulp.src(js_files)
 
-	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
-		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-	}))
 	.pipe(sourcemaps.init())
 	.pipe(concat('main.js'))
 	.pipe(sourcemaps.write())
@@ -114,10 +124,6 @@ gulp.task('scripts', function() {
 gulp.task('scripts-min', function() {
 	return gulp.src(js_files)
 	.pipe(concat('main.min.js'))
-	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
-		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-	}))
 	.pipe(uglify()).on("error", notify.onError(function (error) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -180,7 +186,7 @@ gulp.task( 'clean', function(cb) {
 });
 
 gulp.task( 'default', ['clean'], function() {
-	gulp.start( 'rtl-styles', 'styles', 'scripts', 'php', 'images', 'fonts' );
+	gulp.start( 'rtl-styles', 'styles', 'custom-scripts', 'scripts', 'php', 'images', 'fonts' );
 });
 
 gulp.task( 'production', ['clean'], function() {
