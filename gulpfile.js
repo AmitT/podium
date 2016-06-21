@@ -6,7 +6,7 @@ autoprefixer = require('gulp-autoprefixer'),
 nano = require('gulp-cssnano'),
 jshint = require('gulp-jshint'),
 uglify = require('gulp-uglify'),
-// imagemin = require('gulp-imagemin'),
+imagemin = require('gulp-imagemin'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 cache = require('gulp-cache'),
@@ -157,7 +157,7 @@ gulp.task('images', function() {
 gulp.task('images-min', function() {
 
 	return gulp.src(img_files)
-	// .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
 	.pipe(gulp.dest('dist/images'));
 });
 
