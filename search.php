@@ -5,6 +5,7 @@
 * @package podium
 */
 use Podium\Config\Settings as settings;
+
 $settings = new settings();
 
 get_header();
@@ -18,7 +19,7 @@ get_header();
 				<header class="page-header">
 					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'podium' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 					</header><!-- .page-header -->
-					
+
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
 

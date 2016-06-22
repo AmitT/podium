@@ -5,7 +5,8 @@
  * @package podium
  */
 use Podium\Config\Settings as settings;
-$settings = new settings(); 
+
+$settings = new settings();
 
 get_header();
 ?>
