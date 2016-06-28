@@ -209,6 +209,7 @@ gulp.task('watch', function() {
 	});
 	gulp.watch(['assets/styles/**/*'], ['rtl-styles' , 'styles']);
 	gulp.watch(['assets/scripts/**/*'], ['scripts']);
+	gulp.watch(['assets/scripts/**/*'], ['custom-scripts']);
 	gulp.watch(['assets/fonts/**/*'], ['fonts']);
 	gulp.watch(['assets/images/**/*'], ['images']);
 });
