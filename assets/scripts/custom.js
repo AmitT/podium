@@ -43,7 +43,7 @@ function loadMedia( media, onloadfn, scroll ) {
     var noscript, img, src, srcset, parent, i = 0,
 
     // Smallest data URI image possible for a transparent image
-    // @see http://stackoverflow.com/questions/6018611/smallest-data-uri-image-possible-for-a-transparent-image
+    // @see http://bit.ly/29fYDtR
     // @author layke
     tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
