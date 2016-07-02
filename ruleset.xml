@@ -17,16 +17,15 @@
     <!-- Disable PSR-2 indentation rules that are buggy with 2 spaces -->
     <exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakIndent"/>
     <exclude name="PSR2.Methods.FunctionCallSignature.Indent"/>
+
+    <!-- Allow spaces after & before bracket -->
+    <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+    <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+
+    <!-- Allow spaces indent -->
+    <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
   </rule>
-
-  <!-- Don't require a blank line after the last `use` in templates/ directory -->
-  <rule ref="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse">
-    <exclude-pattern>templates/*</exclude-pattern>
-  </rule>
-
-  <!-- Allow PHP closing tags on templates -->
-  <rule ref="PSR2.Files.ClosingTag.NotAllowed" />
-
+  
   <!-- Verify that operators have valid spacing surrounding them -->
   <rule ref="Squiz.WhiteSpace.OperatorSpacing"></rule>
 </ruleset>
