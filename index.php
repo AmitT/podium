@@ -19,7 +19,7 @@ get_header();
 <div id="content" class="site-content row">
 	<div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', ''); ?> columns">
 		<main id="main" class="site-main" role="main">
-			<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) { ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -41,11 +41,11 @@ get_header();
 					emm_paginate();
 				} ?>
 
-			<?php else : ?>
+			<?php } else { ?>
 
 				<?php get_template_part( 'directives/content', 'none' ); ?>
 
-			<?php endif; ?>
+			<?php } ?>
 
 		</main><!-- #main -->
 	</div>

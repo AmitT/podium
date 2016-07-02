@@ -14,7 +14,7 @@ get_header();
 	<section id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', 'medium-12'); ?> columns">
 		<main id="main" class="site-main" role="main">
 
-			<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) { ?>
 
 				<header class="page-header">
 					<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'podium' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
@@ -39,11 +39,11 @@ get_header();
 						emm_paginate();
 					} ?>
 
-				<?php else : ?>
+				<?php } else { ?>
 
 					<?php get_template_part( 'directives/content', 'none' ); ?>
 
-				<?php endif; ?>
+				<?php } ?>
 
 			</main><!-- #main -->
 		</section><!-- #primary -->

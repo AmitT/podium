@@ -16,7 +16,7 @@ get_header();
 	<div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', 'medium-12'); ?> columns">
 		<main id="main" class="site-main" role="main">
 
-			<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) { ?>
 
 				<header class="page-header">
 					<?php
@@ -45,11 +45,11 @@ get_header();
 					emm_paginate();
 				} ?>
 
-			<?php else : ?>
+			<?php } else { ?>
 
 				<?php get_template_part( 'directives/content', 'none' ); ?>
 
-			<?php endif; ?>
+			<?php } ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
