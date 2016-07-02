@@ -1,4 +1,5 @@
 <?php
+
 // Numeric Page Navi (built into the theme by default)
 function podium_page_navi($before = '', $after = '') {
 	global $wpdb, $wp_query;
@@ -54,5 +55,3 @@ function podium_page_navi($before = '', $after = '') {
 	}
 	echo '</ul></nav>'.$after."";
 } /* End page navi */
-
-?>

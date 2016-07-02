@@ -76,4 +76,3 @@ function podium_main_nav_fallback() {
 function joints_footer_links_fallback() {
 	/* You can put a default here if you like */
 }
-?>

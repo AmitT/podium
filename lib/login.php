@@ -10,4 +10,3 @@ function podium_login_title() { return get_option('blogname'); }
 add_action( 'login_enqueue_scripts', 'podium_login_css', 10 );
 add_filter('login_headerurl', 'podium_login_url');
 add_filter('login_headertitle', 'podium_login_title');
-?>

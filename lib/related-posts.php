@@ -1,4 +1,5 @@
 <?php
+
 // Related Posts Function, matches posts by tags - call using podium_related_posts(); )
 function podium_related_posts() {
 	global $post;

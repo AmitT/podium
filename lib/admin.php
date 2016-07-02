@@ -49,106 +49,101 @@ function podium_rss_dashboard_widget() {
 		<p style="margin-top: 0.5em;">
 			<?php echo strip_tags(wp_trim_words( $item->get_description(), 40, '...' )); ?>
 			<a style="display:block;" href="<?php echo $item->get_permalink(); ?>" title="<?php echo __('Read More', 'podium'); ?>" target="_blank">
-			<?php echo __('Read More', 'podium'); ?> >
-		</a>
+				<?php echo __('Read More', 'podium'); ?> >
+			</a>
 		</p>
-	<?php }
-}
+		<?php }
+	}
 
-// Calling all custom dashboard widgets
-function podium_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('podium_rss_dashboard_widget', __('Recently on Winsite', 'podiumtheme'), 'podium_rss_dashboard_widget');
-	/*
-	Be sure to drop any other created Dashboard Widgets
-	in this function and they will all load.
-	*/
-}
-// removing the dashboard widgets
-add_action('admin_menu', 'disable_default_dashboard_widgets');
-// adding any custom widgets
-add_action('wp_dashboard_setup', 'podium_custom_dashboard_widgets');
+	// Calling all custom dashboard widgets
+	function podium_custom_dashboard_widgets() {
+		wp_add_dashboard_widget('podium_rss_dashboard_widget', __('Recently on Winsite', 'podiumtheme'), 'podium_rss_dashboard_widget');
 
-/************* CUSTOMIZE ADMIN *******************/
-// Custom Backend Footer
-function podium_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium');
-}
+		/*
+		Be sure to drop any other created Dashboard Widgets
+		in this function and they will all load.
+		*/
+	}
 
-// adding it to the admin area
-add_filter('admin_footer_text', 'podium_custom_admin_footer');
+	// removing the dashboard widgets
+	add_action('admin_menu', 'disable_default_dashboard_widgets');
 
+	// adding any custom widgets
+	add_action('wp_dashboard_setup', 'podium_custom_dashboard_widgets');
 
-// get the the role object
-$role_object = get_role( 'editor' );
+	/************* CUSTOMIZE ADMIN *******************/
+	// Custom Backend Footer
+	function podium_custom_admin_footer() {
+		_e('<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium');
+	}
 
-// add $cap capability to this role object
-$role_object->add_cap( 'edit_theme_options' );
+	// adding it to the admin area
+	add_filter('admin_footer_text', 'podium_custom_admin_footer');
 
-// Custom logo
-function custom_login_logo() {
-    echo '<style type="text/css">
-    h1 a {
-       display:block; important;
-       background-image: url('.get_bloginfo('template_directory').'/dist/images/logo.png) !important;
-       width:213px!important;
-       height:70px!important;
-       background-size: 213px 70px!important;
-     }
-    </style>';
-}
-add_action('login_head', 'custom_login_logo');
+	// get the the role object
+	$role_object = get_role( 'editor' );
 
-// clean
-// remove_action('wp_head', 'wp_generator');
-// remove_action( 'wp_head', 'rsd_link' );
-// remove_action( 'wp_head', 'wlwmanifest_link' );
-// remove_action( 'wp_head', 'start_post_rel_link' );
-// remove_action( 'wp_head', 'index_rel_link' );
-// remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-// remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+	// add $cap capability to this role object
+	$role_object->add_cap( 'edit_theme_options' );
 
-function disable_feed_generator() {
-   return '';
-}
-add_filter('the_generator','disable_feed_generator');
+	// Custom logo
+	function custom_login_logo() {
+		echo '<style type="text/css">
+		h1 a {
+			display:block; important;
+			background-image: url('.get_bloginfo('template_directory').'/dist/images/logo.png) !important;
+			width:213px!important;
+			height:70px!important;
+			background-size: 213px 70px!important;
+		}
+		</style>';
+	}
+	add_action('login_head', 'custom_login_logo');
 
-//ADD featured image thumbnail to WordPress admin columns
+	// clean
+	// remove_action('wp_head', 'wp_generator');
+	// remove_action( 'wp_head', 'rsd_link' );
+	// remove_action( 'wp_head', 'wlwmanifest_link' );
+	// remove_action( 'wp_head', 'start_post_rel_link' );
+	// remove_action( 'wp_head', 'index_rel_link' );
+	// remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+	// remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
-add_filter('manage_posts_columns', 'tcb_add_post_thumbnail_column', 5);
-add_filter('manage_pages_columns', 'tcb_add_post_thumbnail_column', 5);
+	function disable_feed_generator() {
+		return '';
+	}
+	add_filter('the_generator','disable_feed_generator');
 
-function tcb_add_post_thumbnail_column($cols){
- $cols['tcb_post_thumb'] = __('Main image');
- return $cols;
-}
+	//ADD featured image thumbnail to WordPress admin columns
 
-add_action('manage_posts_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
-add_action('manage_pages_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
+	add_filter('manage_posts_columns', 'tcb_add_post_thumbnail_column', 5);
+	add_filter('manage_pages_columns', 'tcb_add_post_thumbnail_column', 5);
 
-function tcb_display_post_thumbnail_column($col, $id){
- switch($col){
-   case 'tcb_post_thumb':
-     if( function_exists('the_post_thumbnail') )
-       echo the_post_thumbnail( 'thumbnail' );
-     else
-       echo 'Not supported in theme';
-     break;
- }
-}
+	function tcb_add_post_thumbnail_column($cols){
+		$cols['tcb_post_thumb'] = __('Main image');
+		return $cols;
+	}
 
-//allow svg upload in media
-function cc_mime_types($mimes) {
- $mimes['svg'] = 'image/svg+xml';
- return $mimes;
-}
-add_filter('upload_mimes', 'cc_mime_types');
+	add_action('manage_posts_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
+	add_action('manage_pages_custom_column', 'tcb_display_post_thumbnail_column', 5, 2);
 
-// limit_excerpt
-// <?php echo wp_trim_words( get_the_content(), 15, '...' );
+	function tcb_display_post_thumbnail_column($col, $id){
+		switch($col){
+			case 'tcb_post_thumb':
+			if( function_exists('the_post_thumbnail') )
+			echo the_post_thumbnail( 'thumbnail' );
+			else
+			echo 'Not supported in theme';
+			break;
+		}
+	}
 
+	//allow svg upload in media
+	function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+	add_filter('upload_mimes', 'cc_mime_types');
 
-
-
-
-
-?>
+	// limit_excerpt
+	// <?php echo wp_trim_words( get_the_content(), 15, '...' );

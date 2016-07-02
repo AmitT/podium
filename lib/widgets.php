@@ -1,11 +1,11 @@
 <?php
 /**
- * 
- *
- * This file is centrally included from `wp-content/mu-plugins/wpcom-theme-compat.php`.
- *
- * @package podium
- */
+*
+*
+* This file is centrally included from `wp-content/mu-plugins/wpcom-theme-compat.php`.
+*
+* @package podium
+*/
 
 function podium_widgets_init() {
 	register_sidebar( array(
@@ -16,6 +16,6 @@ function podium_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-		));
+	));
 }
 add_action( 'widgets_init', 'podium_widgets_init' );

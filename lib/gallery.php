@@ -63,7 +63,7 @@ function my_post_gallery($output, $attr) {
     $output .= "<div class=\"column end\">\n";
     // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
     $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
-      $output .= '<noscript><img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" /></noscript>';
+    $output .= '<noscript><img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" /></noscript>';
     $output .= '</a>';
     $output .= "</div>\n";
     ?>
@@ -78,7 +78,6 @@ function my_post_gallery($output, $attr) {
   }
 
   $output .= "</div>\n";
-
 
   return $output;
 }

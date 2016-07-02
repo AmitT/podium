@@ -1,10 +1,10 @@
 <?php
 /**
- * The main plugin file
- *
- * @package podium
- *
- */
+* The main plugin file
+*
+* @package podium
+*
+*/
 
 /*
 Plugin Name: Disable All WordPress Updates
@@ -35,32 +35,32 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 /**
- * Define the plugin version
- */
+* Define the plugin version
+*/
 define("OSDWPUVERSION", "1.4.7");
 
 
 /**
- * The OS_Disable_WordPress_Updates class
- *
- * @package 	WordPress_Plugins
- * @subpackage 	OS_Disable_WordPress_Updates
- * @since 		1.3
- * @author 		scripts@schloebe.de
- */
+* The OS_Disable_WordPress_Updates class
+*
+* @package 	WordPress_Plugins
+* @subpackage 	OS_Disable_WordPress_Updates
+* @since 		1.3
+* @author 		scripts@schloebe.de
+*/
 class OS_Disable_WordPress_Updates {
 	private $__pluginsFiles;
 	private $__themeFiles;
 
 	/**
-	 * The OS_Disable_WordPress_Updates class constructor
-	 * initializing required stuff for the plugin
-	 *
-	 * PHP 5 Constructor
-	 *
-	 * @since 		1.3
-	 * @author 		scripts@schloebe.de
-	 */
+	* The OS_Disable_WordPress_Updates class constructor
+	* initializing required stuff for the plugin
+	*
+	* PHP 5 Constructor
+	*
+	* @since 		1.3
+	* @author 		scripts@schloebe.de
+	*/
 	function __construct() {
 		$this->__pluginsFiles = array();
 		$this->__themeFiles = array();
@@ -73,44 +73,44 @@ class OS_Disable_WordPress_Updates {
 		if( count( wp_get_themes() ) > 0 ) foreach( wp_get_themes() as $theme ) $this->__themeFiles[$theme->get_stylesheet()] = $theme->get('Version');
 
 		/*
-		 * Disable Theme Updates
-		 * 2.8 to 3.0
-		 */
+		* Disable Theme Updates
+		* 2.8 to 3.0
+		*/
 		add_filter( 'pre_transient_update_themes', array($this, 'last_checked_themes') );
+
 		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		add_filter( 'pre_site_transient_update_themes', array($this, 'last_checked_themes') );
 
+		/*
+		* Disable Plugin Updates
+		* 2.8 to 3.0
+		*/
+		add_action( 'pre_transient_update_plugins', array(&$this, 'last_checked_plugins') );
 
 		/*
-		 * Disable Plugin Updates
-		 * 2.8 to 3.0
-		 */
-		add_action( 'pre_transient_update_plugins', array(&$this, 'last_checked_plugins') );
-		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		add_filter( 'pre_site_transient_update_plugins', array($this, 'last_checked_plugins') );
 
+		/*
+		* Disable Core Updates
+		* 2.8 to 3.0
+		*/
+		add_filter( 'pre_transient_update_core', array($this, 'last_checked_core') );
 
 		/*
-		 * Disable Core Updates
-		 * 2.8 to 3.0
-		 */
-		add_filter( 'pre_transient_update_core', array($this, 'last_checked_core') );
-		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		add_filter( 'pre_site_transient_update_core', array($this, 'last_checked_core') );
 
-
 		/*
-		 * Disable All Automatic Updates
-		 * 3.7+
-		 *
-		 * @author	sLa NGjI's @ slangji.wordpress.com
-		 */
+		* Disable All Automatic Updates
+		* 3.7+
+		*
+		* @author	sLa NGjI's @ slangji.wordpress.com
+		*/
 		add_filter( 'auto_update_translation', '__return_false' );
 		add_filter( 'automatic_updater_disabled', '__return_true' );
 		add_filter( 'allow_minor_auto_core_updates', '__return_false' );
@@ -135,60 +135,55 @@ class OS_Disable_WordPress_Updates {
 
 
 	/**
-	 * The OS_Disable_WordPress_Updates class constructor
-	 * initializing required stuff for the plugin
-	 *
-	 * PHP 4 Compatible Constructor
-	 *
-	 * @since 		1.3
-	 * @author 		scripts@schloebe.de
-	 */
+	* The OS_Disable_WordPress_Updates class constructor
+	* initializing required stuff for the plugin
+	*
+	* PHP 4 Compatible Constructor
+	*
+	* @since 		1.3
+	* @author 		scripts@schloebe.de
+	*/
 	function OS_Disable_WordPress_Updates() {
 		$this->__construct();
 	}
 
-
 	/**
-	 * Initialize and load the plugin stuff
-	 *
-	 * @since 		1.3
-	 * @author 		scripts@schloebe.de
-	 */
+	* Initialize and load the plugin stuff
+	*
+	* @since 		1.3
+	* @author 		scripts@schloebe.de
+	*/
 	function admin_init() {
 		if ( !function_exists("remove_action") ) return;
 
-
 		/*
-		 * Hide maintenance and update nag
-		 */
+		* Hide maintenance and update nag
+		*/
 		remove_action( 'admin_notices', 'update_nag', 3 );
 		remove_action( 'network_admin_notices', 'update_nag', 3 );
 		remove_action( 'admin_notices', 'maintenance_nag' );
 		remove_action( 'network_admin_notices', 'maintenance_nag' );
 
-
 		/*
-		 * Disable Theme Updates
-		 * 2.8 to 3.0
-		 */
+		* Disable Theme Updates
+		* 2.8 to 3.0
+		*/
 		remove_action( 'load-themes.php', 'wp_update_themes' );
 		remove_action( 'load-update.php', 'wp_update_themes' );
 		remove_action( 'admin_init', '_maybe_update_themes' );
 		remove_action( 'wp_update_themes', 'wp_update_themes' );
 		wp_clear_scheduled_hook( 'wp_update_themes' );
 
-
 		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		remove_action( 'load-update-core.php', 'wp_update_themes' );
 		wp_clear_scheduled_hook( 'wp_update_themes' );
 
-
 		/*
-		 * Disable Plugin Updates
-		 * 2.8 to 3.0
-		 */
+		* Disable Plugin Updates
+		* 2.8 to 3.0
+		*/
 		remove_action( 'load-plugins.php', 'wp_update_plugins' );
 		remove_action( 'load-update.php', 'wp_update_plugins' );
 		remove_action( 'admin_init', '_maybe_update_plugins' );
@@ -196,16 +191,16 @@ class OS_Disable_WordPress_Updates {
 		wp_clear_scheduled_hook( 'wp_update_plugins' );
 
 		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		remove_action( 'load-update-core.php', 'wp_update_plugins' );
 		wp_clear_scheduled_hook( 'wp_update_plugins' );
 
 
 		/*
-		 * Disable Core Updates
-		 * 2.8 to 3.0
-		 */
+		* Disable Core Updates
+		* 2.8 to 3.0
+		*/
 		add_action( 'init', create_function( '', 'remove_action( \'init\', \'wp_version_check\' );' ), 2 );
 		add_filter( 'pre_option_update_core', '__return_null' );
 
@@ -213,31 +208,27 @@ class OS_Disable_WordPress_Updates {
 		remove_action( 'admin_init', '_maybe_update_core' );
 		wp_clear_scheduled_hook( 'wp_version_check' );
 
-
 		/*
-		 * 3.0
-		 */
+		* 3.0
+		*/
 		wp_clear_scheduled_hook( 'wp_version_check' );
 
-
 		/*
-		 * 3.7+
-		 */
+		* 3.7+
+		*/
 		remove_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
 		remove_action( 'admin_init', 'wp_maybe_auto_update' );
 		remove_action( 'admin_init', 'wp_auto_update_core' );
 		wp_clear_scheduled_hook( 'wp_maybe_auto_update' );
 	}
 
-
-
-
 	/**
-	 * Check the outgoing request
-	 *
-	 * @since 		1.4.4
-	 */
+	* Check the outgoing request
+	*
+	* @since 		1.4.4
+	*/
 	public function block_request($pre, $args, $url) {
+
 		/* Empty url */
 		if( empty( $url ) ) {
 			return $pre;
@@ -258,12 +249,11 @@ class OS_Disable_WordPress_Updates {
 		return $pre;
 	}
 
-
 	/**
-	 * Override core version check info
-	 *
-	 * @since 		1.4.3
-	 */
+	* Override core version check info
+	*
+	* @since 		1.4.3
+	*/
 	public function last_checked_core() {
 		global $wp_version;
 
@@ -275,10 +265,10 @@ class OS_Disable_WordPress_Updates {
 	}
 
 	/**
-	 * Override themes version check info
-	 *
-	 * @since 		1.4.3
-	 */
+	* Override themes version check info
+	*
+	* @since 		1.4.3
+	*/
 	public function last_checked_themes() {
 		global $wp_version;
 
@@ -291,10 +281,10 @@ class OS_Disable_WordPress_Updates {
 	}
 
 	/**
-	 * Override plugins version check info
-	 *
-	 * @since 		1.4.3
-	 */
+	* Override plugins version check info
+	*
+	* @since 		1.4.3
+	*/
 	public function last_checked_plugins() {
 		global $wp_version;
 
@@ -310,4 +300,3 @@ class OS_Disable_WordPress_Updates {
 if ( class_exists('OS_Disable_WordPress_Updates') ) {
 	$OS_Disable_WordPress_Updates = new OS_Disable_WordPress_Updates();
 }
-?>
