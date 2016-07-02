@@ -41,17 +41,17 @@ get_header();
 					emm_paginate();
 				} ?>
 
-			<?php } else { ?>
+				<?php } else { ?>
 
-				<?php get_template_part( 'directives/content', 'none' ); ?>
+					<?php get_template_part( 'directives/content', 'none' ); ?>
 
-			<?php } ?>
+					<?php } ?>
 
-		</main><!-- #main -->
-	</div>
-	<?php if( $settings->displaySidebar() ){ // has sidebar ?>
-		<?php get_template_part( 'directives/sidebar', 'page' ); ?>
-		<?php } ?>
-	</div><!-- #content -->
+				</main><!-- #main -->
+			</div>
+			<?php if( $settings->displaySidebar() ){ // has sidebar ?>
+				<?php get_template_part( 'directives/sidebar', 'page' ); ?>
+				<?php } ?>
+			</div><!-- #content -->
 
-	<?php get_footer(); ?>
+			<?php get_footer(); ?>
