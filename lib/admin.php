@@ -38,21 +38,24 @@ function podium_rss_dashboard_widget() {
 		$limit = $feed->get_item_quantity( 2 );                      // specify number of items
 		$items = $feed->get_items( 0, $limit );                      // create an array of items
 	}
-	if ( $limit == 0 ) echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
-	else foreach ( $items as $item ) { ?>
-
-		<h4 style="margin-bottom: 0;">
-			<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'podium' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
-				<?php echo $item->get_title(); ?>
-			</a>
-		</h4>
-		<p style="margin-top: 0.5em;">
-			<?php echo strip_tags( wp_trim_words( $item->get_description(), 40, '...' ) ); ?>
-			<a style="display:block;" href="<?php echo $item->get_permalink(); ?>" title="<?php echo __( 'Read More', 'podium' ); ?>" target="_blank">
-				<?php echo __( 'Read More', 'podium' ); ?> >
-			</a>
-		</p>
-		<?php
+	if ( $limit == 0 ) {
+		echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
+	}
+	else {
+		foreach ( $items as $item ) { ?>
+			<h4 style="margin-bottom: 0;">
+				<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'podium' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">
+					<?php echo $item->get_title(); ?>
+				</a>
+			</h4>
+			<p style="margin-top: 0.5em;">
+				<?php echo strip_tags( wp_trim_words( $item->get_description(), 40, '...' ) ); ?>
+				<a style="display:block;" href="<?php echo $item->get_permalink(); ?>" title="<?php echo __( 'Read More', 'podium' ); ?>" target="_blank">
+					<?php echo __( 'Read More', 'podium' ); ?> >
+				</a>
+			</p>
+			<?php
+		}
 	}
 }
 

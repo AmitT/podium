@@ -26,10 +26,14 @@
     <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
     <exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
 
+    <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceAfterOpen"/>
+    <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceBeforeClose"/>
+
 
     <!-- Allow spaces indent -->
     <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
 
+    <exclude-pattern>dev-lib/*</exclude-pattern>
   </rule>
 
   <!-- Verify that operators have valid spacing surrounding them -->

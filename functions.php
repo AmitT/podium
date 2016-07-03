@@ -6,43 +6,43 @@
 */
 
 // Set host name
-$host = $_SERVER['SERVER_NAME'];
+$host = $_SERVER[ 'SERVER_NAME' ];
 
-if($host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.info'){
+if ( $host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.info' ) {
 	//set development ENV
-	define('WP_ENV', 'development'); // remove when you make the site live.
+	define( 'WP_ENV', 'development' ); // remove when you make the site live.
 } else {
 
 	// Disable updates on server UPDATE ONLY WITH GIT
 	// require get_template_directory() . '/lib/disable-updates.php';
 	// Set production ENV
-	define('WP_ENV', 'production');
+	define( 'WP_ENV', 'production' );
 }
 
-if (!defined('WP_ENV')) {
+if ( !defined( 'WP_ENV' ) ) {
 	// Fallback if WP_ENV isn't defined in your WordPress config
 	// Used to check for 'development' or 'production'
-	define('WP_ENV', 'production');
+	define( 'WP_ENV', 'production' );
 }
 
 // TODO move to seperate files
 function podium_scripts() {
-	if( is_rtl() ) {
+	if ( is_rtl() ) {
 		// Load RTL Styles
-		if ( WP_ENV !== 'development' ){
+		if ( WP_ENV !== 'development' ) {
 			wp_enqueue_style( 'podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css' );
 		} else {
 			wp_enqueue_style( 'podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.css' );
 		}
 	} else {
 		// Load LTR Styles
-		if ( WP_ENV !== 'development' ){
+		if ( WP_ENV !== 'development' ) {
 			wp_enqueue_style( 'podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css' );
 		} else {
 			wp_enqueue_style( 'podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css' );
 		}
 	}
-	if ( WP_ENV !== 'development' ){
+	if ( WP_ENV !== 'development' ) {
 		wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', array(), '20120206', true );
 	} else {
 		wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array(), '20120206', true );
@@ -84,7 +84,7 @@ $reqireFiles = [
 ];
 
 // require all the files in the $reqireFiles array
-foreach ( $reqireFiles as $file ){
+foreach ( $reqireFiles as $file ) {
 	require get_template_directory() . $file;
 }
 
@@ -94,6 +94,6 @@ $includeFiles = [
 ];
 
 // include all the files in the $reqireFiles array
-foreach ( $includeFiles as $file ){
+foreach ( $includeFiles as $file ) {
 	@include get_template_directory() . $file;
 }

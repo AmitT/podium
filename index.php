@@ -46,7 +46,7 @@ get_header();
 
 				</main><!-- #main -->
 			</div>
-			<?php if( $settings->displaySidebar() ) { // has sidebar ?>
+			<?php if ( $settings->displaySidebar() ) { // has sidebar ?>
 				<?php get_template_part( 'directives/sidebar', 'page' ); ?>
 				<?php } ?>
 			</div><!-- #content -->

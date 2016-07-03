@@ -26,8 +26,9 @@ get_header();
 				</header><!-- .page-header -->
 
 				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) {
-					 the_post();
+				<?php
+				while ( have_posts() ) {
+					the_post();
 
 					/*
 					* Include the Post-Format-specific template for the content.
@@ -38,7 +39,8 @@ get_header();
 				} // End while
 				?>
 
-				<?php if ( function_exists( 'emm_paginate' ) ) {
+				<?php
+				if ( function_exists( 'emm_paginate' ) ) {
 					emm_paginate();
 				} ?>
 
