@@ -40,7 +40,7 @@ function get_thumb_url($post, $size = 'full'){
 function winsite_wpcf7_special_mail_tag( $output, $name, $html ) {
 	$submission = WPCF7_Submission::get_instance();
 
-	if ( ! $submission ) {
+	if ( !$submission ) {
 		return $output;
 	}
 

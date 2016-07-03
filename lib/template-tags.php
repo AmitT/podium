@@ -105,6 +105,7 @@ if ( !function_exists( 'the_posts_navigation' ) ) {
 }
 
 if ( !function_exists( 'podium_entry_footer' ) ) {
+
 	/**
 	* Prints HTML with meta information for the categories, tags and comments.
 	*/
@@ -286,7 +287,7 @@ function post_end_class(){
 	// returns .end to the last post
 	// add in category content page if you have more then one post in row
 
-	if ($wp_query->current_post +1 == $wp_query->post_count) {
+	if ( $wp_query->current_post +1 == $wp_query->post_count ) {
 		$end = ' end';
 	} else{
 		$end = '';

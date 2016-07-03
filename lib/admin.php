@@ -34,7 +34,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 function podium_rss_dashboard_widget() {
 	if ( function_exists( 'fetch_feed' ) ) {
 		include_once( ABSPATH . WPINC . '/feed.php' );               // include the required file
-		$feed = fetch_feed( 'http://www.win-site.co.il/feed/' );        // specify the source feed
+		$feed = fetch_feed( 'http://www.win-site.co.il/feed/' );     // specify the source feed
 		$limit = $feed->get_item_quantity( 2 );                      // specify number of items
 		$items = $feed->get_items( 0, $limit );                      // create an array of items
 	}

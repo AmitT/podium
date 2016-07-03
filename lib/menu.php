@@ -9,7 +9,7 @@ array(
 
 // The Top Menu
 function podium_top_nav() {
-	wp_nav_menu(array(
+	wp_nav_menu( array(
 		'container' => false,                           // Remove nav container
 		'container_class' => '',                        // Class of container
 		'menu' => 'The Top Menu', 'podium',                                   // Menu name
