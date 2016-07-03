@@ -22,9 +22,8 @@ get_header();
 			<?php if ( have_posts() ) { ?>
 
 				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
+				<?php while ( have_posts() ) {
+					 the_post();
 
 					/*
 					* Include the Post-Format-specific template for the content.
@@ -32,12 +31,10 @@ get_header();
 					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					*/
 					get_template_part( 'directives/content', get_post_format() );
-					?>
+				}
+				?>
 
-				<?php endwhile; ?>
-
-				<?php //the_posts_navigation(); ?>
-				<?php if (function_exists("emm_paginate")) {
+				<?php if ( function_exists( "emm_paginate" ) ) {
 					emm_paginate();
 				} ?>
 
@@ -49,7 +46,7 @@ get_header();
 
 				</main><!-- #main -->
 			</div>
-			<?php if( $settings->displaySidebar() ){ // has sidebar ?>
+			<?php if( $settings->displaySidebar() ) { // has sidebar ?>
 				<?php get_template_part( 'directives/sidebar', 'page' ); ?>
 				<?php } ?>
 			</div><!-- #content -->
