@@ -22,10 +22,15 @@
     <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
     <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
 
+    <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket"/>
+    <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+
+
     <!-- Allow spaces indent -->
     <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+
   </rule>
-  
+
   <!-- Verify that operators have valid spacing surrounding them -->
   <rule ref="Squiz.WhiteSpace.OperatorSpacing"></rule>
 </ruleset>
