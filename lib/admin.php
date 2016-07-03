@@ -5,17 +5,17 @@
 // Disable default dashboard widgets
 function disable_default_dashboard_widgets() {
 	// Remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' ); // Comments Widget
+	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
+	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
 
-	Remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+	Remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
+	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
+	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
 
 	// Removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	remove_meta_box( 'yoast_db_widget', 'dashboard', 'normal' );         // Yoast's SEO Plugin Widget
 
 }
 
@@ -32,7 +32,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 
 // RSS Dashboard Widget
 function podium_rss_dashboard_widget() {
-	if(function_exists( 'fetch_feed' )) {
+	if ( function_exists( 'fetch_feed' ) ) {
 		include_once( ABSPATH . WPINC . '/feed.php' );               // include the required file
 		$feed = fetch_feed( 'http://www.win-site.co.il/feed/' );        // specify the source feed
 		$limit = $feed->get_item_quantity( 2 );                      // specify number of items
@@ -75,7 +75,7 @@ add_action( 'wp_dashboard_setup', 'podium_custom_dashboard_widgets' );
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
 function podium_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium');
+	_e( '<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium' );
 }
 
 // adding it to the admin area
@@ -102,13 +102,13 @@ function custom_login_logo() {
 add_action( 'login_head', 'custom_login_logo' );
 
 // clean
-// remove_action('wp_head', 'wp_generator');
-// remove_action( 'wp_head', 'rsd_link' );
-// remove_action( 'wp_head', 'wlwmanifest_link' );
-// remove_action( 'wp_head', 'start_post_rel_link' );
-// remove_action( 'wp_head', 'index_rel_link' );
-// remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-// remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+remove_action('wp_head', 'wp_generator');
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'start_post_rel_link' );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 
 function disable_feed_generator() {
 	return '';
@@ -139,7 +139,7 @@ function tcb_display_post_thumbnail_column( $col, $id ){
 	}
 }
 
-//allow svg upload in media
+// Allow svg upload in media
 function cc_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
