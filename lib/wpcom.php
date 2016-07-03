@@ -16,7 +16,7 @@ function podium_wpcom_setup() {
 	global $themecolors;
 
 	// Set theme colors for third party services.
-	if ( !isset( $themecolors ) ) {
+	if ( ! isset( $themecolors ) ) {
 		$themecolors = array(
 			'bg'     => '',
 			'border' => '',
