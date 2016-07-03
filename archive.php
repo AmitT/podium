@@ -38,7 +38,7 @@ get_header();
 				} // End while
 				?>
 
-				<?php if ( function_exists( "emm_paginate" ) ) {
+				<?php if ( function_exists( 'emm_paginate' ) ) {
 					emm_paginate();
 				} ?>
 

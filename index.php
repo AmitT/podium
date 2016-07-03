@@ -34,7 +34,7 @@ get_header();
 				}
 				?>
 
-				<?php if ( function_exists( "emm_paginate" ) ) {
+				<?php if ( function_exists( 'emm_paginate' ) ) {
 					emm_paginate();
 				} ?>
 
