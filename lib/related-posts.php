@@ -4,17 +4,17 @@
 function podium_related_posts() {
 	global $post;
 	$tags = wp_get_post_tags( $post->ID );
-	if($tags) {
+	if( $tags ) {
 		foreach( $tags as $tag ) {
 			$tag_arr .= $tag->slug . ',';
 		}
 		$args = array(
 			'tag' => $tag_arr,
 			'numberposts' => 3, /* you can change this to show more */
-			'post__not_in' => array($post->ID)
+			'post__not_in' => array( $post->ID )
 		);
 		$related_posts = get_posts( $args );
-		if($related_posts) {
+		if( $related_posts ) {
 		echo '<h4>Related Posts</h4>';
 		echo '<ul id="podium-related-posts">';
 			foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>

@@ -33,7 +33,7 @@ class PodiumCleanImageFilenames {
 	*/
 
 	function __construct() {
-		add_action('wp_handle_upload_prefilter', array($this, 'upload_filter'));
+		add_action( 'wp_handle_upload_prefilter', array($this, 'upload_filter' ));
 	}
 
 
@@ -53,24 +53,24 @@ class PodiumCleanImageFilenames {
 	* @param array The file information including the filename in $file['name'].
 	* @return array The file information with the cleaned or original filename.
 	*/
-	function upload_filter($file) {
+	function upload_filter( $file ) {
 
 		$mime_types_setting = 'all';
 		$default_mime_types = $this->plugin_settings['default_mime_types'];
-		$valid_mime_types = apply_filters('clean_image_filenames_mime_types', $default_mime_types);
+		$valid_mime_types = apply_filters( 'clean_image_filenames_mime_types', $default_mime_types );
 
 		if ($valid_mime_types !== $default_mime_types) {
 
-			if (in_array($file['type'], $valid_mime_types)) {
-				$file = $this->clean_filename($file);
+			if ( in_array( $file['type'], $valid_mime_types ) ) {
+				$file = $this->clean_filename( $file );
 			}
 
 		} else {
 
-			if ('all' == $mime_types_setting) {
-				$file = $this->clean_filename($file);
-			} elseif ('images' == $mime_types_setting && in_array($file['type'], $default_mime_types)) {
-				$file = $this->clean_filename($file);
+			if ( 'all' == $mime_types_setting ) {
+				$file = $this->clean_filename( $file );
+			} elseif ( 'images' == $mime_types_setting && in_array( $file['type'], $default_mime_types ) ) {
+				$file = $this->clean_filename( $file );
 			}
 		}
 
@@ -90,11 +90,11 @@ class PodiumCleanImageFilenames {
 	* @param array File details including the filename in $file['name'].
 	* @return array The $file array with cleaned filename.
 	*/
-	function clean_filename($file) {
+	function clean_filename( $file ) {
 
-		$path = pathinfo($file['name']);
-		$new_filename = preg_replace('/.' . $path['extension'] . '$/', '', $file['name']);
-		$file['name'] = sanitize_title($new_filename) . '.' . $path['extension'];
+		$path = pathinfo( $file['name'] );
+		$new_filename = preg_replace( '/.' . $path['extension'] . '$/', '', $file['name'] );
+		$file['name'] = sanitize_title( $new_filename ) . '.' . $path['extension'];
 
 		return $file;
 	}

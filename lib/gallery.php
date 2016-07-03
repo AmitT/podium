@@ -8,17 +8,18 @@
 /**************** New wordpress gallery Output ***************************/
 /**************************************************************/
 
-add_filter('post_gallery', 'my_post_gallery', 10, 2);
-function my_post_gallery($output, $attr) {
+add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
+function my_post_gallery( $output, $attr ) {
   global $post;
 
-  if (isset($attr['orderby'])) {
-    $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-    if (!$attr['orderby'])
-    unset($attr['orderby']);
+  if ( isset( $attr['orderby'] ) ) {
+    $attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+    if ( !$attr['orderby'] ) {
+      unset( $attr['orderby'] );
+    }
   }
 
-  extract(shortcode_atts(array(
+  extract( shortcode_atts( array(
     'order' => 'ASC',
     'orderby' => 'menu_order ID',
     'id' => $post->ID,
@@ -29,30 +30,30 @@ function my_post_gallery($output, $attr) {
     'size' => 'thumbnail',
     'include' => '',
     'exclude' => ''
-  ), $attr));
+  ), $attr ));
 
-  $id = intval($id);
-  if ('RAND' == $order) $orderby = 'none';
+  $id = intval( $id );
+  if ( 'RAND' == $order ) $orderby = 'none';
 
-  if (!empty($include)) {
-    $include = preg_replace('/[^0-9,]+/', '', $include);
-    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+  if ( !empty($include )) {
+    $include = preg_replace( '/[^0-9,]+/', '', $include );
+    $_attachments = get_posts( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
 
     $attachments = array();
-    foreach ($_attachments as $key => $val) {
+    foreach ( $_attachments as $key => $val ) {
       $attachments[$val->ID] = $_attachments[$key];
     }
   }
 
-  if (empty($attachments)) return '';
+  if ( empty( $attachments ) ) return '';
 
   // Here's your actual output, you may customize it to your need
   $output = '<div class="row small-up-1 medium-up-2 large-up-3 wp-gallery m-40 mb-40">';
   $i =0;
 
   // Now you loop through each attachment
-  foreach ($attachments as $id => $attachment) {
-    $img = wp_prepare_attachment_for_js($id);
+  foreach ( $attachments as $id => $attachment ) {
+    $img = wp_prepare_attachment_for_js( $id );
 
     $thumb_url = $img['sizes']['thumbnail']['url'];
     $url = $img['sizes']['full']['url'];

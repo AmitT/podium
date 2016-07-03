@@ -9,7 +9,7 @@
 
 // TODO clean this functions
 
-if ( ! function_exists( 'podium_setup' ) ) {
+if ( !function_exists( 'podium_setup' ) ) {
 
 	/**
 	* Sets up theme defaults and registers support for various WordPress features.
@@ -80,21 +80,21 @@ if ( ! function_exists( 'podium_setup' ) ) {
 add_action( 'after_setup_theme', 'podium_setup' );
 
 // Fire all our initial functions at the start
-add_action('after_setup_theme','podium_start', 16);
+add_action( 'after_setup_theme','podium_start', 16 );
 
 function podium_start() {
 
 	// launching operation cleanup
-	add_action('init', 'podium_head_cleanup');
+	add_action( 'init', 'podium_head_cleanup' );
 
 	// remove pesky injected css for recent comments widget
 	add_filter( 'wp_head', 'podium_remove_wp_widget_recent_comments_style', 1 );
 
 	// clean up comment styles in the head
-	add_action('wp_head', 'podium_remove_recent_comments_style', 1);
+	add_action( 'wp_head', 'podium_remove_recent_comments_style', 1 );
 
 	// clean up gallery output in wp
-	add_filter('gallery_style', 'podium_gallery_style');
+	add_filter( 'gallery_style', 'podium_gallery_style' );
 
 	// launching this stuff after theme setup
 	// podium_theme_support();
@@ -102,7 +102,7 @@ function podium_start() {
 	// adding sidebars to Wordpress
 	// add_action( 'widgets_init', 'podium_register_sidebars' );
 	// cleaning up excerpt
-	add_filter('excerpt_more', 'podium_excerpt_more');
+	add_filter( 'excerpt_more', 'podium_excerpt_more' );
 
 } /* end podium start */
 
@@ -137,39 +137,39 @@ function podium_head_cleanup() {
 
 // Remove injected CSS for recent comments widget
 function podium_remove_wp_widget_recent_comments_style() {
-	if ( has_filter('wp_head', 'wp_widget_recent_comments_style') ) {
-		remove_filter('wp_head', 'wp_widget_recent_comments_style' );
+	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
 	}
 }
 
 // Remove injected CSS from recent comments widget
 function podium_remove_recent_comments_style() {
 	global $wp_widget_factory;
-	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
-		remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
+		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 	}
 }
 
 // Remove injected CSS from gallery
-function podium_gallery_style($css) {
+function podium_gallery_style( $css ) {
 	return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
 // This removes the annoying […] to a Read More link
-function podium_excerpt_more($more) {
+function podium_excerpt_more( $more ) {
 	global $post;
 
 	// edit here if you like
-	return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __('Read', 'podium') . get_the_title($post->ID).'">'. __('Read more &raquo;', 'podium') .'</a>';
+	return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __( 'Read', 'podium' ) . get_the_title($post->ID).'">'. __( 'Read more &raquo;', 'podium' ) .'</a>';
 }
 
 //  Stop WordPress from using the sticky class (which conflicts with Foundation), and style WordPress sticky posts using the .wp-sticky class instead
-function remove_sticky_class($classes) {
-	$classes = array_diff($classes, array("sticky"));
+function remove_sticky_class( $classes ) {
+	$classes = array_diff( $classes, array( "sticky" ) );
 	$classes[] = 'wp-sticky';
 	return $classes;
 }
-add_filter('post_class','remove_sticky_class');
+add_filter( 'post_class','remove_sticky_class' );
 
 //This is a modified the_author_posts_link() which just returns the link. This is necessary to allow usage of the usual l10n process with printf()
 function podium_get_the_author_posts_link() {

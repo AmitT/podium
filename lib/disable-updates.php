@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
 * Define the plugin version
 */
-define("OSDWPUVERSION", "1.4.7");
+define( "OSDWPUVERSION", "1.4.7" );
 
 
 /**
@@ -65,7 +65,7 @@ class OS_Disable_WordPress_Updates {
 		$this->__pluginsFiles = array();
 		$this->__themeFiles = array();
 
-		add_action( 'admin_init', array(&$this, 'admin_init') );
+		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 
 		if( !function_exists( 'get_plugins' ) ) require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
@@ -76,34 +76,34 @@ class OS_Disable_WordPress_Updates {
 		* Disable Theme Updates
 		* 2.8 to 3.0
 		*/
-		add_filter( 'pre_transient_update_themes', array($this, 'last_checked_themes') );
+		add_filter( 'pre_transient_update_themes', array( $this, 'last_checked_themes' ) );
 
 		/*
 		* 3.0
 		*/
-		add_filter( 'pre_site_transient_update_themes', array($this, 'last_checked_themes') );
+		add_filter( 'pre_site_transient_update_themes', array( $this, 'last_checked_themes' ) );
 
 		/*
 		* Disable Plugin Updates
 		* 2.8 to 3.0
 		*/
-		add_action( 'pre_transient_update_plugins', array(&$this, 'last_checked_plugins') );
+		add_action( 'pre_transient_update_plugins', array( &$this, 'last_checked_plugins' ) );
 
 		/*
 		* 3.0
 		*/
-		add_filter( 'pre_site_transient_update_plugins', array($this, 'last_checked_plugins') );
+		add_filter( 'pre_site_transient_update_plugins', array( $this, 'last_checked_plugins' ) );
 
 		/*
 		* Disable Core Updates
 		* 2.8 to 3.0
 		*/
-		add_filter( 'pre_transient_update_core', array($this, 'last_checked_core') );
+		add_filter( 'pre_transient_update_core', array( $this, 'last_checked_core' ) );
 
 		/*
 		* 3.0
 		*/
-		add_filter( 'pre_site_transient_update_core', array($this, 'last_checked_core') );
+		add_filter( 'pre_site_transient_update_core', array( $this, 'last_checked_core' ) );
 
 		/*
 		* Disable All Automatic Updates
@@ -154,7 +154,7 @@ class OS_Disable_WordPress_Updates {
 	* @author 		scripts@schloebe.de
 	*/
 	function admin_init() {
-		if ( !function_exists("remove_action") ) return;
+		if ( !function_exists( "remove_action" ) ) return;
 
 		/*
 		* Hide maintenance and update nag
@@ -227,7 +227,7 @@ class OS_Disable_WordPress_Updates {
 	*
 	* @since 		1.4.4
 	*/
-	public function block_request($pre, $args, $url) {
+	public function block_request( $pre, $args, $url ) {
 
 		/* Empty url */
 		if( empty( $url ) ) {
@@ -235,7 +235,7 @@ class OS_Disable_WordPress_Updates {
 		}
 
 		/* Invalid host */
-		if( !$host = parse_url($url, PHP_URL_HOST) ) {
+		if( !$host = parse_url( $url, PHP_URL_HOST ) ) {
 			return $pre;
 		}
 
@@ -297,6 +297,6 @@ class OS_Disable_WordPress_Updates {
 	}
 }
 
-if ( class_exists('OS_Disable_WordPress_Updates') ) {
+if ( class_exists( 'OS_Disable_WordPress_Updates' ) ) {
 	$OS_Disable_WordPress_Updates = new OS_Disable_WordPress_Updates();
 }

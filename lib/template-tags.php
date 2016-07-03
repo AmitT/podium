@@ -8,7 +8,7 @@
 * @package podium
 */
 
-if ( ! function_exists( 'the_posts_navigation' ) ) {
+if ( !function_exists( 'the_posts_navigation' ) ) {
 
 	/**
 	* Display navigation to next/previous set of posts when applicable.
@@ -53,7 +53,7 @@ if ( ! function_exists( 'the_posts_navigation' ) ) {
 				$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 				$next     = get_adjacent_post( false, '', false );
 
-				if ( ! $next && ! $previous ) {
+				if ( !$next && !$previous ) {
 					return;
 				}
 				?>
@@ -104,7 +104,7 @@ if ( ! function_exists( 'the_posts_navigation' ) ) {
 }
 }
 
-if ( ! function_exists( 'podium_entry_footer' ) ) {
+if ( !function_exists( 'podium_entry_footer' ) ) {
 	/**
 	* Prints HTML with meta information for the categories, tags and comments.
 	*/
@@ -136,7 +136,7 @@ if ( ! function_exists( 'podium_entry_footer' ) ) {
 	}
 }
 
-if ( ! function_exists( 'the_archive_title' ) ) {
+if ( !function_exists( 'the_archive_title' ) ) {
 	/**
 	* Shim for `the_archive_title()`.
 	*
