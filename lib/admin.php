@@ -40,8 +40,7 @@ function podium_rss_dashboard_widget() {
 	}
 	if ( $limit == 0 ) {
 		echo '<div>The RSS Feed is either empty or unavailable.</div>';   // fallback message
-	}
-	else {
+	} else {
 		foreach ( $items as $item ) { ?>
 			<h4 style="margin-bottom: 0;">
 				<a href="<?php echo $item->get_permalink(); ?>" title="<?php echo mysql2date( __( 'j F Y @ g:i a', 'podium' ), $item->get_date( 'Y-m-d H:i:s' ) ); ?>" target="_blank">

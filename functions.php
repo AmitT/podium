@@ -6,7 +6,7 @@
 */
 
 // Set host name
-$host = $_SERVER[ 'SERVER_NAME' ];
+$host = $_SERVER['SERVER_NAME'];
 
 if ( $host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site.info' ) {
 	//set development ENV
@@ -19,7 +19,7 @@ if ( $host === 'localhost' || $host === 'win-sites.co.il' || $host === 'win-site
 	define( 'WP_ENV', 'production' );
 }
 
-if ( !defined( 'WP_ENV' ) ) {
+if ( ! defined( 'WP_ENV' ) ) {
 	// Fallback if WP_ENV isn't defined in your WordPress config
 	// Used to check for 'development' or 'production'
 	define( 'WP_ENV', 'production' );
@@ -57,7 +57,7 @@ function podium_scripts() {
 add_action( 'wp_enqueue_scripts', 'podium_scripts' );
 
 // require array list
-$reqireFiles = [
+$reqire_files = [
 	//'/lib/enqueue-scripts.php', // Enqueue scripts and styles.
 	'/lib/cleanup.php', // cleanup & setup theme.
 	'/lib/widgets.php',         // Implement Custom widgets.
@@ -83,17 +83,17 @@ $reqireFiles = [
 
 ];
 
-// require all the files in the $reqireFiles array
-foreach ( $reqireFiles as $file ) {
+// require all the files in the $reqire_files array
+foreach ( $reqire_files as $file ) {
 	require get_template_directory() . $file;
 }
 
 // include array list
-$includeFiles = [
+$include_files = [
 	//'lib/xxxxxxxxxxxxxxxxxxxxxx.php',
 ];
 
-// include all the files in the $reqireFiles array
-foreach ( $includeFiles as $file ) {
+// include all the files in the $include_files array
+foreach ( $include_files as $file ) {
 	@include get_template_directory() . $file;
 }
