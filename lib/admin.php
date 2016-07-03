@@ -102,7 +102,7 @@ function custom_login_logo() {
 add_action( 'login_head', 'custom_login_logo' );
 
 // clean
-remove_action('wp_head', 'wp_generator');
+remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'start_post_rel_link' );
