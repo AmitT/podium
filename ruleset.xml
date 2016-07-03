@@ -24,6 +24,7 @@
 
     <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket"/>
     <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+    <exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
 
 
     <!-- Allow spaces indent -->
