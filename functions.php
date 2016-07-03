@@ -88,12 +88,12 @@ foreach ( $reqire_files as $file ) {
 	require get_template_directory() . $file;
 }
 
-// include array list
+// Include array list
 $include_files = [
 	//'lib/xxxxxxxxxxxxxxxxxxxxxx.php',
 ];
 
-// include all the files in the $include_files array
+// Include all the files in the $include_files array
 foreach ( $include_files as $file ) {
-	@include get_template_directory() . $file;
+	include get_template_directory() . $file;
 }
