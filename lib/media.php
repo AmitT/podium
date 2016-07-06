@@ -82,3 +82,21 @@ function my_post_gallery( $output, $attr ) {
 
   return $output;
 }
+
+
+// Get featured image or placeholder
+function get_podium_featured_image( $size ){
+     if ( has_post_thumbnail() ) {
+         the_post_thumbnail( $size );
+     }else{ ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="Latet Tikvah" />
+     <?php }
+}
+
+// Make embeds responsive
+add_filter( 'embed_oembed_html', 'podium_oembed_html', 99, 4 );
+function podium_oembed_html( $html, $url, $attr, $post_id ) {
+	// Add wrapper div with Foundation class
+	// http://foundation.zurb.com/sites/docs/flex-video.html
+	return '<div class="flex-video widescreen">' . $html . '</div>';
+}

@@ -63,6 +63,17 @@ function winsite_wpcf7_special_mail_tag( $output, $name, $html ) {
 	return $output;
 }
 add_filter( 'wpcf7_special_mail_tags', 'winsite_wpcf7_special_mail_tag', 10, 3 );
-
 // usu in mail:
 //[_post_thumbnail]
+
+function excerpt( $limit ) {
+ $excerpt = explode( ' ', get_the_excerpt(), $limit );
+ if ( count( $excerpt )>=$limit ) {
+   array_pop($excerpt);
+   $excerpt = implode( " ",$excerpt );
+ } else {
+   $excerpt = implode( " ",$excerpt );
+ }
+ $excerpt = preg_replace( '`\[[^\]]*\]`','',$excerpt );
+ return $excerpt;
+}

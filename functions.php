@@ -74,7 +74,7 @@ $reqire_files = [
 
 	'/lib/clean-filenames.php', // Custom functions to clean filenames from Unicode to ASCII
 	'/lib/config.php',          // get the settings for the wordpress theme.
-	'/lib/gallery.php',          // get the settings for the wordpress theme.
+	'/lib/media.php',          // Media functions.
 
 	// plugins:
 	'/plugins/tgm/podium-tpm.php', // Plugin installation and activation for Podium based themes.
