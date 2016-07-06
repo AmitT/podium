@@ -94,9 +94,14 @@ function get_podium_featured_image( $size ){
 }
 
 // Make embeds responsive
+// Modest youtube player
 add_filter( 'embed_oembed_html', 'podium_oembed_html', 99, 4 );
 function podium_oembed_html( $html, $url, $attr, $post_id ) {
-	// Add wrapper div with Foundation class
+
+  // Parameters for Modest youtube player:
+  $html = str_replace( '?feature=oembed', '?feature=oembed&theme=light&color=white&autohide=2&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3', $html );
+
+  // Add wrapper div with Foundation class
 	// http://foundation.zurb.com/sites/docs/flex-video.html
 	return '<div class="flex-video widescreen">' . $html . '</div>';
 }
