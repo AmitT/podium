@@ -32,12 +32,13 @@
 
     <!-- Allow spaces indent -->
     <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+    <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
 
   </rule>
 
   <!-- Verify that operators have valid spacing surrounding them -->
   <rule ref="Squiz.WhiteSpace.OperatorSpacing"></rule>
-  
+
   <!-- Exclude wp dev-lib -->
   <exclude-pattern>dev-lib/*</exclude-pattern>
 </ruleset>

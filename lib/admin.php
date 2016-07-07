@@ -115,14 +115,14 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 function disable_feed_generator() {
 	return '';
 }
-add_filter( 'the_generator','disable_feed_generator' );
+add_filter( 'the_generator', 'disable_feed_generator' );
 
 //ADD featured image thumbnail to WordPress admin columns
 
 add_filter( 'manage_posts_columns', 'tcb_add_post_thumbnail_column', 5 );
 add_filter( 'manage_pages_columns', 'tcb_add_post_thumbnail_column', 5 );
 
-function tcb_add_post_thumbnail_column( $cols ){
+function tcb_add_post_thumbnail_column( $cols ) {
 	$cols['tcb_post_thumb'] = __( 'Main image' );
 	return $cols;
 }
@@ -133,10 +133,11 @@ add_action( 'manage_pages_custom_column', 'tcb_display_post_thumbnail_column', 5
 function tcb_display_post_thumbnail_column( $col, $id ){
 	switch( $col ){
 		case 'tcb_post_thumb':
-		if( function_exists( 'the_post_thumbnail' ) )
-		echo the_post_thumbnail( 'thumbnail' );
-		else
-		echo 'Not supported in theme';
+		if ( function_exists( 'the_post_thumbnail' ) ) {
+			echo the_post_thumbnail( 'thumbnail' );
+		}	else {
+			echo 'Not supported in theme';
+		}
 		break;
 	}
 }
