@@ -35,6 +35,7 @@
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "~2.0.1",
     "gulp-notify": "~2.2.0",
+    "gulp-phpcs": "^1.1.1",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "~2.3.2",
     "gulp-scss-lint": "~0.4.0",

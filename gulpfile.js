@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require( 'gulp' ),
+let gulp = require( 'gulp' ),
 sass = require( 'gulp-sass' ),
 autoprefixer = require( 'gulp-autoprefixer' ),
 nano = require( 'gulp-cssnano' ),
@@ -11,6 +11,7 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
+phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
 scsslint = require( 'gulp-scss-lint' ),
 jscs = require( 'gulp-jscs' ),
@@ -140,11 +141,11 @@ var php_files = [
 
 gulp.task( 'php', function() {
 	return gulp.src(php_files)
-	/* .pipe(phpcs({
-		standard: 'WordPress',
+	.pipe(phpcs({
+		standard: 'ruleset.xml',
 		warningSeverity: 0
 	}))
-	.pipe(phpcs.reporter('log')) */
+	.pipe(phpcs.reporter('log'))
 	.pipe(browserSync.stream());
 });
 
