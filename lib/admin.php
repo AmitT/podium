@@ -135,7 +135,7 @@ function tcb_display_post_thumbnail_column( $col, $id ){
 		case 'tcb_post_thumb':
 			if ( function_exists( 'the_post_thumbnail' ) ) {
 				echo the_post_thumbnail( 'thumbnail' );
-			}	else {
+			} else {
 				echo 'Not supported in theme';
 			}
 		break;
