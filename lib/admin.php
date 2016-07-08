@@ -133,11 +133,11 @@ add_action( 'manage_pages_custom_column', 'tcb_display_post_thumbnail_column', 5
 function tcb_display_post_thumbnail_column( $col, $id ){
 	switch( $col ){
 		case 'tcb_post_thumb':
-		if ( function_exists( 'the_post_thumbnail' ) ) {
-			echo the_post_thumbnail( 'thumbnail' );
-		}	else {
-			echo 'Not supported in theme';
-		}
+			if ( function_exists( 'the_post_thumbnail' ) ) {
+				echo the_post_thumbnail( 'thumbnail' );
+			}	else {
+				echo 'Not supported in theme';
+			}
 		break;
 	}
 }
