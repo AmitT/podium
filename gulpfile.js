@@ -23,7 +23,7 @@ require( 'es6-promise' ).polyfill();
 gulp.task( 'styles', function() {
 
 	// List al your SASS files HERE
-	var scss_files = [
+	let scss_files = [
 		'assets/styles/main.scss'
 	];
 
@@ -38,7 +38,7 @@ gulp.task( 'styles', function() {
 });
 
 gulp.task( 'styles-min', function() {
-	var scss_files = [
+	let scss_files = [
 		'assets/styles/main.scss'
 	];
 
@@ -54,7 +54,7 @@ gulp.task( 'styles-min', function() {
 gulp.task( 'rtl-styles', function() {
 
 	// List al your SASS files HERE
-	var scss_files = [
+	let scss_files = [
 		'assets/styles/rtl.scss'
 	];
 
@@ -62,7 +62,7 @@ gulp.task( 'rtl-styles', function() {
 	.pipe( sourcemaps.init() )
 	.pipe( scsslint() )
 	.pipe( sass() ).on( "error", notify.onError( function ( error ) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
 	.pipe( autoprefixer( 'last 3 version' ) )
@@ -74,7 +74,7 @@ gulp.task( 'rtl-styles', function() {
 
 gulp.task( 'rtl-styles-min', function() {
 
-	var scss_files = [
+	let scss_files = [
 		'assets/styles/rtl.scss'
 	];
 
@@ -94,7 +94,7 @@ gulp.task( 'custom-scripts', function() {
 	return gulp.src( 'assets/scripts/**/*.js' )
 
 	.pipe( jshint( '.jshintrc' ) ).on("error", notify.onError( function ( error ) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
 	.pipe( jscs() )
@@ -104,7 +104,7 @@ gulp.task( 'custom-scripts', function() {
 
 
 // List all your JS files HERE
-var js_files = [
+let js_files = [
 	'bower_components/jquery/dist/jquery.js',
 	'bower_components/jquery.cookie/jquery.cookie.js',
 	'bower_components/jquery-placeholder/jquery-placeholder.js',
@@ -128,14 +128,14 @@ gulp.task( 'scripts-min', function() {
 	return gulp.src( js_files )
 	.pipe( concat( 'main.min.js' ) )
 	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
-		var filename = error.fileName.replace(/^.*[\\\/]/, '')
+		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
 	.pipe( gulp.dest( 'dist/scripts' ) )
 	.pipe( notify( 'Javascripts compiled and minified' ) );			// Output to notification
 });
 
-var php_files = [
+let php_files = [
 	'{lib,directives}/**/*.php',
 	 '*.php'
 ]
@@ -149,7 +149,7 @@ gulp.task( 'php', function() {
 	.pipe( browserSync.stream() );
 });
 
-var img_files = [
+let img_files = [
 	'assets/images/**/*'
 ];
 
@@ -166,7 +166,7 @@ gulp.task( 'images-min', function() {
 	.pipe( gulp.dest( 'dist/images' ) );
 });
 
-var font_files = [
+let font_files = [
 	'bower_components/font-awesome/fonts/*',
 	'assets/fonts/**/*'
 ];
