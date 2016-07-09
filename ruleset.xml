@@ -2,8 +2,14 @@
 <ruleset name="Podium">
   <description>Podium Coding Standards</description>
 
+    <!-- Exclude wp dev-lib -->
+    <exclude-pattern>dev-lib/*</exclude-pattern>
+    <!-- Exclude plugins folder -->
+    <exclude-pattern>plugins/*</exclude-pattern>
+
   <!-- Use PSR-2 as a base -->
   <rule ref="PSR2">
+
     <!-- Allow opening and closing braces for functions and classes to be on the same line -->
     <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
     <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
@@ -39,6 +45,12 @@
   <!-- Verify that operators have valid spacing surrounding them -->
   <rule ref="Squiz.WhiteSpace.OperatorSpacing"></rule>
 
-  <!-- Exclude wp dev-lib -->
-  <exclude-pattern>dev-lib/*</exclude-pattern>
+   <!-- Redefine line length -->
+  <rule ref="Generic.Files.LineLength">
+   <properties>
+    <property name="lineLimit" value="150"/>
+    <property name="absoluteLineLimit" value="150"/>
+   </properties>
+  </rule>
+  
 </ruleset>

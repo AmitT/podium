@@ -20,86 +20,86 @@ browserSync = require( 'browser-sync' ).create();
 
 require( 'es6-promise' ).polyfill();
 
-gulp.task('styles', function() {
+gulp.task( 'styles', function() {
 
 	// List al your SASS files HERE
 	var scss_files = [
 		'assets/styles/main.scss'
 	];
 
-	gulp.src(scss_files)
-	.pipe(sourcemaps.init())
-	.pipe(sass({errLogToConsole: true}))
-	.pipe(autoprefixer( 'last 3 version' ))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest( 'dist/styles' ))
-	.pipe(browserSync.stream())
-	.pipe(notify( 'SCSS files compiled' ));			// Output to notification
+	gulp.src( scss_files )
+	.pipe( sourcemaps.init() )
+	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( sourcemaps.write() )
+	.pipe( gulp.dest( 'dist/styles' ))
+	.pipe( browserSync.stream() )
+	.pipe( notify( 'SCSS files compiled' ) );			// Output to notification
 });
 
-gulp.task('styles-min', function() {
+gulp.task( 'styles-min', function() {
 	var scss_files = [
 		'assets/styles/main.scss'
 	];
 
-	gulp.src(scss_files)
-	.pipe(sass({errLogToConsole: true}))
-	.pipe(autoprefixer('last 3 version'))
-	.pipe(rename({suffix: '.min'}))
-	.pipe(nano({discardComments: {removeAll: true}}))
-	.pipe(gulp.dest('dist/styles'))
-	.pipe(notify( 'SCSS files compiled and minified' ));			// Output to notification
+	gulp.src( scss_files )
+	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( rename( {suffix: '.min'} ) )
+	.pipe( nano( {discardComments: {removeAll: true}} ) )
+	.pipe( gulp.dest( 'dist/styles' ) )
+	.pipe(notify( 'SCSS files compiled and minified' ) );			// Output to notification
 });
 
-gulp.task('rtl-styles', function() {
+gulp.task( 'rtl-styles', function() {
 
 	// List al your SASS files HERE
 	var scss_files = [
 		'assets/styles/rtl.scss'
 	];
 
-	gulp.src(scss_files)
-	.pipe(sourcemaps.init())
-	.pipe(scsslint())
-	.pipe(sass()).on("error", notify.onError(function (error) {
+	gulp.src( scss_files )
+	.pipe( sourcemaps.init() )
+	.pipe( scsslint() )
+	.pipe( sass() ).on( "error", notify.onError( function ( error ) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe(autoprefixer( 'last 3 version' ))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest( 'dist/styles' ))
-	.pipe(browserSync.stream())
-	.pipe(notify( 'RTL styles compiled' ));
+	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( sourcemaps.write() )
+	.pipe( gulp.dest( 'dist/styles' ) )
+	.pipe( browserSync.stream() )
+	.pipe( notify( 'RTL styles compiled' ) );
 });
 
-gulp.task('rtl-styles-min', function() {
+gulp.task( 'rtl-styles-min', function() {
 
 	var scss_files = [
 		'assets/styles/rtl.scss'
 	];
 
-	gulp.src(scss_files)
-	.pipe(sass({errLogToConsole: true}))
-	.pipe(autoprefixer('last 3 version'))
-	.pipe(rename({suffix: '.min'}))
-	.pipe(nano({discardComments: {removeAll: true}}))
-	.pipe(gulp.dest('dist/styles'))
-	.pipe(browserSync.stream())
-	.pipe(notify( 'RTL styles compiled and minified' ));
+	gulp.src( scss_files )
+	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( rename( {suffix: '.min'} ) )
+	.pipe( nano( {discardComments: {removeAll: true}} ) )
+	.pipe( gulp.dest('dist/styles') )
+	.pipe( browserSync.stream() )
+	.pipe( notify( 'RTL styles compiled and minified' ) );
 });
 
 
-gulp.task('custom-scripts', function() {
+gulp.task( 'custom-scripts', function() {
 
-	return gulp.src('assets/scripts/**/*.js')
+	return gulp.src( 'assets/scripts/**/*.js' )
 
-	.pipe(jshint('.jshintrc')).on("error", notify.onError(function (error) {
+	.pipe( jshint( '.jshintrc' ) ).on("error", notify.onError( function ( error ) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe(jscs())
-	.pipe(jscs.reporter())
-	.pipe(notify( 'Javascripts linted' ));			// Output to notification
+	.pipe( jscs() )
+	.pipe( jscs.reporter() )
+	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
 
@@ -112,41 +112,41 @@ var js_files = [
 	'assets/scripts/**/*.js'
 ];
 
-gulp.task('scripts', function() {
+gulp.task( 'scripts', function() {
 
-	return gulp.src(js_files)
+	return gulp.src( js_files )
 
-	.pipe(sourcemaps.init())
-	.pipe(concat('main.js'))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('dist/scripts'))
-	.pipe(browserSync.stream())
-	.pipe(notify( 'Javascripts compiled' ));			// Output to notification
+	.pipe( sourcemaps.init() )
+	.pipe( concat( 'main.js' ) )
+	.pipe( sourcemaps.write() )
+	.pipe( gulp.dest( 'dist/scripts' ) )
+	.pipe( browserSync.stream() )
+	.pipe( notify( 'Javascripts compiled' ) );			// Output to notification
 });
 
-gulp.task('scripts-min', function() {
-	return gulp.src(js_files)
-	.pipe(concat('main.min.js'))
-	.pipe(uglify()).on("error", notify.onError(function (error) {
+gulp.task( 'scripts-min', function() {
+	return gulp.src( js_files )
+	.pipe( concat( 'main.min.js' ) )
+	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
 		var filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe(gulp.dest( 'dist/scripts' ))
-	.pipe(notify( 'Javascripts compiled and minified' ));			// Output to notification
+	.pipe( gulp.dest( 'dist/scripts' ) )
+	.pipe( notify( 'Javascripts compiled and minified' ) );			// Output to notification
 });
 
 var php_files = [
-	'**/*.php'
+	'{lib,directives}/**/*.php',
+	 '*.php'
 ]
 
 gulp.task( 'php', function() {
-	return gulp.src(php_files)
-	.pipe(phpcs({
-		standard: 'ruleset.xml',
-		warningSeverity: 0
-	}))
-	.pipe(phpcs.reporter('log'))
-	.pipe(browserSync.stream());
+	return gulp.src( php_files )
+	.pipe( phpcs( {
+		standard: 'ruleset.xml'
+	} ) )
+	//.pipe( phpcs.reporter( 'log' ) )
+	.pipe( browserSync.stream() );
 });
 
 var img_files = [
@@ -154,16 +154,16 @@ var img_files = [
 ];
 
 gulp.task( 'images', function() {
-	return gulp.src(img_files)
-	.pipe(gulp.dest( 'dist/images' ))
-	.pipe(browserSync.stream());
+	return gulp.src( img_files )
+	.pipe( gulp.dest( 'dist/images' ) )
+	.pipe( browserSync.stream() );
 });
 
 gulp.task( 'images-min', function() {
 
-	return gulp.src(img_files)
-	.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
-	.pipe(gulp.dest( 'dist/images' ));
+	return gulp.src( img_files )
+	.pipe( imagemin( { optimizationLevel: 3, progressive: true, interlaced: true } ) )
+	.pipe( gulp.dest( 'dist/images' ) );
 });
 
 var font_files = [
@@ -171,21 +171,21 @@ var font_files = [
 	'assets/fonts/**/*'
 ];
 
-gulp.task('fonts', function() {
+gulp.task( 'fonts', function() {
 
-	return gulp.src(font_files)
-	.pipe(gulp.dest( 'dist/fonts' ))
-	.pipe(browserSync.stream());
+	return gulp.src( font_files )
+	.pipe( gulp.dest( 'dist/fonts' ) )
+	.pipe( browserSync.stream() );
 });
 
 gulp.task( 'fonts-min', function() {
 
-	return gulp.src(font_files)
-	.pipe(gulp.dest( 'dist/fonts' ));
+	return gulp.src( font_files )
+	.pipe( gulp.dest( 'dist/fonts' ) );
 });
 
-gulp.task( 'clean', function(cb) {
-	return del(['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], cb)
+gulp.task( 'clean', function( cb ) {
+	return del( ['dist/styles', 'dist/scripts', 'dist/images', 'dist/fonts'], cb )
 });
 
 gulp.task( 'default', ['clean'], function() {
@@ -208,10 +208,10 @@ gulp.task('watch', function() {
 			blacklist: ['/wp-admin/**']
 		}
 	});
-	gulp.watch(['assets/styles/**/*'], ['rtl-styles' , 'styles']);
-	gulp.watch(['assets/scripts/**/*'], ['scripts']);
-	gulp.watch(['assets/scripts/**/*'], ['custom-scripts']);
-	gulp.watch(['assets/fonts/**/*'], ['fonts']);
-	gulp.watch(['assets/images/**/*'], ['images']);
-	gulp.watch(['{lib,directives}/**/*.php', '*.php'], ['php']);
+	gulp.watch( ['assets/styles/**/*'], ['rtl-styles' , 'styles'] );
+	gulp.watch( ['assets/scripts/**/*'], ['scripts'] );
+	gulp.watch( ['assets/scripts/**/*'], ['custom-scripts'] );
+	gulp.watch( ['assets/fonts/**/*'], ['fonts'] );
+	gulp.watch( ['assets/images/**/*'], ['images'] );
+	gulp.watch( ['{lib,directives}/**/*.php', '*.php'], ['php'] );
 });
