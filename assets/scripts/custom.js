@@ -13,7 +13,7 @@ $( window ).load(function() {
 // Lazy load function https://github.com/tvler/lazy-progressive-enhancement
 function loadMedia( media, onloadfn, scroll ) {
 
-  var intervals = [];
+  let intervals = [];
 
   // Fires replaceNoscript either on DOMContentLoaded or after
   // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
@@ -26,7 +26,7 @@ function loadMedia( media, onloadfn, scroll ) {
   document.addEventListener( 'DOMContentLoaded', onwheneva );
 
   function scrollVisibility( img, src, srcset ) {
-    var rect = img.getBoundingClientRect(),
+    let rect = img.getBoundingClientRect(),
     offset = 300;
     if (
       ( rect.bottom >= -offset && rect.top - window.innerHeight < offset ) &&
@@ -40,7 +40,7 @@ function loadMedia( media, onloadfn, scroll ) {
   }
 
   function replaceNoscript( media ) {
-    var noscript, img, src, srcset, parent, i = 0,
+    let noscript, img, src, srcset, parent, i = 0,
 
     // Smallest data URI image possible for a transparent image
     // @see http://bit.ly/29fYDtR
