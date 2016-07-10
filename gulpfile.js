@@ -132,7 +132,7 @@ gulp.task( 'scripts-min', function() {
 let php_files = [
 	'{lib,directives}/**/*.php',
 	'*.php'
-]
+];
 
 gulp.task( 'php', function() {
 	return gulp.src( php_files )
