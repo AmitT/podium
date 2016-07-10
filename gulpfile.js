@@ -10,7 +10,7 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
-phpcs = require( 'gulp-phpcs' ),
+// phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
 scsslint = require( 'gulp-scss-lint' ),
 jscs = require( 'gulp-jscs' ),
@@ -136,9 +136,9 @@ let php_files = [
 
 gulp.task( 'php', function() {
 	return gulp.src( php_files )
-	.pipe( phpcs( {
-		standard: 'ruleset.xml'
-	} ) )
+	// .pipe( phpcs( {
+	// 	standard: 'ruleset.xml'
+	// } ) )
 	//.pipe( phpcs.reporter( 'log' ) )
 	.pipe( browserSync.stream() );
 });
@@ -191,7 +191,7 @@ gulp.task( 'production', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
-
+	
 	// Run the styles task first time gulp watch is run
 	gulp.start( 'styles' );
 
