@@ -10,7 +10,7 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
-// phpcs = require( 'gulp-phpcs' ),
+phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
 scsslint = require( 'gulp-scss-lint' ),
 jscs = require( 'gulp-jscs' ),
@@ -22,13 +22,19 @@ gulp.task( 'styles', function() {
 
 	// List al your SASS files HERE
 	let scss_files = [
-		'assets/styles/main.scss'
+	'assets/styles/main.scss'
 	];
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( autoprefixer, {
+		browsers: [
+		'last 2 versions',
+		'android 4',
+		'opera 12'
+		]
+	})
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
@@ -37,12 +43,18 @@ gulp.task( 'styles', function() {
 
 gulp.task( 'styles-min', function() {
 	let scss_files = [
-		'assets/styles/main.scss'
+	'assets/styles/main.scss'
 	];
 
 	gulp.src( scss_files )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( autoprefixer, {
+		browsers: [
+		'last 2 versions',
+		'android 4',
+		'opera 12'
+		]
+	})
 	.pipe( rename( {suffix: '.min'} ) )
 	.pipe( nano( {discardComments: {removeAll: true}} ) )
 	.pipe( gulp.dest( 'dist/styles' ) )
@@ -53,7 +65,7 @@ gulp.task( 'rtl-styles', function() {
 
 	// List al your SASS files HERE
 	let scss_files = [
-		'assets/styles/rtl.scss'
+	'assets/styles/rtl.scss'
 	];
 
 	gulp.src( scss_files )
@@ -63,7 +75,13 @@ gulp.task( 'rtl-styles', function() {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( autoprefixer, {
+		browsers: [
+		'last 2 versions',
+		'android 4',
+		'opera 12'
+		]
+	})
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
@@ -73,12 +91,18 @@ gulp.task( 'rtl-styles', function() {
 gulp.task( 'rtl-styles-min', function() {
 
 	let scss_files = [
-		'assets/styles/rtl.scss'
+	'assets/styles/rtl.scss'
 	];
 
 	gulp.src( scss_files )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer( 'last 3 version' ) )
+	.pipe( autoprefixer, {
+		browsers: [
+		'last 2 versions',
+		'android 4',
+		'opera 12'
+		]
+	})
 	.pipe( rename( {suffix: '.min'} ) )
 	.pipe( nano( {discardComments: {removeAll: true}} ) )
 	.pipe( gulp.dest('dist/styles') )
@@ -99,11 +123,11 @@ gulp.task( 'custom-scripts', function() {
 
 // List all your JS files HERE
 let js_files = [
-	'bower_components/jquery/dist/jquery.js',
-	'bower_components/jquery.cookie/jquery.cookie.js',
-	'bower_components/jquery-placeholder/jquery-placeholder.js',
-	'bower_components/foundation-sites/dist/foundation.js',
-	'assets/scripts/**/*.js'
+'bower_components/jquery/dist/jquery.js',
+'bower_components/jquery.cookie/jquery.cookie.js',
+'bower_components/jquery-placeholder/jquery-placeholder.js',
+'bower_components/foundation-sites/dist/foundation.js',
+'assets/scripts/**/*.js'
 ];
 
 gulp.task( 'scripts', function() {
@@ -130,8 +154,8 @@ gulp.task( 'scripts-min', function() {
 });
 
 let php_files = [
-	'{lib,directives}/**/*.php',
-	'*.php'
+'{lib,directives}/**/*.php',
+'*.php'
 ];
 
 gulp.task( 'php', function() {
@@ -139,12 +163,12 @@ gulp.task( 'php', function() {
 	// .pipe( phpcs( {
 	// 	standard: 'ruleset.xml'
 	// } ) )
-	//.pipe( phpcs.reporter( 'log' ) )
+	// .pipe( phpcs.reporter( 'log' ) )
 	.pipe( browserSync.stream() );
 });
 
 let img_files = [
-	'assets/images/**/*'
+'assets/images/**/*'
 ];
 
 gulp.task( 'images', function() {
@@ -161,8 +185,8 @@ gulp.task( 'images-min', function() {
 });
 
 let font_files = [
-	'bower_components/font-awesome/fonts/*',
-	'assets/fonts/**/*'
+'bower_components/font-awesome/fonts/*',
+'assets/fonts/**/*'
 ];
 
 gulp.task( 'fonts', function() {
@@ -191,7 +215,7 @@ gulp.task( 'production', ['clean'], function() {
 });
 
 gulp.task('watch', function() {
-	
+
 	// Run the styles task first time gulp watch is run
 	gulp.start( 'styles' );
 
