@@ -28,13 +28,13 @@ gulp.task( 'styles', function() {
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer, {
+	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
 		'android 4',
 		'opera 12'
 		]
-	})
+	} ) )
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
@@ -48,13 +48,13 @@ gulp.task( 'styles-min', function() {
 
 	gulp.src( scss_files )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer, {
+	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
 		'android 4',
 		'opera 12'
 		]
-	})
+	} ) )
 	.pipe( rename( {suffix: '.min'} ) )
 	.pipe( nano( {discardComments: {removeAll: true}} ) )
 	.pipe( gulp.dest( 'dist/styles' ) )
@@ -75,13 +75,13 @@ gulp.task( 'rtl-styles', function() {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
 	}))
-	.pipe( autoprefixer, {
+	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
 		'android 4',
 		'opera 12'
 		]
-	})
+	} ) )
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
@@ -96,13 +96,13 @@ gulp.task( 'rtl-styles-min', function() {
 
 	gulp.src( scss_files )
 	.pipe( sass( {errLogToConsole: true} ) )
-	.pipe( autoprefixer, {
+	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
 		'android 4',
 		'opera 12'
 		]
-	})
+	} ) )
 	.pipe( rename( {suffix: '.min'} ) )
 	.pipe( nano( {discardComments: {removeAll: true}} ) )
 	.pipe( gulp.dest('dist/styles') )
