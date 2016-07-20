@@ -13,7 +13,9 @@ del = require( 'del' ),
 phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
 scsslint = require( 'gulp-scss-lint' ),
-jscs = require( 'gulp-jscs' ),
+jshint = require('gulp-jshint'),
+stylish = require('jshint-stylish'),
+eslint = require('gulp-eslint'),
 browserSync = require( 'browser-sync' ).create();
 
 require( 'es6-promise' ).polyfill();
@@ -115,8 +117,12 @@ gulp.task( 'custom-scripts', function() {
 
 	return gulp.src( 'assets/scripts/**/*.js' )
 
-	.pipe( jscs() )
-	.pipe( jscs.reporter() )
+	.pipe(jshint())
+	.pipe(jshint.reporter('jshint-stylish'))
+
+	.pipe(eslint())
+	.pipe(eslint.format())
+	.pipe(eslint.failAfterError())
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
