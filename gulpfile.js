@@ -117,12 +117,11 @@ gulp.task( 'custom-scripts', function() {
 
 	return gulp.src( 'assets/scripts/**/*.js' )
 
-	.pipe(jshint())
-	.pipe(jshint.reporter('jshint-stylish'))
+	.pipe( jshint() )
+	.pipe( jshint.reporter( 'jshint-stylish' ) )
 
-	.pipe(eslint())
-	.pipe(eslint.format())
-	.pipe(eslint.failAfterError())
+	.pipe( eslint() )
+	.pipe( eslint.format() )
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 

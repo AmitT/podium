@@ -64,13 +64,13 @@ function my_post_gallery( $output, $attr ) {
     $output .= "<div class=\"column end\">\n";
     // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
     $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
-    $output .= '<noscript><img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" /></noscript>';
+    $output .= '<img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" />';
     $output .= '</a>';
     $output .= "</div>\n";
     ?>
 
     <div class="reveal" id="Modal<?php echo $post->ID. $i; ?>" aria-labelledby="ModalHeader" data-reveal>
-      <noscript><img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" /></noscript>
+      <img src="<?php echo $url; ?>" alt="<?php echo $alt; ?>" />
       <button class="close-button" data-close aria-label="Close Modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
