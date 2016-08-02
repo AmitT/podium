@@ -29,7 +29,9 @@ gulp.task( 'styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( sass( {
+		errLogToConsole: true
+	} ) )
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -58,7 +60,11 @@ gulp.task( 'styles-min', function() {
 		]
 	} ) )
 	.pipe( rename( {suffix: '.min'} ) )
-	.pipe( nano( {discardComments: {removeAll: true}} ) )
+	.pipe( nano( {
+		discardComments: {
+			removeAll: true
+		}
+	} ) )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( notify( 'SCSS files compiled and minified' ) );			// Output to notification
 });
@@ -72,7 +78,9 @@ gulp.task( 'rtl-styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( scsslint() )
+	scsslint({
+		'config': 'sass-lint.yml',
+	})
 	.pipe( sass() ).on( "error", notify.onError( function ( error ) {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -105,8 +113,14 @@ gulp.task( 'rtl-styles-min', function() {
 		'opera 12'
 		]
 	} ) )
-	.pipe( rename( {suffix: '.min'} ) )
-	.pipe( nano( {discardComments: {removeAll: true}} ) )
+	.pipe( rename( {
+		suffix: '.min'
+	} ) )
+	.pipe( nano( {
+		discardComments: {
+			removeAll: true
+		}
+	} ) )
 	.pipe( gulp.dest('dist/styles') )
 	.pipe( browserSync.stream() )
 	.pipe( notify( 'RTL styles compiled and minified' ) );
@@ -185,7 +199,11 @@ gulp.task( 'images', function() {
 gulp.task( 'images-min', function() {
 
 	return gulp.src( img_files )
-	.pipe( imagemin( { optimizationLevel: 3, progressive: true, interlaced: true } ) )
+	.pipe( imagemin( { 
+		optimizationLevel: 3,
+		progressive: true,
+		interlaced: true 
+	} ) )
 	.pipe( gulp.dest( 'dist/images' ) );
 });
 
