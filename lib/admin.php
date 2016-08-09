@@ -151,3 +151,14 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 
 // limit_excerpt
 // <?php echo wp_trim_words( get_the_content(), 15, '...' );
+
+
+add_action('admin_head', 'theme_req_style_fix');
+
+function theme_req_style_fix() {
+  echo '<style>
+    .wp-core-ui .notice.is-dismissible {
+		display: block;
+    } 
+  </style>';
+}
