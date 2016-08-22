@@ -86,7 +86,7 @@ class Settings extends PodiumCoreProperties {
 		}
 
 	}
-	public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12') { // return bool
+	public function getContentClass( $contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12' ) { // return bool
 
 		if( $this->displaySidebar() ){
 			return $contentHasSidebarClass;
@@ -118,9 +118,9 @@ class Settings extends PodiumCoreProperties {
 					'walker'          => $walker_object
 				);
 
-				wp_nav_menu($onCanvas);
+				wp_nav_menu( $onCanvas );
 
-			} elseif($canvas == 'offCanvas'){
+			} elseif( $canvas == 'offCanvas' ){
 				$offCanvas = array(
 					'theme_location'  => 'main-nav',
 					'menu'            => '',
@@ -140,7 +140,7 @@ class Settings extends PodiumCoreProperties {
 					'walker'          => $walker_object
 				);
 
-				wp_nav_menu($offCanvas);
+				wp_nav_menu( $offCanvas );
 
 			} else { // if no type - wrong parameter error
 				echo "<div class='alert label'>error invalid canvas value use: onCanvass or offCanvas (default: 'onCanvass')</div>";

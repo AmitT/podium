@@ -1,8 +1,12 @@
+'use strict';
+
 // Foundation initialization
-$(document).foundation();
+$( document ).foundation();
 
 // Loader
-$(window).load(function() {
+$( window ).load(function() {
+
   // Animate loader off screen
-  $(".se-pre-con").addClass('fadeout');
+  $( '.se-pre-con' ).addClass( 'fadeout' );
 });
+

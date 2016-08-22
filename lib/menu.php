@@ -9,7 +9,7 @@ array(
 
 // The Top Menu
 function podium_top_nav() {
-	wp_nav_menu(array(
+	wp_nav_menu( array(
 		'container' => false,                           // Remove nav container
 		'container_class' => '',                        // Class of container
 		'menu' => 'The Top Menu', 'podium',                                   // Menu name
@@ -26,7 +26,7 @@ function podium_top_nav() {
 } /* End Top Menu */
 
 function podium_off_canvas() {
-	wp_nav_menu(array(
+	wp_nav_menu( array(
 		'container' => false,                           // Remove nav container
 		'container_class' => '',                        // Class of container
 		'menu' => '',                                   // Menu name
@@ -39,12 +39,12 @@ function podium_off_canvas() {
 		'depth' => 2,                                   // Limit the depth of the nav
 		'fallback_cb' => false,                         // Fallback function (see below)
 		'walker' => new Offcanvas_Walker(),
-	));
+	) );
 }
 
 // The Footer Menu
 function podium_footer_links() {
-	wp_nav_menu(array(
+	wp_nav_menu( array(
 		'container' => '',                              // Remove nav container
 		'container_class' => 'footer-links clearfix',   // Class of container (should you choose to use it)
 		'menu' => __( 'Footer Links', 'podium' ),   // Nav name
@@ -56,7 +56,7 @@ function podium_footer_links() {
 		'link_after' => '',                             // After each link
 		'depth' => 0,                                   // Limit the depth of the nav
 		'fallback_cb' => 'podium_footer_links_fallback'  // Fallback function
-	));
+	) );
 } /* End Footer Menu */
 
 // Header Fallback Menu
@@ -76,4 +76,3 @@ function podium_main_nav_fallback() {
 function joints_footer_links_fallback() {
 	/* You can put a default here if you like */
 }
-?>

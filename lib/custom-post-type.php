@@ -115,6 +115,3 @@ in their own file.
     	check out this fantastic tool:
     	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
     */
-
-
-?>

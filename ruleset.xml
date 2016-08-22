@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<ruleset name="Podium">
+  <description>Podium Coding Standards</description>
+
+    <!-- Exclude wp dev-lib -->
+    <exclude-pattern>dev-lib/*</exclude-pattern>
+    <!-- Exclude plugins folder -->
+    <exclude-pattern>plugins/*</exclude-pattern>
+
+  <!-- Use PSR-2 as a base -->
+  <rule ref="PSR2">
+
+    <!-- Allow opening and closing braces for functions and classes to be on the same line -->
+    <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
+    <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+
+    <!-- Disable newline after opening brace -->
+    <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/>
+
+    <!-- Allow multiple PHP statements in the same line (usually in template files) -->
+    <exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
+
+    <!-- Disable PSR-2 indentation rules that are buggy with 2 spaces -->
+    <exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakIndent"/>
+    <exclude name="PSR2.Methods.FunctionCallSignature.Indent"/>
+
+    <!-- Allow spaces after & before bracket -->
+    <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+    <exclude name="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+
+    <exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket"/>
+    <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+    <exclude name="Generic.WhiteSpace.DisallowTabIndent.NonIndentTabsUsed"/>
+
+    <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceAfterOpen"/>
+    <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceBeforeClose"/>
+
+
+    <!-- Allow spaces indent -->
+    <exclude name="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+    <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose"/>
+
+  </rule>
+
+  <!-- Verify that operators have valid spacing surrounding them -->
+  <rule ref="Squiz.WhiteSpace.OperatorSpacing"></rule>
+
+   <!-- Redefine line length -->
+  <rule ref="Generic.Files.LineLength">
+   <properties>
+    <property name="lineLimit" value="150"/>
+    <property name="absoluteLineLimit" value="150"/>
+   </properties>
+  </rule>
+  
+</ruleset>

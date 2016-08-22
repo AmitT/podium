@@ -1,9 +1,9 @@
 {
+	"esversion": 6,
 	"boss": true,
 	"curly": true,
 	"eqeqeq": true,
 	"eqnull": true,
-	"es3": true,
 	"expr": true,
 	"immed": true,
 	"noarg": true,
@@ -21,6 +21,7 @@
 		"_": false,
 		"Backbone": false,
 		"jQuery": false,
+		"$": false,
 		"wp": false
 	}
 }

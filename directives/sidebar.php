@@ -1,4 +1,4 @@
-<?php 
+<?php
 	// sidebar page
 ?>
 <aside id="sidebar" class="content-area small-12 medium-4 columns">

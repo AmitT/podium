@@ -1,6 +1,6 @@
 <?php
 
-// menu walker for top bar
+// Oenu walker for top bar
 final class Top_Bar_Walker extends Walker_Nav_Menu {
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
 		$element->has_children = ! empty( $children_elements[ $element->ID ] );
@@ -17,20 +17,20 @@ final class Top_Bar_Walker extends Walker_Nav_Menu {
 			//$output .= '<li class="divider"></li>';
 			$item_html = preg_replace( '/<a[^>]*>(.*)<\/a>/iU', '<label>$1</label>', $item_html );
 		}
-	if ( in_array( 'divider', $classes ) ) {
-		$item_html = preg_replace( '/<a[^>]*>( .* )<\/a>/iU', '', $item_html );
-	}
-	$output .= $item_html;
+		if ( in_array( 'divider', $classes ) ) {
+			$item_html = preg_replace( '/<a[^>]*>( .* )<\/a>/iU', '', $item_html );
+		}
+		$output .= $item_html;
 	}
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$output .= "\n<ul class=\"submenu menu vertical\">\n";
 	}
 }
 
-// offcanvas menu walker
+// Offcanvas menu walker
 final class Offcanvas_Walker extends Walker_Nav_Menu {
 	function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
-		$element->has_children = ! empty( $children_elements[ $element->ID ] );
+		$element->has_children = !empty( $children_elements[ $element->ID ] );
 		$element->classes[] = ( $element->current || $element->current_item_ancestor ) ? 'active' : '';
 		$element->classes[] = ( $element->has_children && 1 !== $max_depth ) ? 'has-submenu' : '';
 		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
@@ -48,5 +48,3 @@ final class Offcanvas_Walker extends Walker_Nav_Menu {
 		$output .= "\n<ul class=\"left-submenu\">\n<li class=\"back\"><a href=\"#\">". __( 'Back', 'podium' ) ."</a></li>\n";
 	}
 }
-
-?>
