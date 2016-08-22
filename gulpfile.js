@@ -134,7 +134,9 @@ gulp.task( 'custom-scripts', function() {
 	.pipe( jshint() )
 	.pipe( jshint.reporter( 'jshint-stylish' ) )
 
-	.pipe( eslint() )
+	.pipe( eslint( {
+		fix: true
+	} ) )
 	.pipe( eslint.format() )
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
