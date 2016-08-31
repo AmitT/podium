@@ -30,7 +30,7 @@ function my_post_gallery( $output, $attr ) {
     'size' => 'thumbnail',
     'include' => '',
     'exclude' => ''
-  ), $attr ));
+    ), $attr ));
 
   $id = intval( $id );
   if ( 'RAND' == $order ) $orderby = 'none';
@@ -63,9 +63,13 @@ function my_post_gallery( $output, $attr ) {
 
     $output .= "<div class=\"column end\">\n";
     // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
-    $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
+    if($attr['link'] != 'none'){
+      $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
+    }
     $output .= '<img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" />';
-    $output .= '</a>';
+    if($attr['link'] != 'none'){
+      $output .= '</a>';
+    }
     $output .= "</div>\n";
     ?>
 
@@ -86,11 +90,11 @@ function my_post_gallery( $output, $attr ) {
 
 // Get featured image or placeholder
 function get_podium_featured_image( $size ){
-     if ( has_post_thumbnail() ) {
-         the_post_thumbnail( $size );
-     }else{ ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="Latet Tikvah" />
-     <?php }
+ if ( has_post_thumbnail() ) {
+   the_post_thumbnail( $size );
+ }else{ ?>
+  <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="Latet Tikvah" />
+  <?php }
 }
 
 // Make embeds responsive
@@ -103,5 +107,5 @@ function podium_oembed_html( $html, $url, $attr, $post_id ) {
 
   // Add wrapper div with Foundation class
 	// http://foundation.zurb.com/sites/docs/flex-video.html
-	return '<div class="flex-video widescreen">' . $html . '</div>';
+  return '<div class="flex-video widescreen">' . $html . '</div>';
 }
