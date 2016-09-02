@@ -78,9 +78,9 @@ gulp.task( 'rtl-styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( scsslint( {
-		'config': 'sass-lint.yml',
-	} ) )
+	// .pipe( scsslint( {
+	// 	'config': 'sass-lint.yml',
+	// } ) )
 	.pipe( sass() ).on( "error", notify.onError( function ( error ) {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "SASS error:\n" + filename + "\nLine " +  error.lineNumber;
