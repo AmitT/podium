@@ -24,7 +24,7 @@
     "jscs": "jscs gulpfile.js assets/scripts/*.js"
   },
   "devDependencies": {
-    "browser-sync": "~2.13.0",
+    "browser-sync": "~2.14.3",
     "del": "~2.2.0",
     "es6-promise": "~3.2.1",
     "gulp": "~3.9.1",
@@ -40,7 +40,7 @@
     "gulp-sass": "~2.3.2",
     "gulp-scss-lint": "~0.4.0",
     "gulp-sourcemaps": "~1.6.0",
-    "gulp-uglify": "~1.5.3",
+    "gulp-uglify": "~2.0.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0"
   },
