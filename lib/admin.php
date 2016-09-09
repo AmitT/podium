@@ -80,7 +80,9 @@ add_action( 'wp_dashboard_setup', 'podium_custom_dashboard_widgets' );
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
 function podium_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>.', 'podium' );
+	$wp_v = get_bloginfo( 'version' );
+	$w_copyrights = _x( '<span id="footer-thankyou">Developed by <a href="http://win-site.co.il" target="_blank">Winsite</a></span>', 'podium' );
+	return '<p style="direction:lrt;">v'. $wp_v . ' | ' . $w_copyrights . '</p>';
 }
 
 // adding it to the admin area
