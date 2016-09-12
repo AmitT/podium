@@ -70,9 +70,9 @@ $settings = new settings();
 		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 			<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
 
-			<header id="masthead" class="site-header" role="banner" data-sticky-container>
+			<header id="masthead" class="site-header" role="banner">
 
-				<div class="show-for-medium top-bar sticky" data-sticky data-options="marginTop:0;">
+				<div class="show-for-medium top-bar">
 					<div class="row">
 						<div class="small-12 columns">
 							<div class="top-bar-left">
