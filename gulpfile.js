@@ -29,9 +29,9 @@ gulp.task( 'styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( sass( {
-		errLogToConsole: true
-	} ) )
+	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
+		return "SASS Error: " + error.message;
+	}))
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -82,8 +82,7 @@ gulp.task( 'rtl-styles', function() {
 	// 	'config': 'sass-lint.yml',
 	// } ) )
 	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
-		let filename = error.fileName.replace(/^.*[\\\/]/, '')
-		return 'SASS error:\n' + filename + '\nLine ' +  error.lineNumber;
+		// return "SASS Error: " + error.message;
 	}))
 	.pipe( autoprefixer( {
 		browsers: [
