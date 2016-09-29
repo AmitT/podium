@@ -4,11 +4,11 @@
 $( document ).foundation();
 
 // Loader
-$( window ).load(function() {
+// $( window ).load(function() {
 
   // Animate loader off screen
-  $( '.se-pre-con' ).addClass( 'fadeout' );
-});
+//   $( '.se-pre-con' ).addClass( 'fadeout' );
+// });
 
 //top bar sticky since foundation was buggy
 if ( $( '.top-bar' ).length > 0 ) {
