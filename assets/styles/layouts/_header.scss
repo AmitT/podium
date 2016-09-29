@@ -1,6 +1,13 @@
-.off-canvas{
-	height:100%;
+.off-canvas {
+	height: 100%;
 }
-.top-bar{
+
+.top-bar {
 	width: 100%;
+	&.sticky{
+		position: fixed;
+		top:0;
+		right:0;
+		z-index:2;
+	}
 }
