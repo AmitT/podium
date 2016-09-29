@@ -7,8 +7,8 @@ Requirements
 ---
 - [Node.js 4.5](https://nodejs.org).
 - [PHP >= 5.6.x](http://php.net/)
-- [gulp >= 3.8.10](http://gulpjs.com/).
-- [Bower >= 1.3.12](http://bower.io/).
+- [gulp >= 3.9.x](http://gulpjs.com/).
+- [Bower >= 1.7.x](http://bower.io/).
 
 Features
 ---
