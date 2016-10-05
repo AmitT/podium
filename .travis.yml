@@ -14,8 +14,6 @@ php:
 
 node_js:
   - "6"
-  - "5"
-  - "4"
 
 cache:
   apt: true
@@ -24,8 +22,9 @@ cache:
    - node_modules
 
 env:
-  - TRAVIS_NODE_VERSION="4" CXX="g++-4.8"
   - TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
@@ -42,7 +41,6 @@ before_script:
     - composer self-update && composer --version
 
 install:
-    - node -v && npm -v
     - nvm install node 6
     - nvm use node 6
     - node -v && npm -v

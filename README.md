@@ -5,7 +5,7 @@ Podium is a simple, flexible & powerful AngularJS starter theme for wordpress, f
 
 Requirements
 ---
-- [Node.js 4.5](https://nodejs.org).
+- [Node.js >= 6](https://nodejs.org).
 - [PHP >= 5.6.x](http://php.net/)
 - [gulp >= 3.9.x](http://gulpjs.com/).
 - [Bower >= 1.7.x](http://bower.io/).
