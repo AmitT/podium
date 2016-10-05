@@ -12,12 +12,16 @@ get_header();
 
 // Get primary area width
 $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
+
 ?>
+
 <div id="content" class="site-content row">
 	<section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
 		<main id="main" class="site-main" role="main">
 
-			<?php if ( have_posts() ) { ?>
+			<?php 
+			if ( have_posts() ) {
+				?>
 
 				<header class="page-header">
 					<h1 class="page-title">
