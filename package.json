@@ -1,6 +1,6 @@
 {
   "name": "podium",
-  "version": "0.0.2",
+  "version": "0.9",
   "author": "Winsite Dev Team",
   "homepage": "https://github.com/AmitT/podium/",
   "private": true,
@@ -21,7 +21,8 @@
   "scripts": {
     "install": "bower install && gulp",
     "start": "gulp watch",
-    "build": "gulp production"
+    "build": "gulp",
+    "build:production": "gulp production"
   },
   "devDependencies": {
     "browser-sync": "~2.14.3",
