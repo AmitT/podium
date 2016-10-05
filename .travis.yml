@@ -12,6 +12,11 @@ php:
   - 7
   #- hhvm
 
+node_js:
+  - "6"
+  - "5"
+  - "4"
+
 cache:
  directories:
    - bower_components
