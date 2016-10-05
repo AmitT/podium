@@ -18,15 +18,23 @@ node_js:
   - "4"
 
 cache:
+ apt: true
  directories:
    - bower_components
    - node_modules
 
 env:
-    - WP_VERSION=latest WP_MULTISITE=0
-    - WP_VERSION=latest WP_MULTISITE=1
-    - WP_VERSION=trunk WP_MULTISITE=0
-    - WP_VERSION=trunk WP_MULTISITE=1
+    - WP_VERSION=latest WP_MULTISITE=0 TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+    - WP_VERSION=latest WP_MULTISITE=1 TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+    - WP_VERSION=trunk WP_MULTISITE=0 TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+    - WP_VERSION=trunk WP_MULTISITE=1 TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+- g++-4.8
 
 before_script:
     - git submodule update --init --recursive
@@ -46,6 +54,7 @@ install:
 script:
     - source $DEV_LIB_PATH/travis.script.sh
     - npm run build
+    - npm run build:production
     #- npm run jshint
     #- npm run eslint
     - phpcs --standard=ruleset.xml --extensions=php -n -s .
