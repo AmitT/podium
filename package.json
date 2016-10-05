@@ -19,9 +19,9 @@
     }
   ],
   "scripts": {
-    "build": "bower install",
-    "jshint": "gulp jshint",
-    "jscs": "jscs gulpfile.js assets/scripts/*.js"
+    "install": "bower install && gulp",
+    "start": "gulp watch",
+    "build": "gulp production"
   },
   "devDependencies": {
     "browser-sync": "~2.14.3",
