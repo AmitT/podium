@@ -42,6 +42,10 @@ before_script:
     - composer self-update && composer --version
 
 install:
+    - node -v && npm -v
+    - nvm install node 6
+    - nvm use node 6
+    - node -v && npm -v
     - npm install -g npm@latest
     - npm install -g bower gulp
     - npm install
