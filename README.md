@@ -5,10 +5,10 @@ Podium is a simple, flexible & powerful AngularJS starter theme for wordpress, f
 
 Requirements
 ---
-- [Node.js 4.5](https://nodejs.org).
+- [Node.js >= 6](https://nodejs.org).
 - [PHP >= 5.6.x](http://php.net/)
-- [gulp >= 3.8.10](http://gulpjs.com/).
-- [Bower >= 1.3.12](http://bower.io/).
+- [gulp >= 3.9.x](http://gulpjs.com/).
+- [Bower >= 1.7.x](http://bower.io/).
 
 Features
 ---
@@ -25,19 +25,15 @@ From the command line:
 
 1. Install [gulp](http://gulpjs.com) and [Bower](http://bower.io/) globally with `npm install -g gulp bower`
 2. Navigate to the theme directory, then run `npm install`
-3. Run `bower install`
+
+### Build commands
+
+* `npm start` — Compile assets when file changes are made, start BrowserSync session
+* `npm run build` — Compile and optimize the files in your assets directory
+* `npm run build:production` — Compile assets for production
 
 You now have all the necessary dependencies to run the build process.
 
-### Available gulp commands
-
-* `gulp` — Compile and optimize the files in your assets directory
-* `gulp watch` — Compile assets when file changes are made
-
-Once your site is ready for production, remove or comment out the following line form the functions.php file:
-```php
-define('WP_ENV', 'development');
-```
 
 ## Documentation
 TODO

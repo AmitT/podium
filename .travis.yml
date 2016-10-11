@@ -12,25 +12,41 @@ php:
   - 7
   #- hhvm
 
+node_js:
+  - "6"
+
 cache:
- directories:
+  apt: true
+  directories:
    - bower_components
    - node_modules
 
 env:
-    - WP_VERSION=latest WP_MULTISITE=0
-    - WP_VERSION=latest WP_MULTISITE=1
-    - WP_VERSION=trunk WP_MULTISITE=0
-    - WP_VERSION=trunk WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=latest WP_MULTISITE=1
+
+matrix:
+  fast_finish: true
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 
 before_script:
     - git submodule update --init --recursive
+    - composer self-update && composer --version
 
 install:
+    - nvm install node 6
+    - nvm use node 6
+    - node -v && npm -v
     - npm install -g npm@latest
     - npm install -g bower gulp
     - npm install
-    - composer self-update && composer --version
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - composer global require squizlabs/php_codesniffer
     - export DEV_LIB_PATH=dev-lib
@@ -41,6 +57,7 @@ install:
 script:
     - source $DEV_LIB_PATH/travis.script.sh
     - npm run build
+    - npm run build:production
     #- npm run jshint
     #- npm run eslint
     - phpcs --standard=ruleset.xml --extensions=php -n -s .
