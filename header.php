@@ -16,8 +16,8 @@ $settings = new settings();
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<link rel="profile" href="//gmpg.org/xfn/11">
+
 	<?php wp_head();
 
 	$imagesFolder = get_template_directory_uri().'/dist/images/';
@@ -25,7 +25,7 @@ $settings = new settings();
 	// Please create favicon files with http://iconogen.com/
 	// and put them in assets/images/favicon directory
 	?>
-	
+
 	<link rel="shortcut icon" href="<?php echo $imagesFolder; ?>favicon/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $imagesFolder; ?>favicon/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $imagesFolder; ?>favicon/apple-touch-icon-60x60.png">
