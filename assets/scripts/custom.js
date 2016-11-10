@@ -12,13 +12,16 @@ $( document ).foundation();
 
 //top bar sticky since foundation was buggy
 if ( $( '.top-bar' ).length > 0 ) {
-    var headerTop = $( '.top-bar' ).offset().top;
-    $( window ).scroll( function() {
-        if ( $( window ).scrollTop() > headerTop ) {
-            $( '.top-bar' ).addClass( 'sticky' );
-        }
-        else {
-            $( '.top-bar' ).removeClass( 'sticky' );
-        }
-    });
+  var headerTop = $( '.top-bar' ).offset().top;
+  $( window ).scroll( function() {
+    // console.log(headerTop);
+    if ( $( window ).scrollTop() > headerTop ) {
+      $( '.top-bar' ).addClass( 'sticky' );
+      $( 'body' ).addClass( 'sticky-header' );
+    }
+    else {
+      $( '.top-bar' ).removeClass( 'sticky' );
+      $( 'body' ).removeClass( 'sticky-header' );
+    }
+  });
 }
