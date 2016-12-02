@@ -25,9 +25,9 @@
     "build:production": "gulp production"
   },
   "devDependencies": {
-    "browser-sync": "~2.14.3",
+    "browser-sync": "~2.17.5",
     "del": "~2.2.0",
-    "es6-promise": "~3.2.1",
+    "es6-promise": "~4.0.5",
     "gulp": "~3.9.1",
     "gulp-autoprefixer": "~3.1.0",
     "gulp-concat": "~2.6.0",
@@ -40,7 +40,7 @@
     "gulp-rename": "~1.2.2",
     "gulp-sass": "~2.3.2",
     "gulp-scss-lint": "~0.4.0",
-    "gulp-sourcemaps": "~1.6.0",
+    "gulp-sourcemaps": "~2.2.0",
     "gulp-uglify": "~2.0.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0"

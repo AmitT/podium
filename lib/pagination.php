@@ -62,7 +62,8 @@ function emm_paginate( $args = null ) {
 
   $output = "";
   if ( $pages > 1 ) {
-    $output .= "$before<span class='emm-title'>$title</span>";
+    // $output .= "$before<span class='emm-title'>$title</span>";
+    $output .= "$before";
     $ellipsis = "<span class='emm-gap'>...</span>";
 
     if ( $page > 1 && !empty( $previouspage ) ) {
