@@ -9,6 +9,7 @@ Requirements
 - [PHP >= 5.6.x](http://php.net/)
 - [gulp >= 3.9.x](http://gulpjs.com/).
 - [Bower >= 1.7.x](http://bower.io/).
+- [yarn >= 0.17.x](https://github.com/yarnpkg/yarn).
 
 Features
 ---
