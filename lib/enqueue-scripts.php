@@ -56,7 +56,7 @@ function podium_scripts() {
 add_action( 'wp_enqueue_scripts', 'podium_scripts' );
 
 // Defer scripts
-function podium_add_defer_attribute( $tag, $handle ) {
+function podium_add_defer_attribute( $tag, $handle ){
 
 	// add script handles to the array below
 	$scripts_to_defer = array(
@@ -64,8 +64,8 @@ function podium_add_defer_attribute( $tag, $handle ) {
 		//  'more-js-handled'
 	);
 
-	foreach( $scripts_to_defer as $defer_script ) {
-		if( $defer_script === $handle ) {
+	foreach ( $scripts_to_defer as $defer_script ){
+		if ( $defer_script === $handle ){
 			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
 	}
@@ -74,15 +74,15 @@ function podium_add_defer_attribute( $tag, $handle ) {
 add_filter( 'script_loader_tag', 'podium_add_defer_attribute', 10, 2 );
 
 // Async scripts
-function podium_add_async_attribute( $tag, $handle ) {
+function podium_add_async_attribute( $tag, $handle ){
 	// add script handles to the array below
 	$scripts_to_async = array(
 		//  'my-js-handle',
 		//  'more-js-handled'
 	);
 
-	foreach( $scripts_to_async as $async_script ) {
-		if( $async_script === $handle ) {
+	foreach ( $scripts_to_async as $async_script ){
+		if ( $async_script === $handle ){
 			return str_replace( ' src', ' async="async" src', $tag );
 		}
 	}

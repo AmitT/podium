@@ -8,7 +8,6 @@
 */
 
 // Discount related to quantity
-add_action( 'woocommerce_before_calculate_totals', 'add_custom_price' );
 function add_custom_price( $cart_object ){
   foreach ( $cart_object->cart_contents as $key => $value ) {
     if ( $value['quantity'] >= 2 && $value['quantity'] < 5 ) {
@@ -27,3 +26,4 @@ function add_custom_price( $cart_object ){
     }
   }
 }
+add_action( 'woocommerce_before_calculate_totals', 'add_custom_price' );

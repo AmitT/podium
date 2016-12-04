@@ -40,7 +40,7 @@ if ( !function_exists( 'the_posts_navigation' ) ) {
 			}
 		}
 
-		if ( ! function_exists( 'the_post_navigation' ) ) {
+		if ( !function_exists( 'the_post_navigation' ) ) {
 
 			/**
 			* Display navigation to next/previous post when applicable.
@@ -70,7 +70,7 @@ if ( !function_exists( 'the_posts_navigation' ) ) {
 			}
 		}
 
-		if ( ! function_exists( 'podium_posted_on' ) ) {
+		if ( !function_exists( 'podium_posted_on' ) ) {
 
 			/**
 			* Prints HTML with meta information for the current post-date/time and author.
