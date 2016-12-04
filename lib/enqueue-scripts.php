@@ -44,12 +44,10 @@ function podium_scripts() {
 		}
 	}
 	if ( WP_ENV !== 'development' ) {
-		wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', array(), '20120206', true );
+		wp_enqueue_script( 'podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', array(), '20120206', true );
 	} else {
-		wp_enqueue_script( 'podium-navigation', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array(), '20120206', true );
+		wp_enqueue_script( 'podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.js', array(), '20120206', true );
 	}
-	//wp_enqueue_script( 'podium-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-	//wp_enqueue_script( 'podium-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -62,7 +60,7 @@ function podium_add_defer_attribute( $tag, $handle ) {
 
 	// add script handles to the array below
 	$scripts_to_defer = array(
-		'podium-navigation',
+		'podium-scripts',
 		//  'more-js-handled'
 	);
 
