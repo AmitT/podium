@@ -62,12 +62,14 @@ function my_post_gallery( $output, $attr ) {
     $i++;
 
     $output .= "<div class=\"column end\">\n";
+
     // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
-    if($attr['link'] != 'none'){
+
+    if( $attr['link'] != 'none' ){
       $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
     }
     $output .= '<img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" />';
-    if($attr['link'] != 'none'){
+    if( $attr['link'] != 'none' ){
       $output .= '</a>';
     }
     $output .= "</div>\n";
