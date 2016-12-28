@@ -6,7 +6,7 @@
     "AmitT <amitprobable@gmail.com>"
   ],
   "dependencies": {
-    "foundation-sites": "",
+    "foundation-sites": "6.2.4",
     "font-awesome": ""
   }
 }
