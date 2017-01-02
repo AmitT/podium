@@ -109,7 +109,7 @@ function podium_oembed_html( $html, $url, $attr, $post_id ) {
 
   // Add wrapper div with Foundation class
 	// http://foundation.zurb.com/sites/docs/flex-video.html
-  return '<div class="flex-video widescreen">' . $html . '</div>';
+  return '<div class="responsive-embed widescreen">' . $html . '</div>';
 }
 
 function svg_get_contents( $svg_file ){
