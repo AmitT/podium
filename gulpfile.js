@@ -146,7 +146,7 @@ let js_files = [
 'bower_components/jquery/dist/jquery.js',
 'bower_components/jquery.cookie/jquery.cookie.js',
 'bower_components/jquery-placeholder/jquery-placeholder.js',
-'bower_components/foundation-sites/dist/foundation.js',
+'bower_components/foundation-sites/dist/js/foundation.js',
 'assets/scripts/**/*.js'
 ];
 
@@ -200,10 +200,10 @@ gulp.task( 'images', function() {
 gulp.task( 'images-min', function() {
 
 	return gulp.src( img_files )
-	.pipe( imagemin( { 
+	.pipe( imagemin( {
 		optimizationLevel: 3,
 		progressive: true,
-		interlaced: true 
+		interlaced: true
 	} ) )
 	.pipe( gulp.dest( 'dist/images' ) );
 });
@@ -245,7 +245,7 @@ gulp.task('watch', function() {
 
 	browserSync.init({
 		files: ['{lib,directives}/**/*.php', '*.php'],
-		proxy: 'http://localhost/DIRECTORY/',
+		proxy: 'http://localhost/DIRECTIRY/',
 		snippetOptions: {
 			whitelist: ['/wp-admin/admin-ajax.php'],
 			blacklist: ['/wp-admin/**']
