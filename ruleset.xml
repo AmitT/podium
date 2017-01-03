@@ -17,6 +17,8 @@
     <!-- Disable newline after opening brace -->
     <exclude name="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/>
 
+
+
     <!-- Allow multiple PHP statements in the same line (usually in template files) -->
     <exclude name="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
 
@@ -34,6 +36,8 @@
 
     <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceAfterOpen"/>
     <exclude name="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceBeforeClose"/>
+    <!-- Allow space after opening bracket -->
+    <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
 
 
     <!-- Allow spaces indent -->
@@ -52,5 +56,5 @@
     <property name="absoluteLineLimit" value="150"/>
    </properties>
   </rule>
-  
+
 </ruleset>

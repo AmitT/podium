@@ -20,7 +20,7 @@
 		?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
-</div> <!-- inner-wrap -->
+</div><!-- .off-canvas-content -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

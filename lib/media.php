@@ -62,12 +62,14 @@ function my_post_gallery( $output, $attr ) {
     $i++;
 
     $output .= "<div class=\"column end\">\n";
+
     // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
-    if($attr['link'] != 'none'){
+
+    if( $attr['link'] != 'none' ){
       $output .= '<a data-open="Modal'.$post->ID. $i.'" class="thumbnail-wrap">';
     }
     $output .= '<img class="thumbnail" src="'. $thumb_url .'"  alt="'. $alt.'" title="'. $alt.'" />';
-    if($attr['link'] != 'none'){
+    if( $attr['link'] != 'none' ){
       $output .= '</a>';
     }
     $output .= "</div>\n";
@@ -107,5 +109,42 @@ function podium_oembed_html( $html, $url, $attr, $post_id ) {
 
   // Add wrapper div with Foundation class
 	// http://foundation.zurb.com/sites/docs/flex-video.html
-  return '<div class="flex-video widescreen">' . $html . '</div>';
+  return '<div class="responsive-embed widescreen">' . $html . '</div>';
+}
+
+function svg_get_contents( $svg_file ){
+
+  // Check if file exists
+  if ( $svg_file ) {
+
+    // Set user-agent
+    ini_set( 'user_agent','Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0' );
+
+    // Set CURL request
+    $ch = curl_init();
+
+    curl_setopt( $ch, CURLOPT_AUTOREFERER, TRUE );
+    curl_setopt( $ch, CURLOPT_HEADER, 0 );
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    curl_setopt( $ch, CURLOPT_URL, $svg_file );
+    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, TRUE );
+
+    // Request
+    $data = curl_exec( $ch );
+    curl_close( $ch );
+
+    // Clean unnecessary meta and info
+    $find_string   = '<svg';
+    $position = strpos( $data, $find_string );
+
+    $svg_file_new = substr( $data, $position );
+
+    // Restore user agent
+    ini_restore( 'user_agent' );
+
+    return $svg_file_new;
+  }
+
+  return 'The file does not exist';
+
 }

@@ -48,42 +48,48 @@ $settings = new settings();
 
 <body <?php body_class(); ?>>
 
-	<div id="page" class="hfeed site off-canvas-wrapper">
-		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-			<a class="skip-link screen-reader-text hide" href="#content"><?php esc_html_e( 'Skip to content', 'podium' ); ?></a>
+	<div id="page" class="hfeed site">
+		<a class="skip-link show-for-sr" href="#content">
+			<?php esc_html_e( 'Skip to content', 'podium' ); ?>
+		</a>
 
-			<header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header" role="banner">
 
-				<div class="show-for-medium top-bar">
-					<div class="row">
-						<div class="small-12 columns">
-							<div class="top-bar-left">
-								<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
-							</div>
-							<div class="top-bar-left">
-
-							</div>
+			<div class="show-for-medium top-bar">
+				<div class="row">
+					<div class="small-12 columns">
+						<div class="top-bar-left">
+							<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
+						</div>
+						<div class="top-bar-right">
+							<span class="title-bar-title"><?php echo get_bloginfo( 'name' ); ?></span>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div class="hide-for-medium">
-					<div class="title-bar">
-						<div class="title-bar-left">
-							<button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-						</div>
-						<div class="title-bar-left">
-
-						</div>
+			<div class="hide-for-medium">
+				<div class="title-bar">
+					<div class="title-bar-left">
+						<button class="menu-icon" type="button" data-open="offCanvas"></button>
+					</div>
+					<div class="title-bar-right">
+						<span class="title-bar-title"><?php echo get_bloginfo( 'name' ); ?></span>
 					</div>
 				</div>
-
-			</header><!-- #masthead -->
-
-			<div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
-				<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
-			</div>
-			<div class="off-canvas-content" data-off-canvas-content>
 			</div>
 
-			<a class="exit-off-canvas"></a>
+		</header><!-- #masthead -->
+
+		<div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+
+			<!-- Close button -->
+			<button class="close-button" aria-label="Close menu" type="button" data-close>
+				<span aria-hidden="true">&times;</span>
+			</button>
+
+			<!-- Menu -->
+			<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+
+		</div>
+		<div class="off-canvas-content" data-off-canvas-content>

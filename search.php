@@ -19,7 +19,7 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 	<section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
 		<main id="main" class="site-main" role="main">
 
-			<?php 
+			<?php
 			if ( have_posts() ) {
 				?>
 

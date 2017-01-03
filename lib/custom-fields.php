@@ -6,5 +6,3 @@
  *
  * @package podium
  */
-
- 
