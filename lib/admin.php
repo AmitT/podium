@@ -9,7 +9,7 @@ function disable_default_dashboard_widgets() {
 	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
 	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
 
-	Remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
 	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
 	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
@@ -149,3 +149,10 @@ function theme_req_style_fix() {
 	</style>';
 }
 add_action('admin_head', 'theme_req_style_fix');
+
+// Set interval beween heartbewats
+function podium_heartbeat_settings( $settings ) {
+    $settings['interval'] = 60; //Anything between 15-60
+    return $settings;
+}
+add_filter( 'heartbeat_settings', 'podium_heartbeat_settings' );
