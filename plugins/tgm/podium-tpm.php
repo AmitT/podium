@@ -85,27 +85,27 @@ function podium_register_required_plugins() {
 			'name'      => 'Aryo Activity Log',
 			'slug' => 'aryo-activity-log',
 			'required'  => false,
-		),
-		array(
-			'name'      => 'Contact Form 7',
-			'slug' => 'contact-form-7',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Contact Form 7 Honeypot',
-			'slug' => 'contact-form-7-honeypot',
-			'required'  => false,
-		),
-		array(
-			'name'      => 'Contact Form DB',
-			'slug' => 'contact-form-7-to-database-extension',
-			'required'  => false,
-		),
+			),
+		// array(
+		// 	'name'      => 'Contact Form 7',
+		// 	'slug' => 'contact-form-7',
+		// 	'required'  => false,
+		// ),
+		// array(
+		// 	'name'      => 'Contact Form 7 Honeypot',
+		// 	'slug' => 'contact-form-7-honeypot',
+		// 	'required'  => false,
+		// ),
+		// array(
+		// 	'name'      => 'Contact Form DB',
+		// 	'slug' => 'contact-form-7-to-database-extension',
+		// 	'required'  => false,
+		// ),
 		array(
 			'name'      => 'Redirection',
 			'slug' => 'redirection',
 			'required'  => false,
-		),
+			),
 
 		// Required Plugins
 		array(
@@ -113,37 +113,37 @@ function podium_register_required_plugins() {
 			'slug' => 'better-wp-security',
 			'required'  => true,
 			'force_activation' => true,
-		),
+			),
 		array(
 			'name'      => 'Wordpress SEO',
 			'slug' => 'wordpress-seo',
 			'required'  => true,
 			'force_activation' => true,
-		),
+			),
 		array(
 			'name'      => 'Wordpress Fastest Cache',
 			'slug' => 'wp-fastest-cache',
 			'required'  => true,
 			'force_activation' => false,
-		),
+			),
 		array(
 			'name'      => 'Wordpress Sitemap Page',
 			'slug' => 'wp-sitemap-page',
 			'required'  => true,
 			'force_activation' => true,
-		),
+			),
 		array(
 			'name'      => 'Advanced Cudtom Fields Pro',
 			'slug' => 'advanced-custom-fields-pro',
 			'required'  => true,
 			'force_activation' => true,
-		),
+			),
 		array(
 			'name'      => 'Winsite Image Optimizer',
 			'slug' => 'winsite-image-optimizer',
 			'required'  => true,
 			'force_activation' => true,
-		),
+			),
 
 		// array(
 		// 	'name'      => 'Polylang',
@@ -165,7 +165,7 @@ function podium_register_required_plugins() {
 		// 	'is_callable' => 'wpseo_init',
 		// ),
 
-	);
+		);
 
 	/*
 	* Array of configuration settings. Amend each line as needed.
