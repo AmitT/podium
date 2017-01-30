@@ -94,15 +94,6 @@ $role_object = get_role( 'editor' );
 // add $cap capability to this role object
 $role_object->add_cap( 'edit_theme_options' );
 
-// clean
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
-remove_action( 'wp_head', 'start_post_rel_link' );
-remove_action( 'wp_head', 'index_rel_link' );
-remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-
 function disable_feed_generator() {
 	return '';
 }
