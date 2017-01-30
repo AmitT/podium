@@ -176,7 +176,7 @@ gulp.task( 'scripts-min', function() {
 });
 
 let php_files = [
-'{lib,directives}/**/*.php',
+'{lib,template-parts}/**/*.php',
 '*.php'
 ];
 
@@ -242,7 +242,7 @@ gulp.task('watch', function() {
 	gulp.start( 'styles' );
 
 	browserSync.init({
-		files: ['{lib,directives}/**/*.php', '*.php'],
+		files: ['{lib,template-parts}/**/*.php', '*.php'],
 		proxy: 'http://localhost/DIRECTIRY/',
 		snippetOptions: {
 			whitelist: ['/wp-admin/admin-ajax.php'],
@@ -254,5 +254,5 @@ gulp.task('watch', function() {
 	gulp.watch( ['assets/scripts/**/*'], ['custom-scripts'] );
 	gulp.watch( ['assets/fonts/**/*'], ['fonts'] );
 	gulp.watch( ['assets/images/**/*'], ['images'] );
-	gulp.watch( ['{lib,directives}/**/*.php', '*.php'], ['php'] );
+	gulp.watch( ['{lib,template-parts}/**/*.php', '*.php'], ['php'] );
 });
