@@ -142,10 +142,8 @@ gulp.task( 'custom-scripts', function() {
 
 // List all your JS files HERE
 let js_files = [
-'bower_components/jquery/dist/jquery.js',
-'bower_components/jquery.cookie/jquery.cookie.js',
-'bower_components/jquery-placeholder/jquery-placeholder.js',
-'bower_components/foundation-sites/dist/js/foundation.js',
+'node_modules/jquery/dist/jquery.js',
+'node_modules/foundation-sites/dist/js/foundation.js',
 'assets/scripts/**/*.js'
 ];
 
@@ -207,7 +205,7 @@ gulp.task( 'images-min', function() {
 });
 
 let font_files = [
-'bower_components/font-awesome/fonts/*',
+'node_modules/font-awesome/fonts/*',
 'assets/fonts/**/*'
 ];
 
