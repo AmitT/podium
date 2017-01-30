@@ -1,7 +1,7 @@
 Podium
 ===
 The project is in its initial stage, your welcome to Contribute.
-Podium is a simple, flexible & powerful AngularJS starter theme for wordpress, foundation and gulp support
+Podium is a simple, flexible & powerful starter theme for wordpress, foundation and gulp support
 
 Requirements
 ---
