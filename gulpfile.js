@@ -14,7 +14,7 @@ notify = require( 'gulp-notify' ),
 jshint = require('gulp-jshint'),
 stylish = require('jshint-stylish'),
 eslint = require('gulp-eslint'),
-babel = require('gulp-babel');
+babel = require('gulp-babel'),
 browserSync = require( 'browser-sync' ).create();
 
 require( 'es6-promise' ).polyfill();
