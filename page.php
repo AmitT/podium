@@ -25,7 +25,7 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 			<?php
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'directives/content', 'page' );
+				get_template_part( 'template-parts/content', 'page' );
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) {
@@ -37,7 +37,7 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 	</div><!-- #primary -->
 	<?php
 	if ( $settings->displaySidebar() ) { // has sidebar
-		get_template_part( 'directives/sidebar', 'page' );
+		get_template_part( 'template-parts/sidebar', 'page' );
 	}
 	?>
 </div><!-- #content -->

@@ -1,6 +1,6 @@
 'use strict';
 
-let gulp = require( 'gulp' ),
+const gulp = require( 'gulp' ),
 sass = require( 'gulp-sass' ),
 autoprefixer = require( 'gulp-autoprefixer' ),
 nano = require( 'gulp-cssnano' ),
@@ -10,12 +10,11 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
-phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
-scsslint = require( 'gulp-scss-lint' ),
 jshint = require('gulp-jshint'),
 stylish = require('jshint-stylish'),
 eslint = require('gulp-eslint'),
+babel = require('gulp-babel'),
 browserSync = require( 'browser-sync' ).create();
 
 require( 'es6-promise' ).polyfill();
@@ -78,9 +77,6 @@ gulp.task( 'rtl-styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	// .pipe( scsslint( {
-	// 	'config': 'sass-lint.yml',
-	// } ) )
 	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
 		// return "SASS Error: " + error.message;
 	}))
@@ -137,16 +133,17 @@ gulp.task( 'custom-scripts', function() {
 		fix: true
 	} ) )
 	.pipe( eslint.format() )
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
 
 // List all your JS files HERE
 let js_files = [
-'bower_components/jquery/dist/jquery.js',
-'bower_components/jquery.cookie/jquery.cookie.js',
-'bower_components/jquery-placeholder/jquery-placeholder.js',
-'bower_components/foundation-sites/dist/js/foundation.js',
+'node_modules/jquery/dist/jquery.js',
+'node_modules/foundation-sites/dist/js/foundation.js',
 'assets/scripts/**/*.js'
 ];
 
@@ -165,6 +162,9 @@ gulp.task( 'scripts', function() {
 gulp.task( 'scripts-min', function() {
 	return gulp.src( js_files )
 	.pipe( concat( 'main.min.js' ) )
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -174,16 +174,12 @@ gulp.task( 'scripts-min', function() {
 });
 
 let php_files = [
-'{lib,directives}/**/*.php',
+'{lib,template-parts}/**/*.php',
 '*.php'
 ];
 
 gulp.task( 'php', function() {
 	return gulp.src( php_files )
-	// .pipe( phpcs( {
-	// 	standard: 'ruleset.xml'
-	// } ) )
-	// .pipe( phpcs.reporter( 'log' ) )
 	.pipe( browserSync.stream() );
 });
 
@@ -209,7 +205,7 @@ gulp.task( 'images-min', function() {
 });
 
 let font_files = [
-'bower_components/font-awesome/fonts/*',
+'node_modules/font-awesome/fonts/*',
 'assets/fonts/**/*'
 ];
 
@@ -244,7 +240,7 @@ gulp.task('watch', function() {
 	gulp.start( 'styles' );
 
 	browserSync.init({
-		files: ['{lib,directives}/**/*.php', '*.php'],
+		files: ['{lib,template-parts}/**/*.php', '*.php'],
 		proxy: 'http://localhost/DIRECTIRY/',
 		snippetOptions: {
 			whitelist: ['/wp-admin/admin-ajax.php'],
@@ -256,5 +252,5 @@ gulp.task('watch', function() {
 	gulp.watch( ['assets/scripts/**/*'], ['custom-scripts'] );
 	gulp.watch( ['assets/fonts/**/*'], ['fonts'] );
 	gulp.watch( ['assets/images/**/*'], ['images'] );
-	gulp.watch( ['{lib,directives}/**/*.php', '*.php'], ['php'] );
+	gulp.watch( ['{lib,template-parts}/**/*.php', '*.php'], ['php'] );
 });

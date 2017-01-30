@@ -31,7 +31,7 @@ get_header();
 					* If you want to override this in a child theme, then include a file
 					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					*/
-					get_template_part( 'directives/content', get_post_format() );
+					get_template_part( 'template-parts/content', get_post_format() );
 				} ?>
 
 
@@ -43,14 +43,14 @@ get_header();
 
 				<?php } else { ?>
 
-					<?php get_template_part( 'directives/content', 'none' ); ?>
+					<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 					<?php } ?>
 
 				</main><!-- #main -->
 			</div>
 			<?php if ( $settings->displaySidebar() ) { // has sidebar ?>
-				<?php get_template_part( 'directives/sidebar', 'page' ); ?>
+				<?php get_template_part( 'template-parts/sidebar', 'page' ); ?>
 				<?php } ?>
 			</div><!-- #content -->
 

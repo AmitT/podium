@@ -12,13 +12,13 @@
 //--------------------------------------------------------------
 //# Foundation
 //--------------------------------------------------------------
-@import '../../bower_components/foundation-sites/scss/foundation';
+@import '../../node_modules/foundation-sites/scss/foundation';
 @include foundation-everything;
 
 //--------------------------------------------------------------
 //# Font Awesome
 //--------------------------------------------------------------
-@import '../../bower_components/font-awesome/scss/font-awesome';
+@import '../../node_modules/font-awesome/scss/font-awesome';
 
 //--------------------------------------------------------------
 //# Common
