@@ -10,12 +10,11 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
-phpcs = require( 'gulp-phpcs' ),
 notify = require( 'gulp-notify' ),
-scsslint = require( 'gulp-scss-lint' ),
 jshint = require('gulp-jshint'),
 stylish = require('jshint-stylish'),
 eslint = require('gulp-eslint'),
+babel = require('gulp-babel');
 browserSync = require( 'browser-sync' ).create();
 
 require( 'es6-promise' ).polyfill();
@@ -78,9 +77,6 @@ gulp.task( 'rtl-styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	// .pipe( scsslint( {
-	// 	'config': 'sass-lint.yml',
-	// } ) )
 	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
 		// return "SASS Error: " + error.message;
 	}))
@@ -137,6 +133,9 @@ gulp.task( 'custom-scripts', function() {
 		fix: true
 	} ) )
 	.pipe( eslint.format() )
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
@@ -165,6 +164,9 @@ gulp.task( 'scripts', function() {
 gulp.task( 'scripts-min', function() {
 	return gulp.src( js_files )
 	.pipe( concat( 'main.min.js' ) )
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
@@ -180,10 +182,6 @@ let php_files = [
 
 gulp.task( 'php', function() {
 	return gulp.src( php_files )
-	// .pipe( phpcs( {
-	// 	standard: 'ruleset.xml'
-	// } ) )
-	// .pipe( phpcs.reporter( 'log' ) )
 	.pipe( browserSync.stream() );
 });
 
