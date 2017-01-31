@@ -9,7 +9,7 @@ function disable_default_dashboard_widgets() {
 	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
 	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
 
-	Remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
 	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
 	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
@@ -94,15 +94,6 @@ $role_object = get_role( 'editor' );
 // add $cap capability to this role object
 $role_object->add_cap( 'edit_theme_options' );
 
-// clean
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
-remove_action( 'wp_head', 'start_post_rel_link' );
-remove_action( 'wp_head', 'index_rel_link' );
-remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-
 function disable_feed_generator() {
 	return '';
 }
@@ -149,3 +140,10 @@ function theme_req_style_fix() {
 	</style>';
 }
 add_action('admin_head', 'theme_req_style_fix');
+
+// Set interval beween heartbewats
+function podium_heartbeat_settings( $settings ) {
+    $settings['interval'] = 60; //Anything between 15-60
+    return $settings;
+}
+add_filter( 'heartbeat_settings', 'podium_heartbeat_settings' );

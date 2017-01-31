@@ -22,12 +22,12 @@ msgstr ""
 msgid "http://wordpress.org/"
 msgstr ""
 
-#: ../directives/content.php:25
+#: ../template-parts/content.php:25
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: ../directives/content-none.php:20
+#: ../template-parts/content-none.php:20
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."

@@ -29,7 +29,7 @@ if ( !function_exists( 'podium_setup' ) ) {
 		load_theme_textdomain( 'podium', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		//add_theme_support( 'automatic-feed-links' );
 
 		/*
 		* Let WordPress manage the document title.
@@ -56,7 +56,7 @@ if ( !function_exists( 'podium_setup' ) ) {
 			'comment-list',
 			'gallery',
 			'caption',
-		) );
+			) );
 
 		/*
 		* Enable support for Post Formats.
@@ -68,13 +68,13 @@ if ( !function_exists( 'podium_setup' ) ) {
 			'video',
 			'quote',
 			'link',
-		) );
+			) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'podium_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		// add_theme_support( 'custom-background', apply_filters( 'podium_custom_background_args', array(
+		// 	'default-color' => 'ffffff',
+		// 	'default-image' => '',
+		// 	) ) );
 	}
 } // podium_setup
 add_action( 'after_setup_theme', 'podium_setup' );
@@ -133,6 +133,9 @@ function podium_head_cleanup() {
 
 	// Remove WP version
 	remove_action( 'wp_head', 'wp_generator' );
+
+	remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 } /* end podium head cleanup */
 
 // Remove injected CSS for recent comments widget
@@ -175,12 +178,59 @@ add_filter( 'post_class','remove_sticky_class' );
 function podium_get_the_author_posts_link() {
 	global $authordata;
 	if ( !is_object( $authordata ) )
-	return false;
+		return false;
 	$link = sprintf(
-	'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-	get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+		'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+		get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
 	esc_attr( sprintf( __( 'Posts by %s', 'podium' ), get_the_author() ) ), // No further l10n needed, core will take care of this one
 	get_the_author()
-);
-return $link;
+	);
+	return $link;
 }
+
+
+// Remove feeds content
+/**
+ * Remove feed links from wp_head
+ */
+function podium_remove_feed_links(){
+	remove_action( 'wp_head', 'feed_links', 2 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+}
+add_action( 'wp_head', 'podium_remove_feed_links', 1 );
+
+/**
+ * Remove the `feed` endpoint
+ */
+function podium_kill_feed_endpoint(){
+    // This is extremely brittle.
+    // $wp_rewrite->feeds is public right now, but later versions of WP
+    // might change that
+	global $wp_rewrite;
+	$wp_rewrite->feeds = array();
+}
+add_action( 'init', 'podium_kill_feed_endpoint', 99 );
+
+/**
+ * prefect actions from firing on feeds when the `do_feed` function is 
+ * called
+ */
+function podium_remove_feeds(){
+    // redirect the feeds! don't just kill them
+	wp_redirect( home_url(), 301 );
+	exit();
+}
+foreach( array( 'rdf', 'rss', 'rss2', 'atom' ) as $feed ){
+	add_action( 'do_feed_' . $feed, 'podium_remove_feeds', 1 );
+}
+unset( $feed );
+
+/**
+ * Activation hook
+ */
+function podium_remove_feeds_activation(){
+	podium_kill_feed_endpoint();
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'podium_remove_feeds_activation' );
+

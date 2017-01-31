@@ -41,13 +41,13 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 					* If you want to overload this in a child theme then include a file
 					* called content-search.php and that will be used instead.
 					*/
-					get_template_part( 'directives/content', 'search' );
+					get_template_part( 'template-parts/content', 'search' );
 				}
 				if ( function_exists( 'emm_paginate' ) ) {
 					emm_paginate();
 				}
 			} else {
-				get_template_part( 'directives/content', 'none' );
+				get_template_part( 'template-parts/content', 'none' );
 			}
 			?>
 
@@ -55,7 +55,7 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 	</section><!-- #primary -->
 	<?php
 	if ( $settings->displaySidebar() ) { // has sidebar
-		get_template_part( 'directives/sidebar', 'page' );
+		get_template_part( 'template-parts/sidebar', 'page' );
 	}
 	?>
 </div><!-- #content -->
