@@ -133,9 +133,9 @@ gulp.task( 'custom-scripts', function() {
 		fix: true
 	} ) )
 	.pipe( eslint.format() )
-	.pipe(babel({
+	.pipe( babel( {
 		presets: ['es2015']
-	}))
+	} ) )
 	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
@@ -161,17 +161,17 @@ gulp.task( 'scripts', function() {
 
 gulp.task( 'scripts-min', function() {
 	return gulp.src( js_files )
-	.pipe( concat( 'main.min.js' ) )
-	.pipe(babel({
+	.pipe( babel( {
 		presets: ['es2015']
-	}))
+	} ) )
+	.pipe( concat( 'main.min.js' ) )
 	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
 		let filename = error.fileName.replace(/^.*[\\\/]/, '')
 		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-	}))
+	} ) )
 	.pipe( gulp.dest( 'dist/scripts' ) )
 	.pipe( notify( 'Javascripts compiled and minified' ) );			// Output to notification
-});
+} );
 
 let php_files = [
 '{lib,template-parts}/**/*.php',
