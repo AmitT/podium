@@ -23,7 +23,7 @@ Building the theme requires [node.js](http://nodejs.org/download/). We recommend
 
 From the command line:
 
-1. Install [gulp](http://gulpjs.com) globally with `yarn install -g gulp`
+1. Install [gulp](http://gulpjs.com) globally with `yarn global add gulp`
 2. Navigate to the theme directory, then run `yarn install`
 
 ### Build commands
