@@ -112,39 +112,63 @@ function podium_oembed_html( $html, $url, $attr, $post_id ) {
   return '<div class="responsive-embed widescreen">' . $html . '</div>';
 }
 
-function svg_get_contents( $svg_file ){
+  function svg_get_contents( $svg_file ){
 
-  // Check if file exists
-  if ( $svg_file ) {
+    // Check if file exists
+    if ( $svg_file ) {
 
-    // Set user-agent
-    ini_set( 'user_agent','Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0' );
+      // Set user-agent
+      ini_set( 'user_agent','Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0' );
 
-    // Set CURL request
-    $ch = curl_init();
+      // Get SVG contents
+      $svg_file = file_get_contents( $svg_file );
 
-    curl_setopt( $ch, CURLOPT_AUTOREFERER, TRUE );
-    curl_setopt( $ch, CURLOPT_HEADER, 0 );
-    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-    curl_setopt( $ch, CURLOPT_URL, $svg_file );
-    curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, TRUE );
+      // Clean unnecessary meta and info
+      $find_string   = '<svg';
+      $position = strpos($svg_file, $find_string);
 
-    // Request
-    $data = curl_exec( $ch );
-    curl_close( $ch );
+      $svg_file_new = substr($svg_file, $position);
 
-    // Clean unnecessary meta and info
-    $find_string   = '<svg';
-    $position = strpos( $data, $find_string );
+      // Restore user agent
+      ini_restore( 'user_agent' );
 
-    $svg_file_new = substr( $data, $position );
+      return $svg_file_new;
+    }
 
-    // Restore user agent
-    ini_restore( 'user_agent' );
+    return 'The file does not exist';
 
-    return $svg_file_new;
+    // // Check if file exists
+    // if ( $svg_file ) {
+    //
+    //   // Set user-agent
+    //   ini_set( 'user_agent','Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0' );
+    //
+    //   // Set CURL request
+    //   $ch = curl_init();
+    //
+    //   curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+    //   curl_setopt($ch, CURLOPT_HEADER, 0);
+    //   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    //   curl_setopt($ch, CURLOPT_URL, $svg_file);
+    //   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    //
+    //   // Request
+    //   $data = curl_exec($ch);
+    //   curl_close($ch);
+    //
+    //   // Clean unnecessary meta and info
+    //   $find_string   = '<svg';
+    //   $position = strpos($data, $find_string);
+    //
+    //   $svg_file_new = substr($data, $position);
+    //
+    //   // Restore user agent
+    //   ini_restore( 'user_agent' );
+    //
+    //
+    //   return $svg_file_new;
+    // }
+    // return 'The file does not exist';
+
   }
 
-  return 'The file does not exist';
-
-}
