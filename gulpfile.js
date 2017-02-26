@@ -10,14 +10,14 @@ rename = require( 'gulp-rename' ),
 concat = require( 'gulp-concat' ),
 sourcemaps = require( 'gulp-sourcemaps' ),
 del = require( 'del' ),
-notify = require( 'gulp-notify' ),
+gutil = require('gulp-util'),
 jshint = require('gulp-jshint'),
 stylish = require('jshint-stylish'),
 eslint = require('gulp-eslint'),
 babel = require('gulp-babel'),
 browserSync = require( 'browser-sync' ).create();
 
-require( 'es6-promise' ).polyfill();
+// require( 'es6-promise' ).polyfill();
 
 gulp.task( 'styles', function() {
 
@@ -28,9 +28,14 @@ gulp.task( 'styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
-		return "SASS Error: " + error.message;
-	}))
+	.pipe( sass()
+		.on( 'error', function ( err ) {
+			gutil.log(
+				'Error found:\n\x07',
+				gutil.colors.red( err.message )
+				);
+		} )
+		)
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -41,7 +46,6 @@ gulp.task( 'styles', function() {
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
-	.pipe( notify( 'SCSS files compiled' ) );			// Output to notification
 });
 
 gulp.task( 'styles-min', function() {
@@ -50,7 +54,14 @@ gulp.task( 'styles-min', function() {
 	];
 
 	gulp.src( scss_files )
-	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( sass()
+		.on( 'error', function ( err ) {
+			gutil.log(
+				'Error found:\n\x07',
+				gutil.colors.red( err.message )
+				);
+		} )
+		)
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -65,7 +76,6 @@ gulp.task( 'styles-min', function() {
 		}
 	} ) )
 	.pipe( gulp.dest( 'dist/styles' ) )
-	.pipe( notify( 'SCSS files compiled and minified' ) );			// Output to notification
 });
 
 gulp.task( 'rtl-styles', function() {
@@ -77,9 +87,14 @@ gulp.task( 'rtl-styles', function() {
 
 	gulp.src( scss_files )
 	.pipe( sourcemaps.init() )
-	.pipe( sass() ).on( 'error', notify.onError( function ( error ) {
-		// return "SASS Error: " + error.message;
-	}))
+	.pipe( sass()
+		.on( 'error', function ( err ) {
+			gutil.log(
+				'Error found:\n\x07',
+				gutil.colors.red( err.message )
+				);
+		} )
+		)
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -90,7 +105,6 @@ gulp.task( 'rtl-styles', function() {
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/styles' ) )
 	.pipe( browserSync.stream() )
-	.pipe( notify( 'RTL styles compiled' ) );
 });
 
 gulp.task( 'rtl-styles-min', function() {
@@ -100,7 +114,14 @@ gulp.task( 'rtl-styles-min', function() {
 	];
 
 	gulp.src( scss_files )
-	.pipe( sass( {errLogToConsole: true} ) )
+	.pipe( sass()
+		.on( 'error', function ( err ) {
+			gutil.log(
+				'Error found:\n\x07',
+				gutil.colors.red( err.message )
+				);
+		} )
+		)
 	.pipe( autoprefixer( {
 		browsers: [
 		'last 2 versions',
@@ -118,7 +139,6 @@ gulp.task( 'rtl-styles-min', function() {
 	} ) )
 	.pipe( gulp.dest('dist/styles') )
 	.pipe( browserSync.stream() )
-	.pipe( notify( 'RTL styles compiled and minified' ) );
 });
 
 
@@ -136,7 +156,6 @@ gulp.task( 'custom-scripts', function() {
 	.pipe( babel( {
 		presets: ['es2015']
 	} ) )
-	.pipe( notify( 'Javascripts linted' ) );			// Output to notification
 });
 
 
@@ -156,7 +175,6 @@ gulp.task( 'scripts', function() {
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/scripts' ) )
 	.pipe( browserSync.stream() )
-	.pipe( notify( 'Javascripts compiled' ) );			// Output to notification
 });
 
 gulp.task( 'scripts-min', function() {
@@ -165,12 +183,8 @@ gulp.task( 'scripts-min', function() {
 		presets: ['es2015']
 	} ) )
 	.pipe( concat( 'main.min.js' ) )
-	.pipe( uglify() ).on( "error", notify.onError( function ( error ) {
-		let filename = error.fileName.replace(/^.*[\\\/]/, '')
-		return "JavaScript error:\n" + filename + "\nLine " +  error.lineNumber;
-	} ) )
+	.pipe( uglify() )
 	.pipe( gulp.dest( 'dist/scripts' ) )
-	.pipe( notify( 'Javascripts compiled and minified' ) );			// Output to notification
 } );
 
 let php_files = [
@@ -199,7 +213,8 @@ gulp.task( 'images-min', function() {
 	.pipe( imagemin( {
 		optimizationLevel: 3,
 		progressive: true,
-		interlaced: true
+		interlaced: true,
+		use: [imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo()]
 	} ) )
 	.pipe( gulp.dest( 'dist/images' ) );
 });

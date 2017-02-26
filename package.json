@@ -4,7 +4,6 @@
   "author": "Winsite Dev Team",
   "homepage": "https://github.com/AmitT/podium/",
   "private": true,
-  "sasslintConfig": "sass-lint.yml",
   "repository": {
     "type": "git",
     "url": "git://github.com/AmitT/podium.git"
@@ -27,7 +26,6 @@
   "devDependencies": {
     "browser-sync": "~2.17.5",
     "del": "~2.2.0",
-    "es6-promise": "~4.0.5",
     "gulp": "~3.9.1",
     "gulp-autoprefixer": "~3.1.0",
     "gulp-concat": "~2.6.0",
@@ -35,7 +33,6 @@
     "gulp-eslint": "^3.0.1",
     "gulp-imagemin": "~3.0.1",
     "gulp-jshint": "^2.0.1",
-    "gulp-notify": "~2.2.0",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "~2.3.2",
     "gulp-sourcemaps": "~2.2.0",
@@ -48,6 +45,7 @@
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.3.0",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1"
+    "gulp-eslint": "^3.0.1",
+    "gulp-util": "^3.0.8"
   }
 }
