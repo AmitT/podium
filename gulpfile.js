@@ -267,5 +267,5 @@ gulp.task('watch', function() {
 	gulp.watch( ['assets/scripts/**/*'], ['custom-scripts'] );
 	gulp.watch( ['assets/fonts/**/*'], ['fonts'] );
 	gulp.watch( ['assets/images/**/*'], ['images'] );
-	gulp.watch( ['{lib,template-parts}/**/*.php', '*.php'], ['php'] );
+	gulp.watch( ['{inc,template-parts}/**/*.php', '*.php'], ['php'] );
 });
