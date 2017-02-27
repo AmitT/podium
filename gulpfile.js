@@ -153,9 +153,9 @@ gulp.task( 'custom-scripts', function() {
 		fix: true
 	} ) )
 	.pipe( eslint.format() )
-	.pipe( babel( {
-		presets: ['es2015']
-	} ) )
+	// .pipe( babel( {
+	// 	presets: ['es2015']
+	// } ) )
 });
 
 
@@ -179,9 +179,9 @@ gulp.task( 'scripts', function() {
 
 gulp.task( 'scripts-min', function() {
 	return gulp.src( js_files )
-	.pipe( babel( {
-		presets: ['es2015']
-	} ) )
+	// .pipe( babel( {
+	// 	presets: ['es2015']
+	// } ) )
 	.pipe( concat( 'main.min.js' ) )
 	.pipe( uglify() )
 	.pipe( gulp.dest( 'dist/scripts' ) )
