@@ -20,6 +20,7 @@ get_header();
             <?php
 
 if (have_posts()) {
+
     ?>
 
                 <header class="page-header">
@@ -47,11 +48,15 @@ if (have_posts()) {
 // End while
 
     if (function_exists('emm_paginate')) {
+
         emm_paginate();
+
     }
 
 } else {
+
     get_template_part('template-parts/content', 'none');
+
 }
 
 ?>

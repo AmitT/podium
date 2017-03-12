@@ -45,7 +45,9 @@ while (have_posts()) {
 		<?php
 
 if ($settings->displaySidebar()) {
+
     get_template_part('template-parts/sidebar', 'page');
+
 }
 
 ?>

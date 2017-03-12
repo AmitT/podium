@@ -7,27 +7,29 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID();?>" <?php post_class();?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title('<h1 class="entry-title">', '</h1>');?>
 
 		<div class="entry-meta">
-			<?php podium_posted_on(); ?>
+			<?php podium_posted_on();?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_content(); ?>
+		<?php the_content();?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'podium' ),
-				'after'  => '</div>',
-			) );
-		?>
+
+wp_link_pages([
+    'before' => '<div class="page-links">' . esc_html__('Pages:', 'podium'),
+    'after'  => '</div>'
+]);
+
+?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php podium_entry_footer(); ?>
+		<?php podium_entry_footer();?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
