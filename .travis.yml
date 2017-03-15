@@ -58,9 +58,9 @@ script:
     - source $DEV_LIB_PATH/travis.script.sh
     - npm run build
     - npm run build:production
-    #- npm run jshint
-    #- npm run eslint
-    - phpcs --standard=ruleset.xml --extensions=php -n -s .
+    - npm run jshint
+    - npm run eslint
+    #- phpcs --standard=ruleset.xml --extensions=php -n -s .
 
 after_script:
     - source $DEV_LIB_PATH/travis.after_script.sh
