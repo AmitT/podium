@@ -20,6 +20,9 @@
     <!-- Allow multiple PHP statements in the same line -->
     <rule ref="Generic.Formatting.DisallowMultipleStatements.SameLine">
     </rule>
+    <!-- Allow space indentation -->
+    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed">
+    </rule>
     <!-- Disable PSR-2 indentation rules that are buggy with 2 spaces -->
     <rule ref="PSR2.ControlStructures.SwitchDeclaration.BreakIndent">
     </rule>
