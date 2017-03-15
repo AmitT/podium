@@ -33,7 +33,10 @@ if (is_home() && current_user_can('publish_posts')) {
     ?>
 			</p>
 
-			<?php } elseif (is_search()) {
+			<?php
+
+} elseif (is_search()) {
+
     ?>
 
 				<p>
@@ -45,7 +48,11 @@ if (is_home() && current_user_can('publish_posts')) {
 				</p>
 				<?php get_search_form();?>
 
-				<?php } else {?>
+				<?php
+
+} else {
+
+    ?>
 
 					<p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'podium');?></p>
 					<?php get_search_form();?>

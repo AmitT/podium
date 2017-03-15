@@ -49,12 +49,13 @@ class Settings extends PodiumCoreProperties
     }
 
     /**
-     * @param $contentHasSidebarClass
-     * @param $contentNoSidebarClass
+     * @param  $contentHasSidebarClass
+     * @param  $contentNoSidebarClass
      * @return mixed
      */
     public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12')
     {
+
 // return bool
 
         if ($this->displaySidebar()) {
@@ -73,6 +74,7 @@ class Settings extends PodiumCoreProperties
     {
 
         if (has_nav_menu('main-nav')) {
+
 // check if menu exists
             if ('onCanvass' == $canvas) {
                 // check if the menu is off-canvas
@@ -131,7 +133,7 @@ class Settings extends PodiumCoreProperties
 
     }
 
-    // make chnages to this method
+// make chnages to this method
     /**
      * @return mixed
      */

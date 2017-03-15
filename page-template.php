@@ -1,4 +1,4 @@
-<?php
+s<?php
 /**
  * The template for displaying all pages.
  *
@@ -41,6 +41,7 @@ while (have_posts()) {
     }
 
 }
+
 // End of the loop. ?>
 
 		</main><!-- #main -->
@@ -50,7 +51,7 @@ while (have_posts()) {
 if ($settings->displaySidebar()) {
 
     get_template_part('template-parts/sidebar', 'page');
-    
+
 }
 
 ?>

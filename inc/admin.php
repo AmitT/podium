@@ -48,25 +48,27 @@ function podium_rss_dashboard_widget()
 
         foreach ($items as $item) {
             ?>
-			<h4 style="margin-bottom: 0;">
-				<a href="<?php echo $item->get_permalink(); ?>"
-				title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>"
-				target="_blank">
-					<?php echo $item->get_title(); ?>
-				</a>
-			</h4>
-			<p style="margin-top: 0.5em;">
-				<?php echo strip_tags(wp_trim_words($item->get_description(), 40, '...')); ?>
-				<a style="display:block;" href="<?php echo $item->get_permalink(); ?>"
-				title="<?php echo __('Read More', 'podium'); ?>"
-				target="_blank">
-					<?php echo __('Read More', 'podium'); ?> >
-				</a>
-			</p>
-			<?php
+            <h4 style="margin-bottom: 0;">
+                <a href="<?php echo $item->get_permalink(); ?>"
+                title="<?php echo mysql2date(__('j F Y @ g:i a', 'podium'), $item->get_date('Y-m-d H:i:s')); ?>"
+                target="_blank">
+                    <?php echo $item->get_title(); ?>
+                </a>
+            </h4>
+            <p style="margin-top: 0.5em;">
+                <?php echo strip_tags(wp_trim_words($item->get_description(), 40, '...')); ?>
+                <a style="display:block;" href="<?php echo $item->get_permalink(); ?>"
+                title="<?php echo __('Read More', 'podium'); ?>"
+                target="_blank">
+                    <?php echo __('Read More', 'podium'); ?> >
+                </a>
+            </p>
+            <?php
 
         }
+
     }
+
 }
 
 // Calling all custom dashboard widgets
@@ -167,10 +169,10 @@ add_filter('upload_mimes', 'cc_mime_types');
 function theme_req_style_fix()
 {
     echo '<style>
-	.wp-core-ui .notice.is-dismissible {
-		display: block;
-	}
-	</style>';
+    .wp-core-ui .notice.is-dismissible {
+        display: block;
+    }
+    </style>';
 }
 
 add_action('admin_head', 'theme_req_style_fix');

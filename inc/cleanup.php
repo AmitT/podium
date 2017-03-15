@@ -83,6 +83,7 @@ if (!function_exists('podium_setup')) {
     }
 
 }
+
 // podium_setup
 add_action('after_setup_theme', 'podium_setup');
 
@@ -203,7 +204,7 @@ function podium_gallery_style($css)
 
 //  Stop WordPress from using the sticky class (which conflicts with Foundation), and style WordPress sticky posts using the .wp-sticky class instead
 /**
- * @param $classes
+ * @param  $classes
  * @return mixed
  */
 function remove_sticky_class($classes)

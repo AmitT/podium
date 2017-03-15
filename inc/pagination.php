@@ -56,6 +56,7 @@ function emm_paginate($args = null)
     extract($r, EXTR_SKIP);
 
     if (!$page && !$pages) {
+
         global $wp_query;
 
         $page = get_query_var('paged');
@@ -63,17 +64,21 @@ function emm_paginate($args = null)
 
         $posts_per_page = intval(get_query_var('posts_per_page'));
         $pages          = intval(ceil($wp_query->found_posts / $posts_per_page));
+
     }
 
     $output = '';
 
     if ($pages > 1) {
+
         // $output .= "$before<span class='emm-title'>$title</span>";
         $output .= "$before";
         $ellipsis = "<span class='emm-gap'>...</span>";
 
         if ($page > 1 && !empty($previouspage)) {
+
             $output .= "<a href='" . get_pagenum_link($page - 1) . "' class='emm-prev'>$previouspage</a>";
+
         }
 
         $min_links  = $range * 2 + 1;
@@ -83,12 +88,15 @@ function emm_paginate($args = null)
         $right_gap  = (($block_high + $anchor + $gap) < $pages) ? true : false;
 
         if ($left_gap && !$right_gap) {
+
             $output .= sprintf('%s%s%s',
                 emm_paginate_loop(1, $anchor),
                 $ellipsis,
                 emm_paginate_loop($block_min, $pages, $page)
             );
+
         } elseif ($left_gap && $right_gap) {
+
             $output .= sprintf('%s%s%s%s%s',
                 emm_paginate_loop(1, $anchor),
                 $ellipsis,
@@ -96,25 +104,34 @@ function emm_paginate($args = null)
                 $ellipsis,
                 emm_paginate_loop(($pages - $anchor + 1), $pages)
             );
+
         } elseif ($right_gap && !$left_gap) {
+
             $output .= sprintf('%s%s%s',
                 emm_paginate_loop(1, $block_high, $page),
                 $ellipsis,
                 emm_paginate_loop(($pages - $anchor + 1), $pages)
             );
+
         } else {
+
             $output .= emm_paginate_loop(1, $pages, $page);
+
         }
 
         if ($page < $pages && !empty($nextpage)) {
+
             $output .= "<a href='" . get_pagenum_link($page + 1) . "' class='emm-next'>$nextpage</a>";
+
         }
 
         $output .= $after;
     }
 
     if ($echo) {
+
         echo $output;
+
     }
 
     return $output;
@@ -138,9 +155,11 @@ function emm_paginate_loop($start, $max, $page = 0)
     $output = '';
 
     for ($i = $start; $i <= $max; $i++) {
+
         $output .= (intval($i) === $page)
         ? "<span class='emm-page emm-current'>$i</span>"
         : "<a href='" . get_pagenum_link($i) . "' class='emm-page'>$i</a>";
+
     }
 
     return $output;

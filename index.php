@@ -17,9 +17,9 @@ $settings = new settings();
 get_header();
 ?>
 <div id="content" class="site-content row">
-	<div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', ''); ?> columns">
-		<main id="main" class="site-main" role="main">
-			<?php
+    <div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', ''); ?> columns">
+        <main id="main" class="site-main" role="main">
+            <?php
 
 if (have_posts()) {
 
@@ -52,9 +52,9 @@ if (have_posts()) {
 
 ?>
 
-				</main><!-- #main -->
-			</div>
-			<?php
+                </main><!-- #main -->
+            </div>
+            <?php
 
 if ($settings->displaySidebar()) {
 
@@ -63,6 +63,6 @@ if ($settings->displaySidebar()) {
 }
 
 ?>
-			</div><!-- #content -->
+            </div><!-- #content -->
 
-			<?php get_footer();?>
+            <?php get_footer();?>

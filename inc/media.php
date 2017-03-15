@@ -38,17 +38,22 @@ function my_post_gallery($output, $attr)
     $id = intval($id);
 
     if ('RAND' == $order) {
+
         $orderby = 'none';
+
     }
 
     if (!empty($include)) {
+
         $include      = preg_replace('/[^0-9,]+/', '', $include);
         $_attachments = get_posts(['include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby]);
 
         $attachments = [];
 
         foreach ($_attachments as $key => $val) {
+
             $attachments[$val->ID] = $_attachments[$key];
+
         }
 
     }
@@ -63,6 +68,7 @@ function my_post_gallery($output, $attr)
 
 // Now you loop through each attachment
     foreach ($attachments as $id => $attachment) {
+
         $img = wp_prepare_attachment_for_js($id);
 
         $thumb_url = $img['sizes']['thumbnail']['url'];
@@ -76,12 +82,16 @@ function my_post_gallery($output, $attr)
 // $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
 
         if ('none' != $attr['link']) {
+
             $output .= '<a data-open="Modal' . $post->ID . $i . '" class="thumbnail-wrap">';
+
         }
 
         $output .= '<img class="thumbnail" src="' . $thumb_url . '"  alt="' . $alt . '" title="' . $alt . '" />';
         if ('none' != $attr['link']) {
+
             $output .= '</a>';
+
         }
 
         $output .= "</div>\n";
@@ -109,8 +119,12 @@ function get_podium_featured_image($size)
 {
 
     if (has_post_thumbnail()) {
+
         the_post_thumbnail($size);
-    } else {?>
+
+    } else {
+
+        ?>
   <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="Latet Tikvah" />
   <?php }
 
@@ -137,7 +151,7 @@ function podium_oembed_html($html, $url, $attr, $post_id)
 }
 
 /**
- * @param $svg_file
+ * @param  $svg_file
  * @return mixed
  */
 function svg_get_contents($svg_file)
@@ -162,6 +176,7 @@ function svg_get_contents($svg_file)
         ini_restore('user_agent');
 
         return $svg_file_new;
+
     }
 
     return 'The file does not exist';

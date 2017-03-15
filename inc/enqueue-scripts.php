@@ -14,7 +14,8 @@ if ('localhost' === $host || 'win-sites.co.il' === $host || 'win-site.info' === 
 
     //set development ENV
     define('WP_ENV', 'development');
-    // remove when you make the site live.
+
+// remove when you make the site live.
 
     // Enable strict error reporting
     error_reporting(E_ALL | E_STRICT);
@@ -59,30 +60,44 @@ function podium_scripts()
 
 // Load RTL Styles
         if (WP_ENV !== 'development') {
+
             wp_enqueue_style('podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css');
+
         } else {
+
             wp_enqueue_style('podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.css');
+
         }
 
     } else {
 
 // Load LTR Styles
         if (WP_ENV !== 'development') {
+
             wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css');
+
         } else {
+
             wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css');
+
         }
 
     }
 
     if (WP_ENV !== 'development') {
+
         wp_enqueue_script('podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.min.js', [], '20120206', true);
+
     } else {
+
         wp_enqueue_script('podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.js', [], '20120206', true);
+
     }
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
+
         wp_enqueue_script('comment-reply');
+
     }
 
 }
@@ -91,8 +106,8 @@ add_action('wp_enqueue_scripts', 'podium_scripts');
 
 // Defer scripts
 /**
- * @param $tag
- * @param $handle
+ * @param  $tag
+ * @param  $handle
  * @return mixed
  */
 function podium_add_defer_attribute($tag, $handle)
@@ -107,7 +122,9 @@ function podium_add_defer_attribute($tag, $handle)
     foreach ($scripts_to_defer as $defer_script) {
 
         if ($defer_script === $handle) {
+
             return str_replace(' src', ' defer="defer" src', $tag);
+
         }
 
     }
@@ -119,8 +136,8 @@ add_filter('script_loader_tag', 'podium_add_defer_attribute', 10, 2);
 
 // Async scripts
 /**
- * @param $tag
- * @param $handle
+ * @param  $tag
+ * @param  $handle
  * @return mixed
  */
 function podium_add_async_attribute($tag, $handle)
@@ -135,7 +152,9 @@ function podium_add_async_attribute($tag, $handle)
     foreach ($scripts_to_async as $async_script) {
 
         if ($async_script === $handle) {
+
             return str_replace(' src', ' async="async" src', $tag);
+
         }
 
     }

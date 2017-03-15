@@ -18,7 +18,9 @@ function podium_body_classes($classes)
 
 // Adds a class of group-blog to blogs with more than 1 published author.
     if (is_multi_author()) {
+
         $classes[] = 'group-blog';
+
     }
 
     return $classes;
@@ -28,26 +30,28 @@ add_filter('body_class', 'podium_body_classes');
 
 // Get post Thumb URL
 /**
- * @param $post
- * @param $size
+ * @param  $post
+ * @param  $size
  * @return mixed
  */
 function get_thumb_url($post, $size = 'full')
 {
 
     if (has_post_thumbnail($post->ID)) {
+
         $attachment_id = get_post_thumbnail_id($post->ID);
 
         // thumbnail, medium, large, or full
         $src = wp_get_attachment_image_src($attachment_id, $size);
         return $src[0];
+
     }
 
     return false;
 }
 
 /**
- * @param $limit
+ * @param  $limit
  * @return mixed
  */
 function excerpt($limit)
@@ -55,10 +59,14 @@ function excerpt($limit)
     $excerpt = explode(' ', get_the_excerpt(), $limit);
 
     if (count($excerpt) >= $limit) {
+
         array_pop($excerpt);
         $excerpt = implode(' ', $excerpt);
+
     } else {
+
         $excerpt = implode(' ', $excerpt);
+
     }
 
     $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);

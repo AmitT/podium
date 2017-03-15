@@ -2,8 +2,7 @@
 // Register menus
 register_nav_menus(
     [
-        'main-nav' => __('The Main Menu', 'podium') // Main nav in header
-                                                     //'footer-links' => __( 'Footer Links', 'podium' ) // Secondary nav in footer
+        'main-nav' => __('The Main Menu', 'podium') // Main nav in header //'footer-links' => __( 'Footer Links', 'podium' ) // Secondary nav in footer
     ]
 );
 
@@ -25,6 +24,7 @@ function podium_top_nav()
         'walker'          => new Top_Bar_Walker()
     ]);
 }
+
 /* End Top Menu */
 
 function podium_off_canvas()
@@ -62,6 +62,7 @@ function podium_footer_links()
         'fallback_cb'     => 'podium_footer_links_fallback' // Fallback function
     ]);
 }
+
 /* End Footer Menu */
 
 // Header Fallback Menu

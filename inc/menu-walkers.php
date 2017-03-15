@@ -42,12 +42,16 @@ final class Top_Bar_Walker extends Walker_Nav_Menu
         $classes = empty($object->classes) ? [] : (array) $object->classes;
 
         if (in_array('label', $classes)) {
+
             //$output .= '<li class="divider"></li>';
             $item_html = preg_replace('/<a[^>]*>(.*)<\/a>/iU', '<label>$1</label>', $item_html);
+
         }
 
         if (in_array('divider', $classes)) {
+
             $item_html = preg_replace('/<a[^>]*>( .* )<\/a>/iU', '', $item_html);
+
         }
 
         $output .= $item_html;
@@ -106,7 +110,9 @@ final class Offcanvas_Walker extends Walker_Nav_Menu
         $classes = empty($object->classes) ? [] : (array) $object->classes;
 
         if (in_array('label', $classes)) {
+
             $item_html = preg_replace('/<a[^>]*>(.*)<\/a>/iU', '<label>$1</label>', $item_html);
+
         }
 
         $output .= $item_html;

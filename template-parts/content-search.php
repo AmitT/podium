@@ -14,11 +14,17 @@
 		<?php the_title(sprintf('<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h1>');?>
 
 		<?php
-if ('post' == get_post_type()) {?>
+
+if ('post' == get_post_type()) {
+
+    ?>
 			<div class="entry-meta">
 				<?php podium_posted_on();?>
 			</div><!-- .entry-meta -->
-			<?php }
+			<?php
+
+}
+
 ?>
 		</header><!-- .entry-header -->
 

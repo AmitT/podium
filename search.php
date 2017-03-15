@@ -16,26 +16,26 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 ?>
 
 <div id="content" class="site-content row">
-	<section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
-		<main id="main" class="site-main" role="main">
+    <section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
+        <main id="main" class="site-main" role="main">
 
-			<?php
+            <?php
 
 if (have_posts()) {
-	
+
     ?>
 
-				<header class="page-header">
-					<h1 class="page-title">
-						<?php
+                <header class="page-header">
+                    <h1 class="page-title">
+                        <?php
 
     printf(esc_html__('Search Results for: %s', 'podium'), '<span>' . get_search_query() . '</span>');
 
     ?>
-					</h1>
-				</header><!-- .page-header -->
+                    </h1>
+                </header><!-- .page-header -->
 
-				<?php /* Start the Loop */
+                <?php /* Start the Loop */
 
     while (have_posts()) {
 
@@ -64,9 +64,9 @@ if (have_posts()) {
 
 ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
-	<?php
+        </main><!-- #main -->
+    </section><!-- #primary -->
+    <?php
 
 if ($settings->displaySidebar()) {
 

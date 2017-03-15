@@ -18,6 +18,7 @@ function podium_wpcom_setup()
 
 // Set theme colors for third party services.
     if (!isset($themecolors)) {
+
         $themecolors = [
             'bg'     => '',
             'border' => '',
@@ -25,6 +26,7 @@ function podium_wpcom_setup()
             'link'   => '',
             'url'    => ''
         ];
+
     }
 
 }
