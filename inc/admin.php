@@ -89,6 +89,7 @@ add_action('admin_menu', 'disable_default_dashboard_widgets');
 add_action('wp_dashboard_setup', 'podium_custom_dashboard_widgets');
 
 /************* CUSTOMIZE ADMIN *******************/
+
 // Custom Backend Footer
 function podium_custom_admin_footer()
 {
