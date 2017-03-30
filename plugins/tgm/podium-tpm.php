@@ -95,7 +95,7 @@ function podium_register_required_plugins()
             'slug'             => 'winsite-image-optimizer',
             'required'         => true,
             'force_activation' => true
-        ]
+        ],
 
         // [
         //     'name'             => 'Polylang',
