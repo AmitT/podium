@@ -125,7 +125,7 @@ function get_podium_featured_image($size)
     } else {
 
         ?>
-  <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="Latet Tikvah" />
+  <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="placeholder image" />
   <?php }
 
 }
@@ -180,68 +180,5 @@ function svg_get_contents($svg_file)
     }
 
     return 'The file does not exist';
-
-// // Check if file exists
-
-// if ( $svg_file ) {
-
-//
-
-//   // Set user-agent
-
-//   ini_set( 'user_agent','Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0' );
-
-//
-
-//   // Set CURL request
-
-//   $ch = curl_init();
-
-//
-
-//   curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-
-//   curl_setopt($ch, CURLOPT_HEADER, 0);
-
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-//   curl_setopt($ch, CURLOPT_URL, $svg_file);
-
-//   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-
-//
-
-//   // Request
-
-//   $data = curl_exec($ch);
-
-//   curl_close($ch);
-
-//
-
-//   // Clean unnecessary meta and info
-
-//   $find_string   = '<svg';
-
-//   $position = strpos($data, $find_string);
-
-//
-
-//   $svg_file_new = substr($data, $position);
-
-//
-
-//   // Restore user agent
-
-//   ini_restore( 'user_agent' );
-
-//
-
-//
-
-//   return $svg_file_new;
-
-// }
-    // return 'The file does not exist';
 
 }
