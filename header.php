@@ -1,30 +1,30 @@
 <?php
 /**
-* The header for our theme.
-*
-* Displays all of the <head> section and everything up till <div id="content">
-*
-* @package podium
-*/
+ * The header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package podium
+ */
 use Podium\Config\Settings as settings;
 
 $settings = new settings();
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset');?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="//gmpg.org/xfn/11">
 
 	<?php wp_head();
 
-	$imagesFolder = get_template_directory_uri().'/dist/images/';
+$imagesFolder = get_template_directory_uri() . '/dist/images/';
 
-	// Please create favicon files with http://iconogen.com/
-	// and put them in assets/images/favicon directory
-	?>
+// Please create favicon files with http://iconogen.com/
+// and put them in assets/images/favicon directory
+?>
 
 	<link rel="shortcut icon" href="<?php echo $imagesFolder; ?>favicon/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $imagesFolder; ?>favicon/apple-touch-icon-57x57.png">
@@ -46,11 +46,11 @@ $settings = new settings();
 	<meta name="msapplication-square310x310logo" content="<?php echo $imagesFolder; ?>favicon/largetile.png" />
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class();?>>
 
 	<div id="page" class="hfeed site">
 		<a class="skip-link show-for-sr" href="#content">
-			<?php esc_html_e( 'Skip to content', 'podium' ); ?>
+			<?php esc_html_e('Skip to content', 'podium');?>
 		</a>
 
 		<header id="masthead" class="site-header" role="banner">
@@ -59,10 +59,10 @@ $settings = new settings();
 				<div class="row">
 					<div class="small-12 columns">
 						<div class="top-bar-left">
-							<?php $settings->getMenu( new Top_Bar_Walker(), 'onCanvass' ); // print menu (source config.php) ?>
+							<?php $settings->getMenu(new Top_Bar_Walker(), 'onCanvass'); // print menu (source config.php) ?>
 						</div>
 						<div class="top-bar-right">
-							<span class="title-bar-title"><?php echo get_bloginfo( 'name' ); ?></span>
+							<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
 						</div>
 					</div>
 				</div>
@@ -74,7 +74,7 @@ $settings = new settings();
 						<button class="menu-icon" type="button" data-open="offCanvas"></button>
 					</div>
 					<div class="title-bar-right">
-						<span class="title-bar-title"><?php echo get_bloginfo( 'name' ); ?></span>
+						<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
 					</div>
 				</div>
 			</div>
@@ -89,7 +89,7 @@ $settings = new settings();
 			</button>
 
 			<!-- Menu -->
-			<?php $settings->getMenu( new Top_Bar_Walker(), 'offCanvas' ); // print menu (source config.php) ?>
+			<?php $settings->getMenu(new Top_Bar_Walker(), 'offCanvas'); // print menu (source config.php) ?>
 
 		</div>
 		<div class="off-canvas-content" data-off-canvas-content>

@@ -1,53 +1,48 @@
 {
-  "name": "podium",
-  "version": "1.0.2",
-  "author": "Winsite Dev Team",
-  "homepage": "https://github.com/AmitT/podium/",
-  "private": true,
-  "sasslintConfig": "sass-lint.yml",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/AmitT/podium.git"
-  },
-  "bugs": {
-    "url": "https://github.com/AmitT/podium/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
+    "name": "podium",
+    "version": "1.5.0",
+    "author": "Winsite Dev Team",
+    "homepage": "https://github.com/AmitT/podium/",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/AmitT/podium.git"
+    },
+    "bugs": {
+        "url": "https://github.com/AmitT/podium/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "scripts": {
+        "install": "gulp",
+        "start": "gulp && gulp watch",
+        "build": "gulp",
+        "build:production": "gulp production"
+    },
+    "dependencies": {
+        "babel-preset-es2015": "~6.24.0",
+        "browser-sync": "~2.18.8",
+        "del": "~2.2.0",
+        "font-awesome": "~4.7.0",
+        "foundation-sites": "~6.3.0",
+        "gulp": "~3.9.1",
+        "gulp-autoprefixer": "~3.1.0",
+        "gulp-babel": "~6.1.2",
+        "gulp-concat": "~2.6.0",
+        "gulp-cssnano": "~2.1.2",
+        "gulp-eslint": "~3.0.1",
+        "gulp-imagemin": "~3.1.1",
+        "gulp-jshint": "~2.0.1",
+        "gulp-rename": "~1.2.2",
+        "gulp-sass": "~3.1.0",
+        "gulp-sourcemaps": "~2.4.1",
+        "gulp-uglify": "~2.1.0",
+        "gulp-util": "~3.0.8",
+        "jshint": "~2.9.2",
+        "jshint-stylish": "~2.2.0"
     }
-  ],
-  "scripts": {
-    "install": "gulp",
-    "start": "gulp watch",
-    "build": "gulp",
-    "build:production": "gulp production"
-  },
-  "devDependencies": {
-    "browser-sync": "~2.17.5",
-    "del": "~2.2.0",
-    "es6-promise": "~4.0.5",
-    "gulp": "~3.9.1",
-    "gulp-autoprefixer": "~3.1.0",
-    "gulp-concat": "~2.6.0",
-    "gulp-cssnano": "~2.1.2",
-    "gulp-eslint": "^3.0.1",
-    "gulp-imagemin": "~3.0.1",
-    "gulp-jshint": "^2.0.1",
-    "gulp-notify": "~2.2.0",
-    "gulp-rename": "~1.2.2",
-    "gulp-sass": "~2.3.2",
-    "gulp-sourcemaps": "~2.2.0",
-    "gulp-uglify": "~2.0.0",
-    "jshint": "^2.9.2",
-    "jshint-stylish": "^2.2.0"
-  },
-  "dependencies": {
-    "babel-preset-es2015": "^6.22.0",
-    "font-awesome": "^4.7.0",
-    "foundation-sites": "^6.3.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1"
-  }
 }
