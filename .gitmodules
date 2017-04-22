@@ -2,3 +2,7 @@
 	path = dev-lib
 	url = https://github.com/xwp/wp-dev-lib.git
 	branch = master
+[submodule "inc/tgm"]
+	path = inc/tgm
+	url = git@github.com:TGMPA/TGM-Plugin-Activation.git
+	branch = master
