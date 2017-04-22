@@ -167,16 +167,6 @@ function cc_mime_types($mimes)
 
 add_filter('upload_mimes', 'cc_mime_types');
 
-function theme_req_style_fix()
-{
-    echo '<style>
-    .wp-core-ui .notice.is-dismissible {
-        display: block;
-    }
-    </style>';
-}
-
-add_action('admin_head', 'theme_req_style_fix');
 
 // Set interval beween heartbewats
 /**

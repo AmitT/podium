@@ -38,4 +38,4 @@ function add_custom_price($cart_object)
 
 }
 
-add_action('woocommerce_before_calculate_totals', 'add_custom_price');
+// add_action('woocommerce_before_calculate_totals', 'add_custom_price');

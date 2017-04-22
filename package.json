@@ -1,6 +1,6 @@
 {
     "name": "podium",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "author": "Winsite Dev Team",
     "homepage": "https://github.com/AmitT/podium/",
     "private": true,
@@ -18,20 +18,18 @@
         }
     ],
     "scripts": {
-        "install": "gulp",
+        "install": "composer install && gulp",
         "start": "gulp && gulp watch",
         "build": "gulp",
         "build:production": "gulp production"
     },
     "dependencies": {
-        "babel-preset-es2015": "~6.24.0",
         "browser-sync": "~2.18.8",
         "del": "~2.2.0",
         "font-awesome": "~4.7.0",
         "foundation-sites": "~6.3.0",
         "gulp": "~3.9.1",
         "gulp-autoprefixer": "~3.1.0",
-        "gulp-babel": "~6.1.2",
         "gulp-concat": "~2.6.0",
         "gulp-cssnano": "~2.1.2",
         "gulp-eslint": "~3.0.1",

@@ -5,10 +5,11 @@ Podium is a simple, flexible & powerful starter theme for wordpress, foundation 
 
 Requirements
 ---
-- [Node.js >= 6](https://nodejs.org).
-- [PHP >= 5.6.x](http://php.net/)
-- [gulp >= 3.9.x](http://gulpjs.com/).
-- [yarn >= 0.17.x](https://github.com/yarnpkg/yarn).
+- [PHP >= 7.x](http://php.net).
+- [Node.js >= 6.10.x](https://nodejs.org).
+- [Composer >= 1.4.x](https://getcomposer.org).
+- [gulp >= 3.9.x](http://gulpjs.com).
+- [yarn >= 0.23.x](https://yarnpkg.com).
 
 Features
 ---
@@ -25,6 +26,7 @@ From the command line:
 
 1. Install [gulp](http://gulpjs.com) globally with `yarn global add gulp`
 2. Navigate to the theme directory, then run `yarn install`
+2. In to the theme directory, run `git submodule init && git submodule update --recursive --remote`
 
 ### Build commands
 
