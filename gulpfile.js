@@ -14,7 +14,6 @@ const gulp = require( 'gulp' ),
     jshint = require( 'gulp-jshint' ),
     stylish = require( 'jshint-stylish' ),
     eslint = require( 'gulp-eslint' ),
-    babel = require( 'gulp-babel' ),
     browserSync = require( 'browser-sync' ).create( );
 
 // require( 'es6-promise' ).polyfill();
@@ -155,9 +154,6 @@ gulp.task( 'custom-scripts', function ( ) {
             fix: true
         } ) )
         .pipe( eslint.format( ) )
-    // .pipe( babel( {
-    //  presets: ['es2015']
-    // } ) )
 } );
 
 
