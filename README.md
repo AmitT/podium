@@ -8,6 +8,7 @@ Requirements
 - [PHP >= 7.x](http://php.net).
 - [git >= 2.2.x](https://git-scm.com).
 - [Node.js >= 6.10.x](https://nodejs.org).
+- [Composer >= 1.4.x](https://getcomposer.org).
 - [gulp >= 3.9.x](http://gulpjs.com).
 - [yarn >= 0.23.x](https://yarnpkg.com).
 
