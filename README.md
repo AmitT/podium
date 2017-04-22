@@ -26,7 +26,6 @@ From the command line:
 
 1. Install [gulp](http://gulpjs.com) globally with `yarn global add gulp`
 2. Navigate to the theme directory, then run `yarn install`
-2. In to the theme directory, run `git submodule init && git submodule update --recursive --remote`
 
 ### Build commands
 
