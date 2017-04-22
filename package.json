@@ -18,7 +18,7 @@
         }
     ],
     "scripts": {
-        "install": "gulp",
+        "install": "composer install && gulp",
         "start": "gulp && gulp watch",
         "build": "gulp",
         "build:production": "gulp production"
