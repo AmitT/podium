@@ -1,7 +1,6 @@
 *.zip
 *.log
 .htaccess
-vendor
 bower_components
 node_modules
 .sass-cache

@@ -7,8 +7,6 @@
  * @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
  */
 
-require_once get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
-
 add_action('tgmpa_register', 'podium_register_required_plugins');
 
 /**

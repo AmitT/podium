@@ -22,7 +22,9 @@ $reqire_files = [
     '/inc/clean-filenames.php',  // Custom functions to clean filenames from Unicode to ASCII
     '/inc/config.php',           // get the settings for the wordpress theme.
     '/inc/media.php',            // Media functions.
-    '/inc/tgm.php',              // Plugin installation and activation for Podium based themes.
+    '/inc/vendor/autoload.php',  // Load Composer packages
+    '/inc/tgm.php'               // Plugin installation and activation for Podium based themes.
+    
     // '/inc/disable-feeds.php'  //   Remove fedds content and links
 ];
 

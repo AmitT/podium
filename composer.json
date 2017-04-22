@@ -1,0 +1,18 @@
+{
+    "name": "amitt/podium",
+    "description": "A simple, flexible & powerful starter theme for wordpress, foundation and gulp support.",
+    "type": "project",
+    "config": {
+        "vendor-dir": "inc/vendor"
+    },
+    "require": {
+        "tgmpa/tgm-plugin-activation": "^2.6"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Amit Tal",
+            "email": "amitprobable@gmail.com"
+        }
+    ]
+}
