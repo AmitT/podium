@@ -53,9 +53,9 @@ $imagesFolder = get_template_directory_uri() . '/dist/images/';
 			<?php esc_html_e('Skip to content', 'podium');?>
 		</a>
 
-		<header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header" role="banner" data-sticky-container>
 
-			<div class="show-for-medium top-bar">
+			<div class="show-for-medium top-bar" data-sticky data-margin-top="0">
 				<div class="row">
 					<div class="small-12 columns">
 						<div class="top-bar-left">
