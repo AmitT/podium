@@ -71,9 +71,14 @@ function my_post_gallery($output, $attr)
 
         $img = wp_prepare_attachment_for_js($id);
 
-        $thumb_url = $img['sizes']['thumbnail']['url'];
-        $url       = $img['sizes']['full']['url'];
-        $alt       = $img['alt'];
+        if (isset($img['sizes']['thumbnail']['url'])) {
+            $thumb_url = $img['sizes']['thumbnail']['url'];
+        } else {
+            $thumb_url = $img['url'];
+        }
+
+        $url = $img['sizes']['full']['url'];
+        $alt = $img['alt'];
 
         $i++;
 
