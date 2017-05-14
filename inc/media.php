@@ -141,14 +141,14 @@ function podium_post_gallery($output, $attr)
         // icontag
         $output .= "<{$icontag} class='gallery-icon'>";
 
-        if ('none' != $attr['link']) {
+        if (isset($attr['link']) && 'none' != $attr['link']) {
             $output .= '<a data-open="Modal' . $post->ID . $id . '" class="thumbnail-wrap">';
         }
 
         $output .= wp_get_attachment_image($id, $size);
 
 
-        if ('none' != $attr['link']) {
+        if (isset($attr['link']) && 'none' != $attr['link']) {
             $output .= '</a>';
         }
 
