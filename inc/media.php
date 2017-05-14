@@ -142,7 +142,7 @@ function podium_post_gallery($output, $attr)
         $output .= "<{$icontag} class='gallery-icon'>";
 
         if (isset($attr['link']) && 'none' != $attr['link']) {
-            $output .= '<a data-open="Modal' . $post->ID . $id . '" class="thumbnail-wrap">';
+            $output .= '<a data-open="galleryModal' . $post->ID . $id . '" class="thumbnail-wrap">';
         }
 
         $output .= wp_get_attachment_image($id, $size);
@@ -167,7 +167,7 @@ function podium_post_gallery($output, $attr)
         // End itemtag
         $output .= "</{$itemtag}>";
 
-        $output .= "<div class=\"reveal large\" id=\"Modal{$post->ID}{$id}\" aria-labelledby=\"ModalHeader\" data-reveal>
+        $output .= "<div class=\"gallery-reveal reveal large\" id=\"galleryModal{$post->ID}{$id}\" aria-labelledby=\"ModalHeader\" data-reveal>
                       <img src=\"{$url}\" alt=\"{$alt}\" />
                       <button class=\"close-button\" data-close aria-label=\"Close Modal\" type=\"button\">
                         <span aria-hidden=\"true\">&times;</span>
