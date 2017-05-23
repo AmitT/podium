@@ -11,14 +11,14 @@ function podium_post_gallery($output, $attr)
     // Initialize
     global $post, $wp_locale;
 
-    // Gallery instance counter
+// Gallery instance counter
     /**
      * @var int
      */
     static $instance = 0;
     $instance++;
 
-    // Validate the author's orderby attribute
+// Validate the author's orderby attribute
     if (isset($attr['orderby'])) {
         $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
         if (!$attr['orderby']) {
@@ -42,6 +42,7 @@ function podium_post_gallery($output, $attr)
     ], $attr));
 
     $size = 'thumbnail';
+// You need to add size for your gallery and use it
 
     // Initialize
     $id          = intval($id);
@@ -57,7 +58,7 @@ function podium_post_gallery($output, $attr)
         $include      = preg_replace('/[^0-9,]+/', '', $include);
         $_attachments = get_posts(['include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby]);
 
-        // Setup attachments array
+// Setup attachments array
         foreach ($_attachments as $key => $val) {
             $attachments[$val->ID] = $_attachments[$key];
         }
@@ -78,7 +79,7 @@ function podium_post_gallery($output, $attr)
         return '';
     }
 
-    // Filter gallery differently for feeds
+// Filter gallery differently for feeds
     if (is_feed()) {
         $output = "\n";
         foreach ($attachments as $att_id => $attachment) {
@@ -147,10 +148,13 @@ function podium_post_gallery($output, $attr)
 
         $output .= wp_get_attachment_image($id, $size);
 
+// $output .= '<img class="thumbnail" src="' . $thumb_url . '"  alt="' . $alt . '" title="' . $alt . '" />';
 
         if (isset($attr['link']) && 'none' != $attr['link']) {
             $output .= '</a>';
         }
+
+        // $output .=  $link;
 
         $output .= "</{$icontag}>";
 
@@ -174,7 +178,7 @@ function podium_post_gallery($output, $attr)
                       </button>
                 </div>";
 
-        // Line breaks by columns set
+// Line breaks by columns set
         if ($columns > 0 && ++$i % $columns == 0) {
             $output .= '<br style="clear: both">';
         }
@@ -192,7 +196,6 @@ function podium_post_gallery($output, $attr)
 
 // Apply filter to default gallery shortcode
 add_filter('post_gallery', 'podium_post_gallery', 10, 2);
-
 
 // Get featured image or placeholder
 /**
