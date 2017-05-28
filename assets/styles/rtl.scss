@@ -2,10 +2,11 @@
 //# Base
 //--------------------------------------------------------------
 
-$global-text-direction: rtl;
 
-@import 'includes';
 @import 'variables';
+$global-text-direction: rtl;
+@import 'includes';
+
 
 //--------------------------------------------------------------
 //# RTL Overides
