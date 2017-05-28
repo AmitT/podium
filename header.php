@@ -20,11 +20,11 @@ $settings = new settings();
 
 	<?php wp_head();
 
-$imagesFolder = get_template_directory_uri() . '/dist/images/';
+	$imagesFolder = get_template_directory_uri() . '/dist/images/';
 
 // Please create favicon files with http://iconogen.com/
 // and put them in assets/images/favicon directory
-?>
+	?>
 
 	<link rel="shortcut icon" href="<?php echo $imagesFolder; ?>favicon/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $imagesFolder; ?>favicon/apple-touch-icon-57x57.png">
@@ -62,7 +62,9 @@ $imagesFolder = get_template_directory_uri() . '/dist/images/';
 							<?php $settings->getMenu(new Top_Bar_Walker(), 'onCanvass'); // print menu (source config.php) ?>
 						</div>
 						<div class="top-bar-right">
-							<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
+							<a href="<?php echo get_home_url(); ?>">
+								<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -74,7 +76,9 @@ $imagesFolder = get_template_directory_uri() . '/dist/images/';
 						<button class="menu-icon" type="button" data-open="offCanvas"></button>
 					</div>
 					<div class="title-bar-right">
-						<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
+						<a href="<?php echo get_home_url(); ?>">
+							<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
+						</a>
 					</div>
 				</div>
 			</div>
