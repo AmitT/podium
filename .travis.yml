@@ -6,10 +6,8 @@ language:
 
 php:
   - nightly
-  - 5.6
-  #- 5.5
-  #- 5.4
   - 7
+  - 7.1
   #- hhvm
 
 node_js:
@@ -18,7 +16,6 @@ node_js:
 cache:
   apt: true
   directories:
-   - bower_components
    - node_modules
 
 env:
@@ -45,7 +42,7 @@ install:
     - nvm use node stable
     - node -v && npm -v
     - npm install -g npm@latest
-    - npm install -g bower gulp
+    - npm install -g gulp
     - npm install
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - composer global require squizlabs/php_codesniffer
