@@ -25,22 +25,24 @@
     },
     "dependencies": {
         "browser-sync": "~2.18.8",
+        "browserslist": "^2.1.4",
         "del": "~2.2.0",
         "font-awesome": "~4.7.0",
         "foundation-sites": "~6.3.0",
         "gulp": "~3.9.1",
-        "gulp-autoprefixer": "~3.1.0",
+        "gulp-autoprefixer": "~4.0.0",
         "gulp-concat": "~2.6.0",
         "gulp-cssnano": "~2.1.2",
         "gulp-eslint": "~3.0.1",
-        "gulp-imagemin": "~3.1.1",
-        "gulp-jshint": "~2.0.1",
+        "gulp-imagemin": "~3.3.0",
         "gulp-rename": "~1.2.2",
         "gulp-sass": "~3.1.0",
-        "gulp-sourcemaps": "~2.4.1",
-        "gulp-uglify": "~2.1.0",
-        "gulp-util": "~3.0.8",
-        "jshint": "~2.9.2",
-        "jshint-stylish": "~2.2.0"
-    }
+        "gulp-sourcemaps": "~2.6.0",
+        "gulp-uglify": "~3.0.0",
+        "gulp-util": "~3.0.8"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
 }
