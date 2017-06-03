@@ -1,6 +1,6 @@
 {
     "name": "podium",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "author": "Winsite Dev Team",
     "homepage": "https://github.com/AmitT/podium/",
     "private": true,
@@ -43,6 +43,6 @@
     },
     "browserslist": [
         "> 1%",
-        "last 2 versions"
+        "last 3 versions"
     ]
 }
