@@ -4,111 +4,405 @@ msgid ""
 msgstr ""
 "Project-Id-Version: podium 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/podium\n"
-"POT-Creation-Date: 2016-03-24 15:59+0200\n"
-"PO-Revision-Date: 2016-03-24 16:00+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-06-06 08:52+0300\n"
+"PO-Revision-Date: 2017-06-06 08:53+0300\n"
+"Last-Translator: \n"
 "Language-Team: Winsite <LL@li.org>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_;_x;_e\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: __;_;_x;_e;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: dist\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: acf-json\n"
+"X-Poedit-SearchPathExcluded-4: .git\n"
+"X-Poedit-SearchPathExcluded-5: dev-lib\n"
 
-#: ../footer.php:15
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:26
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: comments.php:49 comments.php:78
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:100
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:14
 msgid "http://wordpress.org/"
 msgstr ""
 
-#: ../template-parts/content.php:25
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+#: header.php:53
+msgid "Skip to content"
+msgstr "עבור אל תוכן העמוד"
+
+#: inc/admin.php:53
+msgid "j F Y @ g:i a"
 msgstr ""
 
-#: ../template-parts/content-none.php:20
+#: inc/admin.php:61 inc/admin.php:63
+msgid "Read More"
+msgstr "קרא עוד"
+
+#: inc/admin.php:77
+msgid "Recently on Winsite"
+msgstr "עדכונים מווינסייט"
+
+#: inc/admin.php:97
+msgid ""
+"<span id=\"footer-thankyou\">Developed by <a href=\"http://win-site.co.il\" "
+"target=\"_blank\">Winsite</a></span>"
+msgstr ""
+
+#: inc/admin.php:128
+msgid "Main image"
+msgstr "תמונה ראשית"
+
+#: inc/cleanup.php:227
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/comments.php:21
+#, php-format
+msgid "<cite class=\"fn\">%s</cite>"
+msgstr ""
+
+#: inc/comments.php:22
+msgid " F jS, Y - g:ia"
+msgstr ""
+
+#: inc/comments.php:23
+msgid "(Edit)"
+msgstr "(עריכה)"
+
+#: inc/comments.php:29
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/menu-walkers.php:128
+msgid "Back"
+msgstr "חזרה"
+
+#: inc/menu.php:5
+msgid "The Main Menu"
+msgstr "תפריט ראשי"
+
+#: inc/menu.php:54
+msgid "Footer Links"
+msgstr ""
+
+#: inc/pagination.php:51
+msgid "&raquo;"
+msgstr ""
+
+#: inc/pagination.php:51
+msgid "&laquo"
+msgstr ""
+
+#: inc/template-tags.php:81
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:291
+msgid "Archives"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:393
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:394
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3252
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:395
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2075
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2366
+msgid "Required"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2369
+msgid "Recommended"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2385
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2388
+msgid "External Source"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2391
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2408
+msgid "Not Installed"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2412
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2414
+msgid "Active"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2420
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2423
+msgid "Requires Update"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2426
+msgid "Update recommended"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2435
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2575
+msgid "unknown"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2583
+msgid "Installed version:"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2591
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2603
+msgid "Available version:"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2640
+msgid "Plugin"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2641
+msgid "Source"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2642
+msgid "Type"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2646
+msgid "Version"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2647
+msgid "Status"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2696
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2701
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2810
+msgid "Install"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2816
+msgid "Update"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2819
+msgid "Activate"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2850
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2852
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2893
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:2895
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3251
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3596
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3603
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3608
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3611
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:28
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: ../lib/menu.php:5
-msgid "The Main Menu"
-msgstr "תפריט ראשי"
-
-#: ../lib/menu.php:50
-msgid "Footer Links"
-msgstr ""
-
-#: ../lib/admin.php:45
-msgid "j F Y @ g:i a"
-msgstr ""
-
-#: ../lib/admin.php:51 ../lib/admin.php:52
-msgid "Read More"
-msgstr "קרא עוד"
-
-#: ../lib/admin.php:60
-msgid "Recently on Winsite"
-msgstr "עדכונים מווינסייט"
-
-#: ../lib/admin.php:74
+#: template-parts/content-none.php:45
 msgid ""
-"<span id=\"footer-thankyou\">Developed by <a href=\"http://win-site.co.il\" "
-"target=\"_blank\">Winsite</a></span>."
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
-#: ../lib/admin.php:121
-msgid "Main image"
-msgstr "תמונה ראשית"
-
-#: ../lib/pagination.php:46
-msgid "&raquo;"
+#: template-parts/content-none.php:57
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
-#: ../lib/pagination.php:46
-msgid "&laquo"
-msgstr ""
-
-#: ../lib/page-navi.php:35
-msgid "First"
-msgstr ""
-
-#: ../lib/page-navi.php:52
-msgid "Last"
-msgstr ""
-
-#: ../lib/menu-walkers.php:48
-msgid "Back"
-msgstr "חזרה"
-
-#: ../lib/comments.php:12
+#: template-parts/content.php:34
 #, php-format
-msgid "<cite class=\"fn\">%s</cite>"
-msgstr ""
-
-#: ../lib/comments.php:13
-msgid " F jS, Y - g:ia"
-msgstr ""
-
-#: ../lib/comments.php:14
-msgid "(Edit)"
-msgstr "(עריכה)"
-
-#: ../lib/comments.php:18
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: ../lib/cleanup.php:150
-msgid "Read"
-msgstr ""
-
-#: ../lib/cleanup.php:150
-msgid "Read more &raquo;"
-msgstr ""
-
-#: ../lib/cleanup.php:169
-#, php-format
-msgid "Posts by %s"
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
