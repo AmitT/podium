@@ -10,12 +10,19 @@
 // Set host name
 $host = $_SERVER['SERVER_NAME'];
 
-if ('localhost' === $host || 'win-sites.co.il' === $host || 'win-site.info' === $host) {
+// List of our development domains
+$dev_domains = [
+    'dev.win-site.co.il',
+    'win-sites.co.il',
+    'win-site.info',
+    'localhost',
+    'devurl.net'
+];
+
+if (in_array($host, $dev_domains)) {
 
     //set development ENV
     define('WP_ENV', 'development');
-
-// remove when you make the site live.
 
     // Enable strict error reporting
     error_reporting(E_ALL | E_STRICT);
@@ -23,22 +30,14 @@ if ('localhost' === $host || 'win-sites.co.il' === $host || 'win-site.info' === 
 
 } else {
 
-// Disable updates on server UPDATE ONLY WITH GIT
-
-// require get_template_directory() . '/lib/disable-updates.php';
     // Set production ENV
     define('WP_ENV', 'production');
-
-// turn off error reporting
-
-// error_reporting(0);
-
-// @ini_set('display_errors', 0);
 
     /**
      * Limit post revisions to 5.
      */
     define('WP_POST_REVISIONS', 5);
+
     /**
      * disallow wp files editor.
      */
