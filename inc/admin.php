@@ -76,7 +76,7 @@ function podium_custom_dashboard_widgets()
 {
     wp_add_dashboard_widget('podium_rss_dashboard_widget', __('Recently on Winsite', 'podiumtheme'), 'podium_rss_dashboard_widget');
 
-    /*
+/*
 Be sure to drop any other created Dashboard Widgets
 in this function and they will all load.
  */
@@ -100,19 +100,6 @@ function podium_custom_admin_footer()
 
 // adding it to the admin area
 add_filter('admin_footer_text', 'podium_custom_admin_footer');
-
-// get the the role object
-$role_object = get_role('editor');
-
-// add $cap capability to this role object
-$role_object->add_cap('edit_theme_options');
-
-function disable_feed_generator()
-{
-    return '';
-}
-
-add_filter('the_generator', 'disable_feed_generator');
 
 //ADD featured image thumbnail to WordPress admin columns
 

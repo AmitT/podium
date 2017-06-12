@@ -25,7 +25,7 @@ add_action('wp_head', 'podium_remove_feed_links', 1);
 function podium_kill_feed_endpoint()
 {
 
-	// This is extremely brittle.
+// This is extremely brittle.
     // $wp_rewrite->feeds is public right now, but later versions of WP might change that
 
     global $wp_rewrite;
@@ -61,3 +61,10 @@ function podium_remove_feeds_activation()
 }
 
 register_activation_hook(__FILE__, 'podium_remove_feeds_activation');
+
+function disable_feed_generator()
+{
+    return '';
+}
+
+add_filter('the_generator', 'disable_feed_generator');

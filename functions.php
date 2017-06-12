@@ -23,8 +23,9 @@ $reqire_files = [
     '/inc/config.php',           // get the settings for the wordpress theme.
     '/inc/media.php',            // Media functions.
     '/inc/vendor/autoload.php',  // Load Composer packages
-    '/inc/tgm.php'               // Plugin installation and activation for Podium based themes.
-    
+    '/inc/tgm.php',              // Plugin installation and activation for Podium based themes.
+    '/inc/editor-caps.php'       // Configure editor role capabilities
+
     // '/inc/disable-feeds.php'  //   Remove fedds content and links
 ];
 
