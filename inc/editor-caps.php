@@ -2,30 +2,37 @@
 /*
  * Let Editors manage users
  */
-function podium_editor_manage_users() {
+function podium_editor_manage_users()
+{
 
-        // let editor manage users
+    // let editor manage users
 
-        $edit_editor = get_role('editor'); // Get the user role
+    $edit_editor = get_role('editor'); // Get the user role
 
-        // Edit theme
-        $edit_editor->add_cap( 'edit_theme_options' );
+    // Edit theme
+    $edit_editor->add_cap('edit_theme_options');
 
-        // let editor manage users
-        $edit_editor->add_cap('edit_users');
-        $edit_editor->add_cap('create_users');
-        $edit_editor->add_cap('add_users');
-        $edit_editor->add_cap('list_users');
+    // let editor manage users
+    $edit_editor->add_cap('edit_users');
+    $edit_editor->add_cap('create_users');
+    $edit_editor->add_cap('add_users');
+    $edit_editor->add_cap('list_users');
 
 }
-add_action( 'init', 'podium_editor_manage_users' );
+
+add_action('init', 'podium_editor_manage_users');
 
 // Hide all administrators from user list.
-function podium_pre_user_query($user_search) {
+
+/**
+ * @param $user_search
+ */
+function podium_pre_user_query($user_search)
+{
 
     $user = wp_get_current_user();
 
-    if ( ! current_user_can( 'manage_options' ) ) {
+    if (!current_user_can('manage_options')) {
 
         global $wpdb;
 
@@ -39,5 +46,24 @@ function podium_pre_user_query($user_search) {
         );
 
     }
+
 }
-add_action('pre_user_query','podium_pre_user_query');
+
+add_action('pre_user_query', 'podium_pre_user_query');
+
+// Remove 'Administrator' from the list of roles if the current user is not an admin
+/**
+ * @param $roles
+ * @return mixed
+ */
+function podium_editable_roles($roles)
+{
+
+    if (isset($roles['administrator']) && !current_user_can('administrator')) {
+        unset($roles['administrator']);
+    }
+
+    return $roles;
+}
+
+add_filter('editable_roles', 'podium_editable_roles');
