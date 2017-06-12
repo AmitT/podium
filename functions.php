@@ -1,5 +1,6 @@
 <?php
 /**
+ *
  * podium functions and definitions
  *
  * @package podium

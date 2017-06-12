@@ -1,13 +1,18 @@
 <?php
-/*
+/**
+ * `*
  * Let Editors manage users
+ *
+ * @package podium
  */
+
 function podium_editor_manage_users()
 {
 
     // let editor manage users
 
-    $edit_editor = get_role('editor'); // Get the user role
+    $edit_editor = get_role('editor');
+// Get the user role
 
     // Edit theme
     $edit_editor->add_cap('edit_theme_options');
@@ -53,7 +58,7 @@ add_action('pre_user_query', 'podium_pre_user_query');
 
 // Remove 'Administrator' from the list of roles if the current user is not an admin
 /**
- * @param $roles
+ * @param  $roles
  * @return mixed
  */
 function podium_editable_roles($roles)
@@ -67,3 +72,24 @@ function podium_editable_roles($roles)
 }
 
 add_filter('editable_roles', 'podium_editable_roles');
+
+
+// Hide slug changing options from editors
+function hide_slug_box()
+{
+    global $post;
+    global $pagenow;
+
+    if (is_admin() && ('post-new.php' == $pagenow || 'post.php' == $pagenow)) {
+        echo '<style>
+        #edit-slug-buttons,
+        #slugdiv{
+            display: none;
+        }
+        </style>';
+    }
+
+}
+if (!current_user_can('manage_options')) {
+    add_action('admin_head', 'hide_slug_box');
+}
