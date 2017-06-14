@@ -14,6 +14,7 @@ node_js:
   - "8"
 
 cache:
+  yarn: true
   apt: true
   directories:
    - node_modules
@@ -40,10 +41,10 @@ before_script:
 install:
     - nvm install node stable
     - nvm use node stable
-    - node -v && npm -v
-    - npm install -g npm@latest
-    - npm install -g gulp
-    - npm install
+    - node -v && npm -v && yarn --version
+    #- npm install -g npm@latest
+    - yarn global add gulp
+    - yarn
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - composer global require squizlabs/php_codesniffer
     - export DEV_LIB_PATH=dev-lib
@@ -53,8 +54,8 @@ install:
 
 script:
     - source $DEV_LIB_PATH/travis.script.sh
-    - npm run build
-    - npm run build:production
+    - yarn run build
+    - yarn run build:production
     #- phpcs --standard=ruleset.xml --extensions=php -n -s .
 
 after_script:
