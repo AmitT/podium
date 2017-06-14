@@ -41,7 +41,7 @@ before_script:
 install:
     - nvm install node stable
     - nvm use node stable
-    - node -v && npm -v && yarn --version
+    - node -v && npm -v
     #- npm install -g npm@latest
     - yarn global add gulp
     - yarn
