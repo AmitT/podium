@@ -16,7 +16,7 @@ node_js:
 cache:
   apt: true
   directories:
-   - node_modules
+   #- node_modules
 
 env:
   - TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
