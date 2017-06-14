@@ -21,8 +21,10 @@ $dev_domains = [
 
 if (in_array($host, $dev_domains)) {
 
-    //set development ENV
-    define('WP_ENV', 'development');
+    // Set development ENV
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'development');
+    }
 
     // Enable strict error reporting
     error_reporting(E_ALL | E_STRICT);
@@ -31,24 +33,32 @@ if (in_array($host, $dev_domains)) {
 } else {
 
     // Set production ENV
-    define('WP_ENV', 'production');
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'production');
+    }
 
-    /**
-     * Limit post revisions to 5.
-     */
-    define('WP_POST_REVISIONS', 5);
 
-    /**
-     * disallow wp files editor.
-     */
-    define('DISALLOW_FILE_EDIT', true);
+    // Limit post revisions to 5.
+    if (!defined('WP_POST_REVISIONS')) {
+        define('WP_POST_REVISIONS', 5);
+    }
+
+
+    // disallow wp files editor.
+    if (!defined('DISALLOW_FILE_EDIT')) {
+        define('DISALLOW_FILE_EDIT', true);
+    }
+
 }
 
 if (!defined('WP_ENV')) {
 
-// Fallback if WP_ENV isn't defined in your WordPress config
+    // Fallback if WP_ENV isn't defined in your WordPress config
     // Used to check for 'development' or 'production'
-    define('WP_ENV', 'production');
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'production');
+    }
+
 }
 
 // TODO move to seperate files
@@ -57,7 +67,7 @@ function podium_scripts()
 
     if (is_rtl()) {
 
-// Load RTL Styles
+        // Load RTL Styles
         if (WP_ENV !== 'development') {
 
             wp_enqueue_style('podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css');
@@ -70,7 +80,7 @@ function podium_scripts()
 
     } else {
 
-// Load LTR Styles
+        // Load LTR Styles
         if (WP_ENV !== 'development') {
 
             wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css');
