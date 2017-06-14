@@ -11,15 +11,15 @@ php:
   #- hhvm
 
 node_js:
-  - "7"
+  - "8"
 
 cache:
   apt: true
   directories:
-   #- node_modules
+   - node_modules
 
 env:
-  - TRAVIS_NODE_VERSION="6" CXX="g++-4.8"
+  - TRAVIS_NODE_VERSION="8" CXX="g++-4.8"
   - WP_VERSION=latest WP_MULTISITE=0
   - WP_VERSION=latest WP_MULTISITE=1
 
