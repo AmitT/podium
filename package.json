@@ -42,7 +42,7 @@
         "gulp-util": "~3.0.8"
     },
     "browserslist": [
-        "> 1%",
+        "> 10%",
         "last 3 versions"
     ]
 }
