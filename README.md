@@ -20,7 +20,7 @@ Installation
 
 ### Install gulp
 
-Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of yarn: `[yarn self-update](https://yarnpkg.com/lang/en/docs/cli/self-update/)`.
+Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of yarn: [`yarn self-update`](https://yarnpkg.com/lang/en/docs/cli/self-update/).
 
 From the command line:
 
