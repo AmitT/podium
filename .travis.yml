@@ -34,7 +34,7 @@ addons:
     - g++-4.8
 
 before_script:
-    - git submodule update --init --recursive
+    #- git submodule update --init --recursive
     - composer self-update && composer --version
 
 install:
