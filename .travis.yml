@@ -54,7 +54,7 @@ install:
 script:
     #- source $DEV_LIB_PATH/travis.script.sh
     - npm run build
-    - npm run build:production
+    - npm run build:dev
     #- phpcs --standard=ruleset.xml --extensions=php -n -s .
 
 after_script:
