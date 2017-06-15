@@ -45,17 +45,17 @@ install:
     - npm install -g gulp
     - npm install
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
-    - composer global require squizlabs/php_codesniffer
-    - export DEV_LIB_PATH=dev-lib
-    - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
-    - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
-    - source $DEV_LIB_PATH/travis.install.sh
+    #- composer global require squizlabs/php_codesniffer
+    #- export DEV_LIB_PATH=dev-lib
+    #- if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
+    #- if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
+    #- source $DEV_LIB_PATH/travis.install.sh
 
 script:
-    - source $DEV_LIB_PATH/travis.script.sh
+    #- source $DEV_LIB_PATH/travis.script.sh
     - npm run build
     - npm run build:production
     #- phpcs --standard=ruleset.xml --extensions=php -n -s .
 
 after_script:
-    - source $DEV_LIB_PATH/travis.after_script.sh
+    #- source $DEV_LIB_PATH/travis.after_script.sh
