@@ -20,9 +20,8 @@ cache:
    - node_modules
 
 env:
-  - TRAVIS_NODE_VERSION="8" CXX="g++-4.8"
-  - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=latest WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
+  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
