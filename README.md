@@ -29,9 +29,9 @@ From the command line:
 
 ### Build commands
 
-* `yarn start` — Compile assets when file changes are made, start BrowserSync session
-* `yarn run build` — Compile and optimize the files in your assets directory
-* `yarn run build:production` — Compile assets for production
+* `yarn start` — Compile assets & start BrowserSync session (listening to file changes, recompile & push changes to your browser).
+* `yarn run build:dev` — Compile and optimize the files in your assets directory
+* `yarn run build` OR `yarn run build:production` — Compile assets for production
 
 You now have all the necessary dependencies to run the build process.
 

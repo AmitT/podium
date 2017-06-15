@@ -20,7 +20,8 @@
     "scripts": {
         "install": "composer install && gulp",
         "start": "gulp && gulp watch",
-        "build": "gulp",
+        "build": "gulp production",
+        "build:dev": "gulp",
         "build:production": "gulp production"
     },
     "dependencies": {
