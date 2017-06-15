@@ -11,8 +11,6 @@ const gulp = require( 'gulp' ),
     sourcemaps = require( 'gulp-sourcemaps' ),
     del = require( 'del' ),
     gutil = require( 'gulp-util' ),
-    jshint = require( 'gulp-jshint' ),
-    stylish = require( 'jshint-stylish' ),
     eslint = require( 'gulp-eslint' ),
     browserSync = require( 'browser-sync' ).create( );
 
@@ -35,13 +33,7 @@ gulp.task( 'styles', function ( ) {
                 );
             } )
         )
-        .pipe( autoprefixer( {
-            browsers: [
-                'last 2 versions',
-                'android 4',
-                'opera 12'
-            ]
-        } ) )
+        .pipe( autoprefixer() )
         .pipe( sourcemaps.write( ) )
         .pipe( gulp.dest( 'dist/styles' ) )
         .pipe( browserSync.stream( ) )
@@ -61,13 +53,7 @@ gulp.task( 'styles-min', function ( ) {
                 );
             } )
         )
-        .pipe( autoprefixer( {
-            browsers: [
-                'last 2 versions',
-                'android 4',
-                'opera 12'
-            ]
-        } ) )
+        .pipe( autoprefixer() )
         .pipe( rename( {
             suffix: '.min'
         } ) )
@@ -96,13 +82,7 @@ gulp.task( 'rtl-styles', function ( ) {
                 );
             } )
         )
-        .pipe( autoprefixer( {
-            browsers: [
-                'last 2 versions',
-                'android 4',
-                'opera 12'
-            ]
-        } ) )
+        .pipe( autoprefixer() )
         .pipe( sourcemaps.write( ) )
         .pipe( gulp.dest( 'dist/styles' ) )
         .pipe( browserSync.stream( ) )
@@ -123,13 +103,7 @@ gulp.task( 'rtl-styles-min', function ( ) {
                 );
             } )
         )
-        .pipe( autoprefixer( {
-            browsers: [
-                'last 2 versions',
-                'android 4',
-                'opera 12'
-            ]
-        } ) )
+        .pipe( autoprefixer() )
         .pipe( rename( {
             suffix: '.min'
         } ) )
@@ -146,10 +120,6 @@ gulp.task( 'rtl-styles-min', function ( ) {
 gulp.task( 'custom-scripts', function ( ) {
 
     return gulp.src( 'assets/scripts/**/*.js' )
-
-        .pipe( jshint( ) )
-        .pipe( jshint.reporter( 'jshint-stylish' ) )
-
         .pipe( eslint( {
             fix: true
         } ) )
@@ -184,7 +154,7 @@ gulp.task( 'scripts-min', function ( ) {
 } );
 
 let php_files = [
-    '{lib,template-parts}/**/*.php',
+    '{inc,template-parts}/**/*.php',
     '*.php'
 ];
 

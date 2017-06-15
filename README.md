@@ -1,4 +1,4 @@
-Podium
+Podium [![Build Status](https://travis-ci.org/win-site/podium.svg?branch=master)](https://travis-ci.org/win-site/podium)
 ===
 The project is in its initial stage, your welcome to Contribute.
 Podium is a simple, flexible & powerful starter theme for wordpress, foundation and gulp support
@@ -6,10 +6,10 @@ Podium is a simple, flexible & powerful starter theme for wordpress, foundation 
 Requirements
 ---
 - [PHP >= 7.x](http://php.net).
-- [Node.js >= 6.10.x](https://nodejs.org).
+- [Node.js >= 8.x](https://nodejs.org).
 - [Composer >= 1.4.x](https://getcomposer.org).
 - [gulp >= 3.9.x](http://gulpjs.com).
-- [yarn >= 0.23.x](https://yarnpkg.com).
+- [yarn >= 0.24.x](https://yarnpkg.com).
 
 Features
 ---
@@ -20,7 +20,7 @@ Installation
 
 ### Install gulp
 
-Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of yarn: `yarn self-update`.
+Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of yarn: [`yarn self-update`](https://yarnpkg.com/lang/en/docs/cli/self-update/).
 
 From the command line:
 

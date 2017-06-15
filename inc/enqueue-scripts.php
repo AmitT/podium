@@ -10,12 +10,21 @@
 // Set host name
 $host = $_SERVER['SERVER_NAME'];
 
-if ('localhost' === $host || 'win-sites.co.il' === $host || 'win-site.info' === $host) {
+// List of our development domains
+$dev_domains = [
+    'dev.win-site.co.il',
+    'win-sites.co.il',
+    'win-site.info',
+    'localhost',
+    'devurl.net'
+];
 
-    //set development ENV
-    define('WP_ENV', 'development');
+if (in_array($host, $dev_domains)) {
 
-// remove when you make the site live.
+    // Set development ENV
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'development');
+    }
 
     // Enable strict error reporting
     error_reporting(E_ALL | E_STRICT);
@@ -23,33 +32,33 @@ if ('localhost' === $host || 'win-sites.co.il' === $host || 'win-site.info' === 
 
 } else {
 
-// Disable updates on server UPDATE ONLY WITH GIT
-
-// require get_template_directory() . '/lib/disable-updates.php';
     // Set production ENV
-    define('WP_ENV', 'production');
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'production');
+    }
 
-// turn off error reporting
 
-// error_reporting(0);
+    // Limit post revisions to 5.
+    if (!defined('WP_POST_REVISIONS')) {
+        define('WP_POST_REVISIONS', 5);
+    }
 
-// @ini_set('display_errors', 0);
 
-    /**
-     * Limit post revisions to 5.
-     */
-    define('WP_POST_REVISIONS', 5);
-    /**
-     * disallow wp files editor.
-     */
-    define('DISALLOW_FILE_EDIT', true);
+    // disallow wp files editor.
+    if (!defined('DISALLOW_FILE_EDIT')) {
+        define('DISALLOW_FILE_EDIT', true);
+    }
+
 }
 
 if (!defined('WP_ENV')) {
 
-// Fallback if WP_ENV isn't defined in your WordPress config
+    // Fallback if WP_ENV isn't defined in your WordPress config
     // Used to check for 'development' or 'production'
-    define('WP_ENV', 'production');
+    if (!defined('WP_ENV')) {
+        define('WP_ENV', 'production');
+    }
+
 }
 
 // TODO move to seperate files
@@ -58,7 +67,7 @@ function podium_scripts()
 
     if (is_rtl()) {
 
-// Load RTL Styles
+        // Load RTL Styles
         if (WP_ENV !== 'development') {
 
             wp_enqueue_style('podium-rtl-style', get_stylesheet_directory_uri() . '/dist/styles/rtl.min.css');
@@ -71,7 +80,7 @@ function podium_scripts()
 
     } else {
 
-// Load LTR Styles
+        // Load LTR Styles
         if (WP_ENV !== 'development') {
 
             wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.min.css');
