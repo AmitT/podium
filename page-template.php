@@ -22,35 +22,31 @@ get_header();
 $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 ?>
 <div id="content" class="site-content row">
-	<div id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
-		<main id="main" class="site-main" role="main">
+  <div id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
+    <main id="main" class="site-main" role="main">
 
-			<?php
+      <?php
 
-while (have_posts()) {
+      while (have_posts()) {
 
-    the_post();
+        the_post();
 
-    get_template_part('template-parts/content', 'page');
+        get_template_part('template-parts/content', 'page');
 
-// If comments are open or we have at least one comment, load up the comment template.
-    if (comments_open() || get_comments_number()) {
-
+        // If comments are open or we have at least one comment, load up the comment template.
         comments_template();
 
-    }
-
-}
+      }
 
 // End of the loop. ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php
+</main><!-- #main -->
+</div><!-- #primary -->
+<?php
 
 if ($settings->displaySidebar()) {
 
-    get_template_part('template-parts/sidebar', 'page');
+  get_template_part('template-parts/sidebar', 'page');
 
 }
 

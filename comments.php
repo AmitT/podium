@@ -26,7 +26,7 @@ if (post_password_required()) {
 
 	<?php
 
-if (have_comments()) {
+if (have_comments() && (comments_open() || get_comments_number())) {
     ?>
 		<h2 class="comments-title">
 			<?php
