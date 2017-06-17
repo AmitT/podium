@@ -23,7 +23,11 @@ $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 
         the_post();
 
-        get_template_part('template-parts/content-single', get_post_type());
+        if (get_post_type() != 'post') {
+            get_template_part('template-parts/content-single', get_post_type());
+        } else {
+            get_template_part('template-parts/content-single-post', get_post_format());
+        }
 
         the_post_navigation();
 

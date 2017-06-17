@@ -19,30 +19,34 @@ get_header();
 
             <?php
 
-if (have_posts()) {
+            if (have_posts()) {
 
-    ?>
+                ?>
 
                 <header class="page-header">
                     <?php
 
-    the_archive_title('<h1 class="page-title">', '</h1>');
-    the_archive_description('<div class="taxonomy-description">', '</div>');
-    ?>
+                    the_archive_title('<h1 class="page-title">', '</h1>');
+                    the_archive_description('<div class="taxonomy-description">', '</div>');
+                    ?>
                 </header><!-- .page-header -->
 
                 <?php /* Start the Loop */?>
                 <?php
 
-    while (have_posts()) {
-        the_post();
+                while (have_posts()) {
+                    the_post();
 
         /*
          * Include the Post-Format-specific template for the content.
          * If you want to override this in a child theme, then include a file
          * called content-___.php (where ___ is the Post Format name) and that will be used instead.
          */
-        get_template_part('template-parts/content', get_post_type() != 'post' ? get_post_type() : get_post_format());
+        if (get_post_type() != 'post') {
+            get_template_part('template-parts/content', get_post_type());
+        } else {
+            get_template_part('template-parts/content-post', get_post_format());
+        }
 
     }
 
@@ -62,9 +66,9 @@ if (have_posts()) {
 
 ?>
 
-                </main><!-- #main -->
-            </div><!-- #primary -->
-            <?php
+</main><!-- #main -->
+</div><!-- #primary -->
+<?php
 
 if ($settings->displaySidebar()) {
 
@@ -73,5 +77,5 @@ if ($settings->displaySidebar()) {
 }
 
 ?>
-            </div><!-- #content -->
-            <?php get_footer();?>
+</div><!-- #content -->
+<?php get_footer();?>
