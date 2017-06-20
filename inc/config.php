@@ -51,7 +51,7 @@ class Settings extends PodiumCoreProperties
     /**
      * @param  $contentHasSidebarClass
      * @param  $contentNoSidebarClass
-     * @return mixed
+     * @return string
      */
     public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12')
     {

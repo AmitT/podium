@@ -69,4 +69,4 @@ if ($settings->displaySidebar()) {
 ?>
             </div><!-- #content -->
 
-            <?php get_footer();?>
+            <?php get_footer(); ?>

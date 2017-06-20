@@ -12,19 +12,19 @@ $settings = new settings();
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes();?>>
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo('charset');?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="//gmpg.org/xfn/11">
 
 	<?php wp_head();
 
-	$imagesFolder = get_template_directory_uri() . '/dist/images/';
+    $imagesFolder = get_template_directory_uri() . '/dist/images/';
 
 // Please create favicon files with http://iconogen.com/
 // and put them in assets/images/favicon directory
-	?>
+    ?>
 
 	<link rel="shortcut icon" href="<?php echo $imagesFolder; ?>favicon/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $imagesFolder; ?>favicon/apple-touch-icon-57x57.png">
@@ -46,11 +46,11 @@ $settings = new settings();
 	<meta name="msapplication-square310x310logo" content="<?php echo $imagesFolder; ?>favicon/largetile.png" />
 </head>
 
-<body <?php body_class();?>>
+<body <?php body_class(); ?>>
 
 	<div id="page" class="hfeed site">
 		<a class="skip-link show-for-sr" href="#content">
-			<?php esc_html_e('Skip to content', 'podium');?>
+			<?php esc_html_e('Skip to content', 'podium'); ?>
 		</a>
 
 		<header id="masthead" class="site-header" role="banner" data-sticky-container>

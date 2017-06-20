@@ -52,7 +52,7 @@ function get_thumb_url($post, $size = 'full')
 
 /**
  * @param  $limit
- * @return mixed
+ * @return string
  */
 function excerpt($limit)
 {
@@ -76,7 +76,7 @@ function excerpt($limit)
 if (!function_exists('post_end_class')) {
 
 /**
- * @return mixed
+ * @return string
  */
     function post_end_class()
     {
