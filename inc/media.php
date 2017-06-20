@@ -247,7 +247,7 @@ function svg_get_contents($svg_file)
     if ($svg_file) {
 
         // Set user-agent
-        ini_set('user_agent', 'Mozilla/5.0 (X11; WinsiteServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
+        ini_set('user_agent', 'Mozilla/5.0 (X11; AmitServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
 
         // Get SVG contents
         $svg_file = file_get_contents($svg_file);

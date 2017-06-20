@@ -16,7 +16,7 @@
 		</a>
 		<span class="sep"> | </span>
 		<?php
-printf(esc_html__('Theme: %1$s by %2$s.', 'podium'), 'podium', '<a href="http://win-site.co.il/" rel="designer">Winsite</a>');
+printf(esc_html__('Theme: %1$s by %2$s.', 'podium'), 'podium', '<a href="http://win-site.co.il/" rel="designer">Amit Tal</a>');
 ?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->

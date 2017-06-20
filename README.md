@@ -1,4 +1,4 @@
-Podium [![Build Status](https://travis-ci.org/AmitT/podium.svg?branch=master)](https://travis-ci.org/AmitT/podium)
+Podium [![Build Status](https://travis-ci.org/AmitT/podium.svg?branch=master)](https://travis-ci.org/AmitT/podium)[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AmitT/podium/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AmitT/podium/?branch=master)
 ===
 The project is in its initial stage, your welcome to Contribute.
 Podium is a simple, flexible & powerful starter theme for wordpress, foundation and gulp support
