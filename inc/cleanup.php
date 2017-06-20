@@ -29,9 +29,6 @@ if (!function_exists('podium_setup')) {
          */
         load_theme_textdomain('podium', get_template_directory() . '/languages');
 
-// Add default posts and comments RSS feed links to head.
-
-//add_theme_support( 'automatic-feed-links' );
 
         /*
          * Let WordPress manage the document title.
@@ -72,14 +69,6 @@ if (!function_exists('podium_setup')) {
             'link'
         ]);
 
-// Set up the WordPress core custom background feature.
-
-// add_theme_support( 'custom-background', apply_filters( 'podium_custom_background_args', array(
-
-//     'default-color' => 'ffffff',
-
-//     'default-image' => '',
-        //     ) ) );
     }
 
 }
@@ -104,17 +93,6 @@ function podium_start()
 
     // clean up gallery output in wp
     add_filter('gallery_style', 'podium_gallery_style');
-
-// launching this stuff after theme setup
-
-// podium_theme_support();
-
-// adding sidebars to Wordpress
-
-// add_action( 'widgets_init', 'podium_register_sidebars' );
-
-// cleaning up excerpt
-    // add_filter( 'excerpt_more', 'podium_excerpt_more' );
 
 }
 
@@ -180,20 +158,6 @@ function podium_gallery_style($css)
 {
     return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
-
-// // This removes the annoying […] to a Read More link
-
-// function podium_excerpt_more( $more ) {
-
-//     global $post;
-
-//
-
-//     // edit here if you like
-
-//     return '...  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="'. __( 'Read', 'podium' ) . get_the_title($post->ID).'">'. __( 'Read more &raquo;', 'podium' ) .'</a>';
-
-// }
 
 //  Stop WordPress from using the sticky class (which conflicts with Foundation), and style WordPress sticky posts using the .wp-sticky class instead
 /**
