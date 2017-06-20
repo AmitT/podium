@@ -238,7 +238,7 @@ function podium_oembed_html($html, $url, $attr, $post_id)
 
 /**
  * @param  $svg_file
- * @return mixed
+ * @return string
  */
 function svg_get_contents($svg_file)
 {
