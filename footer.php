@@ -12,7 +12,7 @@
 <footer id="colophon" class="site-footer row" role="contentinfo">
 	<div class="site-info small-12 columns">
 		<a href="<?php echo esc_url(__('http://wordpress.org/', 'podium')); ?>">
-			<?php printf(esc_html__('Proudly powered by %s', 'podium'), 'WordPress');?>
+			<?php printf(esc_html__('Proudly powered by %s', 'podium'), 'WordPress'); ?>
 		</a>
 		<span class="sep"> | </span>
 		<?php
@@ -23,6 +23,6 @@ printf(esc_html__('Theme: %1$s by %2$s.', 'podium'), 'podium', '<a href="http://
 </div><!-- .off-canvas-content -->
 </div><!-- #page -->
 
-<?php wp_footer();?>
+<?php wp_footer(); ?>
 </body>
 </html>
