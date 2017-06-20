@@ -47,7 +47,7 @@ function emm_paginate($args = null)
         'page'     => null, 'pages'                         => null,
         'range'    => 3, 'gap'                              => 3, 'anchor' => 1,
         'before'   => '<div class="emm-paginate">', 'after' => '</div>',
-        // 'title' => __('Pages:'),
+        'title' => '',
         'nextpage' => __('&raquo;'), 'previouspage'         => __('&laquo'),
         'echo'     => 1
     ];
