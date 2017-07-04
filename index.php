@@ -16,37 +16,38 @@ $settings = new settings();
 
 get_header();
 ?>
-<div id="content" class="site-content row">
-    <div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', ''); ?> columns">
-        <main id="main" class="site-main" role="main">
-            <?php
+<div class="grid-container">
+    <div id="content" class="site-content grid-x grid-padding-x">
+        <div id="primary" class="content-area small-12 <?php echo $settings->getContentClass('medium-8', ''); ?> cell">
+            <main id="main" class="site-main" role="main">
+                <?php
 
-if (have_posts()) {
+                if (have_posts()) {
 
-/* Start the Loop */
+                    /* Start the Loop */
 
-    while (have_posts()) {
+                    while (have_posts()) {
 
-        the_post();
+                        the_post();
 
-        /*
-         * Include the Post-Format-specific template for the content.
-         * If you want to override this in a child theme, then include a file
-         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-         */
-        if (get_post_type() != 'post') {
-            get_template_part('template-parts/content', get_post_type());
-        } else {
-            get_template_part('template-parts/content-post', get_post_format());
-        }
+/*
+ * Include the Post-Format-specific template for the content.
+ * If you want to override this in a child theme, then include a file
+ * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+ */
+if (get_post_type() != 'post') {
+    get_template_part('template-parts/content', get_post_type());
+} else {
+    get_template_part('template-parts/content-post', get_post_format());
+}
 
-    }
+}
 
-    if (function_exists('emm_paginate')) {
+if (function_exists('emm_paginate')) {
 
-        emm_paginate();
+    emm_paginate();
 
-    }
+}
 
 } else {
 
@@ -56,9 +57,9 @@ if (have_posts()) {
 
 ?>
 
-                </main><!-- #main -->
-            </div>
-            <?php
+</main><!-- #main -->
+</div>
+<?php
 
 if ($settings->displaySidebar()) {
 
@@ -67,6 +68,7 @@ if ($settings->displaySidebar()) {
 }
 
 ?>
-            </div><!-- #content -->
+</div><!-- #content -->
+</div><!-- .grid-container -->
 
-            <?php get_footer(); ?>
+<?php get_footer();?>

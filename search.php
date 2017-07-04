@@ -14,9 +14,9 @@ get_header();
 $contentWidth = $settings->getContentClass('medium-8', 'medium-12');
 
 ?>
-
-<div id="content" class="site-content row">
-    <section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> columns">
+<div class="grid-container">
+<div id="content" class="site-content grid-x grid-padding-x">
+    <section id="primary" class="content-area small-12 <?php echo $contentWidth; ?> cell">
         <main id="main" class="site-main" role="main">
 
             <?php
@@ -76,4 +76,5 @@ if ($settings->displaySidebar()) {
 
 ?>
 </div><!-- #content -->
+</div><!-- .grid-container -->
 <?php get_footer(); ?>

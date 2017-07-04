@@ -56,29 +56,25 @@ $settings = new settings();
 		<header id="masthead" class="site-header" role="banner" data-sticky-container>
 
 			<div class="show-for-medium top-bar" data-sticky data-margin-top="0">
-				<div class="row">
-					<div class="small-12 columns">
-						<div class="top-bar-left">
+						<div class="top-bar-right">
 							<?php $settings->getMenu(new Top_Bar_Walker(), 'onCanvass'); // print menu (source config.php) ?>
 						</div>
-						<div class="top-bar-right">
+						<div class="top-bar-left">
 							<a href="<?php echo get_home_url(); ?>">
 								<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
 							</a>
 						</div>
-					</div>
-				</div>
 			</div>
 
 			<div class="hide-for-medium">
 				<div class="title-bar">
-					<div class="title-bar-left">
-						<button class="menu-icon" type="button" data-open="offCanvas"></button>
-					</div>
 					<div class="title-bar-right">
 						<a href="<?php echo get_home_url(); ?>">
 							<span class="title-bar-title"><?php echo get_bloginfo('name'); ?></span>
 						</a>
+					</div>
+					<div class="title-bar-left">
+						<button class="menu-icon" type="button" data-open="offCanvas"></button>
 					</div>
 				</div>
 			</div>
