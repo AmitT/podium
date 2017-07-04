@@ -1,7 +1,9 @@
 .wp-core-ui .notice.is-dismissible {
 	display: block;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
 	font-size: $global-font-size; // Please edit in _mixins.scss
 }
