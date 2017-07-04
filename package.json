@@ -25,11 +25,13 @@
         "build:production": "gulp production"
     },
     "dependencies": {
+        "font-awesome": "~4.7.0",
+        "foundation-sites": "~6.3.0"
+    },
+    "devDependencies": {
         "browser-sync": "~2.18.8",
         "browserslist": "^2.1.4",
         "del": "~3.0.0",
-        "font-awesome": "~4.7.0",
-        "foundation-sites": "~6.3.0",
         "gulp": "~3.9.1",
         "gulp-autoprefixer": "~4.0.0",
         "gulp-concat": "~2.6.0",
