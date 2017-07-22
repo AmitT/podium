@@ -7,26 +7,17 @@
     <exclude-pattern>
         dev-lib/*
     </exclude-pattern>
-    <!-- Exclude plugins folder -->
+    <!-- Exclude vendor folder -->
     <exclude-pattern>
-        plugins/*
+        inc/vendor/*
     </exclude-pattern>
+    <!-- Show colors in console -->
+    <arg value="-colors">
+    </arg>
+    <!-- Show sniff codes in all reports -->
+    <arg value="s">
+    </arg>
     <!-- Use PSR-2 as a base -->
     <rule ref="PSR2">
-    </rule>
-    <!-- Allow braces on same line for named functions -->
-    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine">
-    </rule>
-    <!-- Allow multiple PHP statements in the same line -->
-    <rule ref="Generic.Formatting.DisallowMultipleStatements.SameLine">
-    </rule>
-    <!-- Allow space indentation -->
-    <rule ref="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed">
-    </rule>
-    <!-- Disable PSR-2 indentation rules that are buggy with 2 spaces -->
-    <rule ref="PSR2.ControlStructures.SwitchDeclaration.BreakIndent">
-    </rule>
-    <!-- Allow tab indentation -->
-    <rule ref="Generic.WhiteSpace.DisallowTabIndent.TabsUsed">
     </rule>
 </ruleset>

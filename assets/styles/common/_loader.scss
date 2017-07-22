@@ -3,7 +3,7 @@
 
 .se-pre-con {
   // background: url(../images/712.gif) center no-repeat #fff;
-  background: #ffffff;
+  background: #fff;
   height: 100%;
   left: 0;
   position: fixed;
@@ -34,9 +34,9 @@
   width: 100%;
 }
 
-.sk-circle .sk-child:before {
+.sk-circle .sk-child::before {
   animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
-  background-color: #219FC7;
+  background-color: #219fc7;
   border-radius: 100%;
   content: '';
   display: block;
@@ -89,52 +89,54 @@
   transform: rotate(330deg);
 }
 
-.sk-circle .sk-circle2:before {
+.sk-circle .sk-circle2::before {
   animation-delay: -1.1s;
 }
 
-.sk-circle .sk-circle3:before {
+.sk-circle .sk-circle3::before {
   animation-delay: -1s;
 }
 
-.sk-circle .sk-circle4:before {
+.sk-circle .sk-circle4::before {
   animation-delay: -0.9s;
 }
 
-.sk-circle .sk-circle5:before {
+.sk-circle .sk-circle5::before {
   animation-delay: -0.8s;
 }
 
-.sk-circle .sk-circle6:before {
+.sk-circle .sk-circle6::before {
   animation-delay: -0.7s;
 }
 
-.sk-circle .sk-circle7:before {
+.sk-circle .sk-circle7::before {
   animation-delay: -0.6s;
 }
 
-.sk-circle .sk-circle8:before {
+.sk-circle .sk-circle8::before {
   animation-delay: -0.5s;
 }
 
-.sk-circle .sk-circle9:before {
+.sk-circle .sk-circle9::before {
   animation-delay: -0.4s;
 }
 
-.sk-circle .sk-circle10:before {
+.sk-circle .sk-circle10::before {
   animation-delay: -0.3s;
 }
 
-.sk-circle .sk-circle11:before {
+.sk-circle .sk-circle11::before {
   animation-delay: -0.2s;
 }
 
-.sk-circle .sk-circle12:before {
+.sk-circle .sk-circle12::before {
   animation-delay: -0.1s;
 }
 
 @-webkit-keyframes sk-circleBounceDelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: scale(0);
   }
 
@@ -144,7 +146,9 @@
 }
 
 @keyframes sk-circleBounceDelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: scale(0);
   }
 

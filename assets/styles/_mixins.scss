@@ -1,6 +1,7 @@
 // Set a rem font size with pixel fallback
 @function calculate-rem($size) {
   $rem-size: $size / $global-font-size;
+
   @return $rem-size * 1rem;
 }
 
@@ -17,15 +18,18 @@
 // Absolute Centering
 @mixin absolutecenter($axis: 'both') {
   position: absolute;
-  @if $axis == "y"{
+
+  @if $axis == "y" {
     top: 50%;
     transform: translateY(-50%);
   }
-  @if $axis == "x"{
+
+  @if $axis == "x" {
     left: 50%;
     transform: translateX(-50%);
   }
-  @if $axis == "both"{
+
+  @if $axis == "both" {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -51,24 +55,26 @@
 // @include clearfix;
 
 // Triangles
-@mixin triangle ($direction, $size: .375rem, $color: #222) {
+@mixin triangle ($direction, $size: 0.375rem, $color: #222) {
   content: '';
   display: block;
   position: absolute;
-  height: 0; width: 0;
-  @if ($direction == 'up'){
+  height: 0;
+  width: 0;
+
+  @if ($direction == 'up') {
     border-bottom: $size solid $color;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-  } @else if ($direction == 'down'){
+  } @else if ($direction == 'down') {
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-top: $size solid $color;
-  } @else if ($direction == 'left'){
+  } @else if ($direction == 'left') {
     border-bottom: $size solid transparent;
     border-right: $size solid $color;
     border-top: $size solid transparent;
-  } @else if ($direction == 'right'){
+  } @else if ($direction == 'right') {
     border-bottom: $size solid transparent;
     border-left: $size solid $color;
     border-top: $size solid transparent;

@@ -1,11 +1,14 @@
 // post images floating
-img.alignright, figure.alignright{
+img.alignright,
+figure.alignright {
   float: right;
   margin-left: 20px;
   margin-right: 0;
   margin-top: 0;
 }
-img.alignleft, figure.alignleft{
+
+img.alignleft,
+figure.alignleft {
   float: left;
   margin-right: 20px;
   margin-left: 0;

@@ -1,5 +1,7 @@
 {
     "name": "amitt/podium",
+    "type": "wordpress-theme",
+    "license": "MIT",
     "description": "A simple, flexible & powerful starter theme for wordpress, foundation and gulp support.",
     "type": "project",
     "config": {
@@ -9,10 +11,17 @@
         "tgmpa/tgm-plugin-activation": "^2.6"
     },
     "license": "mit",
-    "authors": [
-        {
-            "name": "Amit Tal",
-            "email": "amitprobable@gmail.com"
-        }
-    ]
+    "authors": [ {
+        "name": "Amit Tal",
+        "email": "amitprobable@gmail.com"
+    } ],
+    "keywords": [
+        "wordpress"
+    ],
+    "support": {
+        "issues": "https://github.com/AmitT/podium/issues"
+    },
+    "require": {
+        "php": ">=7.0.1"
+    }
 }
