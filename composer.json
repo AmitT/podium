@@ -7,9 +7,9 @@
         "vendor-dir": "inc/vendor"
     },
     "require": {
+        "php": ">=7.0.1",
         "tgmpa/tgm-plugin-activation": "^2.6"
     },
-    "license": "mit",
     "authors": [ {
         "name": "Amit Tal",
         "email": "amitprobable@gmail.com"
@@ -19,8 +19,5 @@
     ],
     "support": {
         "issues": "https://github.com/AmitT/podium/issues"
-    },
-    "require": {
-        "php": ">=7.0.1"
     }
 }
