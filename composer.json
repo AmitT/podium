@@ -3,7 +3,6 @@
     "type": "wordpress-theme",
     "license": "MIT",
     "description": "A simple, flexible & powerful starter theme for wordpress, foundation and gulp support.",
-    "type": "project",
     "config": {
         "vendor-dir": "inc/vendor"
     },

@@ -18,6 +18,7 @@
         }
     ],
     "scripts": {
+        "install": "composer install && yarn build:dev",
         "build:dev": "webpack --progress --config assets/build/webpack.config.js",
         "build": "webpack --progress -p --config assets/build/webpack.config.js",
         "build:production": "webpack --progress -p --config assets/build/webpack.config.js",
