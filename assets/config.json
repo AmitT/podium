@@ -1,15 +1,16 @@
 {
-  "entry": {
-    "main": [
-      "./scripts/main.js",
-      "./styles/main.scss"
+    "entry": {
+        "main": [
+            "./scripts/main.js",
+            "./styles/main.scss"
+        ]
+    },
+    "publicPath": "/app/themes/podium",
+    "devUrl": "http://example.dev",
+    "proxyUrl": "http://localhost:3000",
+    "cacheBusting": "[name]",
+    "watch": [
+        "{inc,template-parts}/**/*.php",
+        "*.php"
     ]
-  },
-  "publicPath": "/app/themes/podium",
-  "devUrl": "http://example.dev",
-  "proxyUrl": "http://localhost:3000",
-  "cacheBusting": "[name]",
-  "watch": [
-    "{inc,template-parts}/**/*.php"
-  ]
 }
