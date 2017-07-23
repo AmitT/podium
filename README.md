@@ -25,6 +25,7 @@ From the command line:
 
 1. Install [gulp](http://gulpjs.com) globally with `yarn global add gulp`
 2. Navigate to the theme directory, then run `yarn install`
+3. Change your site URL in assets/config.json file devUrl.
 
 ### Build commands
 
