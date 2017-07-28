@@ -18,12 +18,12 @@
         }
     ],
     "scripts": {
-        "install": "composer install && yarn build:dev",
+        "install": "composer install && webpack --progress --config assets/build/webpack.config.js",
         "build:dev": "webpack --progress --config assets/build/webpack.config.js",
         "build": "webpack --progress -p --config assets/build/webpack.config.js",
         "build:production": "webpack --progress -p --config assets/build/webpack.config.js",
         "build:profile": "webpack --progress --profile --json --config assets/build/webpack.config.js",
-        "start": "yarn run build && webpack --hide-modules --watch --config assets/build/webpack.config.js",
+        "start": "webpack --hide-modules --watch --config assets/build/webpack.config.js",
         "rmdist": "rimraf dist",
         "lint": "eslint assets/scripts assets/build",
         "test": "yarn run lint"
