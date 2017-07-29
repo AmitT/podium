@@ -48,7 +48,6 @@ before_script:
 
 install:
     - node -v && npm -v && yarn --version
-    - npm list webpack
     - npm install
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
