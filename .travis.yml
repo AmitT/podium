@@ -15,13 +15,13 @@ node_js:
   - "8"
 
 cache:
-  yarn: true
+  # yarn: true
   apt: true
   directories:
-   - node_modules
-   - $HOME/.composer/cache
-   - $HOME/.yarn-cache
-   - vendor
+   # - node_modules
+   # - $HOME/.composer/cache
+   # - $HOME/.yarn-cache
+   # - vendor
 
 env:
   - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
