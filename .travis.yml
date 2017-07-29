@@ -48,11 +48,9 @@ before_script:
 
 install:
     - node -v && npm -v && yarn --version
-    - travis_retry yarn
     - npm list webpack
     - npm install
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 script:
-    - yarn run build
-    - yarn run build:dev
+    - npm run build
