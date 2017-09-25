@@ -245,26 +245,26 @@ function svg_get_contents($svg_file)
 
 // Check if file exists
     if ($svg_file) {
-
         // Set user-agent
-        ini_set('user_agent', 'Mozilla/5.0 (X11; AmitServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
-
+        ini_set('user_agent', 'Mozilla/5.0 (X11; OrcamServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
         // Get SVG contents
-        $svg_file = file_get_contents($svg_file);
 
+        $arrContextOptions = [
+            'ssl' => [
+                'verify_peer'      => false,
+                'verify_peer_name' => false
+            ]
+        ];
+
+        $svg_file = file_get_contents($svg_file, false, stream_context_create($arrContextOptions));
         // Clean unnecessary meta and info
-        $find_string = '<svg';
-        $position    = strpos($svg_file, $find_string);
-
+        $find_string  = '<svg';
+        $position     = strpos($svg_file, $find_string);
         $svg_file_new = substr($svg_file, $position);
-
         // Restore user agent
         ini_restore('user_agent');
-
         return $svg_file_new;
-
     }
 
     return 'The file does not exist';
-
 }
