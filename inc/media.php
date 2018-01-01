@@ -35,13 +35,14 @@ function podium_post_gallery($output, $attr)
         'itemtag'    => 'dl',
         'icontag'    => 'dt',
         'captiontag' => 'dd',
-        'columns'    => 3,
-        // 'size'       => 'thumbnail',
+        'columns'    => 2,
+        // 'size'       => 'gallery-thumb-2',
         'include'    => '',
         'exclude'    => ''
     ], $attr));
 
-    $size = 'thumbnail';
+    $size = 'gallery-thumb-2';
+
 // You need to add size for your gallery and use it
 
     // Initialize
@@ -117,7 +118,7 @@ function podium_post_gallery($output, $attr)
             }
         </style>
         <!-- see gallery_shortcode() in wp-includes/media.php -->
-        <div id='$selector' class='row small-up-1 medium-up-{$columns} gallery galleryid-{$id}'>"
+        <div id='$selector' class='grid-x grid-padding-x small-up-1 large-up-{$columns} gallery galleryid-{$id}'>"
     );
 
     // Iterate through the attachments in this gallery instance
@@ -137,7 +138,7 @@ function podium_post_gallery($output, $attr)
         }
 
         // Start itemtag
-        $output .= "<{$itemtag} class='column column-block gallery-item'>";
+        $output .= "<{$itemtag} class='cell gallery-item'>";
 
         // icontag
         $output .= "<{$icontag} class='gallery-icon'>";
@@ -244,6 +245,7 @@ function svg_get_contents($svg_file)
 {
 
 // Check if file exists
+
     if ($svg_file) {
         // Set user-agent
         ini_set('user_agent', 'Mozilla/5.0 (X11; OrcamServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
