@@ -228,9 +228,8 @@ add_filter('embed_oembed_html', 'podium_oembed_html', 99, 4);
  */
 function podium_oembed_html($html, $url, $attr, $post_id)
 {
-
     // Parameters for Modest youtube player:
-    $html = str_replace('?feature=oembed', '?feature=oembed&theme=light&color=white&autohide=2&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3', $html);
+    $html = str_replace('?feature=oembed', '?feature=oembed&html5=1&theme=light&color=white&autohide=2&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&cc_load_policy=1', $html);
 
 // Add wrapper div with Foundation class
     // http://foundation.zurb.com/sites/docs/flex-video.html
@@ -245,16 +244,18 @@ function svg_get_contents($svg_file)
 {
 
 // Check if file exists
-
     if ($svg_file) {
         // Set user-agent
         ini_set('user_agent', 'Mozilla/5.0 (X11; OrcamServer; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0');
         // Get SVG contents
 
         $arrContextOptions = [
-            'ssl' => [
+            'ssl'  => [
                 'verify_peer'      => false,
                 'verify_peer_name' => false
+            ],
+            'http' => [
+                'header' => 'Authorization: Basic ' . base64_encode('OrCam:testingWebsite') // Auth for testing website
             ]
         ];
 
