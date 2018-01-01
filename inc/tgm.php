@@ -34,16 +34,11 @@ function podium_register_required_plugins()
      */
     $plugins = [
 
-        [
-            'name'     => 'Aryo Activity Log',
-            'slug'     => 'aryo-activity-log',
-            'required' => false
-        ],
-        [
-            'name'     => 'Redirection',
-            'slug'     => 'redirection',
-            'required' => false
-        ],
+        // [
+        //     'name'     => 'Redirection',
+        //     'slug'     => 'redirection',
+        //     'required' => false
+        // ],
 
         // Required Plugins
         [
@@ -58,31 +53,24 @@ function podium_register_required_plugins()
             'required'         => true,
             'force_activation' => true
         ],
-        [
-            'name'             => 'Wordpress Fastest Cache',
-            'slug'             => 'wp-fastest-cache',
-            'required'         => true,
-            'force_activation' => false
-        ],
-        [
-            'name'             => 'Wordpress Sitemap Page',
-            'slug'             => 'wp-sitemap-page',
-            'required'         => true,
-            'force_activation' => true
-        ],
-        [
-            'name'             => 'Advanced Cudtom Fields Pro',
-            'slug'             => 'advanced-custom-fields-pro',
-            'required'         => true,
-            'force_activation' => true
-        ],
-        [
-            'name'             => 'Winsite Image Optimizer',
-            'slug'             => 'winsite-image-optimizer',
-            'required'         => true,
-            'force_activation' => true
-        ]
-
+        // [
+        //     'name'             => 'Wordpress Sitemap Page',
+        //     'slug'             => 'wp-sitemap-page',
+        //     'required'         => true,
+        //     'force_activation' => true
+        // ],
+        // [
+        //     'name'             => 'Advanced Cudtom Fields Pro',
+        //     'slug'             => 'advanced-custom-fields-pro',
+        //     'required'         => true,
+        //     'force_activation' => true
+        // ],
+        // [
+        //     'name'             => 'Winsite Image Optimizer',
+        //     'slug'             => 'winsite-image-optimizer',
+        //     'required'         => true,
+        //     'force_activation' => true
+        // ]
         // [
         //     'name'             => 'Polylang',
         //     'slug'             => 'polylang',
