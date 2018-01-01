@@ -26,7 +26,7 @@ function podium_custom_admin_footer()
 {
     $wp_v         = get_bloginfo('version');
     $w_copyrights = _x('<span id="footer-thankyou">Developed by <a href="http://amitt.co.il" target="_blank">Amit Tal</a></span>', 'podium');
-    return '<p style="direction:lrt;">v' . $wp_v . ' | ' . $w_copyrights . '</p>';
+    return '<span style="direction:lrt;">v' . $wp_v . ' | ' . $w_copyrights . '</span>';
 }
 
 // adding it to the admin area
