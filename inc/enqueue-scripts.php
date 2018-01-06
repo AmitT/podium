@@ -7,73 +7,80 @@
  * @package podium
  */
 
-// Set host name
-$host = $_SERVER['SERVER_NAME'];
+// function podium_scripts()
+// {
 
-// List of our development domains
-$dev_domains = [
-    'dev.win-site.co.il',
-    'win-sites.co.il',
-    'win-site.info',
-    'localhost',
-    'devurl.net'
-];
+//     wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css', false, null);
+//     wp_enqueue_script('podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
 
-if (in_array($host, $dev_domains)) {
+//     if (is_singular() && comments_open() && get_option('thread_comments')) {
 
-// Set development ENV
-    if (!defined('WP_ENV')) {
-        define('WP_ENV', 'development');
-    }
+//         wp_enqueue_script('comment-reply');
 
-    // Hide admin bar
-    show_admin_bar(false);
+//     }
 
-    // Enable strict error reporting
-    error_reporting(E_ALL | E_STRICT);
-    @ini_set('display_errors', 1);
-
-} else {
-
-// Set production ENV
-    if (!defined('WP_ENV')) {
-        define('WP_ENV', 'production');
-    }
-
-// Limit post revisions to 5.
-    if (!defined('WP_POST_REVISIONS')) {
-        define('WP_POST_REVISIONS', 5);
-    }
-
-// disallow wp files editor.
-    if (!defined('DISALLOW_FILE_EDIT')) {
-        define('DISALLOW_FILE_EDIT', true);
-    }
-
-}
-
-if (!defined('WP_ENV')) {
-
-// Fallback if WP_ENV isn't defined in your WordPress config
-
-// Used to check for 'development' or 'production'
-    if (!defined('WP_ENV')) {
-        define('WP_ENV', 'production');
-    }
-
-}
-
-// TODO move to seperate files
+// }
 function podium_scripts()
 {
 
-    wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css', false, null);
-    wp_enqueue_script('podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
+    if (WP_ENV === 'production') {
+        wp_enqueue_style(
+            'podium-style',
+            get_stylesheet_directory_uri() . '/dist/styles/main.min.css',
+            false,
+            null
+        );
+        wp_enqueue_script(
+            'podium-scripts',
+            get_stylesheet_directory_uri() . '/dist/scripts/main.min.js',
+            null,
+            null,
+            true
+        );
+    } else {
+        wp_enqueue_style(
+            'podium-style',
+            get_stylesheet_directory_uri() . '/dist/styles/main.css',
+            false,
+            null
+        );
+        wp_enqueue_script(
+            'podium-scripts',
+            get_stylesheet_directory_uri() . '/dist/scripts/main.js',
+            null,
+            null,
+            true
+        );
+    }
+
+// Add resources for individual page templates
+    // if (is_page_template('page-contact.php')) {
+
+    //     wp_enqueue_script(
+    //         'contact-page-script',
+    //         get_stylesheet_directory_uri() . '/dist/scripts/contact-page.js',
+    //         ['jquery'],
+    //         false,
+    //         true
+    //     );
+    //     wp_enqueue_script(
+    //         'google-recapcha-script',
+    //         '//www.google.com/recaptcha/api.js?hl='.pll_current_language(),
+    //         ['contact-page-script'],
+    //         false,
+    //         true
+    //     );
+
+    // }
+
+    //remove emoji scripts
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
-
         wp_enqueue_script('comment-reply');
-
     }
 
 }

@@ -8,6 +8,7 @@
 
 // require array list
 $reqire_files = [
+    '/inc/environment.class.php', // Set Eniroment.
     '/inc/enqueue-scripts.php',  // Enqueue scripts and styles.
     '/inc/cleanup.php',          // cleanup & setup theme.
     '/inc/widgets.php',          // Implement Custom widgets.
