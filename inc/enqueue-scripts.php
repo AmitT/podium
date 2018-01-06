@@ -7,19 +7,6 @@
  * @package podium
  */
 
-// function podium_scripts()
-// {
-
-//     wp_enqueue_style('podium-style', get_stylesheet_directory_uri() . '/dist/styles/main.css', false, null);
-//     wp_enqueue_script('podium-scripts', get_stylesheet_directory_uri() . '/dist/scripts/main.js', ['jquery'], null, true);
-
-//     if (is_singular() && comments_open() && get_option('thread_comments')) {
-
-//         wp_enqueue_script('comment-reply');
-
-//     }
-
-// }
 function podium_scripts()
 {
 
