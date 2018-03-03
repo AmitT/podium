@@ -11,14 +11,13 @@ const gulp = require( 'gulp' ),
     concat = require( 'gulp-concat' ),
     sourcemaps = require( 'gulp-sourcemaps' ),
     del = require( 'del' ),
-    flog = require('fancy-log'),
     eslint = require( 'gulp-eslint' ),
     browserSync = require( 'browser-sync' ).create( );
 
 gulp.task( 'styles', function ( ) {
 
     // List al your SASS files HERE
-    let scss_files = [
+    const scss_files = [
         'assets/styles/main.scss'
     ];
 
@@ -26,7 +25,7 @@ gulp.task( 'styles', function ( ) {
         .pipe( sourcemaps.init( ) )
         .pipe( sass( )
             .on( 'error', function ( err ) {
-                flog.error(
+                console.error(
                     'Error found:\n\x07' + err.message
                 );
             } )
@@ -38,14 +37,14 @@ gulp.task( 'styles', function ( ) {
 } );
 
 gulp.task( 'styles-min', function ( ) {
-    let scss_files = [
+    const scss_files = [
         'assets/styles/main.scss'
     ];
 
     gulp.src( scss_files )
         .pipe( sass( )
             .on( 'error', function ( err ) {
-                flog.error(
+                console.error(
                     'Error found:\n\x07' + err.message
                 );
             } )
@@ -62,9 +61,13 @@ gulp.task( 'styles-min', function ( ) {
         .pipe( gulp.dest( 'dist/styles' ) )
 } );
 
+const customjs_files = [
+    'assets/scripts/**/*.js'
+];
+
 gulp.task( 'custom-scripts', function ( ) {
 
-    return gulp.src( 'assets/scripts/**/*.js' )
+    return gulp.src( customjs_files )
         .pipe( eslint( {
             fix: true
         } ) )
@@ -73,7 +76,7 @@ gulp.task( 'custom-scripts', function ( ) {
 
 
 // List all your JS files HERE
-let js_files = [
+const js_files = [
     'node_modules/jquery/dist/jquery.js',
     'node_modules/foundation-sites/dist/js/foundation.js',
     'assets/scripts/**/*.js'
@@ -97,7 +100,7 @@ gulp.task( 'scripts-min', function ( ) {
         .pipe( concat( 'main.min.js' ) )
         .pipe( uglify( )
             .on( 'error', function ( err ) {
-                flog.error(
+                console.error(
                     err.toString( )
                 );
                 this.emit( 'end' );
@@ -105,7 +108,7 @@ gulp.task( 'scripts-min', function ( ) {
         .pipe( gulp.dest( 'dist/scripts' ) )
 } );
 
-let resources_files = [
+const resources_files = [
     'assets/resources/**/*.js'
 ];
 
@@ -122,7 +125,7 @@ gulp.task( 'resources', function ( ) {
         .pipe( eslint.format( ) )
         .pipe( uglify( )
             .on( 'error', function ( err ) {
-                flog.error(
+                console.error(
                     err.toString( )
                 );
                 this.emit( 'end' );
@@ -131,7 +134,7 @@ gulp.task( 'resources', function ( ) {
         .pipe( browserSync.stream( ) )
 } );
 
-let php_files = [
+const php_files = [
     '{inc,template-parts}/**/*.php',
     '*.php'
 ];
@@ -141,7 +144,7 @@ gulp.task( 'php', function ( ) {
     return;
 } );
 
-let img_files = [
+const img_files = [
     'assets/images/**/*'
 ];
 
@@ -163,7 +166,7 @@ gulp.task( 'images-min', function ( ) {
         .pipe( gulp.dest( 'dist/images' ) );
 } );
 
-let font_files = [
+const font_files = [
     'node_modules/font-awesome/fonts/*',
     'assets/fonts/**/*'
 ];
@@ -207,8 +210,7 @@ gulp.task( 'watch', function ( ) {
         }
     } );
     gulp.watch( [ 'assets/styles/**/*' ], [ 'styles' ] );
-    gulp.watch( [ 'assets/scripts/**/*' ], [ 'scripts' ] );
-    gulp.watch( [ 'assets/scripts/**/*' ], [ 'custom-scripts' ] );
+    gulp.watch( [ 'assets/scripts/**/*' ], [ 'scripts', 'custom-scripts' ] );
     gulp.watch( [ 'assets/fonts/**/*' ], [ 'fonts' ] );
     gulp.watch( [ 'assets/images/**/*' ], [ 'images' ] );
     gulp.watch( [ 'assets/resources/**/*' ], [ 'resources' ] );
