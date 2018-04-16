@@ -1,207 +1,207 @@
 'use strict';
 
-const gulp = require( 'gulp' ),
-    sass = require( 'gulp-sass' ),
-    autoprefixer = require( 'gulp-autoprefixer' ),
-    nano = require( 'gulp-cssnano' ),
-    babel = require( 'gulp-babel' ),
-    uglify = require( 'gulp-uglify' ),
-    imagemin = require( 'gulp-imagemin' ),
-    rename = require( 'gulp-rename' ),
-    concat = require( 'gulp-concat' ),
-    sourcemaps = require( 'gulp-sourcemaps' ),
-    del = require( 'del' ),
-    eslint = require( 'gulp-eslint' ),
-    browserSync = require( 'browser-sync' ).create( );
+const GULP = require( 'gulp' ),
+    SASS = require( 'gulp-sass' ),
+    AUTOPREFIXER = require( 'gulp-autoprefixer' ),
+    NANO = require( 'gulp-cssnano' ),
+    BABEL = require( 'gulp-babel' ),
+    UGLIFY = require( 'gulp-uglify' ),
+    IMAGEMIN = require( 'gulp-imagemin' ),
+    RENAME = require( 'gulp-rename' ),
+    CONCAT = require( 'gulp-concat' ),
+    SOURCEMAPS = require( 'gulp-sourcemaps' ),
+    DEL = require( 'del' ),
+    ESLINT = require( 'gulp-eslint' ),
+    BROWSERSYNC = require( 'browser-sync' ).create( );
 
-gulp.task( 'styles', function ( ) {
+GULP.task( 'styles', function ( ) {
 
     // List al your SASS files HERE
-    const scss_files = [
+    const SCSS_FILES = [
         'assets/styles/main.scss'
     ];
 
-    gulp.src( scss_files )
-        .pipe( sourcemaps.init( ) )
-        .pipe( sass( )
+    GULP.src( SCSS_FILES )
+        .pipe( SOURCEMAPS.init( ) )
+        .pipe( SASS( )
             .on( 'error', function ( err ) {
                 console.error(
                     'Error found:\n\x07' + err.message
                 );
             } )
         )
-        .pipe( autoprefixer( ) )
-        .pipe( sourcemaps.write( ) )
-        .pipe( gulp.dest( 'dist/styles' ) )
-        .pipe( browserSync.stream( ) )
+        .pipe( AUTOPREFIXER( ) )
+        .pipe( SOURCEMAPS.write( ) )
+        .pipe( GULP.dest( 'dist/styles' ) )
+        .pipe( BROWSERSYNC.stream( ) )
 } );
 
-gulp.task( 'styles-min', function ( ) {
-    const scss_files = [
+GULP.task( 'styles-min', function ( ) {
+    const SCSS_FILES = [
         'assets/styles/main.scss'
     ];
 
-    gulp.src( scss_files )
-        .pipe( sass( )
+    GULP.src( SCSS_FILES )
+        .pipe( SASS( )
             .on( 'error', function ( err ) {
                 console.error(
                     'Error found:\n\x07' + err.message
                 );
             } )
         )
-        .pipe( autoprefixer( ) )
-        .pipe( rename( {
+        .pipe( AUTOPREFIXER( ) )
+        .pipe( RENAME( {
             suffix: '.min'
         } ) )
-        .pipe( nano( {
+        .pipe( NANO( {
             discardComments: {
                 removeAll: true
             }
         } ) )
-        .pipe( gulp.dest( 'dist/styles' ) )
+        .pipe( GULP.dest( 'dist/styles' ) )
 } );
 
-const customjs_files = [
+const CUSTOMJS_FILES = [
     'assets/scripts/**/*.js'
 ];
 
-gulp.task( 'custom-scripts', function ( ) {
+GULP.task( 'custom-scripts', function ( ) {
 
-    return gulp.src( customjs_files )
-        .pipe( eslint( {
+    return GULP.src( CUSTOMJS_FILES )
+        .pipe( ESLINT( {
             fix: true
         } ) )
-        .pipe( eslint.format( ) )
+        .pipe( ESLINT.format( ) )
 } );
 
 
 // List all your JS files HERE
-const js_files = [
+const JS_FILES = [
     'node_modules/jquery/dist/jquery.js',
     'node_modules/foundation-sites/dist/js/foundation.js',
     'assets/scripts/**/*.js'
 ];
 
-gulp.task( 'scripts', function ( ) {
+GULP.task( 'scripts', function ( ) {
 
-    return gulp.src( js_files )
+    return GULP.src( JS_FILES )
 
-        .pipe( sourcemaps.init( ) )
-        .pipe( concat( 'main.js' ) )
-        .pipe( sourcemaps.write( ) )
-        .pipe( gulp.dest( 'dist/scripts' ) )
-        .pipe( browserSync.stream( ) )
+        .pipe( SOURCEMAPS.init( ) )
+        .pipe( CONCAT( 'main.js' ) )
+        .pipe( SOURCEMAPS.write( ) )
+        .pipe( GULP.dest( 'dist/scripts' ) )
+        .pipe( BROWSERSYNC.stream( ) )
 } );
 
-gulp.task( 'scripts-min', function ( ) {
-    return gulp.src( js_files )
+GULP.task( 'scripts-min', function ( ) {
+    return GULP.src( JS_FILES )
 
-        .pipe( babel( ) )
-        .pipe( concat( 'main.min.js' ) )
-        .pipe( uglify( )
+        .pipe( BABEL( ) )
+        .pipe( CONCAT( 'main.min.js' ) )
+        .pipe( UGLIFY( )
             .on( 'error', function ( err ) {
                 console.error(
                     err.toString( )
                 );
                 this.emit( 'end' );
             } ) )
-        .pipe( gulp.dest( 'dist/scripts' ) )
+        .pipe( GULP.dest( 'dist/scripts' ) )
 } );
 
-const resources_files = [
+const RESOURCES_FILES = [
     'assets/resources/**/*.js'
 ];
 
-gulp.task( 'resources', function ( ) {
+GULP.task( 'resources', function ( ) {
 
-    return gulp.src( resources_files )
+    return GULP.src( RESOURCES_FILES )
 
-        .pipe( sourcemaps.init( ) )
-        .pipe( sourcemaps.write( ) )
-        .pipe( babel( ) )
-        .pipe( eslint( {
+        .pipe( SOURCEMAPS.init( ) )
+        .pipe( SOURCEMAPS.write( ) )
+        .pipe( BABEL( ) )
+        .pipe( ESLINT( {
             fix: true
         } ) )
-        .pipe( eslint.format( ) )
-        .pipe( uglify( )
+        .pipe( ESLINT.format( ) )
+        .pipe( UGLIFY( )
             .on( 'error', function ( err ) {
                 console.error(
                     err.toString( )
                 );
                 this.emit( 'end' );
             } ) )
-        .pipe( gulp.dest( 'dist/scripts' ) )
-        .pipe( browserSync.stream( ) )
+        .pipe( GULP.dest( 'dist/scripts' ) )
+        .pipe( BROWSERSYNC.stream( ) )
 } );
 
-const php_files = [
+const PHP_FILES = [
     '{inc,template-parts}/**/*.php',
     '*.php'
 ];
 
-gulp.task( 'php', function ( ) {
-    browserSync.reload;
+GULP.task( 'php', function ( ) {
+    BROWSERSYNC.reload;
     return;
 } );
 
-const img_files = [
+const IMG_FILES = [
     'assets/images/**/*'
 ];
 
-gulp.task( 'images', function ( ) {
-    return gulp.src( img_files )
-        .pipe( gulp.dest( 'dist/images' ) )
-        .pipe( browserSync.stream( ) );
+GULP.task( 'images', function ( ) {
+    return GULP.src( IMG_FILES )
+        .pipe( GULP.dest( 'dist/images' ) )
+        .pipe( BROWSERSYNC.stream( ) );
 } );
 
-gulp.task( 'images-min', function ( ) {
+GULP.task( 'images-min', function ( ) {
 
-    return gulp.src( img_files )
-        .pipe( imagemin( {
+    return GULP.src( IMG_FILES )
+        .pipe( IMAGEMIN( {
             optimizationLevel: 3,
             progressive: true,
-            interlaced: true,
-            use: [ imagemin.gifsicle( ), imagemin.jpegtran( ), imagemin.optipng( ), imagemin.svgo( ) ]
+            INTERLACED: true,
+            use: [ IMAGEMIN.gifsicle( ), IMAGEMIN.jpegtran( ), IMAGEMIN.optipng( ), IMAGEMIN.svgo( ) ]
         } ) )
-        .pipe( gulp.dest( 'dist/images' ) );
+        .pipe( GULP.dest( 'dist/images' ) );
 } );
 
-const font_files = [
+const FONT_FILES = [
     'node_modules/font-awesome/fonts/*',
     'assets/fonts/**/*'
 ];
 
-gulp.task( 'fonts', function ( ) {
+GULP.task( 'fonts', function ( ) {
 
-    return gulp.src( font_files )
-        .pipe( gulp.dest( 'dist/fonts' ) )
-        .pipe( browserSync.stream( ) );
+    return GULP.src( FONT_FILES )
+        .pipe( GULP.dest( 'dist/fonts' ) )
+        .pipe( BROWSERSYNC.stream( ) );
 } );
 
-gulp.task( 'fonts-min', function ( ) {
+GULP.task( 'fonts-min', function ( ) {
 
-    return gulp.src( font_files )
-        .pipe( gulp.dest( 'dist/fonts' ) );
+    return GULP.src( FONT_FILES )
+        .pipe( GULP.dest( 'dist/fonts' ) );
 } );
 
-gulp.task( 'clean', function ( cb ) {
-    return del( [ 'dist/styles', 'dist/scripts', 'dist/resources', 'dist/images', 'dist/fonts' ], cb )
+GULP.task( 'clean', function ( cb ) {
+    return DEL( [ 'dist/styles', 'dist/scripts', 'dist/resources', 'dist/images', 'dist/fonts' ], cb )
 } );
 
-gulp.task( 'default', [ 'clean' ], function ( ) {
-    gulp.start( 'styles', 'custom-scripts', 'scripts', 'resources', 'php', 'images', 'fonts' );
+GULP.task( 'default', [ 'clean' ], function ( ) {
+    GULP.start( 'styles', 'custom-scripts', 'scripts', 'resources', 'php', 'images', 'fonts' );
 } );
 
-gulp.task( 'production', [ 'clean' ], function ( ) {
-    gulp.start( 'styles-min', 'scripts-min', 'resources', 'images-min', 'fonts-min' );
+GULP.task( 'production', [ 'clean' ], function ( ) {
+    GULP.start( 'styles-min', 'scripts-min', 'resources', 'images-min', 'fonts-min' );
 } );
 
-gulp.task( 'watch', function ( ) {
+GULP.task( 'watch', function ( ) {
 
     // Run the styles task first time gulp watch is run
-    gulp.start( 'styles' );
+    GULP.start( 'styles' );
 
-    browserSync.init( {
+    BROWSERSYNC.init( {
         files: [ '{inc,template-parts}/**/*.php', '*.php' ],
         proxy: 'http://localhost/podium/',
         snippetOptions: {
@@ -209,10 +209,10 @@ gulp.task( 'watch', function ( ) {
             blacklist: [ '/wp-admin/**' ]
         }
     } );
-    gulp.watch( [ 'assets/styles/**/*' ], [ 'styles' ] );
-    gulp.watch( [ 'assets/scripts/**/*' ], [ 'scripts', 'custom-scripts' ] );
-    gulp.watch( [ 'assets/fonts/**/*' ], [ 'fonts' ] );
-    gulp.watch( [ 'assets/images/**/*' ], [ 'images' ] );
-    gulp.watch( [ 'assets/resources/**/*' ], [ 'resources' ] );
-    gulp.watch( [ '{inc,template-parts}/**/*.php', '*.php' ], [ 'php' ] );
+    GULP.watch( [ 'assets/styles/**/*' ], [ 'styles' ] );
+    GULP.watch( [ 'assets/scripts/**/*' ], [ 'scripts', 'custom-scripts' ] );
+    GULP.watch( [ 'assets/fonts/**/*' ], [ 'fonts' ] );
+    GULP.watch( [ 'assets/images/**/*' ], [ 'images' ] );
+    GULP.watch( [ 'assets/resources/**/*' ], [ 'resources' ] );
+    GULP.watch( [ '{inc,template-parts}/**/*.php', '*.php' ], [ 'php' ] );
 } );
