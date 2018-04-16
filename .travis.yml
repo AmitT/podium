@@ -7,12 +7,12 @@ sudo: required
 
 php:
   - nightly
-  - 7
   - 7.1
   - 7.2
 
 node_js:
   - "8"
+  - "9"
 
 cache:
   # yarn: true
@@ -26,6 +26,8 @@ cache:
 env:
   - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
   - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION="9" WP_VERSION=latest WP_MULTISITE=0
+  - TRAVIS_NODE_VERSION="9" WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
@@ -52,4 +54,5 @@ install:
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 script:
+    - npm run build:dev
     - npm run build
