@@ -167,7 +167,7 @@ GULP.task( 'images-min', function ( ) {
 } );
 
 const FONT_FILES = [
-    'node_modules/font-awesome/fonts/*',
+    'node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*',
     'assets/fonts/**/*'
 ];
 

@@ -53,9 +53,9 @@ get_header();
 
 // End while
 
-    if (function_exists('emm_paginate')) {
+    if (function_exists('podium_pagination')) {
 
-        emm_paginate();
+        podium_pagination();
 
     }
 
