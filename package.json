@@ -46,7 +46,10 @@
         "gulp-rename": "~1.2.2",
         "gulp-sass": "~4.0.1",
         "gulp-sourcemaps": "~2.6.0",
-        "gulp-uglify": "~3.0.0"
+        "gulp-uglify": "~3.0.0",
+        "stylelint": "^9.2.0",
+        "stylelint-config-standard": "^18.2.0",
+        "stylelint-scss": "^3.1.0"
     },
     "browserslist": [
         "> 10%",
