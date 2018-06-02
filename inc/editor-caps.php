@@ -35,7 +35,7 @@ add_action('init', 'podium_editor_manage_users');
 function podium_pre_user_query($user_search)
 {
 
-    $user = wp_get_current_user();
+    // $user = wp_get_current_user();
 
     if (!current_user_can('manage_options')) {
 

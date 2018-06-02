@@ -16,7 +16,7 @@ function podium_comments($comment, $args, $depth)
         <?php
 
     // create variable
-    $bgauthemail = get_comment_author_email();
+    // $bgauthemail = get_comment_author_email();
     ?>
         <?php printf(__('<cite class="fn">%s</cite>', 'podium'), get_comment_author_link()); ?> on
         <time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>"><?php comment_time(__(' F jS, Y - g:ia', 'podium')); ?> </a></time>

@@ -131,12 +131,6 @@ function podium_post_gallery($output, $attr)
         $url = $img['sizes']['full']['url'];
         $alt = $img['alt'];
 
-        if (isset($img['sizes'][$size]['url'])) {
-            $thumb_url = $img['sizes'][$size]['url'];
-        } else {
-            $thumb_url = $img['url'];
-        }
-
         // Start itemtag
         $output .= "<{$itemtag} class='cell gallery-item'>";
 
@@ -148,8 +142,6 @@ function podium_post_gallery($output, $attr)
         }
 
         $output .= wp_get_attachment_image($id, $size);
-
-// $output .= '<img class="thumbnail" src="' . $thumb_url . '"  alt="' . $alt . '" title="' . $alt . '" />';
 
         if (isset($attr['link']) && 'none' != $attr['link']) {
             $output .= '</a>';

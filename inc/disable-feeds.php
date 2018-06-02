@@ -42,7 +42,7 @@ function podium_remove_feeds()
 {
     // redirect the feeds! don't just kill them
     wp_redirect(home_url(), 301);
-    exit();
+    return;
 }
 
 foreach (['rdf', 'rss', 'rss2', 'atom'] as $feed) {
