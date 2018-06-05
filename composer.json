@@ -8,7 +8,7 @@
     },
     "require": {
         "php": ">=7.0.1",
-        "tgmpa/tgm-plugin-activation": "^2.6"
+        "tgmpa/tgm-plugin-activation": "^2.6.1"
     },
     "authors": [ {
         "name": "Amit Tal",
