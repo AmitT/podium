@@ -26,7 +26,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free-webfonts": "~1.0.9",
-        "foundation-sites": "~6.5.1"
+        "foundation-sites": "~6.5.1",
+        "jquery": "^3.4.1",
+        "what-input": "^5.2.3"
     },
     "devDependencies": {
         "babel-cli": "~6.26.0",
@@ -35,7 +37,8 @@
         "browser-sync": "~2.24.4",
         "browserslist": "~3.2.8",
         "del": "~3.0.0",
-        "eslint-plugin-import": "~2.12.0",
+        "eslint-plugin-import": "~2.18.2",
+        "eslint": "^6.3.0",
         "gulp": "~3.9.1",
         "gulp-autoprefixer": "~5.0.0",
         "gulp-babel": "~7.0.0",
@@ -47,9 +50,9 @@
         "gulp-sass": "~4.0.1",
         "gulp-sourcemaps": "~2.6.0",
         "gulp-uglify": "~3.0.0",
-        "stylelint": "~9.2.1",
-        "stylelint-config-sass-guidelines": "~5.0.0",
-        "stylelint-order": "~0.8.1",
-        "stylelint-scss": "~3.1.0"
+        "stylelint": "~10.1.0",
+        "stylelint-config-sass-guidelines": "~6.0.0",
+        "stylelint-order": "~3.1.0",
+        "stylelint-scss": "~3.10.0"
     }
 }
