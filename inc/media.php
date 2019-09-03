@@ -24,7 +24,6 @@ function podium_post_gallery($output, $attr)
         if (!$attr['orderby']) {
             unset($attr['orderby']);
         }
-
     }
 
     // Get attributes from shortcode
@@ -54,7 +53,6 @@ function podium_post_gallery($output, $attr)
     }
 
     if (!empty($include)) {
-
         // Include attribute is present
         $include      = preg_replace('/[^0-9,]+/', '', $include);
         $_attachments = get_posts(['include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby]);
@@ -63,7 +61,6 @@ function podium_post_gallery($output, $attr)
         foreach ($_attachments as $key => $val) {
             $attachments[$val->ID] = $_attachments[$key];
         }
-
     } elseif (!empty($exclude)) {
 
         // Exclude attribute is present
@@ -147,18 +144,14 @@ function podium_post_gallery($output, $attr)
             $output .= '</a>';
         }
 
-        // $output .=  $link;
-
         $output .= "</{$icontag}>";
 
         if ($captiontag && trim($attachment->post_excerpt)) {
-
             // captiontag
             $output .= "
             <{$captiontag} class='gallery-caption'>
                 " . wptexturize($attachment->post_excerpt) . "
             </{$captiontag}>";
-
         }
 
         // End itemtag
@@ -175,7 +168,6 @@ function podium_post_gallery($output, $attr)
         if ($columns > 0 && ++$i % $columns == 0) {
             $output .= '<br style="clear: both">';
         }
-
     }
 
     // End gallery output
@@ -184,7 +176,6 @@ function podium_post_gallery($output, $attr)
     </div>\n";
 
     return $output;
-
 }
 
 // Apply filter to default gallery shortcode
@@ -196,17 +187,13 @@ add_filter('post_gallery', 'podium_post_gallery', 10, 2);
  */
 function get_podium_featured_image($size)
 {
-
     if (has_post_thumbnail()) {
-
         the_post_thumbnail($size);
-
     } else {
-
         ?>
-  <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="placeholder image" />
-  <?php }
-
+    <img src="<?php echo get_template_directory_uri(); ?>/dist/images/placeholder.jpg" alt="placeholder image" />
+    <?php 
+    }
 }
 
 // Make embeds responsive
@@ -234,7 +221,6 @@ function podium_oembed_html($html, $url, $attr, $post_id)
  */
 function svg_get_contents($svg_file)
 {
-
 // Check if file exists
     if ($svg_file) {
         // Set user-agent
