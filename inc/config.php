@@ -6,7 +6,7 @@ class PodiumCoreProperties
     /**
      * @var mixed
      */
-    private $templateUrl;
+    protected $templateUrl;
 
     public function __construct()
     {
