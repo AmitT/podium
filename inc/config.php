@@ -3,6 +3,11 @@ namespace Podium\Config;
 
 class PodiumCoreProperties
 {
+    /**
+     * @var mixed
+     */
+    private $templateUrl;
+
     public function __construct()
     {
         $this->templateUrl = $this->getTemplateURL(); // set property so that we can access it from child class
@@ -12,7 +17,6 @@ class PodiumCoreProperties
     {
         return basename(get_page_template()); // get the template file url ( example: test.php )
     }
-
 }
 
 class Settings extends PodiumCoreProperties
@@ -31,16 +35,16 @@ class Settings extends PodiumCoreProperties
             break;
         }
 
-        if (in_array($this->templateUrl, $rules['excludeByFileName'])) {
+        if (in_array($this->templateUrl, $rules['excludeByFileName'], true)) {
             // if the current template has been excluded
             return false;
-        } elseif (isset($postType) && in_array($postType, $rules['excludeByPostByType'])) {
+        } elseif (isset($postType) && in_array($postType, $rules['excludeByPostByType'], true)) {
             return false;
-        } elseif (isset($taxonomyID) && in_array($taxonomyID, $rules['excludeByTaxonomyID'])) {
+        } elseif (isset($taxonomyID) && in_array($taxonomyID, $rules['excludeByTaxonomyID'], true)) {
             return false;
-        } elseif (isset($postID) && in_array($postID, $rules['excludeByPostID'])) {
+        } elseif (isset($postID) && in_array($postID, $rules['excludeByPostID'], true)) {
             return false;
-        } elseif (isset($categoryID) && in_array($categoryID, $rules['excludeByCategoryID'])) {
+        } elseif (isset($categoryID) && in_array($categoryID, $rules['excludeByCategoryID'], true)) {
             return false;
         } else {
             return true;
@@ -55,7 +59,6 @@ class Settings extends PodiumCoreProperties
      */
     public function getContentClass($contentHasSidebarClass = 'medium-8', $contentNoSidebarClass = 'medium-12')
     {
-
 // return bool
 
         if ($this->displaySidebar()) {
@@ -72,9 +75,7 @@ class Settings extends PodiumCoreProperties
      */
     public function getMenu($walker_object, $canvas = 'onCanvass')
     {
-
         if (has_nav_menu('main-nav')) {
-
 // check if menu exists
             if ('onCanvass' == $canvas) {
                 // check if the menu is off-canvas
@@ -133,13 +134,12 @@ class Settings extends PodiumCoreProperties
 
     }
 
-// make chnages to this method
+    // make chnages to this method
     /**
      * @return mixed
      */
     private function excludedSidebarSettings()
     {
-
         // Sidebars will be displayed by default. to explode some pages change these settings
 
         $excludedRules = [];
@@ -191,7 +191,6 @@ class Settings extends PodiumCoreProperties
 
         return $excludedRules;
     }
-
 }
 
 define('WPCF7_AUTOP', false);
