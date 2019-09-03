@@ -36,4 +36,4 @@ get_header();
         </div><!-- #primary -->
     </div><!-- #content -->
 </div><!-- .grid-container -->
-<?php get_footer(); ?>
+<?php get_footer();
