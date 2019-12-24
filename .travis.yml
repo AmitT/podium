@@ -11,8 +11,7 @@ php:
   - 7.4
 
 node_js:
-  - "lts/*"
-  - "node"
+  - "8"
 
 cache:
   # yarn: true
@@ -24,8 +23,8 @@ cache:
    # - vendor
 
 env:
-  - TRAVIS_NODE_VERSION="12" WP_VERSION=latest WP_MULTISITE=0
-  - TRAVIS_NODE_VERSION="12" WP_VERSION=latest WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
+  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
