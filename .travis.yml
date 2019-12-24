@@ -11,8 +11,7 @@ php:
   - 7.4
 
 node_js:
-  - "8"
-  - "9"
+  - "12"
 
 cache:
   # yarn: true
@@ -24,8 +23,8 @@ cache:
    # - vendor
 
 env:
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION="12" WP_VERSION=latest WP_MULTISITE=0
+  - TRAVIS_NODE_VERSION="12" WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
@@ -42,12 +41,9 @@ addons:
 before_script:
     - composer self-update && composer --version
     - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
-    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    - sudo apt-get update && sudo apt-get install yarn
 
 install:
-    - node -v && npm -v && yarn --version
+    - node -v && npm -v
     - npm install
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
