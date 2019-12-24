@@ -25,10 +25,10 @@
         "build:production": "gulp production"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free-webfonts": "~1.0.9",
-        "foundation-sites": "~6.5.1",
+        "@fortawesome/fontawesome-free": "~5.12.0",
+        "foundation-sites": "~6.6.1",
         "jquery": "^3.4.1",
-        "what-input": "^5.2.3"
+        "what-input": "^5.2.6"
     },
     "devDependencies": {
         "babel-cli": "~6.26.0",
