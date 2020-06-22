@@ -11,7 +11,7 @@ php:
   - 7.4
 
 node_js:
-  - "8"
+  - "node"
 
 cache:
   apt: true
@@ -21,8 +21,8 @@ cache:
    # - vendor
 
 env:
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
