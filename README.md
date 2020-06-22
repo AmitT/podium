@@ -5,10 +5,9 @@ Podium is a simple, flexible & powerful starter theme for wordpress, foundation 
 
 Requirements
 ---
-- [PHP >= 7.2](http://php.net).
+- [PHP >= 7.3](http://php.net).
 - [Node.js >= 8.x](https://nodejs.org).
 - [Composer >= 1.6.x](https://getcomposer.org).
-- [yarn >= 1.6.x](https://yarnpkg.com).
 
 Features
 ---
@@ -19,19 +18,19 @@ Installation
 
 ### Install gulp
 
-Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of yarn: [`yarn self-update`](https://yarnpkg.com/lang/en/docs/cli/self-update/).
+Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm.
 
 From the command line:
 
-1. Install [gulp](http://gulpjs.com) globally with `yarn global add gulp`
-2. Navigate to the theme directory, then run `yarn install`
+1. Install [gulp](http://gulpjs.com) globally with `npm install -g gulp`
+2. Navigate to the theme directory, then run `npm install`
 3. Change your site URL in assets/config.json file devUrl.
 
 ### Build commands
 
-* `yarn start` — Compile assets & start BrowserSync session (listening to file changes, recompile & push changes to your browser).
-* `yarn run build:dev` — Compile and optimize the files in your assets directory
-* `yarn run build` OR `yarn run build:production` — Compile minified assets for production
+* `npm start` — Compile assets & start BrowserSync session (listening to file changes, recompile & push changes to your browser).
+* `npm run build:dev` — Compile and optimize the files in your assets directory
+* `npm run build` OR `npm run build:production` — Compile minified assets for production
 
 You now have all the necessary dependencies to run the build process.
 

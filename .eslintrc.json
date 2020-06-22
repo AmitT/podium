@@ -1,6 +1,5 @@
 {
   "root": true,
-  "extends": "eslint:recommended",
   "globals": {
     "wp": true
   },
@@ -16,13 +15,18 @@
       "globalReturn": true,
       "generators": false,
       "objectLiteralDuplicateProperties": false,
-      "experimentalObjectRestSpread": true
+      "ecmaVersion": true
     },
     "ecmaVersion": 2017,
     "sourceType": "module"
   },
   "plugins": [
     "import",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
   "settings": {
     "import/core-modules": [],
@@ -32,12 +36,16 @@
     ]
   },
   "rules": {
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "ignore"
-    }]
+    "prettier/prettier": "error",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ]
   }
 }

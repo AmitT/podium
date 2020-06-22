@@ -1,0 +1,12 @@
+{
+    "plugins": ["stylelint-prettier", "stylelint-scss", "stylelint-order"],
+    "extends": [
+        "stylelint-config-sass-guidelines",
+        "stylelint-prettier/recommended",
+        "stylelint-config-prettier"
+    ],
+    "rules": {
+        "prettier/prettier": true,
+        "indentation": 4
+    }
+}
