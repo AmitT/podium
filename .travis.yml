@@ -14,12 +14,10 @@ node_js:
   - "8"
 
 cache:
-  # yarn: true
   apt: true
   directories:
    # - node_modules
    # - $HOME/.composer/cache
-   # - $HOME/.yarn-cache
    # - vendor
 
 env:
