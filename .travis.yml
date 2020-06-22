@@ -11,8 +11,7 @@ php:
   - 7.4
 
 node_js:
-  - "12"
-  - "14"
+  - "node"
 
 cache:
   apt: true
@@ -22,8 +21,7 @@ cache:
    # - vendor
 
 env:
-  - TRAVIS_NODE_VERSION=12
-  - TRAVIS_NODE_VERSION=14
+  - TRAVIS_NODE_VERSION=8
 
 matrix:
   fast_finish: true
@@ -39,7 +37,7 @@ addons:
 
 before_script:
     - npm i -g npm && composer self-update && composer --version
-    - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
+    #- source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
 
 install:
     - node -v && npm -v
