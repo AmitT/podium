@@ -21,8 +21,8 @@ cache:
    # - vendor
 
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=latest WP_MULTISITE=1
+  - TRAVIS_NODE_VERSION=12
+  - TRAVIS_NODE_VERSION=14
 
 matrix:
   fast_finish: true
@@ -37,7 +37,7 @@ addons:
     - g++-4.8
 
 before_script:
-    - composer self-update && composer --version
+    - npm i -g npm && composer self-update && composer --version
     - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
 
 install:
