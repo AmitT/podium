@@ -34,9 +34,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+before_install:
+    - npm i -g npm && composer self-update && composer --version
 
 before_script:
-    - npm i -g npm && composer self-update && composer --version
+    #- npm i -g npm && composer self-update && composer --version
     #- source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
 
 install:
