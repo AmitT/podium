@@ -11,7 +11,8 @@ php:
   - 7.4
 
 node_js:
-  - "node"
+  - "12"
+  - "14"
 
 cache:
   apt: true
