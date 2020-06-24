@@ -1,0 +1,8 @@
+title: Podium
+description: A simple, flexible & powerful AngularJS starter theme for wordpress, foundation and gulp support
+google_analytics: UA-65615986-1
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
