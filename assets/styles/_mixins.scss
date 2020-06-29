@@ -1,111 +1,111 @@
+@charset "UTF-8";
 // Set a rem font size with pixel fallback
 @function calculate-rem($size) {
-  $rem-size: $size / $global-font-size;
+    $rem-size: $size / $global-font-size;
 
-  @return $rem-size * 1rem;
+    @return $rem-size * 1rem;
 }
 
 // Font implementation
 @mixin font($font, $size, $weight: normal) {
-  font-family: $font, arial, sans-serif;
-  font-weight: $weight;
-  font-size: $size;
-  font-size: calculate-rem($size);
+    font-family: $font, arial, sans-serif;
+    font-size: $size;
+    font-size: calculate-rem($size);
+    font-weight: $weight;
 }
 // usage
 // @include font(almoni-tzar, 16px, normal)
 
 // Absolute Centering
 @mixin absolutecenter($axis: 'both') {
-  position: absolute;
+    position: absolute;
 
-  @if $axis == "y" {
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    @if $axis == 'y' {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
-  @if $axis == "x" {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    @if $axis == 'x' {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-  @if $axis == "both" {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+    @if $axis == 'both' {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 // usage
 // @include absolutecenter(both)
 
 // Clearing Floats, AKA the Clearfix
 @mixin cf() {
-  zoom: 1;
+    zoom: 1;
 
-  &::before,
-  &::after {
-    content: '';
-    display: table;
-  }
+    &::before,
+    &::after {
+        content: '';
+        display: table;
+    }
 
-  &::after {
-    clear: both;
-  }
+    &::after {
+        clear: both;
+    }
 }
 // @include clearfix;
 
 // Triangles
-@mixin triangle ($direction, $size: 0.375rem, $color: #222) {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 0;
-  width: 0;
+@mixin triangle($direction, $size: 0.375rem, $color: #222) {
+    content: '';
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0;
 
-  @if ($direction == 'up') {
-    border-bottom: $size solid $color;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-  } @else if ($direction == 'down') {
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-    border-top: $size solid $color;
-  } @else if ($direction == 'left') {
-    border-bottom: $size solid transparent;
-    border-right: $size solid $color;
-    border-top: $size solid transparent;
-  } @else if ($direction == 'right') {
-    border-bottom: $size solid transparent;
-    border-left: $size solid $color;
-    border-top: $size solid transparent;
-  }
+    @if ($direction == 'up') {
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+    } @else if ($direction == 'down') {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+    } @else if ($direction == 'left') {
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        border-top: $size solid transparent;
+    } @else if ($direction == 'right') {
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        border-top: $size solid transparent;
+    }
 }
 // @include triangle(down, 10px, blue);
 
-
 // Placeholder Mixin
 @mixin optional-at-root($sel) {
-  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
-    @content;
-  }
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
 }
 
 @mixin placeholder {
-  @include optional-at-root('::-webkit-input-placeholder') {
-    @content;
-  }
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
 
-  @include optional-at-root(':-moz-placeholder') {
-    @content;
-  }
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
 
-  @include optional-at-root('::-moz-placeholder') {
-    @content;
-  }
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
 
-  @include optional-at-root(':-ms-input-placeholder') {
-    @content;
-  }
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
 }
 // Usage:
 // @include placeholder {

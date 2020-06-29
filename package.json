@@ -1,7 +1,8 @@
 {
     "name": "podium",
-    "version": "1.9.8",
+    "version": "2.0.0",
     "author": "Amit Tal",
+    "main": "webpack.config.js",
     "homepage": "https://github.com/AmitT/podium/",
     "private": true,
     "repository": {
@@ -18,41 +19,37 @@
         }
     ],
     "scripts": {
-        "install": "composer install && gulp",
-        "start": "gulp && gulp watch",
-        "build": "gulp production",
-        "build:dev": "gulp",
-        "build:production": "gulp production"
+        "build": "webpack --mode production",
+        "build:dev": "webpack --mode development",
+        "start": "webpack --mode development --watch"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "~5.12.0",
-        "foundation-sites": "~6.6.1",
-        "jquery": "^3.4.1",
-        "what-input": "^5.2.6"
+        "bulma": "^0.8.2",
+        "vue": "^2.6.11"
     },
     "devDependencies": {
-        "babel-cli": "~6.26.0",
-        "babel-core": "~6.26.3",
-        "babel-preset-env": "~1.7.0",
-        "browser-sync": "~2.24.4",
-        "browserslist": "~3.2.8",
-        "del": "~3.0.0",
-        "eslint": "^6.3.0",
-        "eslint-plugin-import": "~2.18.2",
-        "gulp": "~3.9.1",
-        "gulp-autoprefixer": "~5.0.0",
-        "gulp-babel": "~7.0.0",
-        "gulp-concat": "~2.6.0",
-        "gulp-cssnano": "~2.1.2",
-        "gulp-eslint": "~4.0.0",
-        "gulp-imagemin": "~4.1.0",
-        "gulp-rename": "~1.2.3",
-        "gulp-sass": "~4.0.1",
-        "gulp-sourcemaps": "~2.6.0",
-        "gulp-uglify": "~3.0.0",
-        "stylelint": "~10.1.0",
-        "stylelint-config-sass-guidelines": "~6.0.0",
-        "stylelint-order": "~3.1.0",
-        "stylelint-scss": "~3.10.0"
+        "@prettier/plugin-php": "^0.14.0",
+        "browser-sync": "^2.26.7",
+        "browser-sync-webpack-plugin": "^2.2.2",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.5.2",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-prettier": "^3.1.3",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "node-sass": "^4.13.1",
+        "prettier": "^2.0.4",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.1.4",
+        "stylelint": "^13.3.2",
+        "stylelint-config-prettier": "^8.0.1",
+        "stylelint-config-sass-guidelines": "^7.0.0",
+        "stylelint-order": "^4.0.0",
+        "stylelint-prettier": "^1.1.2",
+        "stylelint-scss": "^3.17.0",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
     }
 }

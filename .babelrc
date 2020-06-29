@@ -1,15 +1,18 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "node": "current",
-        "browsers": ["last 3 versions", "safari >= 7"]
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current",
+          "browsers": [
+            "last 3 versions",
+          ]
+        }
       }
-    }]
+    ]
   ],
   "env": {
-    "development": {
-
-    }
+    "development": {}
   }
 }
