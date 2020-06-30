@@ -11,10 +11,9 @@ php:
   - 7.4
 
 node_js:
-  - "8"
+  - "node"
 
 cache:
-  # yarn: true
   apt: true
   directories:
    # - node_modules
@@ -23,8 +22,8 @@ cache:
    # - vendor
 
 env:
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
-  - TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
+  #- TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=0
+  #- TRAVIS_NODE_VERSION="8" WP_VERSION=latest WP_MULTISITE=1
 
 matrix:
   fast_finish: true
@@ -38,9 +37,12 @@ addons:
     packages:
     - g++-4.8
 
+before_install:
+    - npm i -g npm && composer self-update && composer --version
+
 before_script:
-    - composer self-update && composer --version
-    - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
+    #- composer self-update && composer --version
+    #- source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
 
 install:
     - node -v && npm -v
