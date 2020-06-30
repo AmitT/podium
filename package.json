@@ -35,7 +35,7 @@
         "css-loader": "^3.6.0",
         "eslint": "^7.3.1",
         "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.22.2",
+        "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-prettier": "^3.1.4",
         "mini-css-extract-plugin": "^0.9.0",
         "node-sass": "^4.14.1",
