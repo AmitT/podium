@@ -8,7 +8,7 @@ Requirements
 - [PHP >= 7.4](http://php.net).
 - [Node.js >= 12.x](https://nodejs.org).
 - [Composer >= 1.10.x](https://getcomposer.org).
-- [npm >= 6](https://nodejs.org/).
+- [npm >= 12](https://nodejs.org/).
 
 Features
 ---
