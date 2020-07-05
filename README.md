@@ -23,9 +23,8 @@ Building the theme requires [node.js](http://nodejs.org/download/). We recommend
 
 From the command line:
 
-1. Install [gulp](http://gulpjs.com) globally with `npm -g install gulp`
-2. Navigate to the theme directory, then run `npm install`
-3. Change your site URL in assets/config.json file devUrl.
+1. Navigate to the theme directory, then run `npm install`
+2. Change your site URL in webpack.config.js file proxy.
 
 ### Build commands
 
