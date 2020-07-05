@@ -6,9 +6,9 @@ Podium is a simple, flexible & powerful starter theme for wordpress, foundation 
 Requirements
 ---
 - [PHP >= 7.4](http://php.net).
-- [Node.js >= 12.x](https://nodejs.org).
-- [Composer >= 1.10.x](https://getcomposer.org).
-- [npm >= 12](https://nodejs.org/).
+- [Node.js >= 12](https://nodejs.org).
+- [Composer >= 1.10](https://getcomposer.org).
+- [npm >= 6.14](https://nodejs.org/).
 
 Features
 ---
