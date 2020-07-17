@@ -6,13 +6,9 @@ const path = require('path'),
 module.exports = {
     entry: {
         vue: ['./node_modules/vue/dist/vue.runtime.common.js'],
-        main: [
-            './assets/scripts/main.js',
-            // './assets/styles/main.scss'
-        ],
         home: [
             './assets/scripts/pages/home.js',
-            // './assets/styles/pages/home.scss'
+            './assets/styles/pages/home.scss',
         ],
     },
     output: {

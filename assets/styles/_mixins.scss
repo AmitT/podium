@@ -1,17 +1,19 @@
 @charset "UTF-8";
 // Set a rem font size with pixel fallback
 @function calculate-rem($size) {
-    $rem-size: $size / $global-font-size;
+    $rem-size: $size / $body-size;
 
     @return $rem-size * 1rem;
 }
 
 // Font implementation
-@mixin font($font, $size, $weight: normal) {
+@mixin font($font, $size, $weight: '') {
     font-family: $font, arial, sans-serif;
     font-size: $size;
     font-size: calculate-rem($size);
-    font-weight: $weight;
+    @if $weight != '' {
+        font-weight: $weight;
+    }
 }
 // usage
 // @include font(almoni-tzar, 16px, normal)
