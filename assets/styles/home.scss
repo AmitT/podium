@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-@import '../variables';
+@import 'abstracts/variables';
 
 //--------------------------------------------------------------
 //# Base
 //--------------------------------------------------------------
-@import 'mixins';
+@import 'abstracts/mixins';
 
 //--------------------------------------------------------------
 //# Bulma
@@ -95,10 +95,5 @@
 // @import 'layouts/footer';
 
 //--------------------------------------------------------------
-//# Pages
+//# Components
 //--------------------------------------------------------------
-// @import 'pages/archive';
-// @import 'pages/front-page';
-// @import 'pages/contact';
-// @import 'pages/post';
-// @import 'pages/gallery';

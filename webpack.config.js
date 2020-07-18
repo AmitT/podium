@@ -1,15 +1,12 @@
 const path = require('path'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
     BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
-    { CleanWebpackPlugin } = require('clean-webpack-plugin');
+    { CleanWebpackPlugin } = require('clean-webpack-plugin'),
+    CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        vue: ['./node_modules/vue/dist/vue.runtime.common.js'],
-        home: [
-            './assets/scripts/pages/home.js',
-            './assets/styles/pages/home.scss',
-        ],
+        home: ['./assets/scripts/home.js', './assets/styles/home.scss'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -41,6 +38,14 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles/[name].css',
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: './node_modules/vue/dist/vue.runtime.common.prod.js',
+                    to: path.resolve(__dirname, 'dist/scripts/vue.js'),
+                },
+            ],
         }),
         new BrowserSyncPlugin({
             proxy: 'http://localhost/~amit/podium/public_html/',
