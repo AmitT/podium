@@ -1,12 +1,7 @@
 <?php
-/**
- * Custom functions that handle unicode/non-ASCII characters in filenames
- * to avoid occasional server-side issues
- *
- * @package podium
- */
+namespace Podium\Config;
 
-class PodiumCleanImageFilenames
+class CleanImageFilenames
 {
     /**
      * Plugin settings.
@@ -16,7 +11,7 @@ class PodiumCleanImageFilenames
      */
 
     public $plugin_settings = [
-        'version'            => '1.1',
+        'version' => '1.1',
         'default_mime_types' => [
             'image/gif',
             'image/jpeg',
@@ -51,10 +46,14 @@ class PodiumCleanImageFilenames
      */
     public function clean_filename($file)
     {
-
-        $path         = pathinfo($file['name']);
-        $new_filename = preg_replace('/.' . $path['extension'] . '$/', '', $file['name']);
-        $file['name'] = sanitize_title($new_filename) . '.' . $path['extension'];
+        $path = pathinfo($file['name']);
+        $new_filename = preg_replace(
+            '/.' . $path['extension'] . '$/',
+            '',
+            $file['name']
+        );
+        $file['name'] =
+            sanitize_title($new_filename) . '.' . $path['extension'];
 
         return $file;
     }
@@ -78,32 +77,29 @@ class PodiumCleanImageFilenames
      */
     public function upload_filter($file)
     {
-
         $mime_types_setting = 'all';
         $default_mime_types = $this->plugin_settings['default_mime_types'];
-        $valid_mime_types   = apply_filters('clean_image_filenames_mime_types', $default_mime_types);
+        $valid_mime_types = apply_filters(
+            'clean_image_filenames_mime_types',
+            $default_mime_types
+        );
 
         if ($valid_mime_types !== $default_mime_types) {
-
             if (in_array($file['type'], $valid_mime_types)) {
                 $file = $this->clean_filename($file);
             }
-
         } else {
-
             if ('all' == $mime_types_setting) {
                 $file = $this->clean_filename($file);
-            } elseif ('images' == $mime_types_setting && in_array($file['type'], $default_mime_types)) {
+            } elseif (
+                'images' == $mime_types_setting &&
+                in_array($file['type'], $default_mime_types)
+            ) {
                 $file = $this->clean_filename($file);
             }
-
         }
 
         // Return cleaned file or input file if it didn't match
         return $file;
     }
-
 }
-
-// inititnowz!
-new PodiumCleanImageFilenames;

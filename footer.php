@@ -19,7 +19,7 @@
    </div><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- .grid-container -->
-</div><!-- .off-canvas-content -->
+<!-- </div>.off-canvas-content -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

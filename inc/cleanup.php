@@ -1,16 +1,5 @@
 <?php
-/**
- * WordPress.com-specific functions and definitions.
- *
- * This file is centrally included from `wp-content/mu-plugins/wpcom-theme-compat.php`.
- *
- * @package podium
- */
-
-// TODO clean this functions
-
 if (!function_exists('podium_setup')) {
-
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -20,15 +9,16 @@ if (!function_exists('podium_setup')) {
      */
     function podium_setup()
     {
-
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
          * If you're building a theme based on podium, use a find and replace
          * to change 'podium' to the name of your theme in all the template files
          */
-        load_theme_textdomain('podium', get_template_directory() . '/languages');
-
+        load_theme_textdomain(
+            'podium',
+            get_template_directory() . '/languages'
+        );
 
         /*
          * Let WordPress manage the document title.
@@ -68,9 +58,7 @@ if (!function_exists('podium_setup')) {
             'quote',
             'link'
         ]);
-
     }
-
 }
 
 // podium_setup
@@ -81,7 +69,6 @@ add_action('after_setup_theme', 'podium_start', 16);
 
 function podium_start()
 {
-
     // launching operation cleanup
     add_action('init', 'podium_head_cleanup');
 
@@ -90,10 +77,6 @@ function podium_start()
 
     // clean up comment styles in the head
     add_action('wp_head', 'podium_remove_recent_comments_style', 1);
-
-    // clean up gallery output in wp
-    add_filter('gallery_style', 'podium_gallery_style');
-
 }
 
 /* end podium start */
@@ -101,7 +84,6 @@ function podium_start()
 //The default wordpress head is a mess. Let's clean it up by removing all the junk we don't need.
 function podium_head_cleanup()
 {
-
     // Remove EditURI link
     remove_action('wp_head', 'rsd_link');
 
@@ -132,11 +114,9 @@ function podium_head_cleanup()
 // Remove injected CSS for recent comments widget
 function podium_remove_wp_widget_recent_comments_style()
 {
-
     if (has_filter('wp_head', 'wp_widget_recent_comments_style')) {
         remove_filter('wp_head', 'wp_widget_recent_comments_style');
     }
-
 }
 
 // Remove injected CSS from recent comments widget
@@ -145,18 +125,11 @@ function podium_remove_recent_comments_style()
     global $wp_widget_factory;
 
     if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
-        remove_action('wp_head', [$wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style']);
+        remove_action('wp_head', [
+            $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
+            'recent_comments_style'
+        ]);
     }
-
-}
-
-// Remove injected CSS from gallery
-/**
- * @param $css
- */
-function podium_gallery_style($css)
-{
-    return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
 //  Stop WordPress from using the sticky class (which conflicts with Foundation), and style WordPress sticky posts using the .wp-sticky class instead
@@ -166,7 +139,7 @@ function podium_gallery_style($css)
  */
 function remove_sticky_class($classes)
 {
-    $classes   = array_diff($classes, ['sticky']);
+    $classes = array_diff($classes, ['sticky']);
     $classes[] = 'wp-sticky';
     return $classes;
 }

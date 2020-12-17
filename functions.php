@@ -8,26 +8,28 @@
 
 // require array list
 $reqire_files = [
-    '/inc/environment.class.php', // Set Eniroment.
-    '/inc/enqueue-scripts.php',  // Enqueue scripts and styles.
-    '/inc/cleanup.php',          // cleanup & setup theme.
-    '/inc/widgets.php',          // Implement Custom widgets.
-    '/inc/template-tags.php',    // Custom template tags for this theme.
-    '/inc/extras.php',           // Custom functions that act independently of the theme templates.
-    '/inc/customizer.php',       // Customizer additions.
-    '/inc/menu-walkers.php',     // TODO -> make comment describing the functionality of the page
-    '/inc/menu.php',             // TODO -> make comment describing the functionality of the page
-    '/inc/admin.php',            // Code for better handaling the admin area
-    '/inc/custom-fields.php',    // Inintialize custom fields (if you prefer to do this without ACF)
-    '/inc/custom-post-type.php', // Inintialize unique CPT's and taxonomies for this project
-    '/inc/pagination.php',       // More flexible pagination function
-    '/inc/clean-filenames.php',  // Custom functions to clean filenames from Unicode to ASCII
-    '/inc/config.php',           // get the settings for the wordpress theme.
-    '/inc/media.php',            // Media functions.
-    '/inc/vendor/autoload.php',  // Load Composer packages
-    '/inc/editor-caps.php'       // Configure editor role capabilities
+    // Composer packages
+    '/inc/vendor/autoload.php', // Load Composer packages
 
-    // '/inc/disable-feeds.php'  //   Remove fedds content and links
+    // Classes
+    '/inc/classes/MenuWalker.class.php',
+    '/inc/classes/Environment.class.php', // Set Eniroment.
+    '/inc/classes/Config.class.php', // get the settings for the wordpress theme.
+    '/inc/classes/Filenames.class.php', // Custom functions to clean filenames from Unicode to ASCII
+    '/inc/classes/Styles.class.php', //
+    '/inc/classes/Scripts.class.php', //
+    '/inc/classes/Files.class.php', //
+
+    // Theme files
+    '/inc/enqueue-scripts.php', // Enqueue scripts and styles.
+    '/inc/cleanup.php', // cleanup & setup theme.
+    '/inc/widgets.php', // Implement Custom widgets.
+    '/inc/extras.php', // Custom functions that act independently of the theme templates.
+    '/inc/customizer.php', // Customizer additions.
+    '/inc/menu.php', // TODO -> make comment describing the functionality of the page
+    '/inc/admin.php', // Code for better handaling the admin area
+    '/inc/media.php', // Media functions.
+    '/inc/editor-caps.php' // Configure editor role capabilities
 ];
 
 // require all the files in the $reqire_files array
