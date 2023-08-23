@@ -1,4 +1,4 @@
-# DEPRECATED
+# DEPRECATED! This is no longer supported. [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 
 Podium [![Build Status](https://travis-ci.org/AmitT/podium.svg?branch=master)](https://travis-ci.org/AmitT/podium) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AmitT/podium/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AmitT/podium/?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/amitt/podium/badge.svg)](https://snyk.io/test/github/amitt/podium)
