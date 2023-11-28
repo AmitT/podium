@@ -55,7 +55,7 @@
         "gulp-uglify": "~3.0.2",
         "merge-stream": "^2.0.0",
         "node-sass": "^9.0.0",
-        "postcss": "^8.2.13",
+        "postcss": "^8.4.31",
         "prettier": "^2.3.0",
         "stylelint": "~15.10.1",
         "stylelint-config-prettier": "^8.0.2",
