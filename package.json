@@ -37,7 +37,7 @@
         "@babel/preset-env": "^8.0.2",
         "autoprefixer": "^10.2.5",
         "browser-sync": "^3.0.2",
-        "browserslist": "^4.16.6",
+        "browserslist": "^4.28.8",
         "cssnano": "~5.0.2",
         "del": "~6.0.0",
         "edit-json-file": "^1.6.0",
