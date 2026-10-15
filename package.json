@@ -38,7 +38,7 @@
         "autoprefixer": "^10.2.5",
         "browser-sync": "^3.0.2",
         "browserslist": "^4.28.8",
-        "cssnano": "~5.0.2",
+        "cssnano": "~9.8.0",
         "del": "~6.0.0",
         "edit-json-file": "^1.6.0",
         "eslint": "~10.5.0",
@@ -57,12 +57,12 @@
         "node-sass": "^9.0.0",
         "postcss": "^8.5.23",
         "prettier": "^2.3.0",
-        "stylelint": "~15.10.1",
+        "stylelint": "~17.16.0",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-sass-guidelines": "~13.0.0",
         "stylelint-order": "~8.1.1",
         "stylelint-prettier": "^1.2.0",
-        "stylelint-scss": "~3.19.0"
+        "stylelint-scss": "~7.3.0"
     },
     "resolutions": {
         "minimist": "^1.2.5",
